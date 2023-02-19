@@ -18,50 +18,6 @@
 
 		mysqli_free_result($result);
 	}
-
-    if(isset($_POST['submit'])) {
-
-        $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
-        $street = mysqli_real_escape_string($con, $_POST['street']);
-        $building = mysqli_real_escape_string($con, $_POST['building']);
-        $email = mysqli_real_escape_string($con, $_POST['email']);
-        $zip_code = mysqli_real_escape_string($con, $_POST['zip_code']);
-        $unit_no = mysqli_real_escape_string($con, $_POST['unit_no']);
-        $region = mysqli_real_escape_string($con, $_POST['region']);
-        $city = mysqli_real_escape_string($con, $_POST['city']);
-        $phone_no = mysqli_real_escape_string($con, $_POST['phone_no']);
-    
-        $query = "UPDATE cust_profile SET c_name='$c_name',street='$street',
-        building='$building',email='$email',zip_code='$zip_code',
-        unit_no='$unit_no',region='$region',city='$city',phone_no='$phone_no' where c_id=$id";
-    
-        $query_run = mysqli_query($con, $query);
-    
-        if($query_run) {
-            ?>
-            <script>
-                swal("Success!", "Customer profile has been updated!", "success");
-            </script>
-            <?php
-            
-            $_SESSION['c_name'] = $_POST['c_name'];
-            $_SESSION['street'] = $_POST['street'];
-            $_SESSION['building'] = $_POST['building'];
-            $_SESSION['email'] = $_POST['email'];
-            $_SESSION['zip_code'] = $_POST['zip_code'];
-            $_SESSION['unit_no'] = $_POST['unit_no'];
-            $_SESSION['region'] = $_POST['region'];
-            $_SESSION['city'] = $_POST['city'];
-            $_SESSION['phone_no'] = $_POST['phone_no'];
-
-        } else {
-            ?>
-            <script>
-                swal("Error.", "Error occurred while saving changes.", "error");
-            </script>
-            <?php
-        }
-    }
 ?>
 
 <title> Edit Customer Profile | Yarn Over Hook </title>
