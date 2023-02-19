@@ -1,44 +1,3 @@
-<?php 
-    session_start();
-
-    include("includes/dbh.inc.php");
-    include("includes/functions.inc.php");
-    include("includes/access.inc.php");
-
-    $user_data = check_login($con);
-
-    /*if($_SERVER ['REQUEST_METHOD'] == "POST")
-    {
-        $cust_email = $_POST['cust_email'];
-        $cust_pass = $_POST['cust_pass'];
-        
-        if(!empty($cust_email) && !empty($cust_pass))
-        {
-            
-            $query = "select * from register where cust_email = '$cust_email' limit 1";
-            $result = mysqli_query($con, $query);
-            
-            if($result)
-            {
-                if($result && mysqli_num_rows($result) > 0)
-                {
-                    $user_data = mysqli_fetch_assoc($result);
-                    if($user_data['cust_pass'] === $cust_pass)
-                    {
-                        
-                        $_SESSION['cust_id'] = $user_data['cust_id'];
-                        header("Location: HomePage.php");
-                        die;
-                    }
-                }
-            }
-            echo "Please enter valid information!" ;
-        }else {
-            echo "Please enter valid information!" ;
-        }
-    }*/
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,8 +18,6 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
-<?php require 'layouts/nav.php';?>
 	
     <main class="page login-page">
         <section class="clean-block clean-form dark" style="height: 1200px; background-color:#efe9ef;">
