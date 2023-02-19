@@ -21,6 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($user_data['cust_pass'] === $cust_pass) {
                 if ($response != "") {
                     $_SESSION['cust_id'] = $user_data['cust_id'];
+                    $_SESSION['user_rank'] = $user_data['user_rank'];
+                    $_SESSION['c_id'] = $user_data['c_id'];
+                    $_SESSION['cust_name'] = $user_data['cust_name'];
+
                     header("Location: HomePage.php");
                     die;
                 } else {
