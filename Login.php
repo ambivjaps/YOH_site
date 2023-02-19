@@ -88,6 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <script src="assets/js/DesignA.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/DesignAnimation.js"></script>
-    
+
 </body>
 </html>
