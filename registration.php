@@ -34,7 +34,6 @@ if (isset($_POST['cust_name'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <body style="background-color:#efe9ef;">
