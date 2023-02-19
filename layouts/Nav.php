@@ -1,4 +1,5 @@
-<nav class="navbar navbar-light navbar-expand-lg fixed-top clean-navbar">
+<header>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top clean-navbar">
         <div class="container">
         <a class="navbar-brand logo mx-auto" href="HomePage.php" style="padding-left: 55px;padding-right: 0px;margin-right: 44px;font-size: 30px;font-family: Alata, sans-serif;">
         <img width="70" style="padding-left: 0px;margin-left: -58px;padding-bottom: 0px;" src="assets/img/LOGOEXAMPLE.png" title="Yarn Over Hook" alt="Yarn Over Hook">&nbsp; Yarn Over Hook</a>
@@ -47,3 +48,4 @@
             </div>
         </div>
     </nav>
+</header>
