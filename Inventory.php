@@ -20,7 +20,7 @@
         <section class="clean-block clean-catalog dark" style="min-height: 50px;height: 1555.56px; background-color:#efe9ef;">
             <div class="container" >
                 <div class="block-heading" styl>
-                <h2 style="margin:54px; color:black; font-size:54px;">Inventory</h2>
+                    <h2 style="margin:54px; color:black; font-size:54px;">Inventory</h2>
                 </div>
                 <div class="content">
                     <div class="row">
