@@ -1,41 +1,19 @@
-<.?php 
-session_start();
+<?php 
+    session_start();
 
-    include("connection.php");
-    include("functions.php");
-    
+    include("includes/dbh.inc.php");
+    include("includes/functions.inc.php");
+    include("includes/access.inc.php");
     $user_data = check_login($con);
+    
+    require 'layouts/Header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<body style="background-color:#efe9ef;">
-<head>
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title> Add Inventory | Yarn Over Hook </title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alef&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/ProdListDesign.css.css">
-	<link rel="stylesheet" href="assets/css/LoginOverlay.css">
-	<link rel="stylesheet" href="assets/css/ProfileEdit3.css">
-	<link rel="stylesheet" href="assets/css/ProfileEdit2.css">
-	<link rel="stylesheet" href="assets/css/ProfileEdit1.css">
-	<link rel="stylesheet" href="assets/css/SearchCSS.css">
-	<link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
-</head>
+<title> Add Inventory | Yarn Over Hook </title>
 
-<body>
-		<div class="nav">
-        <?php include 'NavigationAdmin.php';?>
-        </div>
+<body class="d-flex flex-column min-vh-100">
+
+<?php require 'layouts/nav.php';?>
         
     <main class="page catalog-page">
         <section class="clean-block clean-catalog dark" style="min-height: 17px;height: 971px; background-color:#efe9ef;">
@@ -78,16 +56,5 @@ session_start();
             </div>
         </section>
     </main>
-		<div class="footer">
-        <?php include 'Footer.php';?>
-        </div>
-        
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/vanilla-zoom.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/Animated-Pretty-Product-List-v12.js"></script>
-    <script src="assets/js/Profile-Edit-Form.js"></script>
-</body>
 
-</html>
+<?php require 'layouts/Footer.php';?>
