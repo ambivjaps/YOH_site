@@ -18,47 +18,6 @@
 	}
 ?>
 
-<?php
-    if(isset($_POST['submit'])) {
-        $InvID = $inv['id'];
-
-        $ItemID = mysqli_real_escape_string($con, $_POST['ItemID']);
-        $ItemName = mysqli_real_escape_string($con, $_POST['ItemName']);
-        $ItemImg = mysqli_real_escape_string($con, $_POST['ItemImg']);
-        $ItemDesc = mysqli_real_escape_string($con, $_POST['ItemDesc']);
-        $ItemType = mysqli_real_escape_string($con, $_POST['ItemType']);
-        $ItemPrice = mysqli_real_escape_string($con, $_POST['ItemPrice']);
-        $ItemQty = mysqli_real_escape_string($con, $_POST['ItemQty']);
-
-        $query = "UPDATE inventory_db SET ItemID='$ItemID',ItemName='$ItemName',ItemImg='$ItemImg',
-        ItemDesc='$ItemDesc',ItemType='$ItemType',ItemPrice='$ItemPrice',ItemQty='$ItemQty' WHERE id=$InvID";
-        
-        $query_run = mysqli_query($con, $query);
-
-        if($query_run) {
-            ?>
-            <script>
-                swal("Success!", "Inventory item has been updated!", "success");
-            </script>
-            <?php
-                $_SESSION['ItemID'] = $_POST['ItemID'];
-                $_SESSION['ItemName'] = $_POST['ItemName'];
-                $_SESSION['ItemImg'] = $_POST['ItemImg'];
-                $_SESSION['ItemDesc'] = $_POST['ItemDesc'];
-                $_SESSION['ItemType'] = $_POST['ItemType'];
-                $_SESSION['ItemPrice'] = $_POST['ItemPrice'];
-                $_SESSION['ItemQty'] = $_POST['ItemQty'];
-                mysqli_close($con);
-        } else {
-            ?>
-            <script>
-                swal("Error.", "Error occured while submitting form.", "error");
-            </script>
-            <?php
-        }
-    }
-?>
-
 <title> Edit Inventory | Yarn Over Hook </title>
 
 <body class="d-flex flex-column min-vh-100">
@@ -119,7 +78,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-md-12 content-right">
-                                    <input class="btn btn-primary form-btn" type="submit" id="submit" name="submit" value="SAVE CHANGES">
+                                    <input class="btn btn-primary form-btn" type="submit" id="submit" name="submit" value="SAVE">
                                     <input class="btn btn-danger form-btn" type="reset" id="reset" value="CANCEL">
                             </div>
                         </div>
