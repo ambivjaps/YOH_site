@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alef&amp;display=swap">
 
         <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/minimal.css">
         <link rel="stylesheet" href="assets/css/animate.min.css">
         <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
         <link rel="stylesheet" href="assets/css/Animated-Pretty-Product-List-v12-Animated-Pretty-Product-List.css">
