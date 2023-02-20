@@ -7,14 +7,14 @@
     access('ADMIN');
     $user_data = check_login($con);
 
-    if (isset($_GET['pageno'])) {
-        $pageno = $_GET['pageno'];
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
     } else {
-        $pageno = 1;
+        $page = 1;
     }
     $no_of_records_per_page = 9;
 
-    $offset = ($pageno-1) * $no_of_records_per_page;
+    $offset = ($page-1) * $no_of_records_per_page;
 
     $total_pages_sql = "SELECT COUNT(*) FROM inventory_db";
     $result = mysqli_query($con, $total_pages_sql);
@@ -62,19 +62,8 @@
                             <div class="products" style="margin-top: -5px;">
                             <a href=""><i class="fas fa-search float-start search-icon" style="font-size: 27px;margin-left: 792px;"></a></i>
                             <a class="btn btn-primary" role="button" style="margin-left: 835px;margin-right: -7px;margin-bottom: -15px;margin-top: -33px;" data-bs-target="AddCustomerProf.html" href="AddInventoryItem.php">New Item</a>
-                                <div class="float-start float-md-end mt-5 mt-md-0 search-area" style="margin-left: -153px;"></div>
-                                <nav style="margin-bottom: 15px;margin-top: 10px;">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" aria-label="Previous" href="?pageno=1"><span aria-hidden="true">«</span></a></li>
-                                        <li class="page-item <?php if($pageno <= 1){ echo 'disabled'; } ?>">
-                                            <a class="page-link" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
-                                        </li>
-                                        <li class="page-item <?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
-                                            <a class="page-link" href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" aria-label="Next" href="?pageno=<?php echo $total_pages; ?>"><span aria-hidden="true">»</span></a></li>
-                                    </ul>
-                                </nav>
+                                <div class="float-start float-md-end mt-5 mt-md-0 search-area" style="margin-left: -153px;"></div>                  
+                                <strong>Page <?php echo $page." of ".$total_pages; ?></strong>        
                                 <div class="row g-0">
                                     <?php foreach($items as $item): ?>
                                         <div class="col-12 col-md-6 col-lg-4">
@@ -89,7 +78,7 @@
                                                 <div class="about">
                                                     <a href="ReOrderPoint.php?id=<?php echo $item['id'] ?>"><button class="btn btn-primary float-start" type="button">Re-Order</button></a>
                                                     <div class="price">
-                                                        <h6>Price: Php<?php echo $item['ItemPrice']; ?></h6>
+                                                        <h6>Php<?php echo $item['ItemPrice']; ?></h6>
                                                         <h6>Quantity: <?php echo $item['ItemQty']; ?></h6>
                                                     </div>
                                                 </div>
@@ -97,6 +86,18 @@
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
+                                <nav style="margin-bottom: 15px;margin-top: 10px;">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" aria-label="Previous" href="?page=1"><span aria-hidden="true">«</span></a></li>
+                                        <li class="page-item <?php if($page <= 1){ echo 'disabled'; } ?>">
+                                            <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>">Prev</a>
+                                        </li>
+                                        <li class="page-item <?php if($page >= $total_pages){ echo 'disabled'; } ?>">
+                                            <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" aria-label="Next" href="?page=<?php echo $total_pages; ?>"><span aria-hidden="true">»</span></a></li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
