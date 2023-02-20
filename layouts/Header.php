@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-        <meta name="description" content="By tech enthusiasts, for the tech enthusiasts." />
-		<meta name="keywords" content="TechTalk, Philippines, technology, reviews, products, tech" />
+        <meta name="description" content="Let's create with a smile!" />
+		<meta name="keywords" content="Yarn Over Hook, crocheting, Philippines, online business" />
 
 		<meta property="og:url"                content="#" />
 		<meta property="og:title"              content="Yarn Over Hook" />
@@ -13,6 +13,8 @@
 		<meta property="og:image"              content="assets/img/bg_og.png" />
 
         <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" type="image/x-icon" sizes="180x180">
+		<link rel="apple-touch-icon-precomposed" href="assets/img/android-chrome-192x192.png" type="image/x-icon" sizes="192x192">
         
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
