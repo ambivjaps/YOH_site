@@ -7,6 +7,16 @@
     $user_data = check_login($con);
     
     require 'layouts/Header.php';
+
+    if(isset($_GET['id'])) {
+		$id = mysqli_real_escape_string($con, $_GET['id']);
+		$item = "SELECT * FROM inventory_db WHERE id = $id";
+		$result = mysqli_query($con, $item);
+		$inv = mysqli_fetch_assoc($result);
+
+		mysqli_free_result($result);
+	}
+
 ?>
 
 <title> Edit Inventory | Yarn Over Hook </title>
@@ -16,7 +26,7 @@
 <?php require 'layouts/nav.php';?>
         
     <main class="page catalog-page">
-        <section class="clean-block clean-catalog dark" style="min-height: 17px;height: 971px; background-color:#efe9ef;">
+        <section class="clean-block clean-catalog dark" style="background-color:#efe9ef;">
             <div class="container">
                 <div class="block-heading">
                     <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black;">Edit Inventory Item</h2>
@@ -33,21 +43,44 @@
                     <div class="row profile-row" method="post">
                         <div class="col-md-4 relative">
                             <div class="avatar">
-                                <div class="avatar-bg center"></div>
-                            </div><input class="form-control form-control" type="file" name="avatar-file">
+                                <div class="avatar-bg center" style="background: url(<?php echo $inv['ItemImg']; ?>); background-size: cover; background-position: 50% 50%;"></div>
+                            </div>
+                            <input class="form-control form-control" type="file" name="avatar-file">
                         </div>
                         <div class="col-md-8">
-                            <h1></h1>
                             <hr>
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item ID<input class="form-control item" type="text" id="name-4" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Name<input class="form-control item" type="text" id="name-3" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Quantity<input class="form-control item" type="text" id="name-6" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Type<br><input class="form-control item" type="text" id="name-1" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
+                                <div class="col-md-2">
+                                    <label class="col-form-label" for="item-id">Item ID </label>
+                                    <input class="form-control item" type="text" id="name-4" value="<?php echo $inv['ItemID']; ?>" required>
+                                </div>
+                                <div class="col-md-10">
+                                    <label class="col-form-label" for="item-name">Item Name </label>
+                                    <input class="form-control item" type="text" id="name-3" value="<?php echo $inv['ItemName']; ?>" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="col-form-label" for="item-desc">Item Description </label>
+                                    <textarea type="text" rows="10" class="form-control" id="#" required><?php echo $inv['ItemDesc']; ?></textarea>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="item-qty">Item Quantity </label>
+                                    <input class="form-control item" type="text" id="name-6" value="<?php echo $inv['ItemQty']; ?>" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="item-type">Item Type </label>
+                                    <input class="form-control item" type="text" id="name-1" value="<?php echo $inv['ItemType']; ?>" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="item-price">Item Price (in Php) </label>
+                                    <input class="form-control item" type="text" id="name-1" value="<?php echo $inv['ItemPrice']; ?>" required>
+                                </div>
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit" href="modal_show">SAVE </button><button class="btn btn-danger form-btn" type="reset">CANCEL </button></div>
+                                <div class="col-md-12 content-right">
+                                    <button class="btn btn-primary form-btn" type="submit" href="modal_show">SAVE </button>
+                                    <button class="btn btn-danger form-btn" type="reset">CANCEL </button>
+                                </div>
                             </div>
                         </div>
                     </div>
