@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2023 at 03:19 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Feb 20, 2023 at 11:08 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,8 +31,8 @@ CREATE TABLE `admin_db` (
   `id` bigint(20) NOT NULL,
   `admin_email` varchar(50) NOT NULL,
   `admin_pass` varchar(50) NOT NULL,
-  `user_rank` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'admin'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `user_rank` varchar(20) CHARACTER SET latin1 NOT NULL DEFAULT 'admin'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin_db`
@@ -62,14 +62,14 @@ CREATE TABLE `cust_profile` (
   `unit_no` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `address` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cust_profile`
 --
 
 INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `email`, `region`, `city`, `street`, `building`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`) VALUES
-(2, 1946032413, 'JJ CA', 'jjca@gmail.com', '4A', 'Antipolo City', 'Nightingale st.', 'NA', '09954490438', 1870, 21, '2023-02-12 10:58:10', ''),
+(2, 1946032413, 'JJ CA', 'jjca@gmail.com', '4A', 'Antipolo City', 'Nightingale st.', 'NA', '09954490438', 1870, 21, '2023-02-20 22:05:15', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR'),
 (3, 9871989888, 'Juan Dela Cruz', 'juandelacruz@gmail.com', 'NCR', 'Quezon City', 'Coco Street', 'N/A', '09313456789', 520, 3, '2023-02-19 10:50:43', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR'),
 (4, 4097611313, 'Japs Sing', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-02-19 14:39:56', '#10 Sampaloc st., Manila, NCR'),
 (5, 5596544577, 'Japs Sing', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-02-19 14:41:42', '#10 Sampaloc st., Manila, NCR');
@@ -84,8 +84,30 @@ CREATE TABLE `inventory_db` (
   `id` bigint(20) NOT NULL,
   `ItemID` bigint(20) NOT NULL,
   `ItemName` varchar(50) NOT NULL,
-  `ItemQuantity` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `ItemImg` varchar(255) NOT NULL,
+  `ItemDesc` text NOT NULL,
+  `ItemType` varchar(255) NOT NULL,
+  `ItemPrice` int(12) NOT NULL,
+  `ItemQty` int(12) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `inventory_db`
+--
+
+INSERT INTO `inventory_db` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `ItemType`, `ItemPrice`, `ItemQty`, `created_at`) VALUES
+(1, 1001, 'Beginner Crochet Kit', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 200, 10, '2023-02-20 21:32:43'),
+(2, 1002, 'Handmade Crochet II Ghibli Earrings', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 150, 2, '2023-02-20 18:38:20'),
+(3, 1003, 'Boo Tao Crochet Plush (Quincy x Kira Collab)', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 450, 6, '2023-02-20 18:38:16'),
+(4, 1004, 'Crocheted Seventeen Carat Bong Strap', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 250, 30, '2023-02-20 18:38:11'),
+(5, 1005, 'Archon Gemmies Plush (Quincy X Kira Collab)', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 250, 100, '2023-02-20 18:38:14'),
+(6, 1006, 'Happy Little Keychains', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 250, 5, '2023-02-20 18:38:56'),
+(7, 1007, 'Blackpink Lightstick Strap', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 300, 20, '2023-02-20 18:39:47'),
+(8, 1008, 'Busog Meal: Sisig', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 31, 5, '2023-02-20 18:41:37'),
+(9, 1009, 'Busog Meal: Bopis', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 31, 12, '2023-02-20 18:41:35'),
+(10, 1010, 'Busog Meal: Giniling', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 31, 22, '2023-02-20 18:41:33'),
+(11, 1011, 'Hungarian Sausage', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 31, 10, '2023-02-20 18:41:33');
 
 -- --------------------------------------------------------
 
@@ -97,7 +119,7 @@ CREATE TABLE `orders_db` (
   `id` bigint(20) NOT NULL,
   `order_id` bigint(20) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -110,7 +132,7 @@ CREATE TABLE `register` (
   `cust_name` varchar(60) NOT NULL,
   `cust_email` varchar(60) DEFAULT NULL,
   `cust_pass` varchar(50) NOT NULL,
-  `cust_reg` varchar(60) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `cust_reg` varchar(60) CHARACTER SET latin1 NOT NULL,
   `cust_city` varchar(50) NOT NULL,
   `cust_st` text NOT NULL,
   `cust_bldg` varchar(50) NOT NULL,
@@ -119,10 +141,10 @@ CREATE TABLE `register` (
   `cust_phone` varchar(50) NOT NULL,
   `cust_id` bigint(12) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `user_rank` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'user',
+  `user_rank` varchar(20) CHARACTER SET latin1 NOT NULL DEFAULT 'user',
   `cust_address` varchar(60) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `register`
@@ -197,7 +219,7 @@ ALTER TABLE `cust_profile`
 -- AUTO_INCREMENT for table `inventory_db`
 --
 ALTER TABLE `inventory_db`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `orders_db`
