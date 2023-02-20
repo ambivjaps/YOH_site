@@ -7,6 +7,11 @@
     access('ADMIN');
     $user_data = check_login($con);
 
+    $sql = "SELECT * FROM inventory_db ORDER BY id";
+	$result = mysqli_query($con, $sql);
+	$items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	mysqli_free_result($result);
+
     require 'layouts/Header.php';
 ?>
 
@@ -17,8 +22,8 @@
 <?php require 'layouts/nav.php';?>
 
     <main class="page catalog-page">
-        <section class="clean-block clean-catalog dark" style="min-height: 50px;height: 1555.56px; background-color:#efe9ef;">
-            <div class="container" >
+        <section class="clean-block clean-catalog dark" style="background-color:#efe9ef;">
+            <div class="container">
                 <div class="block-heading" styl>
                     <h2 style="margin:54px; color:black; font-size:54px;">Inventory</h2>
                 </div>
@@ -54,140 +59,25 @@
                                     </ul>
                                 </nav>
                                 <div class="row g-0">
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopicinv.png"></div>
-                                            <div class="product-name">Product 1</div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div><a href="ReOrderPoint.php"><button class="btn btn-primary" type="button" style="margin-left: -72px;">Re - Order</button></a>
-                                                <div class="price">
-                                                    <h3>Quantity</h3>
+                                    <?php foreach($items as $item): ?>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="clean-product-item">
+                                                <a href="EditInventoryItem.php?id=<?php echo $item['id'] ?>">
+                                                    <div class="image"><img class="img-fluid d-block mx-auto rounded" src="<?php echo $item['ItemImg']; ?>" title="<?php echo $item['ItemName']; ?>" alt="<?php echo $item['ItemName']; ?>"></div>
+                                                </a>
+                                                <a href="EditInventoryItem.php?id=<?php echo $item['id'] ?>" style="text-decoration: none;">
+                                                    <div class="product-name"><?php echo $item['ItemName']; ?></div>
+                                                </a>
+                                                <div class="about">
+                                                    <a href="ReOrderPoint.php"><button class="btn btn-primary float-start" type="button">Re-Order</button></a>
+                                                    <div class="price">
+                                                        <h6>Price: Php<?php echo $item['ItemPrice']; ?></h6>
+                                                        <h6>Quantity: <?php echo $item['ItemQty']; ?></h6>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopicinv.png"></div>
-                                            <div class="product-name">Product 1</div>
-                                            <div class="about">
-                                                <div class="rating"></div><a href="ReOrderPoint.php"><button class="btn btn-primary" type="button" style="margin-left: -72px;">Re - Order</button></a>
-                                                <div class="price">
-                                                    <h3>Quantity</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopicinv.png"></div>
-                                            <div class="product-name">Product 1</div>
-                                            <div class="about">
-                                                <div class="rating"></div><a href="ReOrderPoint.php"><button class="btn btn-primary" type="button" style="margin-left: -72px;">Re - Order</button></a>
-                                                <div class="price">
-                                                    <h3>Quantity</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopicinv.png"></div>
-                                            <div class="product-name">Product 1</div>
-                                            <div class="about">
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div><a href="ReOrderPoint.php"><button class="btn btn-primary" type="button" style="margin-left: -72px;">Re - Order</button></a>
-                                                <div class="price">
-                                                    <h3>Quantity</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopicinv.png"></div>
-                                            <div class="product-name">Product 1</div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div><a href="ReOrderPoint.php"><button class="btn btn-primary" type="button" style="margin-left: -72px;">Re - Order</button></a>
-                                                <div class="price">
-                                                    <h3>Quantity</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopicinv.png"></div>
-                                            <div class="product-name">Product 1</div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div><a href="ReOrderPoint.php"><button class="btn btn-primary" type="button" style="margin-left: -72px;">Re - Order</button></a>
-                                                <div class="price">
-                                                    <h3>Quantity</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopicinv.png"></div>
-                                            <div class="product-name">Product 1</div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div><a href="ReOrderPoint.php"><button class="btn btn-primary" type="button" style="margin-left: -72px;">Re - Order</button></a>
-                                                <div class="price">
-                                                    <h3>Quantity</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopicinv.png"></div>
-                                            <div class="product-name">Product 1</div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div><a href="ReOrderPoint.php"><a<button class="btn btn-primary" type="button" style="margin-left: -72px;">Re - Order</button></a>
-                                                <div class="price">
-                                                    <h3>Quantity</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopicinv.png"></div>
-                                            <div class="product-name">Product 1</div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div><a href="ReOrderPoint.php"><button class="btn btn-primary" type="button" style="margin-left: -72px;">Re - Order</button></a>
-                                                <div class="price">
-                                                    <h3>Quantity</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
