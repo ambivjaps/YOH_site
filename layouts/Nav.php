@@ -35,7 +35,7 @@
                     echo '<ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="HomePage.php"><i class="fas fa-home"></i> Home</a></li>
                     <form class="form-inline" action="Login.php">
-                        <button class="btn btn-light my-3 my-sm-0" id="login" name="login" type="submit"> <i class="fas fa-sign-in-alt"></i> Login</button>
+                        <button class="btn btn-light my-3 my-sm-0" type="submit"> <i class="fas fa-sign-in-alt"></i> Login</button>
                     </form>
                     </ul>';
                 }
