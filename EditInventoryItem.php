@@ -46,7 +46,7 @@
                             <div class="avatar">
                                 <div class="avatar-bg center" style="background: url(<?php echo $inv['ItemImg']; ?>); background-size: cover; background-position: 50% 50%;"></div>
                             </div>
-                            <input class="form-control form-control my-3" type="file" name="ItemImg" name="avatar-file">
+                            <input class="form-control form-control my-3" type="file" name="avatar-file">
                         </div>
                         <div class="col-md-8">
                             <div class="row">
