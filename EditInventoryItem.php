@@ -18,7 +18,7 @@
 	}
 ?>
 
-<title> Edit Inventory | Yarn Over Hook </title>
+<title> Edit Inventory Item: <?php echo $inv['ItemName']; ?> | Yarn Over Hook </title>
 
 <body class="d-flex flex-column min-vh-100">
 
