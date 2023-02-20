@@ -26,6 +26,8 @@
 
 <?php require 'layouts/nav.php';?>
 
+    <?php if($profile): ?>
+
     <main class="page blog-post">
         <section class="clean-block clean-post dark" style="background-color:#efe9ef;">
             <div class="container">
@@ -35,13 +37,15 @@
                             <div class="profile-card" style="background: #ffffff; border-color: 0;">
                                 <div class="profile-back" style="background: #CBC3E3;--bs-danger: #3546dc;--bs-danger-rgb: 53,70,220;"></div><img class="rounded-circle profile-pic" src="assets/img/avatars/nopic1.jpg">
                                 <h3 class="profile-name" style="background: #cbc3e3;"><?php echo $profile['c_name']; ?></h3>
+                                <h5> Shipping Information: </h5>
+                                <p class="profile-bio">Address: <?php echo $profile['address']; ?></p>
                                 <p class="profile-bio">Unit No.: <?php echo $profile['unit_no']; ?></p>
                                 <p class="profile-bio">Street: <?php echo $profile['street']; ?></p>
                                 <p class="profile-bio">Building: <?php echo $profile['building']; ?></p>
                                 <p class="profile-bio">City: <?php echo $profile['city']; ?></p>
                                 <p class="profile-bio">Region: <?php echo $profile['region']; ?></p>
                                 <p class="profile-bio">ZIP Code: <?php echo $profile['zip_code']; ?></p>
-                                
+                                <h5> Contact Information: </h5>
                                 <p class="profile-bio">E-mail Address: <?php echo $profile['email']; ?></p>
                                 <p class="profile-bio">Phone Number: <?php echo $profile['phone_no']; ?></p>
                             </div>
@@ -50,6 +54,13 @@
                     </div>
                 </div>
             </div>
+
+            <?php else: ?>
+                <div class="container my-5">
+                    <h2> Oops.. Page not found. Please try again. </h2>
+                </div>
+            <?php endif ?>
+
         </section>
     </main>
 
