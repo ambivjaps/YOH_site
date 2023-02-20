@@ -9,7 +9,7 @@
     
     require 'layouts/Header.php';
 
-    $sql = "SELECT * FROM cust_profile ORDER BY c_id";
+    $sql = "SELECT * FROM cust_profile ORDER BY id";
 	$result = mysqli_query($con, $sql);
 	$profiles = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	mysqli_free_result($result);
@@ -36,7 +36,7 @@
                                 <img class="rounded img-fluid" src="assets/img/avatars/nopic1.jpg" style="margin-left:125px;">
                             </div>
                             <div class="col-lg-7">
-                                <h3><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['c_id']; ?>" style="color:black;"><?php echo $profile['c_name']; ?></a></h3>
+                                <h3><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" style="color:black;"><?php echo $profile['c_name']; ?></a></h3>
                                 <div class="info">
                                     <span class="text-muted">Last Ordered on Jan 16, 2018&nbsp;</span>
                                 </div>
