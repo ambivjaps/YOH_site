@@ -7,10 +7,24 @@
     access('ADMIN');
     $user_data = check_login($con);
 
-    $sql = "SELECT * FROM inventory_db ORDER BY id";
-	$result = mysqli_query($con, $sql);
-	$items = mysqli_fetch_all($result, MYSQLI_ASSOC);
-	mysqli_free_result($result);
+    if (isset($_GET['pageno'])) {
+        $pageno = $_GET['pageno'];
+    } else {
+        $pageno = 1;
+    }
+    $no_of_records_per_page = 9;
+
+    $offset = ($pageno-1) * $no_of_records_per_page;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM inventory_db";
+    $result = mysqli_query($con, $total_pages_sql);
+    $total_rows = mysqli_fetch_array($result)[0];
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+    $sql = "SELECT * FROM inventory_db LIMIT $offset, $no_of_records_per_page";
+    $res_data = mysqli_query($con, $sql);
+    $items = mysqli_fetch_all($res_data, MYSQLI_ASSOC);
+    mysqli_free_result($result);
 
     require 'layouts/Header.php';
 ?>
@@ -51,11 +65,14 @@
                                 <div class="float-start float-md-end mt-5 mt-md-0 search-area" style="margin-left: -153px;"></div>
                                 <nav style="margin-bottom: 15px;margin-top: 10px;">
                                     <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                        <li class="page-item active"><a class="page-link">1</a></li>
-                                        <li class="page-item"><a class="page-link">2</a></li>
-                                        <li class="page-item"><a class="page-link">3</a></li>
-                                        <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                        <li class="page-item"><a class="page-link" aria-label="Previous" href="?pageno=1"><span aria-hidden="true">«</span></a></li>
+                                        <li class="page-item <?php if($pageno <= 1){ echo 'disabled'; } ?>">
+                                            <a class="page-link" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
+                                        </li>
+                                        <li class="page-item <?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
+                                            <a class="page-link" href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" aria-label="Next" href="?pageno=<?php echo $total_pages; ?>"><span aria-hidden="true">»</span></a></li>
                                     </ul>
                                 </nav>
                                 <div class="row g-0">
@@ -68,8 +85,9 @@
                                                 <a href="EditInventoryItem.php?id=<?php echo $item['id'] ?>" style="text-decoration: none;">
                                                     <div class="product-name"><?php echo $item['ItemName']; ?></div>
                                                 </a>
+                                                <hr>
                                                 <div class="about">
-                                                    <a href="ReOrderPoint.php"><button class="btn btn-primary float-start" type="button">Re-Order</button></a>
+                                                    <a href="ReOrderPoint.php?id=<?php echo $item['id'] ?>"><button class="btn btn-primary float-start" type="button">Re-Order</button></a>
                                                     <div class="price">
                                                         <h6>Price: Php<?php echo $item['ItemPrice']; ?></h6>
                                                         <h6>Quantity: <?php echo $item['ItemQty']; ?></h6>
