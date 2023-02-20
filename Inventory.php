@@ -25,6 +25,7 @@
     $res_data = mysqli_query($con, $sql);
     $items = mysqli_fetch_all($res_data, MYSQLI_ASSOC);
     mysqli_free_result($result);
+    mysqli_close($con);
 
     require 'layouts/Header.php';
 ?>

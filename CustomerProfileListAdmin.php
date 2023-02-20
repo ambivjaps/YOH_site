@@ -8,6 +8,12 @@
     $user_data = check_login($con);
     
     require 'layouts/Header.php';
+
+    $sql = "SELECT * FROM cust_profile ORDER BY c_id";
+	$result = mysqli_query($con, $sql);
+	$profiles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	mysqli_free_result($result);
+	mysqli_close($con);
 ?>
 
 <title> Customer Profile | Yarn Over Hook </title>
@@ -23,42 +29,22 @@
                     <h2 style="margin:54px; color:black; font-size:54px; ">Customer Profiles</h2>
                 </div>
                 <div class="block-content">
+                <?php foreach($profiles as $profile): ?>
                     <div class="clean-blog-post">
                         <div class="row">
-                            <div class="col-lg-5"><img class="rounded img-fluid" src="assets/img/avatars/nopic1.jpg" style="margin-left:125px;" ></div>
+                            <div class="col-lg-5">
+                                <img class="rounded img-fluid" src="assets/img/avatars/nopic1.jpg" style="margin-left:125px;">
+                            </div>
                             <div class="col-lg-7">
-                                <h3><a href="ProfileAccntViewAdmin.php" style="color:black;">Customer A</a></h3>
-                                <div class="info"><span class="text-muted">Last Ordered on Jan 16, 2018&nbsp;<a href="ProfileAccntView.php"></a></span></div><button class="btn btn-outline-primary btn-sm" type="button">Delete Profile</button>
+                                <h3><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['c_id']; ?>" style="color:black;"><?php echo $profile['c_name']; ?></a></h3>
+                                <div class="info">
+                                    <span class="text-muted">Last Ordered on Jan 16, 2018&nbsp;</span>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm" type="button">Delete Profile</button>
                             </div>
                         </div>
                     </div>
-                    <div class="clean-blog-post">
-                        <div class="row">
-                            <div class="col-lg-5"><img class="rounded img-fluid" src="assets/img/avatars/nopic1.jpg" style="margin-left:125px;" ></div>
-                            <div class="col-lg-7">
-                                <h3><a href="ProfileAccntViewAdmin.php" style="color:black;"><strong>Customer B</strong><br></a></h3>
-                                <div class="info"><span class="text-muted">Last Ordered on Jan 16, 2018&nbsp;<a href="ProfileAccntView.php"></a></span></div><button class="btn btn-outline-primary btn-sm" type="button">Delete Profile</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clean-blog-post">
-                        <div class="row">
-                            <div class="col-lg-5"><img class="rounded img-fluid" src="assets/img/avatars/nopic1.jpg" style="margin-left:125px;" ></div>
-                            <div class="col-lg-7">
-                                <h3><a href="ProfileAccntViewAdmin.php" style="color:black;">Customer C</a></h3>
-                                <div class="info"><span class="text-muted">Last Ordered on Jan 16, 2018&nbsp;<a href="ProfileAccntView.php"></a></span></div><button class="btn btn-outline-primary btn-sm" type="button">Delete Profile</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clean-blog-post">
-                        <div class="row">
-                            <div class="col-lg-5"><img class="rounded img-fluid" src="assets/img/avatars/nopic1.jpg" style="margin-left:125px;" ></div>
-                            <div class="col-lg-7">
-                                <h3><a href="ProfileAccntViewAdmin.php" style="color:black;">Customer D</a></h3>
-                                <div class="info"><span class="text-muted">Last Ordered on Jan 16, 2018&nbsp;<a href="ProfileAccntView.php"></a></span></div><button class="btn btn-outline-primary btn-sm" type="button">Delete Profile</button>
-                            </div>
-                        </div>
-                    </div>
+                <?php endforeach; ?>   
                 </div>
             </div>
         </section>
