@@ -77,7 +77,7 @@
                                                 </a>
                                                 <hr>
                                                 <div class="about">
-                                                    <a href="ReOrderPoint.php?id=<?php echo $item['id'] ?>"><button class="btn btn-primary float-start" type="button">Re-Order</button></a>
+                                                    <a href="ReOrderPoint.php?id=<?php echo $item['ItemID'] ?>"><button class="btn btn-primary float-start" type="button">Re-Order</button></a>
                                                     <div class="price">
                                                         <h6>Php<?php echo $item['ItemPrice']; ?></h6>
                                                         <h6>Quantity: <?php echo $item['ItemQty']; ?></h6>
