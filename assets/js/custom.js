@@ -1,24 +1,3 @@
-const navLinks = document.querySelectorAll("nav a.nav-link"),
-  url = window.location.href;
-
-if (url.includes("ProfileAccntView")) {
-  navLinks[1].classList.add("active");
-
-} else if (url.includes("Inventory")) {
-  navLinks[2].classList.add("active");
-
-} else if (url.includes("OrdersAdminView")) {
-  navLinks[3].classList.add("active");
-
-} else if (url.includes("Login")) {
-  navLinks[4].classList.add("active");
-
-} else if (url.includes("HomePage")) {
-  navLinks[0].classList.add("active");
-
-} else {
-  navLinks[0].classList.remove("active");
-}
 
  /*
    * Light YouTube Embeds by @labnol
