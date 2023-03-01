@@ -34,6 +34,8 @@
                 } else {
                     echo '<ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="HomePage.php"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Videos.php"><i class="fas fa-play"></i> Videos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="FAQ.php"><i class="fas fa-question-circle"></i> FAQ</a></li>
                     <form class="form-inline" action="Login.php">
                         <button class="btn btn-light my-3 my-sm-0" type="submit"> <i class="fas fa-sign-in-alt"></i> Login</button>
                     </form>
