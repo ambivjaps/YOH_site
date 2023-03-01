@@ -63,10 +63,26 @@
             <span class="visually-hidden"></span>
         </button>
     </div>
-        
+
     <main class="page">
         <section class="clean-block about-us">
             <div class="container-xxl">
+
+                <div class="row text-center mt-5">
+
+                    <?php 
+                        if (isset($_SESSION['cust_id']) && $_SESSION['user_rank'] == 'user') {
+                            echo "<h2> Welcome back, ".$_SESSION['cust_name']."! </h2>";
+                        
+                        } else if (isset($_SESSION['cust_id']) && $_SESSION['user_rank'] == 'admin') {
+                            echo "<h2> Welcome, administrator ".$_SESSION['cust_name']."! </h2>";
+                        } else {
+                            echo "<h2> Hello. Let's start creating with a smile! </h2>";
+                        }
+                    ?>
+
+                </div>
+
                 <div class="block-heading">
                     <h2 class="text-info" style="font-size: 74px;font-family: Alata, sans-serif;margin-bottom: 18.2px;margin-top: -10px;">Yarn Over Hook</h2>
                     <p style="font-size: 43px;font-family: Actor, sans-serif;margin-bottom: -22px;margin-top: -16px;padding-top: 0px;padding-bottom: 0px;">About Us</p>
