@@ -82,7 +82,7 @@ if(!empty($_SESSION['cust_id'])) {
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
                 <div class="block-heading"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
                 <h2 class="text-info" style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo);">Login</h2>
-                <form data-bss-hover-animate="pulse" style="width: 554px;max-width: 753px;margin-bottom: 41px;min-height: 399px;margin-left: 374px;margin-right: 404px;margin-top: 20px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 404px;"  method="post">
+                <form data-bss-hover-animate="pulse" style="width: 554px;max-width: 753px;margin-bottom: 41px;min-height: 399px;margin-left: 374px;margin-right: 404px;margin-top: 20px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 404px;" method="POST">
                 <?php if (isset($_GET['registrationSuccess']) && $_GET['registrationSuccess'] === 'true') { ?>
                     <div class="alert alert-success" role="alert">
                         Successfully registered account. Please login.
