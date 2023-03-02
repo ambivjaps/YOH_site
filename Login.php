@@ -5,6 +5,7 @@ include("includes/dbh.inc.php");
 include("includes/functions.inc.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
     $cust_email = $_POST['cust_email'];
     $cust_pass = $_POST['cust_pass'];
     $secret_key = "6LdarEwkAAAAANs4-E8qkamwsZJYF_-OBWprGpSi";
@@ -13,12 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret_key&response=$response&remoteip=$ip";
     $fire = file_get_contents($url);
     $data = json_decode($fire);
+    
     if (!empty($cust_email) && !empty($cust_pass)) {
         $query = "SELECT * FROM register WHERE cust_email = '$cust_email' LIMIT 1";
         $result = mysqli_query($con, $query);
+        
         if ($result && mysqli_num_rows($result) > 0) {
             $user_data = mysqli_fetch_assoc($result);
-            if ($user_data['cust_pass'] === $cust_pass) {
+            $hashedPwdCheck = password_verify($cust_pass, $user_data['cust_pass']);
+
+            if ($hashedPwdCheck == false){
+                echo "<script>alert('Wrong credentials.')</script>";
+                exit();
+
+            } else if ($hashedPwdCheck == true) {
                 if ($response != "") {
                     $_SESSION['cust_id'] = $user_data['cust_id'];
                     $_SESSION['user_rank'] = $user_data['user_rank'];
@@ -26,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $_SESSION['cust_name'] = $user_data['cust_name'];
 
                     header("Location: HomePage.php");
-                    die;
+                    exit();
                 } else {
                     echo "<script>alert('Captcha verification failed.')</script>";
                 }
@@ -40,6 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         echo "<script>alert('Please enter valid information!')</script>";
     }
 }
+
+if(!empty($_SESSION['cust_id'])) {
+    header("location: HomePage.php");
+}
+
 ?>
 
 <!DOCTYPE html>

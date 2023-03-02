@@ -4,9 +4,20 @@
     include("includes/dbh.inc.php");
     include("includes/functions.inc.php");
     include("includes/access.inc.php");
-    $user_data = check_login($con);
 
     require 'layouts/Header.php';
+
+    /* slide carousel */
+    $carousel = "SELECT * FROM slides ORDER BY slide_id LIMIT 5";
+    $result = mysqli_query($con, $carousel);
+    $slides = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    mysqli_free_result($result);
+
+    /* featured video */
+	$feat_vid = "SELECT * FROM videos ORDER BY vid_id DESC LIMIT 3";
+	$result = mysqli_query($con, $feat_vid);
+	$videos = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	mysqli_free_result($result);
 ?>
 
 <title> Home | Yarn Over Hook </title>
@@ -15,24 +26,34 @@
 
 <?php require 'layouts/nav.php';?>
 
-    <div id="yoh-slide" class="carousel slide" data-bs-ride="carousel"> 
+    <div id="yoh-slide" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+    		<button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    		<button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    		<button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    		<button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="4" aria-label="Slide 5"></button>
+  		</ol>
+        
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="assets/img/slide/slide1.jpg" class="d-block w-100" alt="Welcome">
+     		<?php $loop=0; foreach ($slides as $slide): ?>
+
+  			<?php 
+  				if ($loop==0) {
+  					$status = "active"; 
+  				} else { 
+  					$status = ""; 
+  				} 
+  			?> 
+
+            <div class='carousel-item <?php echo $status; ?>'>
+                <img class="d-block w-100" src="<?php echo $slide['slide_img']; ?>" title="<?php echo $slide['slide_desc']; ?>" alt="<?php echo $slide['slide_desc']; ?>">
             </div>
-            <div class="carousel-item">
-                <img src="assets/img/slide/slide2.jpg" class="d-block w-100" alt="Register Now">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/img/slide/slide3.jpg" class="d-block w-100" alt="YouTube Advertisment">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/img/slide/slide4.jpg" class="d-block w-100" alt="TikTok and YouTube">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/img/slide/slide5.jpg" class="d-block w-100" alt="Product#2">
-            </div>
+
+        <?php $loop++; endforeach ?>
+
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#yoh-slide" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden"></span>
@@ -42,12 +63,28 @@
             <span class="visually-hidden"></span>
         </button>
     </div>
-        
+
     <main class="page">
         <section class="clean-block about-us">
             <div class="container-xxl">
+
+                <div class="row text-center mt-5">
+
+                    <?php 
+                        if (isset($_SESSION['cust_id']) && $_SESSION['user_rank'] == 'user') {
+                            echo "<h2> Welcome back, ".$_SESSION['cust_name']."! </h2>";
+                        
+                        } else if (isset($_SESSION['cust_id']) && $_SESSION['user_rank'] == 'admin') {
+                            echo "<h2> Welcome, administrator ".$_SESSION['cust_name']."! </h2>";
+                        } else {
+                            echo "<h2> Hello. Let's start creating with a smile! </h2>";
+                        }
+                    ?>
+
+                </div>
+
                 <div class="block-heading">
-                    <h2 style="font-size: 74px;font-family: Alata, sans-serif;margin-bottom: 18.2px;margin-top: -10px;">Yarn Over Hook</h2>
+                    <h2 class="text-info" style="font-size: 74px;font-family: Alata, sans-serif;margin-bottom: 18.2px;margin-top: -10px;">Yarn Over Hook</h2>
                     <p style="font-size: 43px;font-family: Actor, sans-serif;margin-bottom: -22px;margin-top: -16px;padding-top: 0px;padding-bottom: 0px;">About Us</p>
                 </div>
                 
@@ -162,42 +199,14 @@
                 </div>
 
                 <div class="row justify-content-center">
+                    <?php foreach($videos as $video): ?>
                     <div class="col-md-4">
-                        <div class="youtube-player rounded-1" data-id="mr9dzRfSIeg"></div>
-                        <h3> Crochet An Egg Girl Doll </h3>
-                        <span class="badge bg-dark">Crochet Tutorials</span><hr>
-                        <p> I am back with another egg-citing crochet with me video! I made this cute doll based on an egg. </p>
+                        <div class="youtube-player rounded-1" data-id="<?php echo $video['vid_url'] ?>"></div>
+                        <h3> <?php echo $video['vid_title']; ?> </h3>
+                        <span class="badge bg-dark"><?php echo $video['vid_cat']; ?></span><hr>
+                        <p><?php echo $video['vid_desc']; ?></p>
                     </div>
-                    <div class="col-md-4">
-                        <div class="youtube-player rounded-1" data-id="e9of07fxTV8"></div>
-                        <h3> Crochet Boo Tao </h3>
-                        <span class="badge bg-dark">Crochet Tutorials</span><hr>
-                        <p> This project is perfect for crochet beginners as it uses the basic stitches and techniques! </p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="youtube-player rounded-1" data-id="XRUr6bf9weM"></div>
-                        <h3> Crochet Pillow </h3>
-                        <span class="badge bg-dark">Crochet Tutorials</span><hr>
-                        <p> Another tutorial video. This time, I will teach you how to make a crochet pillow. </p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="youtube-player rounded-1" data-id="Ixhg8oUw1HE"></div>
-                        <h3> How To Magic Circle </h3>
-                        <span class="badge bg-dark">Crochet Basics</span><hr>
-                        <p> If you have been wondering how to start a crochet circle, then this is the video for you! </p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="youtube-player rounded-1" data-id="0M-8MK86pYI"></div>
-                        <h3> Crochet Egg Beret </h3>
-                        <span class="badge bg-dark">Crochet Tutorials</span><hr>
-                        <p> This is one of my very first detailed tutorials in this channel and I hope you guys like it! </p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="youtube-player rounded-1" data-id="7-4fDI8AMw8"></div>
-                        <h3> How To Double Crochet </h3>
-                        <span class="badge bg-dark">Crochet Basics</span><hr>
-                        <p> I hope this beginner lesson helps anyone who wants to start crocheting. </p>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </section>
