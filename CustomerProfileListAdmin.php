@@ -26,7 +26,7 @@
         <section class="clean-block clean-blog-list dark" style="background-color:#efe9ef;">
         <div class="container">
                 <div class="block-heading">
-                    <h2 style="margin:54px; color:black; font-size:54px; ">Customer Profiles</h2>
+                    <h2 style="margin:40px; color: black;font-size: 50px;font-weight: bold;"">Customer Profiles</h2>
                 </div>
                 <div class="block-content">
                 <?php foreach($profiles as $profile): ?>

@@ -31,17 +31,20 @@
                     <h2 style="font-weight: bold;">Re - Ordering Links and Methods</h2>
                 </div>
                 <form style="border:none;">
+                
                     <div class="products">
                         <div class="row">
-                            <div class="col-md-2">
-                                <img class="img-fluid" src="<?php echo $inv['ItemImg']; ?>">
+                                <div class="col-md-2">
+                                    <img class="img-fluid" src="<?php echo $inv['ItemImg']; ?>">
+                                </div>
+                            <div class="col-md-10">
+                                <h3 class="item-name">Product: <?php echo $inv['ItemName']; ?></h3>
+                                <h3 class="item-name">Price: Php<?php echo $inv['ItemPrice']; ?></h3>
+                                <h3 class="item-name">Stocks: <span id = "stocks"><?php echo $inv['ItemQty']; ?></span></h3>
                             </div>
-                        <div class="col-md-10">
-                            <h3 class="item-name">Product: <?php echo $inv['ItemName']; ?></h3>
-                            <h3 class="item-name">Price: Php<?php echo $inv['ItemPrice']; ?></h3>
-                            <h3 class="item-name">Stocks: <span id = "stocks"><?php echo $inv['ItemQty']; ?></span></h3>
-                        </div>
+                       <h3 class="item-name">Stocks: <span id = "stocks"><?php echo $inv['ItemQty']; ?></span></h3>
                         <hr>
+                          
                         <script> 
                                 var sto = document.getElementById("stocks");
                                 

@@ -87,39 +87,39 @@ if (isset($_POST['cust_name'])) {
 
 <body>
     <main class="page registration-page">
-        <section class="clean-block clean-form dark" style="height: 1019.391px; background-color:#efe9ef;">
-            <div class="container">
-                <div class="block-heading">
-                    <h2 class="text-info" style="font-size: 49px;color: var(--bs-indigo);">Registration</h2>
-                </div>     
-                <form data-bss-hover-animate="pulse" style="width: 892px;min-width: 182px;max-width: 1046px;min-height: 656px;margin-left: 214.5px;height: 547px;color: rgb(111,66,193);" action="" id="myForm" method = "post">
-                    <div class="mb-3" style="padding-left: -6px;"><label class="form-label" for="name" style="margin-left: 46px;color: rgb(111,66,193);">
-                    Full Name<input class="form-control item" type="text" id="text" name="cust_name" style="width: 289px;margin-bottom: 4px;" required=""></label>
-                    <label class="form-label" for="name" style="margin-left: 148px;padding-left: -6px;color: rgb(111,66,193);">
-                    Street <input class="form-control item" type="text" id="text" name="cust_st" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required=""></label>
-                    <label class="form-label" for="name" style="margin-left: 42px;color: rgb(111,66,193);">
+        <section class="clean-block clean-form dark" style="height:auto;background-color:#efe9ef; ">
+            <div class="container" >
+            <div class="block-heading">
+                    <img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
+                    <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Registration</h2>
+                <form data-bss-hover-animate="pulse" class="rounded" style="margin:auto;border:none; width: 892px;min-width: 182px;max-width: 1046px;min-height: 656px;height: 547px;color: rgb(111,66,193);" action="" id="myForm" method = "post">
+                    <div class="mb-3" style="padding-left: -6px;"><label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
+                    Full Name<input class="form-control item" type="text" id="text" name="cust_name" style=" font-weight: bold;width: 289px;margin-bottom: 4px;" required=""></label>
+                    <label class="form-label" for="name" style=" font-weight: bold;margin-left: 148px;padding-left: -6px;color: rgb(111,66,193);">
+                    Street <input class="form-control item"  type="text" id="text" name="cust_st" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required=""></label>
+                    <label class="form-label" for="name"  style=" font-weight: bold;margin-left: 42px;color: rgb(111,66,193);">
                     Building No.<input class="form-control item" type="text" id="text" name="cust_bldg" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required=""></label></div>
-                    <div class="mb-3"><label class="form-label" for="name" style="margin-left: 46px;color: rgb(111,66,193);">
+                    <div class="mb-3"><label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                     Email Address<input class="form-control item" type="text" id="text" name="cust_email" style="width: 289px;margin-bottom: 4px;" required=""></label>
-                    <label class="form-label" for="name" style="margin-left: 148px;color: rgb(111,66,193);">
+                    <label class="form-label" for="name" style="font-weight: bold;margin-left: 148px;color: rgb(111,66,193);">
                     Zip Code<br><input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required=""></label>
-                    <label class="form-label" for="name" style="margin-left: 42px;color: rgb(111,66,193);">
+                    <label class="form-label" for="name" style=" font-weight: bold;margin-left: 42px;color: rgb(111,66,193);">
                     Unit No.<input class="form-control item" type="text" id="text" name="cust_unit" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required=""></label>
-                    <label class="form-label" for="name" style="margin-left: 44px;color: rgb(111,66,193);margin-top: -17px;margin-bottom: -91px;margin-right: 12px;text-align: left;">
-                      <br>Address<input class="form-control d-flex d-xxl-flex align-items-start order-1 align-items-xxl-start item" type="text" id="text" name="cust_address" style="resize:none; margin: -3px; margin-bottom: 55px; margin-left:3px; width:725px;height:74px;">
-                      </label>
+                    <label class="form-label" for="name" style=" font-weight: bold;margin-left: 44px;color: rgb(111,66,193);margin-top: -17px;margin-bottom: -91px;margin-right: 12px;text-align: left;">
+                      <br>Address<textarea class="form-control d-flex d-xxl-flex align-items-start order-1 align-items-xxl-start item" type="text" id="text" name="cust_address" style="resize:none; margin: -3px; margin-bottom: 55px; margin-left:3px; width:725px;height:74px;">
+                     </textarea></label>
                     
                     <div class="mb-3">
-                    <label class="form-label" for="name" style="margin-left: 45px;color: rgb(111,66,193);">
+                    <label class="form-label" for="name" style="font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
                     <br> <br>Region<input class="form-control item" type="text" id="text" name="cust_reg" style="width: 121px;margin-bottom: 4px;" required=""></label>
-                    <label class="form-label" for="name" style="margin-left: 48px;width: 117px;color: rgb(111,66,193);">
+                    <label class="form-label" for="name" style=" font-weight: bold;margin-left: 48px;width: 117px;color: rgb(111,66,193);">
                     City<input class="form-control item" type="text" id="text" name="cust_city" style="width: 121px;margin-bottom: 4px;" required=""></label>
-                    <label class="form-label" for="name" style="margin-left: 151px;color: rgb(111,66,193);">
-                    Phone Number<input class="form-control item" type="text" id="text" name="cust_phone" style="width: 289px;margin-bottom: 4px;padding-left: 18px;" required=""></label></div>
+                    <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
+                    Phone Number<input class="form-control item" type="text" id="text" name="cust_phone" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" required=""></label></div>
                     <div class="mb-3" style="margin-bottom: 9px;margin-top: 42px;">
-                    <label class="form-label" for="name" style="margin-left: 46px;color: rgb(111,66,193);">
+                    <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                     Password<input class="form-control item" type="password" id="text" name ="cust_pass" style="width: 289px;margin-bottom: 4px;" required=""></label>
-                    <label class="form-label" for="name" style="margin-left: 151px;color: rgb(111,66,193);">
+                    <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
                     Re - Type Password<input class="form-control item" type="password" id="name-3" name="conf_pass" style="width: 289px;margin-bottom: 4px;padding-left: 18px;" required=""></label></div>
                     <div></div>
                                         <div class="form-check" style="margin-left: 69px;">
@@ -134,12 +134,10 @@ if (isset($_POST['cust_name'])) {
                     <div class="btn-group" role="group"></div>
                     
                     <div></div>
-                    
-                    <button id="regBtn" class="btn btn-primary" type="button" style="margin-left: 275px">Register</button>
-                    
+                    <button class="btn btn-danger form-btn" id="regBtn" type="button" style="margin-left: 275px;width: 137.797px;max-width: none;margin-top: -10px; border-color: rgb(119,13,253);background: rgb(119,13,253); ">REGISTER</button>
                     <div></div>
                       <a href="Login.php"> 
-					<button class="btn btn-danger form-btn" type="button" style="margin-left: 421px;width: 137.797px;max-width: none;margin-top: -63px;background: rgb(220, 53, 69);">CANCEL</button></a>
+					<button class="btn btn-danger form-btn" type="button" style="margin-left: 421px;width: 137.797px;max-width: none;margin-top: -65px; background: rgb(220, 53, 69);">CANCEL</button></a>
                 </form>
             </div>
         </section>

@@ -16,20 +16,23 @@
 
 <?php require 'layouts/nav.php';?>
 
-        <main class="page catalog-page">
-        <section class="clean-block clean-catalog dark" style="min-height: 17px;height: 1468.56px; background-color:#efe9ef;">
+<main class="page catalog-page">
+        <section class="clean-block clean-catalog dark" style="background-color:#efe9ef;">
             <div class="container">
                 <div class="block-heading">
-                    <h2 style="margin:54px; color:black; font-size:54px;">Orders</h2>
+                    <h2 style="margin-top:55px; color: black;font-size: 50px;font-weight: bold;">Orders</h2>
                 </div>
                 <div class="content">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="d-none d-md-block">
                                 <div class="filters">
+                                <div class="float-start float-md-end mt-5 mt-md-0 search-area" style="margin-left: 14px;margin-right: -4px;">
+                                        <div class="float-start float-md-end mt-5 mt-md-0 search-area"></div>
+                                        <a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);" data-bs-target="#" href="AddOrder.php"><i class="fas fa-plus" style="text-align: center;"></i></a><a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);" data-bs-target="" href=""><i class="fas fa-search" style="text-align: center;"></i></a>
+                                    </div>
                                     <div class="filter-item">
-                                        <h3 style="font-size: 32px;">Filters</h3>
-                                        <h3>Categories</h3>
+                                        <h3>Filters</h3>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">All Orders</label></div>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">On-Going Orders</label></div>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Completed Orders</label></div>
@@ -38,27 +41,18 @@
                             </div>
                         </div>
                         <div class="col-md-9" style="color: rgb(111,66,193);">
-                            <div class="products"><a class="btn btn-primary active" role="button" style="margin-left: 834px;margin-right: -7px;margin-bottom: -12px;margin-top: -16px;" href="AddOrder.php">New Item</a>
-                                <div class="float-start float-md-end mt-5 mt-md-0 search-area"><a href=""><i class="fas fa-search float-start search-icon" style="margin-left: -145px;margin-bottom: -24px;margin-top: -11px;width: 34px;height: 27px;font-size: 27px;"></i></a></div>
-                                <nav style="margin-bottom: 15px;margin-top: 10px;">
-                                    <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" aria-label="Previous"><span aria-hidden="true">�</span></a></li>
-                                        <li class="page-item active"><a class="page-link">1</a></li>
-                                        <li class="page-item"><a class="page-link">2</a></li>
-                                        <li class="page-item"><a class="page-link">3</a></li>
-                                        <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">�</span></a></li>
-                                    </ul>
-                                </nav>
+                                <div class="products" style="border-color: var(--bs-danger);">
                                 <div class="row g-0">
                                     <div class="col-12 col-md-6 col-lg-4">
-                                    <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopic1.jpg"></a></div>
-                                            <div class="product-name"><a href="OrderPageCust.php" style="color: rgb(111,66,193);">Order 1</a></div>
+                                        <div class="clean-product-item">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" style="width:100%; margin-top:5px; height:auto;"width: 650px;margin-top: 5px;" src="assets/img/avatars/nopic1.jpg"</a></div>
+                                            <div class="product-name";><a href="OrderPageCust.php" style="font-weight: bold; color: black;">Order A</a></div>
                                             <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="btn-group" role="group"><a href="OrderPageAdmin.php"><button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px;">Edit</button></a><button class="btn btn-primary border rounded" id="myBtn1">Delete</button></div>
+                                                <div class="rating">
+                                                <a href="OrderPageAdmin.php" class="btn btn-primary" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
+                                                <button id="myBtn1" class="btn btn-primary" type="button" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>
                                                 <div class="price">
-
+                                                    <h3>$100</h3>
                                                 <div id="myModal1" class="modal1">
 
                                                     <div class="modal-content1">
@@ -69,27 +63,25 @@
                                                     </div>
 
                                                 </div>
-
                                                 <div id="yesMess" class="modal1">
 
                                                     <div class="modal-content1">
                                                         <span class="close2">&times;</span>
                                                         <p>Record Successfully Deleted</p>
                                                     </div>
-
                                                 </div>
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopic1.jpg"></a></div>
-                                            <div class="product-name"><a href="OrderPageCust.php" style="color: rgb(111,66,193);">Order 1</a></div>
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" style="width:100%; margin-top:5px; height:auto;"width: 650px;margin-top: 5px;" src="assets/img/avatars/nopic1.jpg"</a></div>
+                                            <div class="product-name"><a href="OrderPageCust.php" style="font-weight: bold; color: black;">Order B</a></div>
                                             <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="btn-group" role="group"><a href="OrderPageAdmin.php"><button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px;">Edit</button></a><button class="btn btn-primary border rounded" role="button" id="myBtn2">Delete</button></div>
+                                                <div class="rating">
+                                                <a href="OrderPageAdmin.php" class="btn btn-primary" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
+                                                <button id="myBtn2" class="btn btn-primary" type="button" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>
                                                 <div class="price">
                                                     <h3>$100</h3>
                                                 </div>
@@ -98,11 +90,12 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopic1.jpg"></a></div>
-                                            <div class="product-name"><a href="OrderPageCust.php" style="color: rgb(111,66,193);">Order 1</a></div>
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" style="width:100%; margin-top:5px; height:auto;"width: 650px;margin-top: 5px;" src="assets/img/avatars/nopic1.jpg"></a></div>
+                                            <div class="product-name"><a href="OrderPageCust.php" style="font-weight: bold; color: black;">Order C</a></div>
                                             <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="btn-group" role="group"><a href="OrderPageAdmin.php"><button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px;">Edit</button></a><button class="btn btn-primary border rounded" role="button" id="myBtn3">Delete</button></div>
+                                                <div class="rating">
+                                                <a href="OrderPageAdmin.php" class="btn btn-primary" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
+                                                <button class="btn btn-primary" type="button" id="myBtn3" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>
                                                 <div class="price">
                                                     <h3>$100</h3>
                                                 </div>
@@ -111,15 +104,12 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopic1.jpg"></a></div>
-                                            <div class="product-name"><a href="OrderPageCust.php" style="color: rgb(111,66,193);">Order 1</a></div>
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" style="width:100%; margin-top:5px; height:auto;"width: 650px;margin-top: 5px;" src="assets/img/avatars/nopic1.jpg"></a></div>
+                                            <div class="product-name"><a href="OrderPageCust.php" style="font-weight: bold; color: black;">Order D</a></div>
                                             <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="btn-group" role="group"><a href="OrderPageAdmin.php"><button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px;">Edit</button></a><button class="btn btn-primary border rounded" role="button" id="myBtn4">Delete</button></div>
+                                                <div class="rating">
+                                                <a href="OrderPageAdmin.php" class="btn btn-primary" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
+                                                <button class="btn btn-primary" id="myBtn4" type="button" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>
                                                 <div class="price">
                                                     <h3>$100</h3>
                                                 </div>
@@ -128,15 +118,12 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopic1.jpg"></a></div>
-                                            <div class="product-name"><a href="OrderPageCust.php" style="color: rgb(111,66,193);">Order 1</a></div>
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" style="width:100%; margin-top:5px; height:auto;"width: 650px;margin-top: 5px;" src="assets/img/avatars/nopic1.jpg"></a></div>
+                                            <div class="product-name"><a href="OrderPageCust.php" style="font-weight: bold; color: black;">Order E</a></div>
                                             <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="btn-group" role="group"><a href="OrderPageAdmin.php"><button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px;">Edit</button></a><button class="btn btn-primary border rounded" role="button" id="myBtn5">Delete</button></div>
+                                                <div class="rating">
+                                                <a class="btn btn-primary" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
+                                                <button class="btn btn-primary" id="myBtn5" type="button" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>
                                                 <div class="price">
                                                     <h3>$100</h3>
                                                 </div>
@@ -145,11 +132,12 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopic1.jpg"></a></div>
-                                            <div class="product-name"><a href="OrderPageCust.php" style="color: rgb(111,66,193);">Order 1</a></div>
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" style="width:100%; margin-top:5px; height:auto;"width: 650px;margin-top: 5px;" src="assets/img/avatars/nopic1.jpg"></a></div>
+                                            <div class="product-name"><a href="OrderPageCust.php" style="font-weight: bold; color: black;">Order E</a></div>
                                             <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="btn-group" role="group"><a href="OrderPageAdmin.php"><button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px;">Edit</button></a><button class="btn btn-primary border rounded" role="button" id="myBtn6">Delete</button></div>
+                                                <div class="rating">
+                                                <a class="btn btn-primary" id="myBtn1" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
+                                                <button class="btn btn-primary" type="button" id="myBtn6" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>
                                                 <div class="price">
                                                     <h3>$100</h3>
                                                 </div>
@@ -158,15 +146,12 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopic1.jpg"></a></div>
-                                            <div class="product-name"><a href="OrderPageCust.php" style="color: rgb(111,66,193);">Order 1</a></div>
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" style="width:100%; margin-top:5px; height:auto;"width: 650px;margin-top: 5px;" src="assets/img/avatars/nopic1.jpg"></a></div>
+                                            <div class="product-name"><a href="OrderPageCust.php" style="font-weight: bold; color: black;">Order F</a></div>
                                             <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="btn-group" role="group"><a href="OrderPageAdmin.php"><button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px;">Edit</button></a><button class="btn btn-primary border rounded" role="button" id="myBtn7">Delete</button></div>
+                                                <div class="rating">
+                                                    <a class="btn btn-primary" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
+                                                <button class="btn btn-primary" type="button" id="myBtn7" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>
                                                 <div class="price">
                                                     <h3>$100</h3>
                                                 </div>
@@ -175,15 +160,12 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopic1.jpg"></a></div>
-                                            <div class="product-name"><a href="OrderPageCust.php" style="color: rgb(111,66,193);">Order 1</a></div>
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" style="width:100%; margin-top:5px; height:auto;"width: 650px;margin-top: 5px;" src="assets/img/avatars/nopic1.jpg"></a></div>
+                                            <div class="product-name"><a href="OrderPageCust.php" style="font-weight: bold; color: black;">Order G</a></div>
                                             <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="btn-group" role="group"><a href="OrderPageAdmin.php"><button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px;">Edit</button></a><button class="btn btn-primary border rounded" role="button" id="myBtn8">Delete</button></div>
+                                                <div class="rating">
+                                                    <a class="btn btn-primary" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
+                                            </button><button class="btn btn-primary" type="button" id="myBtn8" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>
                                                 <div class="price">
                                                     <h3>$100</h3>
                                                 </div>
@@ -192,15 +174,12 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" src="assets/img/avatars/nopic1.jpg"></a></div>
-                                            <div class="product-name"><a href="OrderPageCust.php" style="color: rgb(111,66,193);">Order 1</a></div>
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto rounded" style="width:100%; margin-top:5px; height:auto;"width: 650px;margin-top: 5px;" src="assets/img/avatars/nopic1.jpg"></a></div>
+                                            <div class="product-name"><a href="OrderPageCust.php" style="font-weight: bold; color: black;">Order H</a></div>
                                             <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="price"></div>
-                                            </div>
-                                            <div class="about">
-                                                <div class="rating"></div>
-                                                <div class="btn-group" role="group"><a href="OrderPageAdmin.php"><button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px;">Edit</button></a><button class="btn btn-primary border rounded" type="button" id="myBtn9">Delete</button></div>
+                                                <div class="rating">
+                                                <a class="btn btn-primary" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
+                                                <button class="btn btn-primary" type="button" id="myBtn9" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>
                                                 <div class="price">
                                                     <h3>$100</h3>
                                                 </div>
@@ -213,7 +192,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> 
     </main>
     	
 

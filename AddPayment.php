@@ -19,7 +19,7 @@
         <section class="clean-block payment-form dark" style="height: 663.328px;background-color: #efe9ef;">
             <div class="container" style="margin-bottom: 35px;margin-top: 20px;">
                 <div class="block-heading">
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black;">Add Payment</h2>
+                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black; font-weight:bold;">Add Payment</h2>
                 </div>
                 <form>
                     <div class="products" style="margin-bottom: 15px;margin-top: 2px;">

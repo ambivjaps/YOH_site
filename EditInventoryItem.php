@@ -30,7 +30,7 @@
         <section class="clean-block clean-catalog dark" style="background-color:#efe9ef;">
             <div class="container">
                 <div class="block-heading">
-                    <h2 style="font-size: 54px;text-align: left;color:black;">Edit Inventory Item</h2>
+                <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black; font-weight:bold;">Edit Inventory Item</h2>
                 </div>
                 <div class="content"></div>
             </div>

@@ -19,7 +19,7 @@
         <section class="clean-block clean-catalog dark" style="min-height: 17px;height: 971px; background-color:#efe9ef;">
             <div class="container">
             <div class="block-heading">
-                <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black;">Add Inventory Item</h2>
+                <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black; font-weight:bold;">Add Inventory Item</h2>
                 </div>
                 <div class="content"></div>
             </div>
@@ -48,7 +48,7 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit" href="Inventory.php">SAVE </button><a class="btn btn-danger form-btn" role="button" href="Inventory.php">CANCEL </a></div>
+                                <div class="col-md-12 content-right"><a class="btn btn-danger form-btn" role="button" href="Inventory.php">CANCEL </a><button class="btn btn-primary form-btn" type="submit" href="Inventory.php" style="border-color: rgb(119,13,253);background: rgb(119,13,253);">SAVE </button></div>
                             </div>
                         </div>
                     </div>

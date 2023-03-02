@@ -40,7 +40,8 @@
                 <div class="block-heading">
                     <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black;">Order #</h2>
                     <h2 style="font-size: 20px;text-align: left;margin-bottom: 10.2px;margin-top: 10px; color:black;">Customer Name</h2>
-                </div><a class="btn btn-primary" role="button" style="margin-left: 1168px;margin-bottom: 5px;margin-top: -162px;width: 123.1406px;background: rgb(220,53,69);border-style: none;" href="OrdersAdminView.php">Cancel</a><button class="btn btn-primary" type="button" style="margin-left: 1030px;margin-bottom: 5px;margin-top: -210px;width: 123.1406px;" href="OrdersPageAdminView.php">Save</button><button class="btn btn-primary" type="button" style="margin-left: 970px;margin-bottom: 57px;margin-top: -210px;width: 46.1406px;background: url(&quot;assets/img/star.svg&quot;);height: 46px;border-color: rgba(255,255,255,0);"></button>
+                </div><a class="btn btn-primary" role="button" style="margin-left: 1168px;margin-bottom: 5px;margin-top: -162px;width: 123.1406px;background: rgb(220,53,69);border-style: none;" href="OrdersAdminView.php">Cancel</a><button class="btn btn-primary" type="button" style="margin-left: 1030px;margin-bottom: 5px;margin-top: -210px;width: 123.1406px; border-color: rgb(119,13,253);background: rgb(119,13,253); " href="OrdersPageAdminView.php">Save</button>
+                
             </div>
 			<div class="container">
         <div class="row">
