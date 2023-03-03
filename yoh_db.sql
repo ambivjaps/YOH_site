@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2023 at 11:36 PM
+-- Generation Time: Mar 03, 2023 at 01:06 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -69,14 +69,14 @@ CREATE TABLE `cust_profile` (
 --
 
 INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `email`, `region`, `city`, `street`, `building`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`) VALUES
-(2, 1946032413, 'JJ CA', 'jjca@gmail.com', '4A', 'Antipolo City', 'Nightingale st.', 'NA', '09954490438', 1870, 21, '2023-02-20 22:05:15', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR'),
-(3, 9871989888, 'Juan Dela Cruz', 'juandelacruz@gmail.com', 'NCR', 'Quezon City', 'Coco Street', 'N/A', '09313456789', 520, 3, '2023-02-19 10:50:43', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR'),
+(2, 4859670294, 'JJ CA', 'jjca@gmail.com', '4A', 'Antipolo City', 'Nightingale st.', 'NA', '09954490438', 1870, 21, '2023-03-02 20:00:49', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR'),
+(3, 4859670294, 'Juan Dela Cruz', 'juandelacruz@gmail.com', 'NCR', 'Quezon City', 'Coco Street', 'N/A', '09313456789', 520, 3, '2023-03-03 11:52:48', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR'),
 (4, 4097611313, 'Japs Sing', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-02-19 14:39:56', '#10 Sampaloc st., Manila, NCR'),
 (5, 5596544577, 'Japs Sing', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-02-19 14:41:42', '#10 Sampaloc st., Manila, NCR'),
 (6, 1325256067, 'James Sing', 'singjaps@gmail.com', 'QUEZON CITY', 'QUEZON CITY', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon ', '1', '+639478969123', 1114, 20, '2023-03-01 18:29:29', ''),
 (7, 8257935405, 'Engelbert Macadangdang', 'engelbird@gmail.com', 'IV', 'QC', '12', '12', '09158433229', 1114, 1, '2023-03-01 18:37:53', ''),
 (8, 1182724839, 'James Sing', 'bagongako@gmail.com', 'QUEZON CITY', 'QUEZON CITY', '1', '1', '+639478969123', 1114, 20, '2023-03-01 19:00:44', ''),
-(9, 4859670294, 'Juan Dela Totoy', 'juandelatotoy@gmail.com', 'IV', 'Quezon City', '20', '100', '09158433229', 1114, 20, '2023-03-01 19:02:38', '');
+(9, 4859670294, 'Juan Dela Totoy', 'juandelatotoy@gmail.com', 'IV', 'Quezon City', '20', '100', '09158433229', 1114, 20, '2023-03-03 11:33:58', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR');
 
 -- --------------------------------------------------------
 
@@ -155,8 +155,8 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `cust_name`, `cust_email`, `cust_pass`, `cust_reg`, `cust_city`, `cust_st`, `cust_bldg`, `cust_unit`, `cust_zip`, `cust_phone`, `cust_id`, `date`, `user_rank`, `cust_address`, `status`) VALUES
-(1, 'ako lang to', 'akolangtosapusomo@gmail.com', '1234', '4A', 'Antipolo', 'sa puso mo', '69', 1, 420, '09123456789', 3938456582, '2023-02-19 12:33:37', 'admin', '', 1),
-(6, 'ano pagkain', 'angsarapngadobo@gmail.com', '$2y$10$XpSO0wIVOTDWLxK6Cau8sOzjBTHAyPRz9i25EAs2OubhpUPrZsbmG', 'NCR', 'Quezon City', 'adobo', '21', 12, 123, '09123456781', 9439603011, '2023-03-01 18:58:13', 'user', '', 1),
+(1, 'ako lang to', 'akolangtosapusomo@gmail.com', '$2y$10$IJDFg2f96WTA2NrY3f/c8.WkiNf1Mm7DO06.lcVpUWHGlJczgUTJi', '4A', 'Antipolo', 'sa puso mo', '69', 1, 420, '09123456789', 3938456582, '2023-03-01 23:04:09', 'admin', '', 1),
+(6, 'ano pagkain', 'angsarapngadobo@gmail.com', '$2y$10$IJDFg2f96WTA2NrY3f/c8.WkiNf1Mm7DO06.lcVpUWHGlJczgUTJi', 'NCR', 'Quezon City', 'adobo', '21', 12, 123, '09123456781', 9439603011, '2023-03-01 23:04:05', 'user', '', 1),
 (10, 'Mang Jose', 'mangjose@gmail.com', '12345678', 'NCR', 'Marikina City', 'Mango', '12', 30, 789, '09213456789', 7360683599, '2023-02-19 12:33:46', '', '', 1),
 (11, 'Joseph', 'ayokonasamundo@gmail.com', '123456', 'NCR', 'Marikina City', 'Kalamansi', 'N/A', 20, 2310, '09123456782', 3679169808, '2023-02-19 12:33:49', 'user', '', 1),
 (13, 'Junathan', 'dunkitjunathan@gmail.com', '12345', 'NCR', 'Makati City', 'Dunkit', '69', 29, 1820, '09134567899', 7237157111, '2023-02-19 12:33:51', 'user', '29 Dunkit st. Dunkin Donuts Village', 1),
