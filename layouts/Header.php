@@ -52,4 +52,5 @@
         <link rel="stylesheet" href="assets/css/Search-Input-responsive.css">
         <link rel="stylesheet" href="assets/css/styleA.css">
         <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+        <link rel="stylesheet" href="assets/css/ProfileDesignAdmin.css">
     </head>

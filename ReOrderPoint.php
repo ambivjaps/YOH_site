@@ -42,7 +42,6 @@
                                 <h3 class="item-name">Price: Php<?php echo $inv['ItemPrice']; ?></h3>
                                 <h3 class="item-name">Stocks: <span id = "stocks"><?php echo $inv['ItemQty']; ?></span></h3>
                             </div>
-                       <h3 class="item-name">Stocks: <span id = "stocks"><?php echo $inv['ItemQty']; ?></span></h3>
                         <hr>
                           
                         <script> 
