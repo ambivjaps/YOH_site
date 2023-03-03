@@ -52,9 +52,9 @@
                                     </div>
                                     <div class="filter-item">
                                         <h3>Filters</h3>
-                                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-1"><label class="form-label form-check-label" for="formCheck-1">All Orders</label></div>
-                                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-2"><label class="form-label form-check-label" for="formCheck-2">On-Going&nbsp;</label></div>
-                                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-3"><label class="form-label form-check-label" for="formCheck-3">Completed Products</label></div>
+                                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-2"><label class="form-label form-check-label" for="formCheck-1">Raw Product&nbsp;</label></div>
+                                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-3"><label class="form-label form-check-label" for="formCheck-2">On-Going</label></div>
+                                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-3"><label class="form-label form-check-label" for="formCheck-2">Completed Products</label></div>
                                     </div>
                                     <div class="filter-item"></div>
                                     <div class="filter-item"></div>
@@ -77,7 +77,7 @@
                                                 </a>
                                                 <hr>
                                                 <div class="about">
-                                                    <a href="ReOrderPoint.php?id=<?php echo $item['ItemID'] ?>"><button class="btn btn-primary float-start" type="button">Re-Order</button></a>
+                                                    <a href="ReOrderPoint.php?id=<?php echo $item['ItemID'] ?>"><button class="btn btn-primary" type="button" style="background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="fas fa-shopping-bag"></i></button></a>
                                                     <div class="price">
                                                         <h6>Php<?php echo $item['ItemPrice']; ?></h6>
                                                         <h6>Quantity: <?php echo $item['ItemQty']; ?></h6>

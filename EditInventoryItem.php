@@ -68,7 +68,12 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="item-type">Item Type </label>
-                                    <input class="form-control item" type="text" name="ItemType" value="<?php echo $inv['ItemType']; ?>" required>
+                                    <select class="form-control item" value="<?php echo $inv['ItemType']; ?>"  required>
+                                    <option value="raw">Raw</option>
+                                    <option value="ong">On-Going</option>
+                                    <option value="comp">Completed</option>
+                                    </optgroup>
+                                    </select> 
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="item-price">Item Price (in Php) </label>

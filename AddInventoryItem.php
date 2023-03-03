@@ -44,7 +44,15 @@
                                 <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item ID<input class="form-control item" type="text" id="name-4" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
                                 <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Name<input class="form-control item" type="text" id="name-3" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
                                 <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Quantity<input class="form-control item" type="text" id="name-6" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Type<br><input class="form-control item" type="text" id="name-1" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
+                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Type
+                                <select class="form-control item" style="width: 121px;margin-bottom: 4px;" value="<?php echo $inv['ItemType']; ?>"  required>
+                                    <option value="raw">Raw</option>
+                                    <option value="ong">On-Going</option>
+                                    <option value="comp">Completed</option>
+                                    </optgroup>
+                                    </select> 
+                                    </label>
+                            </div>
                             </div>
                             <hr>
                             <div class="row">

@@ -75,7 +75,7 @@ if(!empty($_SESSION['cust_id'])) {
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
 </head>
 
-<body>
+<body style="overflow-x:hidden;">
     <main class="page login-page">
         
         <section class="clean-block clean-form dark" style="height: 990.391px; background-color:#efe9ef;">
@@ -102,12 +102,13 @@ if(!empty($_SESSION['cust_id'])) {
                     <div class="mb-3"><label class="form-label" for="password" style=" font-weight:bold; font-size: 20px;color: rgb(111, 66, 193);">Password</label><input class="form-control" type="password" id="password" name="cust_pass" placeholder="Password" required="" style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;"></div>
                     <a href="ForgotPass.php" style="font-size: 18px;margin-left: 145px;margin-top: -8px;margin-bottom: 173px;margin-right: 12px;color: rgb(111,66,193);">Forgot your Password?</a>
                     <div></div>
-                    <table><br>
-                    <tr><tr><tr><script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                    <br>
+                    <div style="margin-left:80px;">
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
                      <div class="g-recaptcha" data-sitekey="6LdarEwkAAAAANs4-E8qkamwsZJYF_-OBWprGpSi"></div> </tr></tr></tr>
 
-                    <br></table>
+                    <br></div>
                     <button class="btn btn-primary" type="submit" style="font-weight: bold; width: 147px; height: auto; margin:auto; display:flex; display:grid; border-color: rgb(119,13,253);background: rgb(119,13,253);">Login</button>
                     <br>
                     <a href="registration.php" style="margin-left: 86px;margin-top: -8px;margin-bottom: 173px;margin-right: 12px;color: rgb(111,66,193);">Don't have an account? Register Here</a>

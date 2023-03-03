@@ -25,9 +25,9 @@
                 <div class="block-heading">
                     <img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png">
             </div>
-    <h2 class="text-info" style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo);">Terms and Conditions
+    <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight:bold;">Terms and Conditions
     </h2>
-            <form data-bss-hover-animate="pulse" style="width: 554px;max-width: 753px;margin-bottom: 41px;min-height: 399px;margin-left: 374px;margin-right: 404px;margin-top: 20px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 805px;"  method="post" >
+            <form data-bss-hover-animate="pulse" style="border:none; width: 554px;max-width: 753px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 805px;"  method="post" >
     
             <div class="mb-3">
                 <b>
