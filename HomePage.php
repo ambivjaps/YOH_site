@@ -7,6 +7,8 @@
 
     require 'layouts/Header.php';
 
+    /* This is a comment! * /
+
     /* slide carousel */
     $carousel = "SELECT * FROM slides ORDER BY slide_id LIMIT 5";
     $result = mysqli_query($con, $carousel);
