@@ -40,8 +40,7 @@
                 <a class="btn btn-success" href="ProfileAcct?id=<?php echo $profile['id'] ?>" role="button"> Add a profile </a><hr>
 
                 <h1> Profiles for <?php echo $_SESSION['cust_name'] ?> </h1>
-                <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>
-
+                
                 <table class="table table-striped table-hover table-sm mt-5">
                     <tr>
                         <th> # </th>
@@ -61,6 +60,8 @@
                         <td> <a class="btn btn-sm btn-primary" href="ProfileAcct?id=<?php echo $profile['id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
                     <?php $loop++; endforeach; ?>
                 </table>
+
+                <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>
 
                 <nav style="margin-bottom: 15px;margin-top: 10px;">
                     <ul class="pagination pagination-sm justify-content-end flex-wrap">
