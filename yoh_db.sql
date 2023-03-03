@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2023 at 01:06 PM
+-- Generation Time: Mar 03, 2023 at 01:22 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -122,8 +122,18 @@ INSERT INTO `inventory_db` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `
 CREATE TABLE `orders_db` (
   `id` bigint(20) NOT NULL,
   `order_id` bigint(20) NOT NULL,
+  `cust_id` bigint(20) NOT NULL,
+  `inventory_id` int(11) NOT NULL,
+  `order_qty` int(11) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders_db`
+--
+
+INSERT INTO `orders_db` (`id`, `order_id`, `cust_id`, `inventory_id`, `order_qty`, `order_date`) VALUES
+(1, 1, 4859670294, 1001, 10, '2023-03-03 12:17:53');
 
 -- --------------------------------------------------------
 
@@ -322,7 +332,7 @@ ALTER TABLE `inventory_db`
 -- AUTO_INCREMENT for table `orders_db`
 --
 ALTER TABLE `orders_db`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `register`
