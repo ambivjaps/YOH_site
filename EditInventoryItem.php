@@ -10,7 +10,7 @@
 
     if(isset($_GET['id'])) {
 		$id = mysqli_real_escape_string($con, $_GET['id']);
-		$item = "SELECT * FROM inventory_db WHERE id = $id";
+		$item = "SELECT * FROM inventory_db WHERE ItemID = $id";
 		$result = mysqli_query($con, $item);
 		$inv = mysqli_fetch_assoc($result);
 
@@ -78,8 +78,8 @@
                             <hr>
                             <div class="row">
                                 <div class="col-md-12 content-right">
-                                    <input class="btn btn-primary form-btn" type="submit" id="submit" name="submit" value="SAVE">
-                                    <input class="btn btn-danger form-btn" type="reset" id="reset" value="CANCEL">
+                                    <a href = "Inventory.php"><button class="btn btn-primary form-btn" type="submit" id="submit" name="submit" value="SAVE">SAVE</a>
+                                  <a href = "Inventory.php">  <button class="btn btn-danger form-btn" type="submit" id="reset" value="CANCEL">CANCEL</a>
                             </div>
                         </div>
                     </div>

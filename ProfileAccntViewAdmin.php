@@ -35,7 +35,7 @@
                     <div class="post-body" style="margin-top:65px;">
                         <div class="post-info">
                             <div class="profile-card" style="background: #ffffff; border-color: 0;">
-                                <div class="profile-back" style="background: #CBC3E3;--bs-danger: #3546dc;--bs-danger-rgb: 53,70,220;"></div><img class="rounded-circle profile-pic" src="assets/img/avatars/nopic1.jpg">
+                                <div class="profile-back" style="background: #CBC3E3;--bs-danger: #3546dc;--bs-danger-rgb: 53,70,220;"> <h2><?php echo $profile['c_id']?></h2></div><img class="rounded-circle profile-pic" src="assets/img/avatars/nopic1.jpg">
                                 <h3 class="profile-name" style="background: #cbc3e3;"><?php echo $profile['c_name']; ?></h3>
                                 <h5> Shipping Information: </h5>
                                 <p class="profile-bio">Address: <?php echo $profile['address']; ?></p>

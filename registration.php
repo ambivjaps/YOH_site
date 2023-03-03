@@ -21,7 +21,8 @@ if (isset($_POST['cust_name'])) {
     
     $password_hash = password_hash($cust_pass, PASSWORD_BCRYPT);
     
-    $cust_id = random_num(10);
+    $cust_id =  random_num(10);
+
     $query = "insert into register (cust_id,cust_name,cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_bldg,cust_unit,cust_phone,cust_zip, cust_address, status) values 
     ('$cust_id','$cust_name','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_bldg','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '1')";
     
