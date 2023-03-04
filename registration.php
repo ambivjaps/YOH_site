@@ -11,7 +11,7 @@ if (isset($_POST['cust_name'])) {
     $cust_reg = $_POST['cust_reg'];
     $cust_st = $_POST['cust_st'];
     $cust_city = $_POST['cust_city'];
-    $cust_bldg = $_POST['cust_bldg'];
+    $cust_brgy = $_POST['cust_brgy'];
     $cust_unit = $_POST['cust_unit'];
     $cust_phone = $_POST['cust_phone'];
     $cust_zip = $_POST['cust_zip'];
@@ -22,20 +22,19 @@ if (isset($_POST['cust_name'])) {
     $password_hash = password_hash($cust_pass, PASSWORD_BCRYPT);
     
     $login_id =  random_num(10);
-
-    $query = "insert into register (login_id,cust_name,cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_bldg,cust_unit,cust_phone,cust_zip, cust_address, status) values 
-    ('$login_id','$cust_name','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_bldg','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '1')";
+    
+    $query = "insert into register (login_id,cust_name,cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_brgy,cust_unit,cust_phone,cust_zip, cust_address, status) values 
+    ('$login_id','$cust_name','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '1')";
     
     $reg = mysqli_query($con, $query);
     if($reg==1){
-        $cquery = "insert into cust_profile (c_id,c_name,email,region,street,city,building,unit_no,phone_no,zip_code) values
-        ('$login_id','$cust_name','$cust_email','$cust_reg','$cust_st','$cust_city','$cust_bldg','$cust_unit','$cust_phone','$cust_zip')";
+        $cquery = "insert into cust_profile (c_id,login_id,c_name,email,region,street,city,barangay,unit_no,phone_no,zip_code) values
+        ('$login_id','$login_id','$cust_name','$cust_email','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip')";
         $regcust = mysqli_query($con, $cquery);
+       
     }
     header("Location: Login.php?registrationSuccess=true");
     die;
-    
-    echo "Unable to register";
 }
 ?>
 
@@ -99,7 +98,7 @@ if (isset($_POST['cust_name'])) {
                     <label class="form-label" for="name" style=" font-weight: bold;margin-left: 148px;padding-left: -6px;color: rgb(111,66,193);">
                     Street <input class="form-control item"  type="text" id="text" name="cust_st" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required=""></label>
                     <label class="form-label" for="name"  style=" font-weight: bold;margin-left: 42px;color: rgb(111,66,193);">
-                    Building No.<input class="form-control item" type="text" id="text" name="cust_bldg" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required=""></label></div>
+                    Barangay<input class="form-control item" type="text" id="text" name="cust_brgy" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required=""></label></div>
                     <div class="mb-3"><label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                     Email Address<input class="form-control item" type="text" id="text" name="cust_email" style="width: 289px;margin-bottom: 4px;" required=""></label>
                     <label class="form-label" for="name" style="font-weight: bold;margin-left: 148px;color: rgb(111,66,193);">
@@ -107,7 +106,7 @@ if (isset($_POST['cust_name'])) {
                     <label class="form-label" for="name" style=" font-weight: bold;margin-left: 42px;color: rgb(111,66,193);">
                     Unit No.<input class="form-control item" type="text" id="text" name="cust_unit" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required=""></label>
                     <label class="form-label" for="name" style=" font-weight: bold;margin-left: 44px;color: rgb(111,66,193);margin-top: -17px;margin-bottom: -91px;margin-right: 12px;text-align: left;">
-                      <br>Address<textarea class="form-control d-flex d-xxl-flex align-items-start order-1 align-items-xxl-start item" type="text" id="text" name="cust_address" style="resize:none; margin: -3px; margin-bottom: 55px; margin-left:3px; width:725px;height:74px;">
+                      <br>Address<textarea class="form-control d-flex d-xxl-flex align-items-start order-1 align-items-xxl-start item" type="text" id="text" name="cust_address" style="resize:none; margin: -3px; margin-bottom:-35px; margin-left:3px; width:725px;height:105px;">
                      </textarea></label>
                     
                     <div class="mb-3">
@@ -183,7 +182,7 @@ if (isset($_POST['cust_name'])) {
                 let fields = {
                     'cust_name': 'Full name',
                     'cust_st': 'Street',
-                    'cust_bldg': 'Building No',
+                    'cust_brgy': 'Barangay',
                     'cust_email': 'Email',
                     'cust_zip': 'Zip code',
                     'cust_address': 'Address',

@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 
-if(!empty($_SESSION['login_id'])) {
+if(!empty($_SESSION['cust_id'])) {
     header("location: HomePage.php");
 }
 

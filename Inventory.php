@@ -53,8 +53,7 @@
                                     <div class="filter-item">
                                         <h3>Filters</h3>
                                         <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-2"><label class="form-label form-check-label" for="formCheck-1">Raw Product&nbsp;</label></div>
-                                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-3"><label class="form-label form-check-label" for="formCheck-2">On-Going</label></div>
-                                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-3"><label class="form-label form-check-label" for="formCheck-2">Completed Products</label></div>
+                                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-3"><label class="form-label form-check-label" for="formCheck-2">Finished Products</label></div>
                                     </div>
                                     <div class="filter-item"></div>
                                     <div class="filter-item"></div>

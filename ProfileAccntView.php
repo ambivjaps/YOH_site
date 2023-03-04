@@ -10,8 +10,8 @@
 
     require 'layouts/Header.php';
 
-    if(isset($_SESSION['cust_id'])) {
-		$id = mysqli_real_escape_string($con, $_SESSION['cust_id']);
+    if(isset($_SESSION['login_id'])) {
+		$id = mysqli_real_escape_string($con, $_SESSION['login_id']);
         // gets specific records based on current user
 		$item = "SELECT * FROM cust_profile WHERE c_id = $id";
         // retrieves total number of records
