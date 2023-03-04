@@ -18,6 +18,19 @@
 
 		mysqli_free_result($result);
 	}
+
+    if(isset($_POST['delete'])) {
+		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
+
+		$sql = "DELETE FROM cust_profile WHERE id = $delete_id";
+
+		if(mysqli_query($con, $sql)) {
+			header('Location: ProfileAccntView.php');
+		} else {
+			echo 'Error: ' . mysqli_error($con);
+		}
+	}
+
 ?>
 
 <title> Profile Account: <?php echo $profile['c_name']; ?> | Yarn Over Hook </title>
@@ -35,7 +48,7 @@
         <form class="mb-3" action="ProfileAcct.php" method="POST">
 			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button">Edit</a>
 			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
-			<a class="btn btn-dark" href="javascript:void(0)" type="submit" name="delete" role="button">Delete</a>
+			<input class="btn btn-dark" type="submit" name="delete" role="button" value="Delete">
 		</form> 
 
     <div class="row gutters">
