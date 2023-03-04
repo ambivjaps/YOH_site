@@ -33,9 +33,9 @@
         <div class="container">
 
         <form class="mb-3" action="ProfileAcct.php" method="POST">
-			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button">Edit Record</a>
+			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button">Edit</a>
 			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
-			<a class="btn btn-dark" href="javascript:void(0)" type="submit" name="delete" role="button">Delete Record</a>
+			<a class="btn btn-dark" href="javascript:void(0)" type="submit" name="delete" role="button">Delete</a>
 		</form> 
 
     <div class="row gutters">
