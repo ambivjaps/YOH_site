@@ -24,6 +24,7 @@
                     <li class="nav-item"><a class="nav-link" href="HomePage.php"><i class="fas fa-home"></i> Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="CustomerProfileListAdmin.php"><i class="fas fa-user-friends"></i> Profiles</a></li>
                     <li class="nav-item"><a class="nav-link" href="Inventory.php"><i class="fas fa-dolly-flatbed"></i> Inventory</a></li>
+                    <li class="nav-item"><a class="nav-link" href="VideosAdmin.php"><i class="fas fa-play"></i> Videos</a></li>
                     <li class="nav-item"><a class="nav-link" href="OrdersAdminView.php"><i class="fas fa-check-square"></i> Orders</a></li>
                     <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-circle"></i> '.$_SESSION['cust_name'].' ('.$_SESSION['user_rank'].')</a></li>
                     <form class="form-inline" action="includes/logout.inc.php" method="POST">
