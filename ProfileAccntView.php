@@ -27,7 +27,7 @@
 	}
 ?>
 
-<title> Profile - Yarn Over Hook </title>
+<title> Profiles | Yarn Over Hook </title>
 
 <body class="d-flex flex-column min-vh-100">
 
