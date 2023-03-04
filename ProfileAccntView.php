@@ -37,7 +37,7 @@
         <section class="clean-block clean-post dark" style="background-color:#efe9ef;">
             <div class="container my-5">
 
-                <a class="btn btn-success" href="ProfileAcct?id=<?php echo $profile['id'] ?>" role="button"> Add a profile </a><hr>
+                <a class="btn btn-success" href="AddCustomerProf.php" role="button"> Add a profile </a><hr>
 
                 <h1> Profiles for <?php echo $_SESSION['cust_name'] ?> </h1>
                 

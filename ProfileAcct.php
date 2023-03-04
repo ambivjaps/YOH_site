@@ -11,8 +11,11 @@
     require 'layouts/Header.php';
 
     if(isset($_GET['id'])) {
+        // retrieves id and current user logged in
+        $current_user = $_SESSION['login_id'];
+
 		$id = mysqli_real_escape_string($con, $_GET['id']);
-		$item = "SELECT * FROM cust_profile WHERE id = $id";
+		$item = "SELECT * FROM cust_profile WHERE id = $id AND login_id = $current_user";
 		$result = mysqli_query($con, $item);
 		$profile = mysqli_fetch_assoc($result);
 
