@@ -8,7 +8,7 @@
     require 'layouts/Header.php';
 ?>
 
-<title> FAQ's | Yarn Over Hook </title>
+<title> FAQ | Yarn Over Hook </title>
 
 <body class="d-flex flex-column min-vh-100">
 
