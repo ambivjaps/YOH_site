@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             } else if ($hashedPwdCheck == true) {
                 if ($response != "") {
-                    $_SESSION['cust_id'] = $user_data['cust_id'];
+                    $_SESSION['login_id'] = $user_data['login_id'];
                     $_SESSION['user_rank'] = $user_data['user_rank'];
                     $_SESSION['c_id'] = $user_data['c_id'];
                     $_SESSION['cust_name'] = $user_data['cust_name'];
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 
-if(!empty($_SESSION['cust_id'])) {
+if(!empty($_SESSION['login_id'])) {
     header("location: HomePage.php");
 }
 

@@ -70,8 +70,7 @@
                                     <label class="col-form-label" for="item-type">Item Type </label>
                                     <select class="form-control item" value="<?php echo $inv['ItemType']; ?>"  required>
                                     <option value="raw">Raw</option>
-                                    <option value="ong">On-Going</option>
-                                    <option value="comp">Completed</option>
+                                    <option value="comp">Finished</option>
                                     </optgroup>
                                     </select> 
                                 </div>

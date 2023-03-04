@@ -60,7 +60,6 @@
                         <td> <a class="btn btn-sm btn-primary" href="ProfileAcct.php?id=<?php echo $profile['id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
                     <?php $loop++; endforeach; ?>
                 </table>
-
                 <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>
 
                 <nav style="margin-bottom: 15px;margin-top: 10px;">

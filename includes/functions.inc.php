@@ -3,11 +3,11 @@
 function check_login($con)
 {
     
-    if(isset($_SESSION['cust_id']))
+    if(isset($_SESSION['login_id']))
     {
         
-        $id = $_SESSION['cust_id'];
-        $query = "select * from register where cust_id = '$id' limit 1";
+        $id = $_SESSION['login_id'];
+        $query = "select * from register where login_id = '$id' limit 1";
         
         $result = mysqli_query($con,$query);
         if($result && mysqli_num_rows($result) > 0)

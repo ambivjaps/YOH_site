@@ -1,4 +1,23 @@
 <header>
+    <style>
+        .modal-content {
+            top: 30%;
+            width: 23%;
+            background-color: #fee8e8;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        .modal-footer {
+            border: none;
+        }
+
+        .modal-footer button {
+            background-color: white;
+            margin: 0 auto;
+            border: none;
+        }
+    </style>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top clean-navbar">
         <div class="container">
         <a class="navbar-brand logo mx-auto" href="HomePage.php" style="padding-left: 55px;padding-right: 0px;margin-right: 44px;font-size: 30px;font-family: Alata, sans-serif;">
@@ -8,35 +27,31 @@
             <div class="collapse navbar-collapse my-2" id="navcol-1">
 
             <?php
-                if (isset($_SESSION['cust_id']) && $_SESSION['user_rank'] == 'user'){
+                if (isset($_SESSION['login_id']) && $_SESSION['user_rank'] == 'user'){
                     echo '<ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="HomePage.php"><i class="fas fa-home"></i> Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="ProfileAccntView.php"><i class="fas fa-user-friends"></i> Profiles</a></li>
                     <li class="nav-item"><a class="nav-link" href="OrderPageCust.php"><i class="fas fa-check-square"></i> Orders</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-circle"></i> '.$_SESSION['cust_name'].'</a></li>
-                    <form class="form-inline" action="includes/logout.inc.php" method="POST">
-                        <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit"> <i class="fas fa-sign-out-alt"></i> Logout</button>
-                    </form>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-circle"></i> Welcome, '.$_SESSION['cust_name'].'!</a></li>
+                    <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit"> <i class="fas fa-sign-out-alt"></i> Logout</button>
                     </ul>';
 
-                } else if (isset($_SESSION['cust_id']) && $_SESSION['user_rank'] == 'admin') {
+                } else if (isset($_SESSION['login_id']) && $_SESSION['user_rank'] == 'admin') {
                     echo '<ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="HomePage.php"><i class="fas fa-home"></i> Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="CustomerProfileListAdmin.php"><i class="fas fa-user-friends"></i> Profiles</a></li>
                     <li class="nav-item"><a class="nav-link" href="Inventory.php"><i class="fas fa-dolly-flatbed"></i> Inventory</a></li>
                     <li class="nav-item"><a class="nav-link" href="VideosAdmin.php"><i class="fas fa-play"></i> Videos</a></li>
                     <li class="nav-item"><a class="nav-link" href="OrdersAdminView.php"><i class="fas fa-check-square"></i> Orders</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-circle"></i> '.$_SESSION['cust_name'].' ('.$_SESSION['user_rank'].')</a></li>
-                    <form class="form-inline" action="includes/logout.inc.php" method="POST">
-                        <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit"> <i class="fas fa-sign-out-alt"></i> Logout</button>
-                    </form>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-circle"></i> Welcome, '.$_SESSION['cust_name'].'!</a></li>
+                    <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit"> <i class="fas fa-sign-out-alt"></i> Logout</button>
                     </ul>';
 
                 } else {
                     echo '<ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="HomePage.php"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Videos.php"><i class="fas fa-play"></i> Videos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="FAQ.php"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Videos.php"><i class="fas fa-home"></i> Videos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="FAQ.php"><i class="fas fa-home"></i> FAQ</a></li>
                     <form class="form-inline" action="Login.php">
                         <button class="btn btn-light my-3 my-sm-0" type="submit"> <i class="fas fa-sign-in-alt"></i> Login</button>
                     </form>
@@ -57,4 +72,34 @@
             </div>
         </div>
     </nav>
+
+    <div id="logoutconfirmation" class="modal">
+        <div class="modal-content">
+            <p style="text-align:center; font-weight: bold;">Are you sure you want to logout?</p>
+            <div class="modal-footer">
+                <button id="okLogout">OK</button>
+                <button id="cancelLogout">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let logoutBtn = document.getElementsByName('logout')[0];
+        let okBtn = document.getElementById('okLogout');
+        let cancelBtn = document.getElementById('cancelLogout');
+
+        logoutBtn.addEventListener('click', () => {
+            document.getElementById('logoutconfirmation').style.display = 'block';
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            document.getElementById('logoutconfirmation').style.display = 'none';
+        });
+
+        okBtn.addEventListener('click', () => {
+            window.location.href = "includes/logout.inc.php";
+        });
+
+
+    </script>
 </header>
