@@ -29,7 +29,7 @@
     <?php if($profile): ?>
 
     <main class="page blog-post">
-        <section class="clean-block clean-post dark" style="background-color:#efe9ef; border:none; ">
+    <section class="clean-block clean-post dark" style="background-color:#efe9ef; border:none; ">
         <div class="container">
     <div class="row gutters">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -45,6 +45,7 @@
                     <p style="font-weight: bold; "><?php echo $profile['phone_no']; ?></p>
                 </div>
             </div>
+
         </div>
     </div>
     </div>
@@ -76,7 +77,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                        <label style="font-weight:bold;font-size:30px; " >Building</label>
+                        <label style="font-weight:bold;font-size:30px; " >Barangay</label>
                         <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['building']; ?></p>
                     </div>
                 </div>

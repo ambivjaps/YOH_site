@@ -1,6 +1,58 @@
 <?php session_start() ;
 include("includes/dbh.inc.php");
+
+
+if(isset($_POST["reset"])){
+        
+
+        include('includes/dbh.inc.php');
+        $psw = $_POST["cust_pass"];
+        $cpsw = $_POST["conf_pass"];
+        
+        $token = $_SESSION['token'];
+        $Email = $_SESSION['cust_email'];
+
+
+        $sql = mysqli_query($connect, "SELECT * FROM register WHERE cust_email='$Email'");
+        $query = mysqli_num_rows($sql);
+  	    $fetch = mysqli_fetch_assoc($sql);
+
+        
+
+          $hash = password_hash( $psw , PASSWORD_BCRYPT );
+        if($Email){
+            $new_pass = $hash;
+            if($psw != $cpsw) {
+           ?>
+            <script>
+                a(); 
+            </script>
+           <?php
+        }else if(!$psw >= 8 && !$cpsw >= 8){
+            ?>
+            <script>
+                b();
+            </script>
+            <?php
+        }else if($psw == 0 && $cpsw == 0){
+            ?>
+            <script>
+                c();
+            </script>
+            <?php
+         }else{
+            mysqli_query($connect, "UPDATE register SET cust_pass='$new_pass' WHERE cust_email='$Email'");
+            ?>
+            <script>
+                 window.location.replace("Login.php?ResetSuccess=true");
+            </script>
+            <?php
+         }
+        }
+    
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +118,7 @@ include("includes/dbh.inc.php");
                         <label class="form-label" for="password" style="color: rgb(111, 66, 193);">Re-type Password</label>
                         <input class="form-control" type="password" id="password" name="conf_pass" placeholder="Confirm Password" required  style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;">
                     </div>
-                    <button class="btn btn-primary" id="changepass" type="button" value="Reset" name="reset" style="margin-left: 162px;min-width: 133px;max-width: 180px;margin-bottom: 10px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 32px;width: 147px;">
+                    <button class="btn btn-primary" id="changepass" type="submit" name="reset" style="margin-left: 162px;min-width: 133px;max-width: 180px;margin-bottom: 10px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 32px;width: 147px;">
                         Reset Password
                     </button>
                 </form>
@@ -114,25 +166,40 @@ include("includes/dbh.inc.php");
                 'conf_pass': 'Re-type Password',
             }
             for (const key in fields) {
+                
                     if (document.getElementsByName(key)[0].value.length === 0) {
+                        var c = function(){
                         document.getElementById('error-message').innerHTML = fields[key] + ' is required';
                         modalError.style.display = "block";
-                        return;
+                        
                     }
+                    return c();
                 }
-
-                if(document.getElementsByName('cust_pass')[0].value.length < 8) {
+               
+                if(document.getElementsByName('cust_pass')[0].value.length < 8 || document.getElementsByName('cust_pass')[0].value.length < 8) {
+                    var b = function(){
                     document.getElementById('error-message').innerHTML = 'The password must have atleast 8 characters';
                     modalError.style.display = "block";
-                    return;
+                    
                 }
-
+                return b();
+            }
+                
                 if (document.getElementsByName('cust_pass')[0].value !== document.getElementsByName('conf_pass')[0].value) {
+                    var a = function(){
                     document.getElementById('error-message').innerHTML = 'The password does not match';
                     modalError.style.display = "block";
-                    return;
+                    
                 }
+                return a();
             }
+                else {
+                    return ;
+                }
+        }
+    }      
+        
+    
             document.getElementById('ResetPass').submit
      </script>
     </main>
@@ -145,45 +212,3 @@ include("includes/dbh.inc.php");
 </body>
 
 </html>
-
-
-<?php
-    if(isset($_POST["reset"])){
-        
-
-        include('connection.php');
-        $psw = $_POST["cust_pass"];
-        $cpsw = $_POST["conf_pass"];
-        
-        $token = $_SESSION['token'];
-        $Email = $_SESSION['cust_email'];
-
-
-        $sql = mysqli_query($connect, "SELECT * FROM register WHERE cust_email='$Email'");
-        $query = mysqli_num_rows($sql);
-  	    $fetch = mysqli_fetch_assoc($sql);
-
-        
-
-          $hash = password_hash( $psw , PASSWORD_BCRYPT );
-        if($Email){
-            $new_pass = $hash;
-            mysqli_query($connect, "UPDATE register SET cust_pass='$new_pass' WHERE cust_email='$Email'");
-            ?>
-            <script>
-                 window.location.replace("Login.php?ResetSuccess=true");
-            </script>
-           
-        }else{
-            <?php
-            ?>
-            <script>
-                alert("<?php echo "Please try again"?>");
-            </script>
-            <?php
-           
-        }
-    }
-
-?>
-    
