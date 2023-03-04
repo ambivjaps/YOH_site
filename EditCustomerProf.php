@@ -73,6 +73,8 @@
 
 <?php require 'layouts/nav.php';?>
 
+    <?php if($profile): ?>
+
     <div class="container my-5">
 
         <h1> Edit Profile </h1>
@@ -132,5 +134,11 @@
             </form>
         </div>
     </div>
+
+    <?php else: ?>
+        <div class="container my-5">
+            <h2> Oops.. Page not found. Please try again. </h2>
+        </div>
+    <?php endif ?>
     
 <?php require 'layouts/Footer.php';?>
