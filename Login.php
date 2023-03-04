@@ -123,4 +123,5 @@ if(!empty($_SESSION['cust_id'])) {
     <script src="assets/js/DesignAnimation.js"></script>
 
 </body>
+
 </html>
