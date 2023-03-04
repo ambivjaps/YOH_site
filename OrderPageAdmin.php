@@ -82,7 +82,7 @@
 				<i class="fa fa-trash-o" style="font-size:36px"></i>
                     <img class="card-img-top" src="" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Payment</h5>
+                        <h5 class="card-title"> <a href="AddPaymentAdmin.php">Payment</h5></a>
                         <p class="card-text">
                             <br> <b>Amount: </b>
 							<br> <b>Mode of Payment: </b>

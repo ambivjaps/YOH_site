@@ -6,6 +6,39 @@
     include("includes/access.inc.php");
     access('USER');
     $user_data = check_login($con);
+    
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $no_of_records_per_page = 9;
+
+    $offset = ($page-1) * $no_of_records_per_page;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM orders_db";
+    $result = mysqli_query($con, $total_pages_sql);
+    $total_rows = mysqli_fetch_array($result)[0];
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+        $sql = "SELECT * FROM orders_db LIMIT $offset, $no_of_records_per_page";
+        $res_data = mysqli_query($con, $sql);
+        $orders = mysqli_fetch_all($res_data, MYSQLI_ASSOC);
+        mysqli_free_result($result);
+
+        if(isset($_SESSION['login_id'])) {
+            $id = mysqli_real_escape_string($con, $_SESSION['login_id']);
+            // gets specific records based on current user
+            $item = "SELECT * FROM cust_profile WHERE c_id = $id";
+            
+            $result = mysqli_query($con, $item);
+    
+            $c_prof = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
+            mysqli_close($con);
+        }
+
+   
 
     require 'layouts/Header.php';
 ?>
@@ -44,6 +77,7 @@
             </div>
 			<div class="container">
         <div class="row">
+        <?php foreach($orders as $order): ?>
             <div class="col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -81,7 +115,7 @@
 				<i class="fa fa-trash-o" style="font-size:36px"></i>
                     <img class="card-img-top" src="" alt="">
                     <div class="card-body">
-                        <h5 class="card-title"> <a href="AddPayment.php">Payment</h5></a>
+                        <h5 class="card-title"> <a href="AddPaymentCust.php?id=<?php echo $order['order_id'] ?>">Payment</h5></a>
                         <p class="card-text">
                             <br> <b>Amount: </b>
 							<br> <b>Mode of Payment: </b>
@@ -117,7 +151,7 @@
                     <img class="card-img-top" src="" alt="">
   
                     <div class="card-body">
-                        <h5 class="card-title"> <a href="TrackingDetails.php">Tracking Details</h5>  </a>
+                        <h5 class="card-title">Tracking Details</h5>
                         <p class="card-text">
                             <br> <b>Courier: </b>
 							<br> <b>Tracking Number: </b>
@@ -129,7 +163,7 @@
             </div>
         </div>
     </div>
-	
+	<?php endforeach; ?>
         </section>
     </main>
 

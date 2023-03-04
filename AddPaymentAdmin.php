@@ -7,15 +7,15 @@
     $user_data = check_login($con);
     
     require 'layouts/Header.php';
-
+    
     if(isset($_GET['id'])) {
-		$id = mysqli_real_escape_string($con, $_GET['id']);
-		$sql = "SELECT * FROM orders_db WHERE order_id = $id";
-		$result = mysqli_query($con, $sql);
-		$orders = mysqli_fetch_assoc($result);
-
-		mysqli_free_result($result);
-	}
+        $id = mysqli_real_escape_string($con, $_GET['id']);
+        $item = "SELECT * FROM orders_db WHERE order_id = $id";
+        $result = mysqli_query($con, $item);
+        $orders = mysqli_fetch_assoc($result);
+        
+        mysqli_free_result($result);
+    }
 ?>
 
 <title> Add Payment | Yarn Over Hook </title>
@@ -35,10 +35,14 @@
                         <div></div>
                         <div class="item"><span class="price"></span>
                             <div></div>
-                            <p class="item-name">Amount: <?php echo $orders['ItemPrice']; ?></p>
-                            <p class="item-name" style="margin-bottom: 13.2px;">Mode of Payment</p>
-                            <p class="item-name">Status of Payment</p>
-                            <p class="item-name" style="margin-bottom: 14.2px;margin-top: 14px;">Proof of Payment<input class="form-control form-control form-control" type="file" name="avatar-file" style="width: 275px;margin-left: 162px;margin-bottom: -6px;margin-top: -32px;"></p>
+                            <p class="item-name">Amount <input placeholder="<?php echo $orders['ItemPrice']; ?>" class="form-control form-control" type="text" style="width: 240px;height: 30px;margin-left: 89px;margin-bottom: 16px;margin-top: -30px;"></p>
+                            <p class="item-name" style="margin-bottom: 13.2px;" input="read-only">Mode of Payment</p>
+                            <p class="item-name">Status of Payment   
+                            <select name="" id="sel" >
+                              <option value="Downpayment">Downpayment</option>
+                              <option value="FullPayment">Full Payment</option>
+                        		</select> </p>
+                            <p class="item-name" style="margin-bottom: 14.2px;margin-top: 14px;" input="read-only">Proof of Payment</p>
                         </div>
                         <div class="item"></div>
                         <div class="total"><button class="btn btn-primary" type="button" style="margin-left: 344px;width: 80.4844px;">Save</button><a href=""><button class="btn btn-primary" type="button" style="margin-left: 14px;">Cancel</button></a></div>
