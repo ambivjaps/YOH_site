@@ -44,9 +44,9 @@
             <div class="container">
 
             <form class="mb-3" action="InventoryItem.php" method="POST">
-			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button">Edit</a>
+			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
 			    <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $inv['ItemID']; ?>">
-			    <input class="btn btn-dark" type="submit" name="delete" role="button" value="Delete">
+			    <input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
 		    </form>
 
         <div class="row gutters">
