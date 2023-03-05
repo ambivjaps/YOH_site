@@ -38,27 +38,79 @@
 
 <?php if($inv): ?>
 
-    <div class="container my-5">
+        <main class="page blog-post">
+        <section class="clean-block clean-post dark" style="background-color:#efe9ef; border:none; ">
+            <div class="container">
 
-        <form class="mb-3" action="InventoryItem.php" method="POST">
-			<a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button">Edit</a>
-			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $inv['ItemID']; ?>">
-			<input class="btn btn-dark" type="submit" name="delete" role="button" value="Delete">
-		</form>
+            <form class="mb-3" action="InventoryItem.php" method="POST">
+			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button">Edit</a>
+			    <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $inv['ItemID']; ?>">
+			    <input class="btn btn-dark" type="submit" name="delete" role="button" value="Delete">
+		    </form>
 
-        <h1> <?php echo $inv['ItemName'] ?> </h1>
-        <h1> <?php echo $inv['ItemType'] ?> </h1>
+        <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+        <div class="card h-100">
+            <div class="card-body" style="background: #f4e3ff;">
+                <div class="account-settings">
+                    <div class="user-profile">
+                        <div class="user-avatar" >
+                            <img src="<?php echo $inv['ItemImg']; ?>" style="height:200px; width:200px;">
+                        </div>
+                        <h5 class="user-name" style="font-weight: bold; font-size:40px; color: var(--bs-indigo);"><?php echo $inv['ItemName']; ?></h5>
+                        <p style="font-weight: bold; ">ID: <?php echo $inv['ItemID']; ?></p>
+                    </div>
+                </div>
 
-
-
-
-    </div>
-
-    <?php else: ?>
-        <div class="container my-5">
-            <h2> Oops.. Page not found. Please try again. </h2>
+            </div>
         </div>
-    <?php endif ?>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+        <div class="card h-100">
+            <div class="card-body" style="background: #f4e3ff;">
+                <div class="row gutters">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h6 style="font-weight: bold; font-size:40px; text-align:center; " >Item Details</h6>
+                        <hr>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label style="font-weight:bold; font-size:30px; ">Type</label>
+                            <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $inv['ItemType']; ?></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label style="font-weight:bold;font-size:30px; ">Quantity</label>
+                            <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $inv['ItemQty']; ?></p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label style="font-weight:bold;font-size:30px; " >Price</label>
+                            <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;">Php<?php echo $inv['ItemPrice']; ?></p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label style="font-weight:bold;font-size:30px; ">Description</label>
+                            <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $inv['ItemDesc']; ?></p>
+                        </div>
+                    </div>
+                </div>     
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <?php else: ?>
+            <div class="container my-5">
+                <h2> Oops.. Page not found. Please try again. </h2>
+            </div>
+        <?php endif ?>
+
+    </section>
+</main>
 
 
 <?php require 'layouts/Footer.php';?>
