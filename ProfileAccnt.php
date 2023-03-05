@@ -48,7 +48,7 @@
     <section class="clean-block clean-post dark" style="background-color:#efe9ef; border:none; ">
         <div class="container">
 
-        <form class="mb-3" action="ProfileAcct.php" method="POST">
+        <form class="mb-3" action="ProfileAccnt.php" method="POST">
 			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button">Edit</a>
 			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
 			<input class="btn btn-dark" type="submit" name="delete" role="button" value="Delete">

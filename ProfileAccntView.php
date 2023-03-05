@@ -57,7 +57,7 @@
                         <td> <?php echo $profile['c_name']; ?> </td>
                         <td> <?php echo $profile['address']; ?> </td>
                         <td> <?php echo $profile['date']; ?> </td>
-                        <td> <a class="btn btn-sm btn-primary" href="ProfileAcct.php?id=<?php echo $profile['id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
+                        <td> <a class="btn btn-sm btn-primary" href="ProfileAccnt.php?id=<?php echo $profile['id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
                     <?php $loop++; endforeach; ?>
                 </table>
                 <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>
