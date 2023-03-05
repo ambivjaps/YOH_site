@@ -62,6 +62,10 @@
         <div class="form-group">
             <form action="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST">
                 <div class="row my-3">
+                    <div class="col-md-6">
+                        <label>Avatar</label>
+                        <input type="file" class="form-control form-control my-3" name="ItemImg">
+                    </div>
                     <div class="col-md-12">
                         <label>Name</label>
                         <input type="text" name="ItemName" id="ItemName" class="form-control" value="<?php echo $inv['ItemName'] ?>">
