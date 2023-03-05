@@ -4,6 +4,7 @@
     include("includes/dbh.inc.php");
     include("includes/functions.inc.php");
     include("includes/access.inc.php");
+    access('ADMIN');
     $user_data = check_login($con);
     
     require 'layouts/Header.php';
