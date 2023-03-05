@@ -23,16 +23,18 @@
         $InvID = $inv['ItemID'];
     
         $ItemName = mysqli_real_escape_string($con, $_POST['ItemName']);
+        $ItemImg = mysqli_real_escape_string($con, $_POST['ItemImg']);
         $ItemDesc = mysqli_real_escape_string($con, $_POST['ItemDesc']);
         $ItemQty = mysqli_real_escape_string($con, $_POST['ItemQty']);
         $ItemType = $_POST['ItemType'];
         $ItemPrice = mysqli_real_escape_string($con, $_POST['ItemPrice']);
     
-        $query = "UPDATE inventory_db SET ItemName='$ItemName',ItemDesc='$ItemDesc',ItemQty='$ItemQty',ItemType='$ItemType',ItemPrice='$ItemPrice' WHERE ItemID=$InvID";
+        $query = "UPDATE inventory_db SET ItemName='$ItemName',ItemImg='$ItemImg',ItemDesc='$ItemDesc',ItemQty='$ItemQty',ItemType='$ItemType',ItemPrice='$ItemPrice' WHERE ItemID=$InvID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['ItemName'] = $_POST['ItemName'];
+            $_SESSION['ItemImg'] = $_POST['ItemImg'];
             $_SESSION['ItemDesc'] = $_POST['ItemDesc'];
             $_SESSION['ItemQty'] = $_POST['ItemQty'];
             $_SESSION['ItemType'] = $_POST['ItemType'];

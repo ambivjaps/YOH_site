@@ -74,6 +74,7 @@
                                                 <a href="InventoryItem.php?id=<?php echo $item['ItemID'] ?>" style="text-decoration: none;">
                                                     <div class="product-name"><?php echo $item['ItemName']; ?></div>
                                                 </a>
+                                                <span class="badge bg-dark"><?php echo $item['ItemType']; ?></span>
                                                 <hr>
                                                 <div class="about">
                                                     <a href="ReOrderPoint.php?id=<?php echo $item['ItemID'] ?>"><button class="btn btn-primary" type="button" style="background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="fas fa-shopping-bag"></i></button></a>
