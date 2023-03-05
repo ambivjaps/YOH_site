@@ -75,8 +75,7 @@
                         <input type="text" name="ItemQty" id="ItemQty" class="form-control" value="<?php echo $inv['ItemQty'] ?>">
                     </div>
                     <div class="col-md-12">
-                        <label>Type</label>
-                        <strong>(Current type: <?php echo $inv['ItemType']; ?>)</strong>
+                        <label>Type <strong>(Current type: <?php echo $inv['ItemType']; ?>)</strong></label>
                         <select class="form-select" id="ItemType" name="ItemType" aria-label=".form-select example">
                             <option value="Raw">Raw</option>
                             <option value="Finished">Finished</option>
