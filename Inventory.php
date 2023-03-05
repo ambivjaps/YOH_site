@@ -68,10 +68,10 @@
                                     <?php foreach($items as $item): ?>
                                         <div class="col-12 col-md-6 col-lg-4">
                                             <div class="clean-product-item">
-                                                <a href="EditInventoryItem.php?id=<?php echo $item['ItemID'] ?>">
+                                                <a href="InventoryItem.php?id=<?php echo $item['ItemID'] ?>">
                                                     <div class="image"><img class="img-fluid d-block mx-auto rounded" src="<?php echo $item['ItemImg']; ?>" title="<?php echo $item['ItemName']; ?>" alt="<?php echo $item['ItemName']; ?>"></div>
                                                 </a>
-                                                <a href="EditInventoryItem.php?id=<?php echo $item['ItemID'] ?>" style="text-decoration: none;">
+                                                <a href="InventoryItem.php?id=<?php echo $item['ItemID'] ?>" style="text-decoration: none;">
                                                     <div class="product-name"><?php echo $item['ItemName']; ?></div>
                                                 </a>
                                                 <hr>
