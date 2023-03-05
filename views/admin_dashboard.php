@@ -25,12 +25,18 @@
     $result = mysqli_query($con, $video_count);
     $videos = mysqli_fetch_array($result)[0];
     mysqli_free_result($result);
+
+    // retrieves slide count
+    $slide_count = "SELECT COUNT(*) FROM slides";
+    $result = mysqli_query($con, $slide_count);
+    $slides = mysqli_fetch_array($result)[0];
+    mysqli_free_result($result);
 ?>
 
 <div class="container my-5">
 
     <div class="admin-welcome mt-3">
-        <h3><strong> <i class="fas fa-user-cog"></i> Administrator Dashboard </strong></h3>
+        <h2><strong> <i class="fas fa-user-cog"></i> Administrator Dashboard </strong></h2>
         <h5> Welcome back, <?php echo $_SESSION['cust_name']; ?>!</h5><hr>
     </div>
 
@@ -66,7 +72,7 @@
         <div class="col-md-6 my-2">
             <div class="h-100 p-5 text-white bg-dark rounded-1 yoh-card-ins" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.5) 100%), url('assets/img/bg_og.jpg');">
                 <h1 class="pt-5 my-3 lh-1" style="text-shadow: #000 1px 0 5px;"><i class="fas fa-images"></i> Slides </h1>
-                <p style="text-shadow: #000 1px 0 5px;"><strong> 0 </strong> records</p>
+                <p style="text-shadow: #000 1px 0 5px;"><strong> <?php echo $slides ?> </strong> records</p>
                 <a class="btn btn-light mt-2" href="#" role="button">View all <i class="fas fa-caret-right"></i></a>
             </div>
         </div><hr>
