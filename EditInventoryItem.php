@@ -24,13 +24,19 @@
     
         $ItemName = mysqli_real_escape_string($con, $_POST['ItemName']);
         $ItemDesc = mysqli_real_escape_string($con, $_POST['ItemDesc']);
+        $ItemQty = mysqli_real_escape_string($con, $_POST['ItemQty']);
+        $ItemType = $_POST['ItemType'];
+        $ItemPrice = mysqli_real_escape_string($con, $_POST['ItemPrice']);
     
-        $query = "UPDATE inventory_db SET ItemName='$ItemName',ItemDesc='$ItemDesc' WHERE ItemID=$InvID";
+        $query = "UPDATE inventory_db SET ItemName='$ItemName',ItemDesc='$ItemDesc',ItemQty='$ItemQty',ItemType='$ItemType',ItemPrice='$ItemPrice' WHERE ItemID=$InvID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['ItemName'] = $_POST['ItemName'];
             $_SESSION['ItemDesc'] = $_POST['ItemDesc'];
+            $_SESSION['ItemQty'] = $_POST['ItemQty'];
+            $_SESSION['ItemType'] = $_POST['ItemType'];
+            $_SESSION['ItemPrice'] = $_POST['ItemPrice'];
 
             mysqli_close($con);
             header("Location: Inventory.php");
@@ -52,7 +58,7 @@
 
     <div class="container my-5">
 
-        <h1> Edit Profile </h1>
+        <h1> Edit Inventory Item </h1>
         <div class="form-group">
             <form action="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST">
                 <div class="row my-3">
@@ -63,6 +69,22 @@
                     <div class="col-md-12">
                         <label>Description</label>
                         <input type="text" name="ItemDesc" id="ItemDesc" class="form-control" value="<?php echo $inv['ItemDesc'] ?>">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Quantity</label>
+                        <input type="text" name="ItemQty" id="ItemQty" class="form-control" value="<?php echo $inv['ItemQty'] ?>">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Type</label>
+                        <strong>(Current type: <?php echo $inv['ItemType']; ?>)</strong>
+                        <select class="form-select" id="ItemType" name="ItemType" aria-label=".form-select example">
+                            <option value="Raw">Raw</option>
+                            <option value="Finished">Finished</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Price (in Php)</label>
+                        <input type="text" name="ItemPrice" id="ItemPrice" class="form-control" value="<?php echo $inv['ItemPrice'] ?>">
                     </div>
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
