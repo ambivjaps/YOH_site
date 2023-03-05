@@ -19,7 +19,7 @@
 
     if(isset($_POST['delete'])) {
 		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
-		$sql = "DELETE FROM inventory_id WHERE ItemID = $delete_id";
+		$sql = "DELETE FROM inventory_db WHERE ItemID = $delete_id";
 
 		if(mysqli_query($con, $sql)) {
 			header('Location: Inventory.php');
