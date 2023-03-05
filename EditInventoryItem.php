@@ -67,14 +67,6 @@
                         <input type="text" name="ItemName" id="ItemName" class="form-control" value="<?php echo $inv['ItemName'] ?>">
                     </div>
                     <div class="col-md-12">
-                        <label>Description</label>
-                        <input type="text" name="ItemDesc" id="ItemDesc" class="form-control" value="<?php echo $inv['ItemDesc'] ?>">
-                    </div>
-                    <div class="col-md-12">
-                        <label>Quantity</label>
-                        <input type="text" name="ItemQty" id="ItemQty" class="form-control" value="<?php echo $inv['ItemQty'] ?>">
-                    </div>
-                    <div class="col-md-12">
                         <label>Type <strong>(Current type: <?php echo $inv['ItemType']; ?>)</strong></label>
                         <select class="form-select" id="ItemType" name="ItemType" aria-label=".form-select example">
                             <option value="Raw">Raw</option>
@@ -82,8 +74,16 @@
                         </select>
                     </div>
                     <div class="col-md-12">
+                        <label>Quantity</label>
+                        <input type="text" name="ItemQty" id="ItemQty" class="form-control" value="<?php echo $inv['ItemQty'] ?>">
+                    </div>
+                    <div class="col-md-12">
                         <label>Price (in Php)</label>
                         <input type="text" name="ItemPrice" id="ItemPrice" class="form-control" value="<?php echo $inv['ItemPrice'] ?>">
+                    </div>      
+                    <div class="col-md-12">
+                        <label>Description</label>
+                        <textarea type="text" rows="5" class="form-control" name="ItemDesc" id="ItemDesc"><?php echo $inv['ItemDesc'] ?></textarea>
                     </div>
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
