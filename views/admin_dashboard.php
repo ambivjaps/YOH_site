@@ -58,7 +58,7 @@
         </div>
         <div class="col-md-6 my-2">
             <div class="h-100 p-5 text-white bg-dark rounded-1 yoh-card-ins" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.5) 100%), url('assets/img/bg_og.jpg');">
-                <h1 class="pt-5 my-3 lh-1" style="text-shadow: #000 1px 0 5px;"><i class="fas fa-home"></i> Videos </h1>
+                <h1 class="pt-5 my-3 lh-1" style="text-shadow: #000 1px 0 5px;"><i class="fas fa-play"></i> Videos </h1>
                 <p style="text-shadow: #000 1px 0 5px;"><strong> <?php echo $videos ?> </strong> records</p>
                 <a class="btn btn-light mt-2" href="VideosAdmin.php" role="button">View all <i class="fas fa-caret-right"></i></a>
             </div>
