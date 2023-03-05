@@ -1,3 +1,17 @@
+<?php
+    /* slide carousel */
+    $carousel = "SELECT * FROM slides ORDER BY slide_id LIMIT 5";
+    $result = mysqli_query($con, $carousel);
+    $slides = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    mysqli_free_result($result);
+
+    /* featured video */
+	$feat_vid = "SELECT * FROM videos ORDER BY vid_id DESC LIMIT 3";
+	$result = mysqli_query($con, $feat_vid);
+	$videos = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	mysqli_free_result($result);
+?>
+
 <div id="yoh-slide" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
     		<button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
