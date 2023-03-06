@@ -9,7 +9,7 @@
     mysqli_free_result($result);
 
     // retrieves inventory count
-    $inventory_count = "SELECT COUNT(*) FROM inventory_db";
+    $inventory_count = "SELECT COUNT(*) FROM products";
     $result = mysqli_query($con, $inventory_count);
     $inventory = mysqli_fetch_array($result)[0];
     mysqli_free_result($result);
