@@ -51,15 +51,15 @@
                 <div class="row my-3">
                     <div class="col-md-12">
                         <label>Title</label>
-                        <input type="text" name="vid_title" id="vid_title" class="form-control">
+                        <input type="text" name="vid_title" id="vid_title" class="form-control" required>
                     </div>
                     <div class="col-md-12">
                         <label>Description</label>
-                        <textarea type="text" rows="4" class="form-control" name="vid_desc" id="vid_desc"></textarea>
+                        <textarea type="text" rows="4" class="form-control" name="vid_desc" id="vid_desc" required></textarea>
                     </div>
                     <div class="col-md-12">
                         <label>Category</label>
-                        <select class="form-select" id="vid_cat" name="vid_cat" aria-label=".form-select example">
+                        <select class="form-select" id="vid_cat" name="vid_cat" aria-label=".form-select example" required>
                             <option value="Crochet Tutorial">Crochet Tutorial</option>
                             <option value="Crochet with Me">Crochet with Me</option>
                             <option value="Craft Vlog">Craft Vlog</option>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="col-md-12">
                         <label>URL</label>
-                        <input type="text" name="vid_url" id="vid_url" class="form-control">
+                        <input type="text" name="vid_url" id="vid_url" class="form-control" required>
                     </div>
                   
                     <div class="button-group float-end">
