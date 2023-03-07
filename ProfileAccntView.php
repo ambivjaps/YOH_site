@@ -53,7 +53,7 @@
 
                     <?php $loop=1; foreach($c_prof as $profile): ?>
                         <tr><td> <?php echo $loop; ?> </td>
-                        <td> <img width="50%" src="assets/img/avatars/nopic1.jpg"> </td>
+                        <td> <img width="100px" src="<?php echo $profile['c_avatar']; ?>"> </td>
                         <td> <?php echo $profile['c_name']; ?> </td>
                         <td> <?php echo $profile['address']; ?> </td>
                         <td> <?php echo $profile['date']; ?> </td>
