@@ -48,7 +48,7 @@
                         <td> <?php echo $video['vid_title']; ?> </td>
                         <td> <?php echo $video['vid_cat']; ?> </td>
                         <td> <?php echo $video['vid_url']; ?> </td>
-                        <td> <a class="btn btn-sm btn-primary" href="Video.php?id=<?php echo $video['vid_id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
+                        <td> <a class="btn btn-sm btn-dark" href="Video.php?id=<?php echo $video['vid_id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
                     <?php endforeach; ?>
                 </table>
                 <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>
