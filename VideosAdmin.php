@@ -39,7 +39,7 @@
                         <th> # </th>
                         <th> Title </th>
                         <th> Category </th>
-                        <th> URL </th>
+                        <th> Last Updated </th>
                         <th> Action </th>
                     </tr>
 
@@ -47,7 +47,7 @@
                         <tr><td> <?php echo $video['vid_id']; ?> </td>
                         <td> <?php echo $video['vid_title']; ?> </td>
                         <td> <?php echo $video['vid_cat']; ?> </td>
-                        <td> <?php echo $video['vid_url']; ?> </td>
+                        <td> <?php echo $video['created_at']; ?> </td>
                         <td> <a class="btn btn-sm btn-dark" href="Video.php?id=<?php echo $video['vid_id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
                     <?php endforeach; ?>
                 </table>

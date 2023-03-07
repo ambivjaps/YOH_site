@@ -57,8 +57,8 @@
                         <h3><strong> Slide Details: </strong></h3>
                         <p> Title: <?php echo $slide['slide_title']; ?> </p>
                         <p> Description: <?php echo $slide['slide_desc']; ?> </p>
-                        <p> Category: <?php echo $slide['slide_link']; ?> </p>
-                        <p> Created at: <?php echo $slide['created_at']; ?> </p>
+                        <p> Link: <?php echo $slide['slide_link']; ?> </p>
+                        <p> Last Updated: <?php echo $slide['created_at']; ?> </p>
                     </div>
                 </div>
 

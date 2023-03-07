@@ -39,7 +39,7 @@
                         <th> # </th>
                         <th> Image </th>
                         <th> Title </th>
-                        <th> Created At </th>
+                        <th> Last Updated </th>
                         <th> Action </th>
                     </tr>
 

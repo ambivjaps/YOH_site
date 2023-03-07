@@ -59,7 +59,7 @@
                         <p> Description: <?php echo $video['vid_desc']; ?> </p>
                         <p> Category: <?php echo $video['vid_cat']; ?> </p>
                         <p> URL: <?php echo $video['vid_url']; ?> </p>
-                        <p> Created at: <?php echo $video['created_at']; ?> </p>
+                        <p> Last Updated: <?php echo $video['created_at']; ?> </p>
                     </div>
                 </div>
 
