@@ -69,12 +69,66 @@
                         </div>
                         <hr>
                         <span></span><span class="price"></span>
-                        <button class="btn btn-primary d-block w-100" type="submit" style="margin-top: 19px; border-color: rgb(119,13,253);background: rgb(119,13,253);">Confirm</button>
+                        <button class="btn btn-primary d-block w-100" id="myBtn1" type="submit" style="margin-top: 19px; border-color: rgb(119,13,253);background: rgb(119,13,253);">Confirm</button>
+                        <div id="myModal1" class="modal1">
+                                <div class="modal-content1">
+                                    <span class="close1">&times;</span>
+                                    <p style="font-weight:bold;font-size:50px;">Thank you!</p>
+                                    <p style="font-weight:bold;">Your Re-order has been confirmed </p>
+                                    <p style="margin-left:-100px;font-weight:bold;"> How many items: </p> 
+                                    <input type="number"class="form-control rounded" style="width:10%; margin-left:390px; margin-top:-45px;"></input>
+                                    <br>
+                                    <button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px; border-color: rgb(119,13,253);background: rgb(119,13,253);" id="yesBtn">Yes</button></a><button class="btn btn-primary border rounded" id="noBtn" style="width: 78.178px; background: rgb(220, 53, 69); border:rgb(220, 53, 69);">No</button>
+                                    </div>
+                            </div>
                         <a href="Inventory.php" type="button" class="btn btn-primary d-block w-100" class="btn btn-primary d-block w-100"  type="button" style="margin-top: 19px; background: rgb(220, 53, 69); border:rgb(220, 53, 69); text-decoration:none;color:white;">Cancel</a>
                     </div>
                 </form>
             </div>
         </section>
     </main>
+    <script>
+
+var modal = document.getElementById("myModal1");
+
+var btn = document.getElementById("myBtn1");
+
+var yesBtn = document.getElementById("yesBtn");
+
+var noBtn = document.getElementById("noBtn");
+
+var yesModal = document.getElementById("yesMess");
+
+var span = document.getElementsByClassName("close1")[0];
+
+var span1 = document.getElementsByClassName("close2")[0];
+
+btn.onclick = function() {
+modal.style.display = "block";
+}
+
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+span1.onclick = function() {
+    yesModal.style.display = "none";
+}
+
+yesBtn.onclick = function() {
+    modal.style.display = "none";
+    yesModal.style.display = "block";
+}
+
+noBtn.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+if (event.target == modal) {
+    modal.style.display = "none";
+}
+}
+</script>
 
 <?php require 'layouts/Footer.php';?>

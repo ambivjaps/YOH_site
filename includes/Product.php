@@ -4,7 +4,7 @@ class Product{
     private $user  = 'root';
     private $password   = "";
     private $database  = "yoh_db";
-	private $productTable = 'products';    
+	private $productTable = 'inventory_db';    
 	private $dbConnect = false;
     public function __construct(){
         if(!$this->dbConnect){ 

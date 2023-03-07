@@ -11,7 +11,7 @@
 
     if(isset($_GET['id'])) {
 		$id = mysqli_real_escape_string($con, $_GET['id']);
-		$item = "SELECT * FROM products WHERE ItemID = $id";
+		$item = "SELECT * FROM inventory_db WHERE ItemID = $id";
 		$result = mysqli_query($con, $item);
 		$inv = mysqli_fetch_assoc($result);
 
@@ -30,7 +30,7 @@
         $ItemType = $_POST['ItemType'];
         $ItemPrice = mysqli_real_escape_string($con, $_POST['ItemPrice']);
     
-        $query = "UPDATE products SET ItemName='$ItemName',ItemImg='$ItemImg',ItemDesc='$ItemDesc',ItemQty='$ItemQty',ItemType='$ItemType',ItemPrice='$ItemPrice' WHERE ItemID=$InvID";
+        $query = "UPDATE inventory_db SET ItemName='$ItemName',ItemImg='$ItemImg',ItemDesc='$ItemDesc',ItemQty='$ItemQty',ItemType='$ItemType',ItemPrice='$ItemPrice' WHERE ItemID=$InvID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
