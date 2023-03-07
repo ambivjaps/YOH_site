@@ -11,6 +11,64 @@
 
 ?>
 
+<?php 
+    if(isset($_POST['submit'])) {
+        $CID = $_SESSION['login_id'];
+
+        $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
+        $email = mysqli_real_escape_string($con, $_POST['email']);
+        $address = mysqli_real_escape_string($con, $_POST['address']);
+        
+        $region = mysqli_real_escape_string($con, $_POST['region']);
+        $city = mysqli_real_escape_string($con, $_POST['city']);
+        $street = mysqli_real_escape_string($con, $_POST['street']);
+        $barangay = mysqli_real_escape_string($con, $_POST['barangay']);
+        
+        $phone_no = mysqli_real_escape_string($con, $_POST['phone_no']);
+        $zip_code = mysqli_real_escape_string($con, $_POST['zip_code']);
+        $unit_no = mysqli_real_escape_string($con, $_POST['unit_no']);
+
+        $image = $_FILES['c_avatar']['name'];
+        $temp_name = $_FILES['c_avatar']['tmp_name'];  
+        
+            if(isset($image) and !empty($image)){
+                $location = './assets/img/avatars/';     
+                $saveImage = 'assets/img/avatars/' .$_FILES['c_avatar']['name']; 
+
+                if(move_uploaded_file($temp_name, $location.$image)){
+                    echo '';
+                }
+            } else {
+                $saveImage = 'assets/img/avatars/nopic1.jpg';
+            }
+        
+        $query = "INSERT INTO cust_profile (c_id, c_name, c_avatar, email, address, region, city, street, barangay, phone_no, zip_code, unit_no, login_id) VALUES ('$CID', '$c_name', '$saveImage', '$email', '$address', '$region', '$city', '$street', '$barangay', '$phone_no', '$zip_code', '$unit_no', '$CID')";
+        $query_run = mysqli_query($con, $query);
+    
+        if($query_run) {
+            $_SESSION['c_name'] = $_POST['c_name'];
+            $_SESSION['email'] = $_POST['email'];
+            $_SESSION['address'] = $_POST['address'];
+
+            $_SESSION['region'] = $_POST['region'];
+            $_SESSION['city'] = $_POST['city'];
+            $_SESSION['street'] = $_POST['street'];
+            $_SESSION['barangay'] = $_POST['barangay'];
+
+            $_SESSION['phone_no'] = $_POST['phone_no'];
+            $_SESSION['zip_code'] = $_POST['zip_code'];
+            $_SESSION['unit_no'] = $_POST['unit_no'];
+            header("Location: ProfileAccntView.php");
+            mysqli_close($con);
+            
+            exit();
+
+        } else {
+            echo "<script> alert('Problem occured.') </script>";
+        }
+    }
+?>
+
 <title> Add Customer Profile | Yarn Over Hook </title>
 
 <body class="d-flex flex-column min-vh-100">
@@ -21,7 +79,7 @@
 
         <h1> Add Profile </h1>
         <div class="form-group">
-            <form action="AddCustomerProf.php" method="POST">
+            <form action="AddCustomerProf.php" method="POST" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-6">
                         <label>Avatar</label>
