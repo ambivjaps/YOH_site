@@ -37,15 +37,17 @@
                 <table class="table table-striped table-hover table-sm mt-5">
                     <tr>
                         <th> # </th>
-                        <th> Title </th>
                         <th> Image </th>
+                        <th> Title </th>
+                        <th> Created At </th>
                         <th> Action </th>
                     </tr>
 
                     <?php foreach($slides as $slide): ?>
                         <tr><td> <?php echo $slide['slide_id']; ?> </td>
-                        <td> <?php echo $slide['slide_title']; ?> </td>
                         <td> <img width="250px" src="<?php echo $slide['slide_img']; ?>"> </td>
+                        <td> <?php echo $slide['slide_title']; ?> </td>
+                        <td> <?php echo $slide['created_at']; ?> </td>
                         <td> <a class="btn btn-sm btn-dark" href="Slide.php?id=<?php echo $slide['slide_id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
                     <?php endforeach; ?>
                 </table>
