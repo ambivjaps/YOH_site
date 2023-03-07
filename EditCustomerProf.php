@@ -29,7 +29,6 @@
         $PID = $profile['id'];
     
         $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
-        $c_avatar = mysqli_real_escape_string($con, $_POST['c_avatar']);
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $address = mysqli_real_escape_string($con, $_POST['address']);
         
@@ -42,12 +41,35 @@
         $zip_code = mysqli_real_escape_string($con, $_POST['zip_code']);
         $unit_no = mysqli_real_escape_string($con, $_POST['unit_no']);
     
-        $query = "UPDATE cust_profile SET c_name='$c_name',c_avatar='$c_avatar',email='$email',address='$address',region='$region',city='$city',street='$street',barangay='$barangay',phone_no='$phone_no',zip_code='$zip_code',unit_no='$unit_no' WHERE id=$PID";
+        $new_image = $_FILES['c_avatar']['name'];
+        $old_image = $_POST['c_avatar_old'];
+
+        if($new_image != '') {
+            $update_filename = 'assets/img/avatars/' . $_FILES['c_avatar']['name'];
+        } else {
+            $update_filename = $old_image;
+        }
+
+        if(file_exists("assets/img/avatars/" . $_FILES['c_avatar']['name'])) {
+        } else {
+            $query = "UPDATE cust_profile SET c_avatar='$update_filename' WHERE id='$PID' ";
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run) {
+                if($_FILES['c_avatar']['name'] != '') {
+                    move_uploaded_file($_FILES['c_avatar']['tmp_name'], "assets/img/avatars/" . $_FILES['c_avatar']['name']);
+                    unlink($old_image);
+                }
+            } else {
+                echo "<script> alert('Problem occured.') </script>";
+            }
+        }
+
+        $query = "UPDATE cust_profile SET c_name='$c_name',email='$email',address='$address',region='$region',city='$city',street='$street',barangay='$barangay',phone_no='$phone_no',zip_code='$zip_code',unit_no='$unit_no' WHERE id=$PID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['c_name'] = $_POST['c_name'];
-            $_SESSION['c_avatar'] = $_POST['c_avatar'];
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['address'] = $_POST['address'];
 
@@ -59,9 +81,9 @@
             $_SESSION['phone_no'] = $_POST['phone_no'];
             $_SESSION['zip_code'] = $_POST['zip_code'];
             $_SESSION['unit_no'] = $_POST['unit_no'];
-
-            mysqli_close($con);
             header("Location: ProfileAccntView.php");
+            mysqli_close($con);
+         
             exit();
 
         } else {
@@ -82,11 +104,12 @@
 
         <h1> Edit Profile </h1>
         <div class="form-group">
-            <form action="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" method="POST">
+            <form action="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" method="POST" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-6">
                         <label>Avatar</label>
                         <input type="file" class="form-control form-control my-3" name="c_avatar">
+                        <input type="hidden" name="c_avatar_old" value="<?php echo $profile['c_avatar']; ?>">
                     </div>
                     <div class="col-md-12">
                         <label>Name</label>

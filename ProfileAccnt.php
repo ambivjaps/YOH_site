@@ -24,6 +24,12 @@
 
     if(isset($_POST['delete'])) {
 		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
+        $filePath = $_POST['delete_img'];
+
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        } else {
+        }
 
 		$sql = "DELETE FROM cust_profile WHERE id = $delete_id";
 
@@ -51,6 +57,7 @@
         <form class="mb-3" action="ProfileAccnt.php" method="POST">
 			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
 			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
+            <input type="hidden" name="delete_img" value="<?php echo $profile['c_avatar']; ?>">
 			<input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
 		</form> 
 
