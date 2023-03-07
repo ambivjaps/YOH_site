@@ -73,7 +73,7 @@
             <div class="h-100 p-5 text-white bg-dark rounded-1 yoh-card-ins" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.5) 100%), url('assets/img/bg_og.jpg');">
                 <h1 class="pt-5 my-3 lh-1" style="text-shadow: #000 1px 0 5px;"><i class="fas fa-images"></i> Slides </h1>
                 <p style="text-shadow: #000 1px 0 5px;"><strong> <?php echo $slides ?> </strong> records</p>
-                <a class="btn btn-light mt-2" href="#" role="button">View all <i class="fas fa-caret-right"></i></a>
+                <a class="btn btn-light mt-2" href="SlidesAdmin.php" role="button">View all <i class="fas fa-caret-right"></i></a>
             </div>
         </div><hr>
         <p class="text-muted"> Yarn Over Hook | Website developed by Group#2 of 3-ITA </p>
