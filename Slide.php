@@ -20,6 +20,12 @@
 
     if(isset($_POST['delete'])) {
 		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
+        $filePath = $_POST['delete_img'];
+
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        } else {
+        }
 
 		$sql = "DELETE FROM slides WHERE slide_id = $delete_id";
 
@@ -45,6 +51,7 @@
                 <form class="mb-3" action="Slide.php" method="POST">
 			        <a class="btn btn-dark" href="EditSlide.php?id=<?php echo $slide['slide_id'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
 			        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $slide['slide_id']; ?>">
+                    <input type="hidden" name="delete_img" value="<?php echo $slide['slide_img']; ?>">
 			        <input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
 		        </form><hr>
 
