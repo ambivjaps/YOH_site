@@ -62,7 +62,7 @@
                 <div class="row my-3">
                     <div class="col-md-12">
                         <label>Image</label>
-                        <input type="file" class="form-control form-control my-3" name="slide_img">
+                        <input type="file" class="form-control form-control my-3" name="slide_img" required>
                     </div>
                     <div class="col-md-12">
                         <label>Title</label>
