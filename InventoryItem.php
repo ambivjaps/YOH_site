@@ -11,7 +11,7 @@
 
     if(isset($_GET['id'])) {
 		$id = mysqli_real_escape_string($con, $_GET['id']);
-		$item = "SELECT * FROM inventory_db WHERE ItemID = $id";
+		$item = "SELECT * FROM products WHERE ItemID = $id";
 		$result = mysqli_query($con, $item);
 		$inv = mysqli_fetch_assoc($result);
 
@@ -20,7 +20,7 @@
 
     if(isset($_POST['delete'])) {
 		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
-		$sql = "DELETE FROM inventory_db WHERE ItemID = $delete_id";
+		$sql = "DELETE FROM products WHERE ItemID = $delete_id";
 
 		if(mysqli_query($con, $sql)) {
 			header('Location: Inventory.php');
