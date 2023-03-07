@@ -51,6 +51,7 @@
             } else {
                 echo "<script> alert('Problem occured.') </script>";
             }
+        }
 
         $query = "UPDATE slides SET slide_title='$slide_title',slide_desc='$slide_desc',slide_link='$slide_link' WHERE slide_id=$SID";
         $query_run = mysqli_query($con, $query);
@@ -67,7 +68,6 @@
         } else {
             echo "<script> alert('Problem occured.') </script>";
         }
-    }
 }
 ?>
 
