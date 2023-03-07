@@ -1,6 +1,6 @@
 <?php
     /* slide carousel */
-    $carousel = "SELECT * FROM slides ORDER BY slide_id LIMIT 5";
+    $carousel = "SELECT * FROM slides ORDER BY slide_id";
     $result = mysqli_query($con, $carousel);
     $slides = mysqli_fetch_all($result, MYSQLI_ASSOC);
     mysqli_free_result($result);
@@ -12,15 +12,7 @@
 	mysqli_free_result($result);
 ?>
 
-<div id="yoh-slide" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-    		<button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    		<button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    		<button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    		<button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#techtalk-slide" data-bs-slide-to="4" aria-label="Slide 5"></button>
-  		</ol>
-        
+<div id="yoh-slide" class="carousel slide" data-bs-ride="carousel">        
         <div class="carousel-inner">
      		<?php $loop=0; foreach ($slides as $slide): ?>
 
@@ -33,7 +25,9 @@
   			?> 
 
             <div class='carousel-item <?php echo $status; ?>'>
-                <img class="d-block w-100" src="<?php echo $slide['slide_img']; ?>" title="<?php echo $slide['slide_desc']; ?>" alt="<?php echo $slide['slide_desc']; ?>">
+                <a href="<?php echo $slide['slide_link']; ?>" target="_blank">
+                    <img class="d-block w-100" src="<?php echo $slide['slide_img']; ?>" title="<?php echo $slide['slide_desc']; ?>" alt="<?php echo $slide['slide_desc']; ?>">
+                </a>
             </div>
 
         <?php $loop++; endforeach ?>
