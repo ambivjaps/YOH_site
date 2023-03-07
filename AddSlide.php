@@ -14,21 +14,32 @@
 <?php 
     if(isset($_POST['submit'])) {
         $slide_title = mysqli_real_escape_string($con, $_POST['slide_title']);
-        $slide_img = mysqli_real_escape_string($con, $_POST['slide_img']);
         $slide_desc = mysqli_real_escape_string($con, $_POST['slide_desc']);
         $slide_link = mysqli_real_escape_string($con, $_POST['slide_link']);
+
+        $image = $_FILES['slide_img']['name'];
+        $saveImage = 'assets/img/slide/' .$_FILES['slide_img']['name'];
+
+        $temp_name = $_FILES['slide_img']['tmp_name'];  
+            if(isset($image) and !empty($image)){
+            $location = './assets/img/slide/';      
+                if(move_uploaded_file($temp_name, $location.$image)){
+                    echo '';
+                }
+            } else {
+                $image = 'No image uploaded.';
+            }
         
-        $query = "INSERT INTO slides (slide_title, slide_img, slide_desc, slide_link) VALUES ('$slide_title','$slide_img','$slide_desc','$slide_link')";
+        $query = "INSERT INTO slides (slide_title, slide_img, slide_desc, slide_link) VALUES ('$slide_title','$saveImage','$slide_desc','$slide_link')";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['slide_title'] = $_POST['slide_title'];
-            $_SESSION['slide_img'] = $_POST['slide_img'];
             $_SESSION['slide_desc'] = $_POST['slide_desc'];
             $_SESSION['slide_link'] = $_POST['slide_link'];
-
-            mysqli_close($con);
             header("Location: SlidesAdmin.php");
+            mysqli_close($con);
+            
             exit();
 
         } else {
@@ -47,11 +58,11 @@
 
         <h1> Add Slide </h1>
         <div class="form-group">
-            <form action="AddSlide.php" method="POST">
+            <form action="AddSlide.php" method="POST" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-12">
                         <label>Image</label>
-                        <input type="text" name="slide_img" id="slide_img" class="form-control" required>
+                        <input type="file" class="form-control form-control my-3" name="slide_img">
                     </div>
                     <div class="col-md-12">
                         <label>Title</label>

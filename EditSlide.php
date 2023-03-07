@@ -26,27 +26,49 @@
         $SID = $slide['slide_id'];
     
         $slide_title = mysqli_real_escape_string($con, $_POST['slide_title']);
-        $slide_img = mysqli_real_escape_string($con, $_POST['slide_img']);
         $slide_desc = mysqli_real_escape_string($con, $_POST['slide_desc']);
         $slide_link = mysqli_real_escape_string($con, $_POST['slide_link']);
-    
-        $query = "UPDATE slides SET slide_title='$slide_title',slide_img='$slide_img',slide_desc='$slide_desc',slide_link='$slide_link' WHERE slide_id=$SID";
+
+        $new_image = $_FILES['slide_img']['name'];
+        $old_image = $_POST['slide_img_old'];
+
+        if($new_image != '') {
+            $update_filename = 'assets/img/slide/' . $_FILES['slide_img']['name'];
+        } else {
+            $update_filename = $old_image;
+        }
+
+        if(file_exists("assets/img/slide/" . $_FILES['slide_img']['name'])) {
+        } else {
+            $query = "UPDATE slides SET slide_img='$update_filename' WHERE slide_id='$SID' ";
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run) {
+                if($_FILES['slide_img']['name'] != '') {
+                    move_uploaded_file($_FILES['slide_img']['tmp_name'], "assets/img/slide/" . $_FILES['slide_img']['name']);
+                    unlink($old_image);
+                }
+            } else {
+                echo "<script> alert('Problem occured.') </script>";
+            }
+
+        $query = "UPDATE slides SET slide_title='$slide_title',slide_desc='$slide_desc',slide_link='$slide_link' WHERE slide_id=$SID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['slide_title'] = $_POST['slide_title'];
-            $_SESSION['slide_img'] = $_POST['slide_img'];
             $_SESSION['slide_desc'] = $_POST['slide_desc'];
             $_SESSION['slide_link'] = $_POST['slide_link'];
-
-            mysqli_close($con);
             header("Location: SlidesAdmin.php");
+            mysqli_close($con);
+
             exit();
 
         } else {
             echo "<script> alert('Problem occured.') </script>";
         }
     }
+}
 ?>
 
 <title> Edit Slide | Yarn Over Hook </title>
@@ -61,11 +83,12 @@
 
         <h1> Edit Slide </h1>
         <div class="form-group">
-            <form action="EditSlide.php?id=<?php echo $slide['slide_id'] ?>" method="POST">
+            <form action="EditSlide.php?id=<?php echo $slide['slide_id'] ?>" method="POST" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-12">
                         <label>Image</label>
-                        <input type="text" name="slide_img" id="slide_img" class="form-control" value="<?php echo $slide['slide_img'] ?>">
+                        <input type="file" class="form-control form-control my-3" name="slide_img">
+                        <input type="hidden" name="slide_img_old" value="<?php echo $slide['slide_img']; ?>">
                     </div>
                     <div class="col-md-12">
                         <label>Title</label>
