@@ -63,13 +63,13 @@ class Product{
 			$size = $_POST['size'];
 			$sql.=" AND ItemQty IN (".implode(',',$size).")";
 		}		
-		$productPerPage = 9;		
+		$productPerPage = 20;		
 		$rowCount = $this->getNumRows($sql);
 		$totalData = ceil($rowCount / $productPerPage);
 		return $totalData;
 	}		
 	public function getProducts() {
-		$productPerPage = 9;	
+		$productPerPage = 20;	
 		$totalRecord  = strtolower(trim(str_replace("/","",$_POST['totalRecord'])));
 		$start = ceil($totalRecord * $productPerPage);		
 		$sql= "SELECT * FROM ".$this->productTable." WHERE ItemQty != 0";	

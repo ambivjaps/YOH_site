@@ -6,6 +6,42 @@
     include("includes/access.inc.php");
     access('ADMIN');
     $user_data = check_login($con);
+
+    if(isset($_POST['ItemID'])) {
+        $ItemID = $_POST['ItemID'];
+        $ItemName = $_POST['ItemName'];
+        $ItemDesc = $_POST['ItemDesc'];
+        $ItemQty = $_POST['ItemQty'];
+        $ItemType = $_POST['ItemType'];
+        $ItemPrice = $_POST['ItemPrice'];
+
+        if($ItemType == 'Raw'){
+        $addr = "insert into inventory_db (ItemID, ItemName, ItemQty, ItemPrice, ItemDesc, ItemType, TypeID) values
+         ('$ItemID', '$ItemName', '$ItemQty', '$ItemPrice', '$ItemDesc', '$ItemType', '2')";
+         $run = mysqli_query($con, $addr);
+
+         }else if($ItemType == 'Finished'){
+            $addf = "insert into inventory_db (ItemID, ItemName, ItemQty, ItemPrice, ItemDesc, ItemType, TypeID) values
+         ('$ItemID', '$ItemName', '$ItemQty', '$ItemPrice', '$ItemDesc', '$ItemType', '1')";
+         $run = mysqli_query($con, $addf);
+         }else {die;}
+
+         if($run) {
+            $_SESSION['ItemID'] = $_POST['ItemID'];
+            $_SESSION['ItemName'] = $_POST['ItemName'];
+
+            $_SESSION['ItemDesc'] = $_POST['ItemDesc'];
+            $_SESSION['ItemQty'] = $_POST['ItemQty'];
+            $_SESSION['ItemType'] = $_POST['ItemType'];
+            $_SESSION['ItemPrice'] = $_POST['ItemPrice'];
+            mysqli_close($con);
+            header("Location: Inventory.php");
+            exit();
+
+        } else {
+            echo "<script> alert('Problem occured.') </script>";
+        }
+    }
     
     require 'layouts/Header.php';
 ?>
@@ -16,21 +52,11 @@
 
 <?php require 'layouts/nav.php';?>
         
-    <main class="page catalog-page">
-        <section class="clean-block clean-catalog dark" style="min-height: 17px;height: 971px; background-color:#efe9ef;">
-            <div class="container">
-            <div class="block-heading">
-                <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black; font-weight:bold;">Add Inventory Item</h2>
-                </div>
-                <div class="content"></div>
-            </div>
-            <div class="container profile profile-view" id="profile" style="background: #ffffff;width: 1354px;">
-                <div class="row">
-                    <div class="col-md-12 alert-col relative">
-                        <div class="alert alert-info alert-dismissible absolue center" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span>Profile save with success</span></div>
+    
+                        
                     </div>
                 </div>
-                <form>
+                <form action="AddInventoryItem.php" method="POST" name="Add_inv">
                     <div class="row profile-row">
                         <div class="col-md-4 relative">
                             <div class="avatar">
@@ -38,32 +64,40 @@
                                 <br>
                             </div><input class="form-control form-control" type="file" name="avatar-file">
                         </div>
-                        <div class="col-md-8">
-                            <h1></h1>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item ID<input class="form-control item" type="text" id="name-4" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Name<input class="form-control item" type="text" id="name-3" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Quantity<input class="form-control item" type="text" id="name-6" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Item Type
-                                <select class="form-control item" style="width: 121px;margin-bottom: 4px;" value="<?php echo $inv['ItemType']; ?>"  required>
-                                    <option value="raw">Raw</option>
-                                    <option value="ong">On-Going</option>
-                                    <option value="comp">Completed</option>
-                                    </optgroup>
-                                    </select> 
-                                    </label>
-                            </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-12 content-right"><a class="btn btn-danger form-btn" role="button" href="Inventory.php">CANCEL </a><button class="btn btn-primary form-btn" type="submit" href="Inventory.php" style="border-color: rgb(119,13,253);background: rgb(119,13,253);">SAVE </button></div>
-                            </div>
-                        </div>
+                        <div class="form-group">
+                        <div class="col-md-12">
+                        <label>Item ID</label>
+                        <input type="text" name="ItemID" id="ItemID" class="form-control" value="">
                     </div>
-                </form>
-            </div>
-        </section>
-    </main>
-
+                    <div class="col-md-12">
+                        <label>Name</label>
+                        <input type="text" name="ItemName" id="ItemName" class="form-control" value="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Type <strong></strong></label>
+                        <select class="form-select" id="ItemType" name="ItemType" aria-label=".form-select example">
+                            <option value="Raw">Raw</option>
+                            <option value="Finished">Finished</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Quantity</label>
+                        <input type="text" name="ItemQty" id="ItemQty" class="form-control" value="">
+                    </div>
+                    <div class="col-md-12">
+                        <label>Price (in Php)</label>
+                        <input type="text" name="ItemPrice" id="ItemPrice" class="form-control" value="">
+                    </div>      
+                    <div class="col-md-12">
+                        <label>Description</label>
+                        <textarea type="text" rows="5" class="form-control" name="ItemDesc" id="ItemDesc"></textarea>
+                    </div>
+                    <div class="button-group float-end">
+                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 <?php require 'layouts/Footer.php';?>

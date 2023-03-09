@@ -6,6 +6,14 @@
     include("includes/access.inc.php");
     $user_data = check_login($con);
 
+    if(isset($_GET['id'])) {
+        $id = mysqli_real_escape_string($con, $_GET['id']);
+        $item = "SELECT * FROM orders_db WHERE OrderID = $id";
+        $result = mysqli_query($con, $item);
+        $orders = mysqli_fetch_assoc($result);
+        
+        mysqli_free_result($result);
+    }
     require 'layouts/Header.php';
 ?>
 
@@ -41,7 +49,7 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">SAVE </button><a class="btn btn-danger form-btn" role="button" href="OrderPageAdmin.php">CANCEL </a></div>
+                                <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">SAVE </button><a class="btn btn-danger form-btn" role="button" href="OrderPageAdmin.php?id=<?php echo $orders['OrderID']?>">CANCEL </a></div>
                             </div>
                         </div>
                     </div>

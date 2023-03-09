@@ -10,7 +10,7 @@
     
     if(isset($_GET['id'])) {
         $id = mysqli_real_escape_string($con, $_GET['id']);
-        $item = "SELECT * FROM orders_db WHERE order_id = $id";
+        $item = "SELECT * FROM orders_db WHERE OrderID = $id";
         $result = mysqli_query($con, $item);
         $orders = mysqli_fetch_assoc($result);
         
@@ -47,7 +47,7 @@
                             <p class="item-name" style="margin-bottom: 14.2px;margin-top: 14px;">Proof of Payment</p>
                         </div>
                         <div class="item"></div>
-                        <div class="total"><button class="btn btn-primary" type="button" style="margin-left: 344px;width: 80.4844px;">Save</button><a href=""><button class="btn btn-primary" type="button" style="margin-left: 14px;">Cancel</button></a></div>
+                        <div class="total"><button class="btn btn-primary" type="button" style="margin-left: 344px;width: 80.4844px;">Save</button><a href="OrderPageCust.php?id=<?php echo $orders['OrderID']?>"><button class="btn btn-primary" type="button" style="margin-left: 14px;">Cancel</button></a></div>
                     </div>
                 </form>
             </div>

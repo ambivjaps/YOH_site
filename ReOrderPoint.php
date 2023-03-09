@@ -23,7 +23,7 @@
 <body class="d-flex flex-column min-vh-100">
 
 <?php require 'layouts/nav.php';?>
-        
+<?php if($inv): ?>
     <main class="page payment-page">
         <section class="clean-block payment-form dark" style="min-height: 17px;height: 971px; background-color:#efe9ef;">
             <div class="container">
@@ -47,13 +47,11 @@
                         <script> 
                                 var sto = document.getElementById("stocks");
                                 
-                                if (sto.innerText <= 9) {
+                                if (sto.innerText <= 5) {
                                     sto.setAttribute('style', 'color: red');
-                                } else if (sto.innerText <= 10) {
+                                } else if (sto.innerText <= 8) {
                                     sto.setAttribute('style', 'color: orange');
-                                } else if (sto.innerText <= 20) {
-                                    sto.setAttribute('style', 'color: #8B8000');
-                                } else if (sto.innerText <= 30) {
+                                } else if (sto.innerText <= 15) {
                                     sto.setAttribute('style', 'color: green');
                                 } else {
                                     sto.setAttribute('style', 'color: green');
@@ -81,7 +79,7 @@
                                     <button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px; border-color: rgb(119,13,253);background: rgb(119,13,253);" id="yesBtn">Yes</button></a><button class="btn btn-primary border rounded" id="noBtn" style="width: 78.178px; background: rgb(220, 53, 69); border:rgb(220, 53, 69);">No</button>
                                     </div>
                             </div>
-                        <a href="Inventory.php" type="button" class="btn btn-primary d-block w-100" class="btn btn-primary d-block w-100"  type="button" style="margin-top: 19px; background: rgb(220, 53, 69); border:rgb(220, 53, 69); text-decoration:none;color:white;">Cancel</a>
+                        <a href="Inventory.php" type="button" class="btn btn-primary d-block w-100" class="btn btn-primary d-block w-100"  type="button" value="Cancel" style="margin-top: 19px; background: rgb(220, 53, 69); border:rgb(220, 53, 69); text-decoration:none;color:white;">Cancel</a>
                     </div>
                 </form>
             </div>
@@ -130,5 +128,9 @@ if (event.target == modal) {
 }
 }
 </script>
-
+<?php else: ?>
+        <div class="container my-5">
+            <h2> Oops.. Page not found. Please try again. </h2>
+        </div>
+    <?php endif ?>
 <?php require 'layouts/Footer.php';?>
