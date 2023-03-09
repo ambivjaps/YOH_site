@@ -47,7 +47,7 @@
                         <th> Label </th>
                         <th> Name </th>
                         <th> Address </th>
-                        <th> Date Created </th>
+                        <th> Updated At </th>
                         <th> Action </th>
                     </tr>
 
