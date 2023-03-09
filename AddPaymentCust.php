@@ -4,8 +4,10 @@
     include("includes/dbh.inc.php");
     include("includes/functions.inc.php");
     include("includes/access.inc.php");
+    access('user');
     $user_data = check_login($con);
-    
+    ?>
+<?php
     require 'layouts/Header.php';
     
     if(isset($_GET['id'])) {
