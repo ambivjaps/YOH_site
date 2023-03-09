@@ -24,27 +24,57 @@
         $InvID = $inv['ItemID'];
     
         $ItemName = mysqli_real_escape_string($con, $_POST['ItemName']);
-        $ItemImg = mysqli_real_escape_string($con, $_POST['ItemImg']);
         $ItemDesc = mysqli_real_escape_string($con, $_POST['ItemDesc']);
         $ItemQty = mysqli_real_escape_string($con, $_POST['ItemQty']);
         $ItemType = $_POST['ItemType'];
         $ItemPrice = mysqli_real_escape_string($con, $_POST['ItemPrice']);
+
+        $new_image = $_FILES['ItemImg']['name'];
+        $old_image = $_POST['ItemImg_old'];
+
+        if($new_image != '') {
+            $update_filename = 'assets/img/upload/inventory/' . $_FILES['ItemImg']['name'];
+        } else {
+            $update_filename = $old_image;
+        }
+
+        if(file_exists("assets/img/upload/inventory/" . $_FILES['ItemImg']['name'])) {
+        } else {
+            $query = "UPDATE inventory_db SET ItemImg='$update_filename' WHERE ItemID='$InvID' ";
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run) {
+                if($_FILES['ItemImg']['name'] != '') {
+                    move_uploaded_file($_FILES['ItemImg']['tmp_name'], "assets/img/upload/inventory/" . $_FILES['ItemImg']['name']);
+                    unlink($old_image);
+                }
+            } else {
+                echo "<script> alert('Problem occured.') </script>";
+            }
+        }
+
+        if($ItemType == 'Raw'){
+            $query = "UPDATE inventory_db SET TypeID='2' WHERE ItemID=$InvID";
+            $query_run = mysqli_query($con, $query);
+        } else if($ItemType == 'Finished') {
+            $query = "UPDATE inventory_db SET TypeID='1' WHERE ItemID=$InvID";
+            $query_run = mysqli_query($con, $query);
+        } else {
+            die;
+        }
     
-        $query = "UPDATE inventory_db SET ItemName='$ItemName',ItemImg='$ItemImg',ItemDesc='$ItemDesc',ItemQty='$ItemQty',ItemType='$ItemType',ItemPrice='$ItemPrice' WHERE ItemID=$InvID";
+        $query = "UPDATE inventory_db SET ItemName='$ItemName',ItemDesc='$ItemDesc',ItemQty='$ItemQty',ItemType='$ItemType',ItemPrice='$ItemPrice' WHERE ItemID=$InvID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['ItemName'] = $_POST['ItemName'];
-            $_SESSION['ItemImg'] = $_POST['ItemImg'];
             $_SESSION['ItemDesc'] = $_POST['ItemDesc'];
             $_SESSION['ItemQty'] = $_POST['ItemQty'];
             $_SESSION['ItemType'] = $_POST['ItemType'];
             $_SESSION['ItemPrice'] = $_POST['ItemPrice'];
-
-            mysqli_close($con);
             header("Location: Inventory.php");
+            mysqli_close($con);
             exit();
-
         } else {
             echo "<script> alert('Problem occured.') </script>";
         }
@@ -63,11 +93,12 @@
 
         <h1> Edit Inventory Item </h1>
         <div class="form-group">
-            <form action="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST">
+            <form action="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-6">
-                        <label>Avatar</label>
+                        <label>Image</label>
                         <input type="file" class="form-control form-control my-3" name="ItemImg">
+                        <input type="hidden" name="ItemImg_old" value="<?php echo $inv['ItemImg']; ?>">
                     </div>
                     <div class="col-md-12">
                         <label>Name</label>

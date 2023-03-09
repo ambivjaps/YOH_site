@@ -44,7 +44,7 @@
                 <table class="table table-striped table-hover table-sm mt-5">
                     <tr>
                         <th> # </th>
-                        <th> Avatar </th>
+                        <th> Label </th>
                         <th> Name </th>
                         <th> Address </th>
                         <th> Date Created </th>
@@ -53,7 +53,7 @@
 
                     <?php $loop=1; foreach($c_prof as $profile): ?>
                         <tr><td> <?php echo $loop; ?> </td>
-                        <td> <img width="100px" src="<?php echo $profile['c_avatar']; ?>"> </td>
+                        <td> <?php echo $profile['c_label']; ?> </td>
                         <td> <?php echo $profile['c_name']; ?> </td>
                         <td> <?php echo $profile['address']; ?> </td>
                         <td> <?php echo $profile['date']; ?> </td>
@@ -61,19 +61,7 @@
                     <?php $loop++; endforeach; ?>
                 </table>
                 <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>
-
-                <nav style="margin-bottom: 15px;margin-top: 10px;">
-                    <ul class="pagination pagination-sm justify-content-end flex-wrap">
-                        <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                        <li class="page-item previous">
-                            <a class="page-link" href="#">Prev</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-                    </ul>
-                </nav>
+                
             </div>
         </section>
     </main>

@@ -28,6 +28,7 @@
     if(isset($_POST['submit'])) {
         $PID = $profile['id'];
     
+        $c_label = mysqli_real_escape_string($con, $_POST['c_label']);
         $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $address = mysqli_real_escape_string($con, $_POST['address']);
@@ -40,35 +41,12 @@
         $phone_no = mysqli_real_escape_string($con, $_POST['phone_no']);
         $zip_code = mysqli_real_escape_string($con, $_POST['zip_code']);
         $unit_no = mysqli_real_escape_string($con, $_POST['unit_no']);
-    
-        $new_image = $_FILES['c_avatar']['name'];
-        $old_image = $_POST['c_avatar_old'];
 
-        if($new_image != '') {
-            $update_filename = 'assets/img/avatars/' . $_FILES['c_avatar']['name'];
-        } else {
-            $update_filename = $old_image;
-        }
-
-        if(file_exists("assets/img/avatars/" . $_FILES['c_avatar']['name'])) {
-        } else {
-            $query = "UPDATE cust_profile SET c_avatar='$update_filename' WHERE id='$PID' ";
-            $query_run = mysqli_query($con, $query);
-
-            if($query_run) {
-                if($_FILES['c_avatar']['name'] != '') {
-                    move_uploaded_file($_FILES['c_avatar']['tmp_name'], "assets/img/avatars/" . $_FILES['c_avatar']['name']);
-                    unlink($old_image);
-                }
-            } else {
-                echo "<script> alert('Problem occured.') </script>";
-            }
-        }
-
-        $query = "UPDATE cust_profile SET c_name='$c_name',email='$email',address='$address',region='$region',city='$city',street='$street',barangay='$barangay',phone_no='$phone_no',zip_code='$zip_code',unit_no='$unit_no' WHERE id=$PID";
+        $query = "UPDATE cust_profile SET c_label='$c_label',c_name='$c_name',email='$email',address='$address',region='$region',city='$city',street='$street',barangay='$barangay',phone_no='$phone_no',zip_code='$zip_code',unit_no='$unit_no' WHERE id=$PID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
+            $_SESSION['c_label'] = $_POST['c_label'];
             $_SESSION['c_name'] = $_POST['c_name'];
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['address'] = $_POST['address'];
@@ -104,18 +82,17 @@
 
         <h1> Edit Profile </h1>
         <div class="form-group">
-            <form action="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" method="POST" enctype="multipart/form-data">
+            <form action="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" method="POST">
                 <div class="row my-3">
-                    <div class="col-md-6">
-                        <label>Avatar</label>
-                        <input type="file" class="form-control form-control my-3" name="c_avatar">
-                        <input type="hidden" name="c_avatar_old" value="<?php echo $profile['c_avatar']; ?>">
-                    </div>
                     <div class="col-md-12">
+                        <label>Label</label>
+                        <input type="text" name="c_label" id="c_label" class="form-control" value="<?php echo $profile['c_label'] ?>">
+                    </div>
+                    <div class="col-md-6">
                         <label>Name</label>
                         <input type="text" name="c_name" id="c_name" class="form-control" value="<?php echo $profile['c_name'] ?>">
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <label>Address</label>
                         <input type="text" name="address" id="address" class="form-control" value="<?php echo $profile['address'] ?>">
                     </div>

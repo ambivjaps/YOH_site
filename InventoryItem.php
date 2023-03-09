@@ -20,6 +20,13 @@
 
     if(isset($_POST['delete'])) {
 		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
+        $filePath = $_POST['delete_img'];
+
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        } else {
+        }
+        
 		$sql = "DELETE FROM inventory_db WHERE ItemID = $delete_id";
 
 		if(mysqli_query($con, $sql)) {
@@ -46,6 +53,7 @@
             <form class="mb-3" action="InventoryItem.php" method="POST">
 			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
 			    <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $inv['ItemID']; ?>">
+                <input type="hidden" name="delete_img" value="<?php echo $inv['ItemImg']; ?>">
 			    <input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
 		    </form>
 

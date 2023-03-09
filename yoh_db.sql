@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2023 at 10:23 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: Mar 09, 2023 at 07:42 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -53,6 +53,7 @@ CREATE TABLE `cust_profile` (
   `c_id` bigint(12) NOT NULL,
   `c_name` varchar(60) NOT NULL,
   `c_avatar` varchar(255) NOT NULL,
+  `c_label` varchar(255) NOT NULL,
   `email` varchar(60) NOT NULL,
   `region` varchar(60) NOT NULL,
   `city` varchar(60) NOT NULL,
@@ -71,56 +72,34 @@ CREATE TABLE `cust_profile` (
 -- Dumping data for table `cust_profile`
 --
 
-INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_avatar`, `email`, `region`, `city`, `street`, `barangay`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`, `login_id`, `unique_id`) VALUES
-(2, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-04 22:47:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(3, 4859670294, 'Juan Dela Cruz', '', 'juandelacruz@gmail.com', 'NCR', 'Quezon City', 'Sigarilyas Street', 'N/A', '09313456789', 520, 3, '2023-03-04 22:57:52', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR', 4859670294, 2),
-(4, 4097611313, 'Japs Sing', 'assets/img/avatars/nopicinv.png', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-03-04 17:30:34', '#10 Sampaloc st., Manila, NCR', 4097611313, 1),
-(5, 5596544577, 'Japs Sing', 'assets/img/avatars/nopicinv.png', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-03-04 17:30:36', '#10 Sampaloc st., Manila, NCR', 5596544577, 1),
-(6, 1325256067, 'James Sing', 'assets/img/avatars/nopicinv.png', 'singjaps@gmail.com', 'QUEZON CITY', 'QUEZON CITY', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon ', '1', '+639478969123', 1114, 20, '2023-03-04 17:30:38', '', 1325256067, 1),
-(7, 8257935405, 'Engelbert Macadangdang', 'assets/img/avatars/nopicinv.png', 'engelbird@gmail.com', 'IV', 'QC', '12', '12', '09158433229', 1114, 1, '2023-03-04 17:30:40', '', 8257935405, 1),
-(8, 1182724839, 'James Sing', 'assets/img/avatars/nopicinv.png', 'bagongako@gmail.com', 'QUEZON CITY', 'QUEZON CITY', '1', '1', '+639478969123', 1114, 20, '2023-03-04 17:30:41', '', 1182724839, 1),
-(9, 4859670294, 'Juan Dela Totoy', '', 'juandelatotoy@gmail.com', 'IV', 'Quezon City', 'Kamias', '100', '09158433229', 1114, 20, '2023-03-04 22:59:49', '#3 Kamias Street, ABS-CBN Village, Quezon City, NCR', 4859670294, 1),
-(13, 5739793288, 'John D. Baptist', 'assets/img/avatars/nopicinv.png', 'johndbaptist@gmail.com', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', '09123456782', 7, 12, '2023-03-04 17:30:44', '', 5739793288, 1),
-(16, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-04 22:47:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(17, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-04 22:47:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(18, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-04 22:47:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(19, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-04 22:47:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(20, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-04 22:47:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3);
+INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_avatar`, `c_label`, `email`, `region`, `city`, `street`, `barangay`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`, `login_id`, `unique_id`) VALUES
+(2, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:41:09', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
+(3, 4859670294, 'Juan Dela Cruz', 'assets/img/avatars/nopicinv.png', 'Condo', 'juandelacruz@gmail.com', 'NCR', 'Quezon City', 'Sigarilyas Street', 'N/A', '09313456789', 520, 3, '2023-03-09 18:40:18', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR', 4859670294, 2),
+(4, 4097611313, 'Japs Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-03-09 18:40:22', '#10 Sampaloc st., Manila, NCR', 4097611313, 1),
+(5, 5596544577, 'Japs Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-03-09 18:40:24', '#10 Sampaloc st., Manila, NCR', 5596544577, 1),
+(6, 1325256067, 'James Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'singjaps@gmail.com', 'QUEZON CITY', 'QUEZON CITY', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon ', '1', '+639478969123', 1114, 20, '2023-03-09 18:40:26', '', 1325256067, 1),
+(7, 8257935405, 'Engelbert Macadangdang', 'assets/img/avatars/nopicinv.png', 'Home', 'engelbird@gmail.com', 'IV', 'QC', '12', '12', '09158433229', 1114, 1, '2023-03-09 18:40:29', '', 8257935405, 1),
+(8, 1182724839, 'James Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'bagongako@gmail.com', 'QUEZON CITY', 'QUEZON CITY', '1', '1', '+639478969123', 1114, 20, '2023-03-09 18:40:32', '', 1182724839, 1),
+(9, 4859670294, 'Juan Dela Totoy', 'assets/img/avatars/nopicinv.png', 'Bahay', 'juandelatotoy@gmail.com', 'IV', 'Quezon City', 'Kamias', '100', '09158433229', 1114, 20, '2023-03-09 18:40:38', '#3 Kamias Street, ABS-CBN Village, Quezon City, NCR', 4859670294, 1),
+(13, 5739793288, 'John D. Baptist', 'assets/img/avatars/nopicinv.png', 'Tita\'s Home', 'johndbaptist@gmail.com', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', '09123456782', 7, 12, '2023-03-09 18:40:48', '', 5739793288, 1),
+(16, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Penthouse', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:41:02', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
+(17, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Tito\'s Home', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:41:58', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
+(18, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Friend\'s Home', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:42:07', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
+(19, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Bahay ng Iba', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:42:38', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
+(20, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Basta', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:42:41', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
+(21, 4859670294, 'Totoy Brown', 'assets/img/avatars/nopic1.jpg', 'Hindi ko na to bahay', 'yosefudesu@gmail.com', 'NCR', 'Marikina', 'Kamias', '456', '12345678910', 424, 23, '2023-03-09 18:42:44', '123 St brgy 456', 4859670294, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders_db`
+-- Table structure for table `inventory_db`
 --
 
-CREATE TABLE `orders_db` (
-  `id` bigint(20) NOT NULL,
-  `order_id` bigint(20) NOT NULL,
-  `cust_id` bigint(20) NOT NULL,
-  `inventory_id` int(11) NOT NULL,
-  `order_qty` int(11) NOT NULL,
-  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `ItemPrice` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders_db`
---
-
-INSERT INTO `orders_db` (`id`, `order_id`, `cust_id`, `inventory_id`, `order_qty`, `order_date`, `ItemPrice`) VALUES
-(1, 1, 4859670294, 1001, 10, '2023-03-03 13:57:02', 10000);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `products`
---
-
-CREATE TABLE `products` (
+CREATE TABLE `inventory_db` (
   `id` bigint(20) NOT NULL,
   `ItemID` bigint(20) NOT NULL,
   `ItemName` varchar(50) NOT NULL,
-  `ItemImg` varchar(255) NOT NULL,
+  `ItemImg` varchar(255) NOT NULL DEFAULT 'assets/img/avatars/nopicinv.png',
   `ItemDesc` text NOT NULL,
   `ItemType` varchar(255) NOT NULL,
   `TypeID` int(11) NOT NULL,
@@ -130,10 +109,10 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `products`
+-- Dumping data for table `inventory_db`
 --
 
-INSERT INTO `products` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `ItemType`, `TypeID`, `ItemPrice`, `ItemQty`, `created_at`) VALUES
+INSERT INTO `inventory_db` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `ItemType`, `TypeID`, `ItemPrice`, `ItemQty`, `created_at`) VALUES
 (1, 1001, 'Beginner Crochet Kit', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 200, 10, '2023-03-05 20:31:09'),
 (2, 1002, 'Handmade Crochet II Ghibli Earrings', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 150, 2, '2023-03-05 20:31:13'),
 (3, 1003, 'Boo Tao Crochet Plush (Quincy x Kira Collab)', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 450, 6, '2023-03-05 20:31:17'),
@@ -145,6 +124,39 @@ INSERT INTO `products` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `Item
 (9, 1009, 'Busog Meal: Bopis', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 2, 31, 12, '2023-03-05 20:31:35'),
 (10, 1010, 'Busog Meal: Giniling', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 2, 31, 22, '2023-03-05 20:31:37'),
 (11, 1011, 'Hungarian Sausage', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 2, 31, 10, '2023-03-05 20:31:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders_db`
+--
+
+CREATE TABLE `orders_db` (
+  `id` bigint(20) NOT NULL,
+  `OrderID` bigint(20) NOT NULL,
+  `ItemName` varchar(50) NOT NULL,
+  `ItemImg` varchar(255) NOT NULL,
+  `OrderType` varchar(255) NOT NULL,
+  `TypeID` int(11) NOT NULL,
+  `c_id` bigint(20) NOT NULL,
+  `ItemID` int(11) NOT NULL,
+  `order_qty` int(11) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `ItemPrice` int(12) NOT NULL,
+  `proof_img` varchar(255) NOT NULL,
+  `p_mode` varchar(50) NOT NULL,
+  `tracking_no` varchar(255) NOT NULL,
+  `courier_id` varchar(50) NOT NULL,
+  `pay_status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders_db`
+--
+
+INSERT INTO `orders_db` (`id`, `OrderID`, `ItemName`, `ItemImg`, `OrderType`, `TypeID`, `c_id`, `ItemID`, `order_qty`, `order_date`, `ItemPrice`, `proof_img`, `p_mode`, `tracking_no`, `courier_id`, `pay_status`) VALUES
+(1, 101, 'Neobong 40cm', 'assets/img/avatars/nopicinv.png', 'Completed', 1, 5739793288, 1001, 10, '2023-03-09 18:12:06', 10000, '', '', '', '', ''),
+(2, 102, '10cm Chibi Doll', 'assets/img/avatars/nopicinv.png', 'Ongoing', 2, 4859670294, 25, 3, '2023-03-09 18:12:23', 5000, '', '', '', '', 'Full Payment');
 
 -- --------------------------------------------------------
 
@@ -287,19 +299,19 @@ ALTER TABLE `cust_profile`
   ADD KEY `name` (`c_name`);
 
 --
+-- Indexes for table `inventory_db`
+--
+ALTER TABLE `inventory_db`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ItemID` (`ItemID`);
+
+--
 -- Indexes for table `orders_db`
 --
 ALTER TABLE `orders_db`
   ADD PRIMARY KEY (`id`),
   ADD KEY `order_date` (`order_date`),
-  ADD KEY `order_id` (`order_id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `ItemID` (`ItemID`);
+  ADD KEY `order_id` (`OrderID`);
 
 --
 -- Indexes for table `register`
@@ -332,19 +344,19 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `cust_profile`
 --
 ALTER TABLE `cust_profile`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `inventory_db`
+--
+ALTER TABLE `inventory_db`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `orders_db`
 --
 ALTER TABLE `orders_db`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `register`

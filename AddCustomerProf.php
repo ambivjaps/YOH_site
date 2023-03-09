@@ -16,6 +16,8 @@
         $CID = $_SESSION['login_id'];
 
         $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
+        $c_label = mysqli_real_escape_string($con, $_POST['c_label']);
+        $c_avatar = 'assets/img/avatars/nopic1.jpg';
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $address = mysqli_real_escape_string($con, $_POST['address']);
         
@@ -27,26 +29,13 @@
         $phone_no = mysqli_real_escape_string($con, $_POST['phone_no']);
         $zip_code = mysqli_real_escape_string($con, $_POST['zip_code']);
         $unit_no = mysqli_real_escape_string($con, $_POST['unit_no']);
-
-        $image = $_FILES['c_avatar']['name'];
-        $temp_name = $_FILES['c_avatar']['tmp_name'];  
         
-            if(isset($image) and !empty($image)){
-                $location = './assets/img/avatars/';     
-                $saveImage = 'assets/img/avatars/' .$_FILES['c_avatar']['name']; 
-
-                if(move_uploaded_file($temp_name, $location.$image)){
-                    echo '';
-                }
-            } else {
-                $saveImage = 'assets/img/avatars/nopic1.jpg';
-            }
-        
-        $query = "INSERT INTO cust_profile (c_id, c_name, c_avatar, email, address, region, city, street, barangay, phone_no, zip_code, unit_no, login_id) VALUES ('$CID', '$c_name', '$saveImage', '$email', '$address', '$region', '$city', '$street', '$barangay', '$phone_no', '$zip_code', '$unit_no', '$CID')";
+        $query = "INSERT INTO cust_profile (c_id, c_name, c_avatar, c_label, email, address, region, city, street, barangay, phone_no, zip_code, unit_no, login_id) VALUES ('$CID', '$c_name', '$c_avatar', '$c_label', '$email', '$address', '$region', '$city', '$street', '$barangay', '$phone_no', '$zip_code', '$unit_no', '$CID')";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['c_name'] = $_POST['c_name'];
+            $_SESSION['c_label'] = $_POST['c_label'];
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['address'] = $_POST['address'];
 
@@ -79,17 +68,17 @@
 
         <h1> Add Profile </h1>
         <div class="form-group">
-            <form action="AddCustomerProf.php" method="POST" enctype="multipart/form-data">
+            <form action="AddCustomerProf.php" method="POST">
                 <div class="row my-3">
-                    <div class="col-md-6">
-                        <label>Avatar</label>
-                        <input type="file" class="form-control form-control my-3" name="c_avatar">
-                    </div>
                     <div class="col-md-12">
+                        <label>Label</label>
+                        <input type="text" name="c_label" id="c_label" class="form-control">
+                    </div>
+                    <div class="col-md-6">
                         <label>Name</label>
                         <input type="text" name="c_name" id="c_name" class="form-control">
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <label>Address</label>
                         <input type="text" name="address" id="address" class="form-control">
                     </div>

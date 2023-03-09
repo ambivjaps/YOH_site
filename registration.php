@@ -28,8 +28,8 @@ if (isset($_POST['cust_name'])) {
     
     $reg = mysqli_query($con, $query);
     if($reg==1){
-        $cquery = "insert into cust_profile (c_id,login_id,c_name,email,region,street,city,barangay,unit_no,phone_no,zip_code) values
-        ('$login_id','$login_id','$cust_name','$cust_email','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip')";
+        $cquery = "insert into cust_profile (c_id,login_id,c_name,c_avatar,c_label,email,region,street,city,barangay,unit_no,phone_no,zip_code,address) values
+        ('$login_id','$login_id','$cust_name','assets/img/avatars/nopic1.jpg','Home','$cust_email','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip','$cust_address')";
         $regcust = mysqli_query($con, $cquery);
        
     }

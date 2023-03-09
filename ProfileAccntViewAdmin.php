@@ -57,6 +57,12 @@
                     <h6 style="font-weight: bold; font-size:40px; text-align:center; " >Shipping Details</h6>
                     <hr>
                 </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label style="font-weight:bold;font-size:30px; ">Label</label>
+                        <p class="rounded" style="font-size:25px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['c_label']; ?></p>
+                    </div>
+                </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label style="font-weight:bold;font-size:30px; ">Customer ID</label>
