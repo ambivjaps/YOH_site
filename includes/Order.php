@@ -102,7 +102,7 @@ class Order{
                 $orderHTML .= '<div class="col-12 col-md-6 col-lg-4">
 									<div class="clean-product-item">
 										<a href="OrderPageAdmin.php?id='.$order['OrderID'].'">
-											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="'.$order['ItemImg'].'" title="'.$order['ItemImg'].'" alt="'.$order['ItemImg'].'"></div>
+											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="'.$order['ItemImg'].'" title="'.$order['ItemName'].'" alt="'.$order['ItemName'].'"></div>
 										</a>
                                         
 										<a href="OrderPageAdmin.php?id='.$order['OrderID'].'" style="text-decoration: none;">
