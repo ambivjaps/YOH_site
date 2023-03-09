@@ -107,7 +107,7 @@ class Product{
 				$productHTML .= '<div class="col-12 col-md-6 col-lg-4">
 									<div class="clean-product-item">
 										<a href="InventoryItem.php?id='.$product['ItemID'].'">
-											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="'.$product['ItemImg'].'" title="'.$product['ItemImg'].'" alt="'.$product['ItemImg'].'"></div>
+											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="'.$product['ItemImg'].'" title="'.$product['ItemName'].'" alt="'.$product['ItemName'].'"></div>
 										</a>
 										<a href="InventoryItem.php?id='.$product['ItemID'].'" style="text-decoration: none;">
 											<div class="product-name">'.$product['ItemName'].'</div>

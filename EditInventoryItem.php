@@ -31,9 +31,10 @@
 
         $new_image = $_FILES['ItemImg']['name'];
         $old_image = $_POST['ItemImg_old'];
+        $unique = strtotime("now").'_'.uniqid(rand()).'_';
 
         if($new_image != '') {
-            $update_filename = 'assets/img/upload/inventory/' . $_FILES['ItemImg']['name'];
+            $update_filename = 'assets/img/upload/inventory/' . $unique . $_FILES['ItemImg']['name'];
         } else {
             $update_filename = $old_image;
         }
@@ -45,7 +46,7 @@
 
             if($query_run) {
                 if($_FILES['ItemImg']['name'] != '') {
-                    move_uploaded_file($_FILES['ItemImg']['tmp_name'], "assets/img/upload/inventory/" . $_FILES['ItemImg']['name']);
+                    move_uploaded_file($_FILES['ItemImg']['tmp_name'], "assets/img/upload/inventory/" . $unique . $_FILES['ItemImg']['name']);
                     unlink($old_image);
                 }
             } else {

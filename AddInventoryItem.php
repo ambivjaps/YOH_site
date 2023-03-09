@@ -22,16 +22,22 @@
 
         $image = $_FILES['ItemImg']['name'];
         $temp_name = $_FILES['ItemImg']['tmp_name']; 
+        $unique = strtotime("now").'_'.uniqid(rand()).'_';
+        
+        
+            if(isset($image) and !empty($image)){    
+                $location = './assets/img/upload/inventory/';  
+                $saveImage = 'assets/img/upload/inventory/'.$unique.$_FILES['ItemImg']['name'];
 
-            if(isset($image) and !empty($image)){
-                $location = './assets/img/upload/inventory/';      
-                $saveImage = 'assets/img/upload/inventory/' .$_FILES['ItemImg']['name'];
-
-                if(move_uploaded_file($temp_name, $location.$image)){
+                if(move_uploaded_file($temp_name, $location.$unique.$image)){
                     echo '';
                 }
             } else {
-                $saveImage = 'assets/img/avatars/nopicinv.png';
+                $default = 'assets/img/avatars/nopicinv.png';
+                $default_name = 'nopicinv.png';
+                $saveImage = 'assets/img/upload/inventory/'.$unique.$default_name;
+
+                $copyDefault = copy($default, $saveImage);
             }
 
         if($ItemType == 'Raw'){
