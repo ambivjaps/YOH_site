@@ -33,8 +33,8 @@
                     echo '';
                 }
             } else {
-                $default = 'assets/img/avatars/nopicinv.png';
-                $default_name = 'nopicinv.png';
+                $default = 'assets/img/default/default_inv.jpg';
+                $default_name = 'default_inv.jpg';
                 $saveImage = 'assets/img/upload/inventory/'.$unique.$default_name;
 
                 $copyDefault = copy($default, $saveImage);

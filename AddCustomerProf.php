@@ -17,7 +17,7 @@
 
         $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
         $c_label = mysqli_real_escape_string($con, $_POST['c_label']);
-        $c_avatar = 'assets/img/avatars/nopic1.jpg';
+        $c_avatar = 'assets/img/default/default_user.jpg';
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $address = mysqli_real_escape_string($con, $_POST['address']);
         

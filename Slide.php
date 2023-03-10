@@ -48,11 +48,11 @@
         <section class="clean-block clean-post dark" style="background-color:#efe9ef;">
             <div class="container my-5">
 
-                <form class="mb-3" action="Slide.php" method="POST">
+                <form class="mb-3" action="Slide.php" id="form" method="POST">
 			        <a class="btn btn-dark" href="EditSlide.php?id=<?php echo $slide['slide_id'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
 			        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $slide['slide_id']; ?>">
                     <input type="hidden" name="delete_img" value="<?php echo $slide['slide_img']; ?>">
-			        <input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
+			        <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%">
 		        </form><hr>
 
                 <div class="row">
@@ -72,5 +72,29 @@
             </div>
         </section>
     </main>
+<div id="deleteModal" class="modal" style="display: none">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
+                <div class="modal-footer">
+                    <button onClick="deleteSlideForm()">OK</button>
+                    <button onClick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
+    <script>
+        document.getElementsByName('delete')[0].addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('deleteModal').style.display = 'block';
+        });
+
+        function closeModal() {
+            document.getElementById('deleteModal').style.display = 'none';
+        }
+
+        function deleteSlideForm() {
+            document.getElementById("form").submit();
+        }
+    </script>
 <?php require 'layouts/Footer.php';?>

@@ -99,7 +99,7 @@ class Product{
 				$sql.=" ORDER BY ItemPrice DESC";
 			}
 		} else {
-			$sql.=" ORDER BY ItemID DESC";
+			$sql.=" ORDER BY ItemID";
 		}		
 		$sql.=" LIMIT $start, $productPerPage";	
 		

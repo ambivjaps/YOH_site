@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2023 at 07:42 PM
+-- Generation Time: Mar 10, 2023 at 09:25 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -73,21 +73,11 @@ CREATE TABLE `cust_profile` (
 --
 
 INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_avatar`, `c_label`, `email`, `region`, `city`, `street`, `barangay`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`, `login_id`, `unique_id`) VALUES
-(2, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:41:09', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(3, 4859670294, 'Juan Dela Cruz', 'assets/img/avatars/nopicinv.png', 'Condo', 'juandelacruz@gmail.com', 'NCR', 'Quezon City', 'Sigarilyas Street', 'N/A', '09313456789', 520, 3, '2023-03-09 18:40:18', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR', 4859670294, 2),
-(4, 4097611313, 'Japs Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-03-09 18:40:22', '#10 Sampaloc st., Manila, NCR', 4097611313, 1),
-(5, 5596544577, 'Japs Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'japsing@gmail.com', 'NCR', 'Manila', 'Sampaloc', 'NA', '09312345678', 432, 10, '2023-03-09 18:40:24', '#10 Sampaloc st., Manila, NCR', 5596544577, 1),
-(6, 1325256067, 'James Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'singjaps@gmail.com', 'QUEZON CITY', 'QUEZON CITY', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon ', '1', '+639478969123', 1114, 20, '2023-03-09 18:40:26', '', 1325256067, 1),
-(7, 8257935405, 'Engelbert Macadangdang', 'assets/img/avatars/nopicinv.png', 'Home', 'engelbird@gmail.com', 'IV', 'QC', '12', '12', '09158433229', 1114, 1, '2023-03-09 18:40:29', '', 8257935405, 1),
-(8, 1182724839, 'James Sing', 'assets/img/avatars/nopicinv.png', 'Home', 'bagongako@gmail.com', 'QUEZON CITY', 'QUEZON CITY', '1', '1', '+639478969123', 1114, 20, '2023-03-09 18:40:32', '', 1182724839, 1),
-(9, 4859670294, 'Juan Dela Totoy', 'assets/img/avatars/nopicinv.png', 'Bahay', 'juandelatotoy@gmail.com', 'IV', 'Quezon City', 'Kamias', '100', '09158433229', 1114, 20, '2023-03-09 18:40:38', '#3 Kamias Street, ABS-CBN Village, Quezon City, NCR', 4859670294, 1),
-(13, 5739793288, 'John D. Baptist', 'assets/img/avatars/nopicinv.png', 'Tita\'s Home', 'johndbaptist@gmail.com', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', '09123456782', 7, 12, '2023-03-09 18:40:48', '', 5739793288, 1),
-(16, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Penthouse', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:41:02', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(17, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Tito\'s Home', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:41:58', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(18, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Friend\'s Home', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:42:07', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(19, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Bahay ng Iba', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:42:38', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(20, 4859670294, 'James Anthony Sing', 'assets/img/avatars/nopicinv.png', 'Basta', 'singjaps@gmail.com', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-09 18:42:41', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 4859670294, 3),
-(21, 4859670294, 'Totoy Brown', 'assets/img/avatars/nopic1.jpg', 'Hindi ko na to bahay', 'yosefudesu@gmail.com', 'NCR', 'Marikina', 'Kamias', '456', '12345678910', 424, 23, '2023-03-09 18:42:44', '123 St brgy 456', 4859670294, 1);
+(1, 7242156480, 'Nina De Guzman', 'assets/img/default/default_user.jpg', 'Home', 'ninadeguzman@yahoo.com', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', '09993093997', 1113, 18, '2023-03-10 20:03:56', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 7242156480, 1),
+(2, 1087763698, 'Darwin Manalastas', 'assets/img/default/default_user.jpg', 'Home', 'darwin_2000@gmail.com', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', '09323155312', 1010, 12, '2023-03-10 20:05:57', '12 Pioneer St., Boni Ave, Mandaluyong City', 1087763698, 1),
+(3, 4062959512, 'Rodrigo Villaramas', 'assets/img/default/default_user.jpg', 'Home', 'rod_villa2k@gmail.com', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', '09172238482', 1114, 20, '2023-03-10 20:11:22', '20 Mapayapa St., Gasan City, Marinduque', 4062959512, 1),
+(4, 4062959512, 'Frederico Villaramas', 'assets/img/default/default_user.jpg', 'Ancestral House', 'rod_villa2k@gmail.com', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-10 20:16:55', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1),
+(5, 4062959512, 'Ana Tuason', 'assets/img/default/default_user.jpg', 'Girlfriend\'s Condo', 'rod_villa2k@gmail.com', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-10 20:19:13', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1);
 
 -- --------------------------------------------------------
 
@@ -98,8 +88,8 @@ INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_avatar`, `c_label`, `emai
 CREATE TABLE `inventory_db` (
   `id` bigint(20) NOT NULL,
   `ItemID` bigint(20) NOT NULL,
-  `ItemName` varchar(50) NOT NULL,
-  `ItemImg` varchar(255) NOT NULL DEFAULT 'assets/img/avatars/nopicinv.png',
+  `ItemName` varchar(100) NOT NULL,
+  `ItemImg` varchar(255) NOT NULL,
   `ItemDesc` text NOT NULL,
   `ItemType` varchar(255) NOT NULL,
   `TypeID` int(11) NOT NULL,
@@ -113,17 +103,21 @@ CREATE TABLE `inventory_db` (
 --
 
 INSERT INTO `inventory_db` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `ItemType`, `TypeID`, `ItemPrice`, `ItemQty`, `created_at`) VALUES
-(1, 1001, 'Beginner Crochet Kit', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 200, 10, '2023-03-05 20:31:09'),
-(2, 1002, 'Handmade Crochet II Ghibli Earrings', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 150, 2, '2023-03-05 20:31:13'),
-(3, 1003, 'Boo Tao Crochet Plush (Quincy x Kira Collab)', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 450, 6, '2023-03-05 20:31:17'),
-(4, 1004, 'Crocheted Seventeen Carat Bong Strap', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 250, 30, '2023-03-05 20:31:20'),
-(5, 1005, 'Archon Gemmies Plush (Quincy X Kira Collab)', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 250, 100, '2023-03-05 20:31:23'),
-(6, 1006, 'Happy Little Keychains', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 250, 5, '2023-03-05 20:31:26'),
-(7, 1007, 'Blackpink Lightstick Strap', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Finished', 1, 300, 20, '2023-03-05 20:31:28'),
-(8, 1008, 'Busog Meal: Sisig', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 2, 31, 5, '2023-03-05 20:31:33'),
-(9, 1009, 'Busog Meal: Bopis', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 2, 31, 12, '2023-03-05 20:31:35'),
-(10, 1010, 'Busog Meal: Giniling', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 2, 31, 22, '2023-03-05 20:31:37'),
-(11, 1011, 'Hungarian Sausage', 'assets/img/avatars/nopicinv.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Raw', 2, 31, 10, '2023-03-05 20:31:39');
+(1, 1001, 'Beginner Crochet Kit', 'assets/img/upload/inventory/1678474952_40830720640b7ec8d36e7_crochet kit.jpg', 'Basic Materials every crochet beginner needs\r\n\r\nThis Kit includes:\r\n- 2 crochet hooks (4.5 mm and 5mm)\r\n- 2 milk cotton yarn (50 grams each)\r\n- 2 darning needle\r\n- 2 stitch markers\r\n\r\nBONUS: youtube links to basic tutorials\r\n(random colors will be given, but send us a message if you want to pick your own colors)\r\n\r\nThis kit is perfect to use for practicing the new hobby.', 'Raw', 2, 200, 20, '2023-03-10 19:02:32'),
+(2, 1002, 'Handmade Crochet (Ghibli Earrings) - Calcifer', 'assets/img/upload/inventory/1678472170_1393039690640b73ea7733a_ghibli earrings_calcifer.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 88, '2023-03-10 19:05:24'),
+(3, 1003, 'Handmade Crochet (Ghibli Earrings) - Jiji', 'assets/img/upload/inventory/1678472389_1371896684640b74c52edbb_ghibli earrings_jiji.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 59, '2023-03-10 18:19:49'),
+(4, 1004, 'Handmade Crochet (Ghibli Earrings) - Soot Sprites', 'assets/img/upload/inventory/1678472481_1083544921640b7521b9769_ghiblie earrings_soot sprite.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 33, '2023-03-10 19:04:39'),
+(5, 1005, 'Handmade Crochet (Ghibli Earrings) - Mononoke', 'assets/img/upload/inventory/1678472576_2036050580640b758028c6b_ghibli earrings_princess mononoke.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 25, '2023-03-10 18:22:56'),
+(6, 1006, 'Handmade Crochet (Ghibli Earrings) - No Face', 'assets/img/upload/inventory/1678472637_1206741740640b75bda8165_ghibli earrings_no face.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 42, '2023-03-10 18:23:57'),
+(7, 1007, 'Boo Tao Crochet Plush (Kira x Quincy Collab)', 'assets/img/upload/inventory/1678472756_2114156154640b7634ecb80_boo tao plush.jpeg', 'This is a collaboration between y.o.h.plus and pawchi on Instagram. We wanted to offer affordable and cute items made by artists for Genshin lovers. Pawchi (Kira) made the design and Quincy (y.o.h.plus) brought it to reality. \r\n\r\nThis is a handmade Boo Tao plush for all the Hu tao lovers out there! For more inquiries don\'t hesitate to message us!\r\n(includes glitter sticker freebie)\r\n\r\nMaterial:\r\n-yarn (crocheted)\r\n\r\nSize:\r\n 11 inches x 8 inches', 'Finished', 1, 450, 100, '2023-03-10 18:25:56'),
+(8, 1008, 'Crocheted Seventeen Carat Bong Strap - Basic', 'assets/img/upload/inventory/1678472871_1475583268640b76a704d38_carat bong holder_basic.jpeg', 'CARAT! \r\n\r\nThis accessory is used to hold your carat bongs! It is crocheted and tested that your carat bong will be secured in place during the concert! \r\n\r\nStrap length is 40 inches and is available in different colors \r\n\r\nPink, Purple, Mustard Yellow\r\n\r\nDon\'t hesitate to ask us for pictures especially if the color you want is pink :> \r\n\r\nStyles include: basic and flower\r\n\r\nStrap is the only one for sale, light stick not included.', 'Finished', 1, 250, 61, '2023-03-10 19:05:28'),
+(9, 1009, 'Crocheted Seventeen Carat Bong Strap - Flower', 'assets/img/upload/inventory/1678472931_731173482640b76e3e5d2c_carat bong holder_flower.jpeg', 'CARAT! \r\n\r\nThis accessory is used to hold your carat bongs! It is crocheted and tested that your carat bong will be secured in place during the concert! \r\n\r\nStrap length is 40 inches and is available in different colors \r\n\r\nPink, Purple, Mustard Yellow\r\n\r\nDon\'t hesitate to ask us for pictures especially if the color you want is pink :> \r\n\r\nStyles include: basic and flower\r\n\r\nStrap is the only one for sale, light stick not included.', 'Finished', 1, 250, 43, '2023-03-10 19:05:03'),
+(10, 1010, 'Genshin Impact Archon Gemmies Plush (Kira x Quincy Collab)', 'assets/img/upload/inventory/1678473092_697175962640b7784dcc11_gemmies.jpg', 'This is a collaboration between y.o.h.plus and pawchi on Instagram. We wanted to offer affordable and cute items made by artist for Genshin lovers. Pawchi (Kira) made the design and Quincy (y.o.h.plus) brought it to reality. For now only the archons and available, we\'re hoping to bring more Genshin characters soon. We hope you like these gemmies when you receive them.\r\n\r\nMaterial:\r\n-yarn (crocheted)\r\n\r\nSize:\r\n  -Handsize: 2.5 inches x 3 inches\r\n  -Keychains: coming soon', 'Finished', 1, 250, 37, '2023-03-10 18:31:32'),
+(11, 1011, 'Childe Narwhal Crochet Plush (Kira x Quincy Collab)', 'assets/img/upload/inventory/1678477804_858552819640b89ec46093_default_inv.jpg', 'This is a collaboration between y.o.h.plus and pawchi on Instagram. We wanted to offer affordable and cute items made by artists for Genshin lovers. Pawchi (Kira) made the design and Quincy (y.o.h.plus) brought it to reality. \r\n\r\nThis is a handmade Childe Narwhal plush for all the Childelovers out there! For more inquiries don\'t hesitate to message us!\r\n(includes glitter sticker freebie)\r\n\r\nMaterial:\r\n-yarn (crocheted)\r\n\r\nSize:\r\n 6 inches x 8.5 inches', 'Finished', 1, 450, 99, '2023-03-10 19:50:48'),
+(12, 1012, 'Happy Little Keychains - Orange', 'assets/img/upload/inventory/1678477819_1877358099640b89fb8c3a1_default_inv.jpg', 'These are a bunch of happy little keychains inspired by little everyday things. More are to come soon but have this nice little carrot and orange :> \r\n\r\nMaterial:\r\nYarn Crochet', 'Finished', 1, 250, 100, '2023-03-10 19:50:43'),
+(13, 1013, 'Happy Little Keychains - Carrot', 'assets/img/upload/inventory/1678477826_555860640640b8a0296f58_default_inv.jpg', 'These are a bunch of happy little keychains inspired by little everyday things. More are to come soon but have this nice little carrot and orange :> \r\n\r\nMaterial:\r\nYarn Crochet', 'Finished', 1, 250, 100, '2023-03-10 19:50:37'),
+(14, 1014, 'Blackpink Lightstick Strap - Black', 'assets/img/upload/inventory/1678473556_1008125315640b795487e43_blackpink lightstick holder_black.jpg', 'Calling all Blinks out there! \r\n\r\nThis was a highly requested Item, and we have made a lightstick holder for you guys!\r\n\r\nStrap is 40 inches long.', 'Finished', 1, 300, 10, '2023-03-10 19:05:07'),
+(15, 1015, 'Blackpink Lightstick Strap - Chevron', 'assets/img/upload/inventory/1678473618_1774975424640b7992d0361_blackpink lightstick holder_chevron.jpg', 'Calling all Blinks out there! \r\n\r\nThis was a highly requested Item, and we have made a lightstick holder for you guys!\r\n\r\nStrap is 40 inches long.', 'Finished', 1, 300, 14, '2023-03-10 19:05:14');
 
 -- --------------------------------------------------------
 
@@ -188,17 +182,10 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `cust_name`, `cust_email`, `cust_pass`, `cust_reg`, `cust_city`, `cust_st`, `cust_brgy`, `cust_unit`, `cust_zip`, `cust_phone`, `login_id`, `date`, `user_rank`, `cust_address`, `status`) VALUES
-(1, 'ako lang to', 'akolangtosapusomo@gmail.com', '$2y$10$IJDFg2f96WTA2NrY3f/c8.WkiNf1Mm7DO06.lcVpUWHGlJczgUTJi', '4A', 'Antipolo', 'sa puso mo', '69', 1, 420, '09123456789', 3938456582, '2023-03-01 23:04:09', 'admin', '', 1),
-(6, 'ano pagkain', 'angsarapngadobo@gmail.com', '$2y$10$IJDFg2f96WTA2NrY3f/c8.WkiNf1Mm7DO06.lcVpUWHGlJczgUTJi', 'NCR', 'Quezon City', 'adobo', '21', 12, 123, '09123456781', 9439603011, '2023-03-01 23:04:05', 'user', '', 1),
-(10, 'Mang Jose', 'mangjose@gmail.com', '12345678', 'NCR', 'Marikina City', 'Mango', '12', 30, 789, '09213456789', 7360683599, '2023-02-19 12:33:46', '', '', 1),
-(11, 'Joseph', 'ayokonasamundo@gmail.com', '123456', 'NCR', 'Marikina City', 'Kalamansi', 'N/A', 20, 2310, '09123456782', 3679169808, '2023-02-19 12:33:49', 'user', '', 1),
-(13, 'Junathan', 'dunkitjunathan@gmail.com', '12345', 'NCR', 'Makati City', 'Dunkit', '69', 29, 1820, '09134567899', 7237157111, '2023-02-19 12:33:51', 'user', '29 Dunkit st. Dunkin Donuts Village', 1),
-(14, 'JJ CA', 'yosefudesu@gmail.com', '$2y$10$NfFVbfiMreyjBJGQpMCh.u.DU8HVszzijcELhiV.//TNGEZNVek7a', '4A', 'Antipolo City', 'Nightingale st.', 'NA', 21, 1870, '09954490438', 1946032413, '2023-03-03 14:41:57', 'user', '', 1),
-(15, 'Juan Dela Cruz', 'juandelacruz@gmail.com', '12345678', 'NCR', 'Quezon City', 'Coco Street', 'N/A', 3, 520, '09313456789', 9871989888, '2023-02-19 12:33:54', 'user', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR', 1),
-(17, 'Japs Sing', 'japsing@gmail.com', '$2y$10$zCc55QAaw33vyWxxoNWW4.l47E3EZQgK2x6MPGHNkPw', 'NCR', 'Manila', 'Sampaloc', 'NA', 10, 432, '09312345678', 5596544577, '2023-02-19 14:41:42', 'user', '#10 Sampaloc st., Manila, NCR', 1),
-(20, 'James Sing', 'bagongako@gmail.com', '$2y$10$dRNU/ItfxBSoHBtWq6xyT.WxFwsUAU.y/muvfqtvgYQrwOu7r2Gt2', 'QUEZON CITY', 'QUEZON CITY', '1', '1', 20, 1114, '+639478969123', 1182724839, '2023-03-01 19:00:44', 'user', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon ', 1),
-(27, 'John D. Baptist', 'johndbaptist@gmail.com', '$2y$10$xrgQLVZ1m4MTZN9.gUmECuV0l4mA2i4JRr09xuZOfR2yj19r0y0/G', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', 12, 7, '09123456782', 5739793288, '2023-03-04 13:31:48', 'user', '#12 Apostles Street, Brgy. Ginebra, Mandaluyong City        ', 1),
-(28, 'Juan Dela Totoy', 'juandelatotoy@gmail.com', '$2y$10$IJDFg2f96WTA2NrY3f/c8.WkiNf1Mm7DO06.lcVpUWHGlJczgUTJi', 'NCR', 'Quezon City', '20', '100', 20, 1114, '09158433229', 4859670294, '2023-03-04 13:40:45', 'user', '#3 Coco Street, ABS-CBN Village, Quezon City, NCR', 1);
+(1, 'Lia Maranan', 'admin_yoh@gmail.com', '$2y$10$fCdhA3A5h7CxPFESCubXl.Mr7nGRTStyI8w0LY1sXTxA9Qe063hSq', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-10 20:02:16', 'admin', '123 Block 1 Mabilis St., Quezon City', 1),
+(2, 'Nina De Guzman', 'ninadeguzman@yahoo.com', '$2y$10$4XW/LEsGXoB4QQG/Udk87.0SuXiNd/j/3eFW7uOVdBfWM6rSbhqqy', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-10 20:03:56', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1),
+(3, 'Darwin Manalastas', 'darwin_2000@gmail.com', '$2y$10$ybvqzAyPWJ4/J2sc2sPu0OWo0fFwouZ3K0LvegjwQyeKtmT/8G0Fy', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-10 20:05:57', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1),
+(4, 'Rodrigo Villaramas', 'rod_villa2k@gmail.com', '$2y$10$l69ahigJ5x.L.FjaKKyIOOZxecmBUNf..tQMKjzZlSY5Xc3XB5agG', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-10 20:11:22', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1);
 
 -- --------------------------------------------------------
 
@@ -220,11 +207,11 @@ CREATE TABLE `slides` (
 --
 
 INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_img`, `slide_desc`, `slide_link`, `created_at`) VALUES
-(1, 'Welcome to Yarn Over Hook', 'assets/img/slide/slide1.jpg', 'Let\'s create with a smile!', 'Homepage.php', '2023-03-01 21:28:48'),
-(2, 'Buy now!', 'assets/img/slide/slide2.jpg', 'Register on our website to order.', 'Registration.php', '2023-03-01 21:33:53'),
-(3, 'Watch new videos.', 'assets/img/slide/slide3.jpg', 'New video tutorials available.', 'https://www.youtube.com/channel/UCSxg8KwMRQxEk8v5vjpXKcg', '2023-03-01 21:33:48'),
-(4, 'Custom work', 'assets/img/slide/slide4.jpg', 'We also do custom work! Message us for inquiries.', 'https://www.facebook.com/y.o.h.plus', '2023-03-01 21:32:47'),
-(5, 'Social media accounts', 'assets/img/slide/slide5.jpg', 'Follow us on our official social media accounts.', 'https://yohplus.carrd.co/', '2023-03-01 21:34:08');
+(1, 'Welcome to Yarn Over Hook', 'assets/img/upload/slides/1678476949_1739719522640b869528615_slide1.jpg', 'Let\'s create with a smile!', 'Homepage.php', '2023-03-10 19:35:49'),
+(2, 'Buy now!', 'assets/img/upload/slides/1678476965_1530631567640b86a51a386_slide2.jpg', 'Register on our website to order.', 'Registration.php', '2023-03-10 19:36:05'),
+(3, 'Watch new videos.', 'assets/img/upload/slides/1678476992_1892085598640b86c0422a8_slide3.jpg', 'New video tutorials available.', 'Videos.php', '2023-03-10 19:36:32'),
+(4, 'Custom work', 'assets/img/upload/slides/1678477028_794739955640b86e4c9082_slide4.jpg', 'For custom work, message us for inquiries.', 'https://www.facebook.com/y.o.h.plus', '2023-03-10 19:37:08'),
+(5, 'Social media accounts', 'assets/img/upload/slides/1678477049_389322224640b86f92b552_slide5.jpg', 'Follow us on our official social media accounts.', 'https://yohplus.carrd.co/', '2023-03-10 19:37:29');
 
 -- --------------------------------------------------------
 
@@ -344,13 +331,13 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `cust_profile`
 --
 ALTER TABLE `cust_profile`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `inventory_db`
 --
 ALTER TABLE `inventory_db`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `orders_db`
@@ -362,7 +349,7 @@ ALTER TABLE `orders_db`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `slides`

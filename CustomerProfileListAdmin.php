@@ -33,7 +33,7 @@
                     <div class="clean-blog-post">
                         <div class="row">
                             <div class="col-lg-5">
-                                <img class="rounded img-fluid" src="assets/img/avatars/nopic1.jpg" style="margin-left:125px;">
+                                <img class="rounded img-fluid" src="<?php echo $profile['c_avatar']; ?>" style="margin-left:125px;">
                             </div>
                             <div class="col-lg-7">
                                 <h3><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" style="color:black;"><?php echo $profile['c_name']; ?></a></h3>

@@ -132,7 +132,7 @@ nav {
     margin-left: -36px;
     margin-top: -36px;
     position: absolute;
-    background: url('//i.imgur.com/TxzC70f.png') no-repeat;
+    background: url('#') no-repeat;
     cursor: pointer;
 }
 
