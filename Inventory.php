@@ -31,16 +31,23 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="d-none d-md-block">
-                                <form method="POST" id="search_form">   
+                                <form method="GET" id="search_form">   
                                     <div class="filters">
                                         <div class="float-start float-md-end mt-5 mt-md-0 search-area" style="margin-left: 14px;margin-right: -4px;">
                                             <div class="float-start float-md-end mt-5 mt-md-0 search-area"></div>
-                                            <a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);" data-bs-target="AddInventoryItem.php" href="AddInventoryItem.php"><i class="fas fa-plus" style="text-align: center;"></i></a>
-                                            <a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);" data-bs-target="AddCustomerProf.php" href=""><i class="fas fa-search" style="text-align: center;"></i></a>
                                         </div>
                                         
                                     <div class="filter-item">
-                                        <h3>Filters</h3>
+                                        
+                                            <div class="d-flex mt-4 mb-5">
+                                                <input type="text" name="searchInput" value="<?php echo isset($_GET['searchInput']) ? $_GET['searchInput'] : '' ?>">
+                                                <button type="submit" class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);">
+                                                    <i class="fas fa-search" style="text-align: center;"></i>
+                                                </button>
+                                            <a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);" data-bs-target="AddInventoryItem.php" href="AddInventoryItem.php"><i class="fas fa-plus" style="text-align: center;"></i></a>
+
+                                            </div>
+                                            <h3 class="mb-3">Filters</h3>
                                             <?php 
                                                 foreach ($categories as $key => $category) {
                                                     if(isset($_POST['category'])) {

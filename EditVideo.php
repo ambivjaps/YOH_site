@@ -22,7 +22,7 @@
 ?>
 
 <?php 
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['edit_video'])) {
         $VID = $video['vid_id'];
     
         $vid_title = mysqli_real_escape_string($con, $_POST['vid_title']);
@@ -55,13 +55,14 @@
 
 <?php require 'layouts/nav.php';?>
 
+
     <?php if($video): ?>
 
     <div class="container my-5">
 
         <h1> Edit Video </h1>
         <div class="form-group">
-            <form action="EditVideo.php?id=<?php echo $video['vid_id'] ?>" method="POST">
+            <form action="EditVideo.php?id=<?php echo $video['vid_id'] ?>" method="POST" id="form">
                 <div class="row my-3">
                     <div class="col-md-12">
                         <label>Title</label>
@@ -87,11 +88,21 @@
                     </div>
                   
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
+                        <input class="btn btn-success mt-3" id="editVideo" name="edit_video" value="Submit" style="width:8%">
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
                     </div>
                 </div>
             </form>
+        </div>
+
+        <div id="editModal" class="modal" style="display: none">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to edit this?</p>
+                <div class="modal-footer">
+                    <button onClick="editVideo()">OK</button>
+                    <button onClick="closeModal()">Cancel</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -100,5 +111,20 @@
             <h2> Oops.. Page not found. Please try again. </h2>
         </div>
     <?php endif ?>
+
+    <script>
+        document.getElementById('editVideo').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('editModal').style.display = 'block';
+        });
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        function editVideo() {
+            document.getElementById("form").submit();
+        }
+    </script>
     
 <?php require 'layouts/Footer.php';?>

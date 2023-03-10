@@ -38,7 +38,7 @@ class Product{
 	public function cleanString($str){
 		return str_replace(' ','_',$str);
 	}
-	public function getCategories() {		
+	public function getCategories() {	
 		$sqlQuery = "
 			SELECT TypeID, ItemType
 			FROM ".$this->productTable." 
@@ -85,6 +85,9 @@ class Product{
 		if(isset($_POST['size']) && $_POST['size']!="") {			
 			$sql.=" AND ItemQty IN (".implode(',',$_POST['size']).")";
 		}
+		if(isset($_POST['searchValue'])) {			
+			$sql.=" AND ItemName LIKE '%" . $_POST['searchValue'] . "%'";
+		}
 		
 		if(isset($_POST['sorting']) && $_POST['sorting']!="") {
 			$sorting = implode("','",$_POST['sorting']);			
@@ -98,7 +101,8 @@ class Product{
 		} else {
 			$sql.=" ORDER BY ItemID DESC";
 		}		
-		$sql.=" LIMIT $start, $productPerPage";		
+		$sql.=" LIMIT $start, $productPerPage";	
+		
 		$products = $this->getData($sql);
 		$rowcount = $this->getNumRows($sql);
 		$productHTML = '';

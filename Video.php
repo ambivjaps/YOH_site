@@ -42,10 +42,10 @@
         <section class="clean-block clean-post dark" style="background-color:#efe9ef;">
             <div class="container my-5">
 
-                <form class="mb-3" action="Video.php" method="POST">
+                <form class="mb-3" method="POST" id="form">
 			        <a class="btn btn-dark" href="EditVideo.php?id=<?php echo $video['vid_id'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
 			        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $video['vid_id']; ?>">
-			        <input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
+			        <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%">
 		        </form><hr>
 
                 <div class="row">
@@ -65,6 +65,31 @@
 
             </div>
         </section>
+
+        <div id="deleteModal" class="modal" style="display: none">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
+                <div class="modal-footer">
+                    <button onClick="deleteVideoForm()">OK</button>
+                    <button onClick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <script>
+        document.getElementsByName('delete')[0].addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('deleteModal').style.display = 'block';
+        });
+
+        function closeModal() {
+            document.getElementById('deleteModal').style.display = 'none';
+        }
+
+        function deleteVideoForm() {
+            document.getElementById("form").submit();
+        }
+    </script>
 
 <?php require 'layouts/Footer.php';?>
