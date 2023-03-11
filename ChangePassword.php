@@ -72,6 +72,7 @@ if(isset($_POST["update-password"])){
             $mail->Subject="Password Changed!";
             $mail->Body="<b>Dear lovely Customer,</b>
             <h3>We noticed that YOUR PASSWORD has been changed. </h3>
+            <br><br>
             <p>If you didn't change it, reset your password here . </p>
             http://localhost:3000/ResetPass.php
             <br><br>
