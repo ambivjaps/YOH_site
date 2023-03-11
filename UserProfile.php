@@ -16,14 +16,12 @@
 		$item = "SELECT * FROM register WHERE login_id = $id";
 		$result = mysqli_query($con, $item);
 		$user = mysqli_fetch_assoc($result);
-
 		mysqli_free_result($result);
 
         $cust_prof = mysqli_real_escape_string($con, $_SESSION['login_id']);
 		$main = "SELECT * FROM cust_profile WHERE c_id = $cust_prof AND cust_status='1'";
 		$result_prof = mysqli_query($con, $main);
 		$select = mysqli_fetch_all($result_prof, MYSQLI_ASSOC);
-
 		mysqli_free_result($result_prof);
 
 		$other = "SELECT * FROM cust_profile WHERE c_id = $cust_prof AND cust_status='0'";
@@ -33,15 +31,15 @@
         $result_count = mysqli_query($con, $other_count);
 
 		$option = mysqli_fetch_all($result_choice, MYSQLI_ASSOC);
-        $count = mysqli_fetch_all($result_count, MYSQLI_ASSOC);
-
+        $count = mysqli_fetch_array($result_count)[0];
 		mysqli_free_result($result_choice);
+        mysqli_free_result($result_count);
 	}
 
 ?>
 
 <?php
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['change_current'])) {
         $new_id = $_POST['selected_prof'];
         $old_id = $_POST['old_id'];
 
@@ -107,7 +105,7 @@
                 <tr>
                     <th> Name </th>
                     <th> Address </th>
-                    <th> E-mail </th>
+                    <th> Phone No. </th>
                     <th> Action </th>
                 </tr>
 
@@ -118,29 +116,35 @@
             </table>
         <?php endforeach; ?>
 
-            <div class="form-group">
-                <form action="UserProfile.php?id=<?php echo $_SESSION['login_id'] ?>" method="POST">
-                    <div class="row my-3">
-                        <div class="col-md-4">
-                            <label>Change current customer profile to use:</label>
-                            <select class="form-select" id="selected_prof" name="selected_prof" aria-label=".form-select example">
-                                <?php foreach($option as $change): ?>
-                                <option value="<?php echo $change['id']; ?>"><?php echo $change['c_label']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <?php foreach($select as $prof): ?>
-                            <input type="hidden" name="old_id" value="<?php echo $prof['id'] ?>">
+        <?php if($count < 1) {
+            echo "<p> Please create a new record in the Profiles page in order to change your current customer profile. </p>";
+            ?>
+        <?php } else if ($count >= 1) {
+            ?>
+            <div class="form-group mt-3">
+                <p> Change current customer profile: </p>
+                <form class="row g-3" action="UserProfile.php?id=<?php echo $_SESSION['login_id'] ?>" method="POST">
+                    <div class="col-md-4">
+                        <select class="form-select" id="selected_prof" name="selected_prof" aria-label=".form-select example">
+                            <?php foreach($option as $change): ?>
+                            <option value="<?php echo $change['id']; ?>"><?php echo $change['c_label']; ?></option>
                             <?php endforeach; ?>
-                        </div>
-                        <div class="button-group float-end">
-                            <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
-                        </div>
+                        </select>
+                        <?php foreach($select as $prof): ?>
+                        <input type="hidden" name="old_id" value="<?php echo $prof['id'] ?>">
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="col-auto">
+                        <input class="btn btn-success" type="submit" id="submit" name="change_current" value="Select">
                     </div>
                 </form>
             </div>
+            <?php
+        }
+        ?>
         
         </div>
-
+        
         <?php else: ?>
                 <div class="container my-5">
                     <h2> Oops.. Page not found. Please try again. </h2>
