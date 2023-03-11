@@ -38,7 +38,7 @@ class Product{
 	public function cleanString($str){
 		return str_replace(' ','_',$str);
 	}
-	public function getCategories() {	
+	public function getCategories() {		
 		$sqlQuery = "
 			SELECT TypeID, ItemType
 			FROM ".$this->productTable." 
@@ -85,9 +85,8 @@ class Product{
 		if(isset($_POST['size']) && $_POST['size']!="") {			
 			$sql.=" AND ItemQty IN (".implode(',',$_POST['size']).")";
 		}
-		if(isset($_POST['searchValue'])) {			
-			$sql.=" AND ItemName LIKE '%" . $_POST['searchValue'] . "%'";
-		}
+		$sql.=" AND ItemName LIKE '%" . $_POST['searchValue'] . "%'";
+
 		
 		if(isset($_POST['sorting']) && $_POST['sorting']!="") {
 			$sorting = implode("','",$_POST['sorting']);			
@@ -102,7 +101,6 @@ class Product{
 			$sql.=" ORDER BY ItemID";
 		}		
 		$sql.=" LIMIT $start, $productPerPage";	
-		
 		$products = $this->getData($sql);
 		$rowcount = $this->getNumRows($sql);
 		$productHTML = '';
@@ -111,7 +109,7 @@ class Product{
 				$productHTML .= '<div class="col-12 col-md-6 col-lg-4">
 									<div class="clean-product-item">
 										<a href="InventoryItem.php?id='.$product['ItemID'].'">
-											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="'.$product['ItemImg'].'" title="'.$product['ItemName'].'" alt="'.$product['ItemName'].'"></div>
+											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="'.$product['ItemImg'].'" title="'.$product['ItemImg'].'" alt="'.$product['ItemImg'].'"></div>
 										</a>
 										<a href="InventoryItem.php?id='.$product['ItemID'].'" style="text-decoration: none;">
 											<div class="product-name">'.$product['ItemName'].'</div>

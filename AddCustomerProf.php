@@ -12,7 +12,7 @@
 ?>
 
 <?php 
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['add_profile'])) {
         $CID = $_SESSION['login_id'];
 
         $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
@@ -68,7 +68,7 @@
 
         <h1> Add Profile </h1>
         <div class="form-group">
-            <form action="AddCustomerProf.php" method="POST">
+            <form action="AddCustomerProf.php" method="POST" id="form">
                 <div class="row my-3">
                     <div class="col-md-12">
                         <label>Label</label>
@@ -115,12 +115,37 @@
                         <input type="text" name="phone_no" id="phone_no" class="form-control">
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
+                        <input class="btn btn-success mt-3" id="add-btn" name="add_profile" value="Submit">
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
                     </div>
                 </div>
             </form>
         </div>
+
+        <div id="addModal" class="modal" style="display: none">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to add this?</p>
+                <div class="modal-footer">
+                    <button onClick="addProfile()">OK</button>
+                    <button onClick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('add-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('addModal').style.display = 'block';
+        });
+
+        function closeModal() {
+            document.getElementById('addModal').style.display = 'none';
+        }
+
+        function addProfile() {
+            document.getElementById("form").submit();
+        }
+    </script>  
         
 <?php require 'layouts/Footer.php';?>
