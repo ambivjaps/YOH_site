@@ -72,13 +72,6 @@ session_start()
                 alert("<?php  echo "Sorry, no emails exists "?>");
             </script>
             <?php
-        }else if($fetch["status"] == 0){
-            ?>
-               <script>
-                   alert("Sorry, your account must verify first, before you recover your password !");
-                   window.location.replace("login.php");
-               </script>
-           <?php
         }else{
             // generate token by binaryhexa 
             $token = bin2hex(random_bytes(50));
@@ -114,8 +107,8 @@ session_start()
             <p>Kindly click the below link to reset your password</p>
             http://localhost:3000/ResetPass.php
             <br><br>
-            <p>With regrads,</p>
-            <b>Programming with Lam</b>";
+            <p>With regards,</p>
+            <b>YarnOverHook</b>";
 
             if(!$mail->send()){
                 ?>

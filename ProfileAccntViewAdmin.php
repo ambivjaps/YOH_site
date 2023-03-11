@@ -22,7 +22,7 @@
 
 <title> Profile Account: <?php echo $profile['c_name']; ?> | Yarn Over Hook </title>
 
-<body class="d-flex flex-column min-vh-100" ">
+<body class="d-flex flex-column min-vh-100" >
 
 <?php require 'layouts/nav.php';?>
 

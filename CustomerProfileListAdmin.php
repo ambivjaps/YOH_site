@@ -9,9 +9,10 @@
     
     require 'layouts/Header.php';
 
-    $sql = "SELECT * FROM cust_profile ORDER BY id";
+    $sql = "SELECT * FROM cust_profile where cust_status='1' ORDER BY id ";
 	$result = mysqli_query($con, $sql);
 	$profiles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $query = mysqli_num_rows($result);
 	mysqli_free_result($result);
 	mysqli_close($con);
 ?>
@@ -26,7 +27,7 @@
         <section class="clean-block clean-blog-list dark" style="background-color:#efe9ef;">
         <div class="container">
                 <div class="block-heading">
-                    <h2 style="margin:40px; color: black;font-size: 50px;font-weight: bold;"">Customer Profiles</h2>
+                    <h2 style="margin:40px; color: black;font-size: 50px;font-weight: bold;">Customer Profiles</h2>
                 </div>
                 <div class="block-content">
                 <?php foreach($profiles as $profile): ?>

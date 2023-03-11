@@ -99,6 +99,12 @@ if(!empty($_SESSION['cust_id'])) {
                         Password has been successfully reset!
                     </div> 
                 <?php } ?> 
+                <?php 
+                if (isset($_GET['ChangeSuccess']) && $_GET['ChangeSuccess'] === 'true') { ?>
+                    <div class="alert alert-success" role="alert">
+                    Password has been Changed! Kindly log-in again.
+                    </div>   
+                <?php } ?> 
                     <div class="mb-3"><label class="form-label" for="email" style=" font-weight:bold; font-size: 20px;color: rgb(111, 66, 193);">Email</label><input class="form-control item" type="text" id="email" name="cust_email" placeholder="Email" required="" style="margin-bottom: 9px;"></div>
                     <div class="mb-3"><label class="form-label" for="password" style=" font-weight:bold; font-size: 20px;color: rgb(111, 66, 193);">Password</label><input class="form-control" type="password" id="password" name="cust_pass" placeholder="Password" required="" style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;"></div>
                     <a href="ForgotPass.php" style="font-size: 18px;margin-left: 145px;margin-top: -8px;margin-bottom: 173px;margin-right: 12px;color: rgb(111,66,193);">Forgot your Password?</a>
