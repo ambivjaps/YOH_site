@@ -20,7 +20,7 @@
 ?>
 
 <?php 
-     if(isset($_POST['submit'])) {
+     if(isset($_POST['edit_inventory'])) {
         $InvID = $inv['ItemID'];
     
         $ItemName = mysqli_real_escape_string($con, $_POST['ItemName']);
@@ -94,7 +94,7 @@
 
         <h1> Edit Inventory Item </h1>
         <div class="form-group">
-            <form action="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST" enctype="multipart/form-data">
+            <form action="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-6">
                         <label>Image</label>
@@ -125,11 +125,21 @@
                         <textarea type="text" rows="5" class="form-control" name="ItemDesc" id="ItemDesc"><?php echo $inv['ItemDesc'] ?></textarea>
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
+                        <input class="btn btn-success mt-3" id="editInventory" name="edit_inventory" value="Submit">
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
                     </div>
                 </div>
             </form>
+        </div>
+
+        <div id="editModal" class="modal" style="display: none">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to edit this?</p>
+                <div class="modal-footer">
+                    <button onClick="editInventory()">OK</button>
+                    <button onClick="closeModal()">Cancel</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -139,5 +149,19 @@
         </div>
     <?php endif ?>
 
+    <script>
+        document.getElementById('editInventory').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('editModal').style.display = 'block';
+        });
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        function editInventory() {
+            document.getElementById("form").submit();
+        }
+    </script>
 
 <?php require 'layouts/Footer.php';?>

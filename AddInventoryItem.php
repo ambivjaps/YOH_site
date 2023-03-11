@@ -12,7 +12,7 @@
 ?>
 
 <?php 
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['add_item'])) {
         $ItemID = mysqli_real_escape_string($con, $_POST['ItemID']);
         $ItemName = mysqli_real_escape_string($con, $_POST['ItemName']);
         $ItemDesc = mysqli_real_escape_string($con, $_POST['ItemDesc']);
@@ -80,7 +80,7 @@
 
     <h1> Add Inventory Item </h1>
         <div class="form-group">
-            <form action="AddInventoryItem.php" method="POST" enctype="multipart/form-data">
+            <form action="AddInventoryItem.php" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-6">
                         <label>Image</label>
@@ -114,12 +114,37 @@
                         <textarea type="text" rows="5" class="form-control" name="ItemDesc" id="ItemDesc" required></textarea>
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
+                        <input class="btn btn-success mt-3" id="add-btn" name="add_item" value="Submit">
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
                     </div>
                 </div>
             </form>
         </div>
+
+        <div id="addModal" class="modal" style="display: none">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to add this?</p>
+                <div class="modal-footer">
+                    <button onClick="addItem()">OK</button>
+                    <button onClick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('add-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('addModal').style.display = 'block';
+        });
+
+        function closeModal() {
+            document.getElementById('addModal').style.display = 'none';
+        }
+
+        function addItem() {
+            document.getElementById("form").submit();
+        }
+    </script>
 
 <?php require 'layouts/Footer.php';?>
