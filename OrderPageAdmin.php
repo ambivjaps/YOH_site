@@ -7,14 +7,33 @@
     access('ADMIN');
     $user_data = check_login($con);
 
-    
-    
-    
+    if(isset($_GET['id'])) {
+		$id = mysqli_real_escape_string($con, $_GET['id']);
+
+		$item = "SELECT * FROM order_db INNER JOIN cust_profile 
+        ON order_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
+        ON order_db.ItemID = inventory_db.ItemID  WHERE OrderID = $id AND cust_status = '1'";
+
+		$result = mysqli_query($con, $item);
+		$order = mysqli_fetch_assoc($result);
+		mysqli_free_result($result);
+	}
+
+    if(isset($_POST['delete'])) {
+		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
+		$sql = "DELETE FROM order_db WHERE OrderID = $delete_id";
+
+		if(mysqli_query($con, $sql)) {
+			header('Location: OrdersAdminView.php');
+		} else {
+			echo 'Error: ' . mysqli_error($con);
+		}
+	}
     
     require 'layouts/Header.php';
 ?>
 
-<title> Orders Admin | Yarn Over Hook </title>
+<title> View Order | Yarn Over Hook </title>
 
 <style>
 .column {
@@ -38,105 +57,71 @@
 
 <?php require 'layouts/nav.php';?>
 
-    <main class="page payment-page;">
-        <section class="clean-block payment-form dark" style="height: 1061.328px; background-color:#efe9ef;">
-            <div class="container" style="color: var(--bs-btn-hover-border-color);">
-                <div class="block-heading">
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black;">Order # </h2>
-                    <h2 style="font-size: 20px;text-align: left;margin-bottom: 10.2px;margin-top: 10px; color:black;">Customer Name: </h2>
-                    
-                </div><a class="btn btn-primary" role="button" style="margin-left: 1168px;margin-bottom: 5px;margin-top: -162px;width: 123.1406px;background: rgb(220,53,69);border-style: none;" href="OrdersAdminView.php">Cancel</a><button class="btn btn-primary" type="button" style="margin-left: 1030px;margin-bottom: 5px;margin-top: -210px;width: 123.1406px; border-color: rgb(119,13,253);background: rgb(119,13,253); " href="OrdersPageAdminView.php">Save</button>
-         
-            </div>
-			<div class="container">
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5> <br>
-						<div class="image">
-		<div class="column">
-		<img src="assets/img/avatars/nopic1.jpg" height="120px" width="120px"></div>
-      </div>
-	  
-      <div class="text">
-		  <div class="column">
-		  
-		 <!-- ORDER DETAILS AS PER USER INPUT -->
-		 Order Details:
-		 <br> <br> <br>
-		 <div class="row"> Shipping Details: </div> </div>
-		<div class="column">
-		Order Due:
-		<br> <input type="date">
-		<br> <br>
-		<div class="row"> Order Status: 
-		<select name="" id="sel" >
-      <option value="ON-GOING">ON-GOING</option>
-      <option value="COMPLETED">COMPLETED</option>
-		</select> </div> </div>
-		
-      </div> 
-		</div>
-        </div>
-        </div>
-			
-			
-            <div class="col-lg-6 mb-4">
-                <div class="card">
-				<i class="fa fa-trash-o" style="font-size:36px"></i>
-                    <img class="card-img-top" src="" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title"> <a href="AddPaymentAdmin.php?id=">Payment</h5></a>
-                        <p class="card-text">
-                            <br> <b>Amount:  </b>
-							<br> <b>Mode of Payment: </b>
-							<br> <b>Status of Payment: </b>
-							<br> <b>Proof of Payment: </b>
-                        </p>
+    <div class="container my-5">
+        <div class="row mt-5">
+            <form class="mb-3" method="POST" id="form">
+                <a class="btn btn-dark" href="EditOrder.php?id=<?php echo $order['OrderID'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
+                <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $order['OrderID']; ?>">
+                <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%">
+            </form><hr>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="rounded img-fluid" src="<?php echo $order['ItemImg'] ?>">
+                    </div>
+                    <div class="col-md-8">
+                        <h3><strong> Order Details </strong></h3>
+                        <h6> Order#<?php echo $order['OrderID'] ?> </h6>
+                        <h6> Item Name: <?php echo $order['ItemName'] ?></h6>
+                        <h6> Price: Php<?php echo $order['ItemPrice'] ?></h6>
+                        <h6> Quantity: <?php echo $order['OrderQty'] ?></h6>
+                        <h6> Materials Used: </h6>
+                        <h6> Ordered by: <?php echo $order['c_name'] ?></h6>
+                        <h6> Due on: <?php echo date("F d, Y", strtotime($order['OrderDate'])); ?></h6>
+                        <h6> Status: <?php echo $order['OrderType'] ?></h6>
                     </div>
                 </div>
             </div>
-        </div> 
-    </div>
-	
-	<div class="container">
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="card">
-                    <img class="card-img-top" src="" alt="">
-  
-                    <div class="card-body">
-                        <h5 class="card-title"> Order History</h5>
-                        <p class="card-text">
-                            <br> Some quick example text to build on 
-                            the card title and make up the bulk 
-                            of the card's content.
-						<br> <br>
-						</p>
-						<br>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="rounded img-fluid" src="<?php echo $order['c_avatar'] ?>">
+                    </div>
+                    <div class="col-md-8">
+                        <h3><strong> Customer Details </strong></h3>
+                        <h6> Customer Profile used: <?php echo $order['c_label'] ?></h6>
+                        <h6> Name: <?php echo $order['c_name'] ?> </h6>
+                        <h6> Address: <?php echo $order['address'] ?></h6>
+                        <h6> Email: <?php echo $order['email'] ?></h6>
+                        <h6> Region: <?php echo $order['region'] ?></h6>
+                        <h6> City: <?php echo $order['city'] ?></h6>
+                        <h6> Barangay: <?php echo $order['barangay'] ?></h6>
+                        <h6> Phone No: <?php echo $order['phone_no'] ?></h6>
+                        <h6> ZIP Code: <?php echo $order['zip_code'] ?></h6>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card">
-                    <img class="card-img-top" src="" alt="">
-  
-                    <div class="card-body">
-                        <h5 class="card-title"> <a href="TrackingDetails.php?id=">Tracking Details</h5>  </a>
-                        <p class="card-text">
-                            <br> <b>Courier: </b>
-							<br> <b>Tracking Number: </b>
-							<br> <br>
-                        </p>
-						<br>
-                    </div>
+
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <h3><strong> Payment </strong></h3>
+                    <h6> Total Cost: <?php $total = $order['OrderQty'] * $order['ItemPrice'];
+                                                echo "Php".$total; ?></h6>
+                    <h6> Mode of Payment: <?php echo $order['p_mode'] ?></h6>
+                    <h6> Payment Status: <?php echo $order['pay_status'] ?></h6>
+                    <h6> Proof of Payment: <?php echo $order['proof_img'] ?></h6>
+
+
+                </div>
+                <div class="col-md-6">
+                    <h3><strong> Tracking Details </strong></h3>
+                    <h6> Courier: <?php echo $order['courier_id'] ?></h6>
+                    <h6> Tracking Number: <?php echo $order['tracking_no'] ?></h6>
                 </div>
             </div>
         </div>
     </div>
-	
-        </section>
-    </main>
 	
 <?php require 'layouts/Footer.php';?>

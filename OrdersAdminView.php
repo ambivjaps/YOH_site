@@ -15,7 +15,6 @@
 	$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	mysqli_free_result($result);
  
-
     require 'layouts/Header.php';
 ?>
 
