@@ -10,9 +10,9 @@
     if(isset($_GET['id'])) {
 		$id = mysqli_real_escape_string($con, $_GET['id']);
 
-		$item = "SELECT * FROM order_db INNER JOIN cust_profile 
-        ON order_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
-        ON order_db.ItemID = inventory_db.ItemID  WHERE OrderID = $id AND cust_status = '1'";
+		$item = "SELECT * FROM orders_db INNER JOIN cust_profile 
+        ON orders_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
+        ON orders_db.ItemID = inventory_db.ItemID  WHERE OrderID = $id AND cust_status = '1'";
 
 		$result = mysqli_query($con, $item);
 		$order = mysqli_fetch_assoc($result);
@@ -21,7 +21,7 @@
 
     if(isset($_POST['delete'])) {
 		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
-		$sql = "DELETE FROM order_db WHERE OrderID = $delete_id";
+		$sql = "DELETE FROM orders_db WHERE OrderID = $delete_id";
 
 		if(mysqli_query($con, $sql)) {
 			header('Location: OrdersAdminView.php');
@@ -58,13 +58,14 @@
 <?php require 'layouts/nav.php';?>
 
     <div class="container my-5">
-        <div class="row mt-5">
-            <form class="mb-3" method="POST" id="form">
-                <a class="btn btn-dark" href="EditOrder.php?id=<?php echo $order['OrderID'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
-                <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $order['OrderID']; ?>">
-                <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%">
-            </form><hr>
 
+        <form class="mb-3" method="POST" id="form">
+            <a class="btn btn-dark" href="EditOrder.php?id=<?php echo $order['OrderID'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
+            <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $order['OrderID']; ?>">
+            <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%">
+        </form><hr>
+
+        <div class="row mt-5">
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
@@ -122,6 +123,32 @@
                 </div>
             </div>
         </div>
+
+        <div id="deleteModal" class="modal" style="display: none">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
+                <div class="modal-footer">
+                    <button onClick="deleteOrderForm()">OK</button>
+                    <button onClick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementsByName('delete')[0].addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('deleteModal').style.display = 'block';
+            });
+
+            function closeModal() {
+                document.getElementById('deleteModal').style.display = 'none';
+            }
+
+            function deleteOrderForm() {
+                document.getElementById("form").submit();
+            }
+        </script>
+
     </div>
 	
 <?php require 'layouts/Footer.php';?>

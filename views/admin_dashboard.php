@@ -4,33 +4,33 @@
 
     // retrieves profile count
     $profile_count = "SELECT COUNT(*) FROM cust_profile";
-    $result = mysqli_query($con, $profile_count);
-    $profiles = mysqli_fetch_array($result)[0];
-    mysqli_free_result($result);
+    $result_prof = mysqli_query($con, $profile_count);
+    $profiles = mysqli_fetch_array($result_prof)[0];
+    mysqli_free_result($result_prof);
 
     // retrieves inventory count
     $inventory_count = "SELECT COUNT(*) FROM inventory_db";
-    $result = mysqli_query($con, $inventory_count);
-    $inventory = mysqli_fetch_array($result)[0];
-    mysqli_free_result($result);
+    $result_inv = mysqli_query($con, $inventory_count);
+    $inventory = mysqli_fetch_array($result_inv)[0];
+    mysqli_free_result($result_inv);
 
     // retrieves order count
     $order_count = "SELECT COUNT(*) FROM orders_db";
-    $result = mysqli_query($con, $order_count);
-    $orders = mysqli_fetch_array($result)[0];
-    mysqli_free_result($result);
+    $result_order = mysqli_query($con, $order_count);
+    $orders = mysqli_fetch_array($result_order)[0];
+    mysqli_free_result($result_order);
 
     // retrieves video count
     $video_count = "SELECT COUNT(*) FROM videos";
-    $result = mysqli_query($con, $video_count);
-    $videos = mysqli_fetch_array($result)[0];
-    mysqli_free_result($result);
+    $result_vid = mysqli_query($con, $video_count);
+    $videos = mysqli_fetch_array($result_vid)[0];
+    mysqli_free_result($result_vid);
 
     // retrieves slide count
     $slide_count = "SELECT COUNT(*) FROM slides";
-    $result = mysqli_query($con, $slide_count);
-    $slides = mysqli_fetch_array($result)[0];
-    mysqli_free_result($result);
+    $result_slide = mysqli_query($con, $slide_count);
+    $slides = mysqli_fetch_array($result_slide)[0];
+    mysqli_free_result($result_slide);
 ?>
 
 <div class="container my-5">

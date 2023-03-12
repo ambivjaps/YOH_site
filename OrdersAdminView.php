@@ -7,9 +7,9 @@
     access('ADMIN');
     $user_data = check_login($con);
 
-    $order = "SELECT * FROM order_db INNER JOIN inventory_db 
-    ON order_db.ItemID = inventory_db.ItemID INNER JOIN cust_profile 
-    ON order_db.c_id = cust_profile.c_id 
+    $order = "SELECT * FROM orders_db INNER JOIN inventory_db 
+    ON orders_db.ItemID = inventory_db.ItemID INNER JOIN cust_profile 
+    ON orders_db.c_id = cust_profile.c_id 
     WHERE cust_status = '1' ORDER BY OrderID";
 	$result = mysqli_query($con, $order);
 	$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
