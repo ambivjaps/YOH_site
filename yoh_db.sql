@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2023 at 09:25 PM
+-- Generation Time: Mar 12, 2023 at 02:33 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -65,19 +65,21 @@ CREATE TABLE `cust_profile` (
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `address` varchar(150) NOT NULL,
   `login_id` bigint(12) NOT NULL,
-  `unique_id` int(5) NOT NULL DEFAULT 1
+  `unique_id` int(5) NOT NULL DEFAULT 1,
+  `cust_status` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cust_profile`
 --
 
-INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_avatar`, `c_label`, `email`, `region`, `city`, `street`, `barangay`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`, `login_id`, `unique_id`) VALUES
-(1, 7242156480, 'Nina De Guzman', 'assets/img/default/default_user.jpg', 'Home', 'ninadeguzman@yahoo.com', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', '09993093997', 1113, 18, '2023-03-10 20:03:56', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 7242156480, 1),
-(2, 1087763698, 'Darwin Manalastas', 'assets/img/default/default_user.jpg', 'Home', 'darwin_2000@gmail.com', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', '09323155312', 1010, 12, '2023-03-10 20:05:57', '12 Pioneer St., Boni Ave, Mandaluyong City', 1087763698, 1),
-(3, 4062959512, 'Rodrigo Villaramas', 'assets/img/default/default_user.jpg', 'Home', 'rod_villa2k@gmail.com', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', '09172238482', 1114, 20, '2023-03-10 20:11:22', '20 Mapayapa St., Gasan City, Marinduque', 4062959512, 1),
-(4, 4062959512, 'Frederico Villaramas', 'assets/img/default/default_user.jpg', 'Ancestral House', 'rod_villa2k@gmail.com', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-10 20:16:55', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1),
-(5, 4062959512, 'Ana Tuason', 'assets/img/default/default_user.jpg', 'Girlfriend\'s Condo', 'rod_villa2k@gmail.com', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-10 20:19:13', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1);
+INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_avatar`, `c_label`, `email`, `region`, `city`, `street`, `barangay`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`, `login_id`, `unique_id`, `cust_status`) VALUES
+(1, 7242156480, 'Nina De Guzman', 'assets/img/default/default_user.jpg', 'Home', 'ninadeguzman@yahoo.com', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', '09993093997', 1113, 18, '2023-03-11 22:58:09', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 7242156480, 1, 0),
+(2, 1087763698, 'Darwin Manalastas', 'assets/img/default/default_user.jpg', 'Home', 'darwin_2000@gmail.com', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', '09323155312', 1010, 12, '2023-03-11 20:37:20', '12 Pioneer St., Boni Ave, Mandaluyong City', 1087763698, 1, 1),
+(3, 4062959512, 'Rodrigo Villaramas', 'assets/img/default/default_user.jpg', 'Home', 'rod_villa2k@gmail.com', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', '09172238482', 1114, 20, '2023-03-11 22:49:35', '20 Mapayapa St., Gasan City, Marinduque', 4062959512, 1, 0),
+(4, 4062959512, 'Frederico Villaramas', 'assets/img/default/default_user.jpg', 'Ancestral House', 'rod_villa2k@gmail.com', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-11 22:35:22', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1, 0),
+(5, 4062959512, 'Ana Tuason', 'assets/img/default/default_user.jpg', 'Girlfriend\'s Condo', 'rod_villa2k@gmail.com', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-11 22:49:35', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1, 1),
+(6, 7242156480, 'Nina De Guzman', 'assets/img/default/default_user.jpg', 'Condo', 'singjaps@gmail.com', 'QUEZON CITY', 'QUEZON CITY', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-11 22:58:09', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 7242156480, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -331,7 +333,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `cust_profile`
 --
 ALTER TABLE `cust_profile`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `inventory_db`
