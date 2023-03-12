@@ -7,12 +7,15 @@
     access('ADMIN');
     $user_data = check_login($con);
 
+    $order = "SELECT * FROM order_db INNER JOIN inventory_db 
+    ON order_db.ItemID = inventory_db.ItemID INNER JOIN cust_profile 
+    ON order_db.c_id = cust_profile.c_id 
+    WHERE cust_status = '1' ORDER BY OrderID";
+	$result = mysqli_query($con, $order);
+	$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	mysqli_free_result($result);
+ 
 
-    
-    include("includes/Order.php");
-    $order = new Order();
-    $categories = $order->getCategories();
-    $totalRecords = $order->getTotalOrders();
     require 'layouts/Header.php';
 ?>
 
@@ -25,48 +28,53 @@
 <main class="page catalog-page">
         <section class="clean-block clean-catalog dark" style="background-color:#efe9ef;">
             <div class="container">
-                <div class="block-heading" >
-                <h2 style="margin:40px; color: black;font-size: 50px;font-weight: bold;">Orders</h2>
+                <div class="block-heading">
+                    <h2 style="margin:54px; color:black; font-size:54px;">Orders</h2>
                 </div>
                 <div class="content">
                     <div class="row">
-                    <div class="col-md-3">
+                        <div class="col-md-3">
                             <div class="d-none d-md-block">
-                            <form method="post" id="search_form">   
                                 <div class="filters">
-                                    <div class="float-start float-md-end mt-5 mt-md-0 search-area" style="margin-left: 14px;margin-right: -4px;">
-                                        <div class="float-start float-md-end mt-5 mt-md-0 search-area"></div><a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);" data-bs-target="AddOrder.php" href="AddOrder.php"><i class="fas fa-plus" style="text-align: center;"></i></a><a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);" data-bs-target="AddCustomerProf.php" href=""><i class="fas fa-search" style="text-align: center;"></i></a>
-                                    </div>
                                     <div class="filter-item">
-                                    <h3>Filters</h3>
-                                        <?php 
-								foreach ($categories as $key => $category) {
-                                    if(isset($_POST['category'])) {
-                                        if(in_array($order->cleanString($category['TypeID']),$_POST['category'])) {
-                                            $categoryCheck ='checked="checked"';
-                                        } else {
-											$categoryCheck="";
-                                        }
-									}
-                                ?>
-								<li class="list-group-item">
-									<div class="checkbox"><label><input type="checkbox" value="<?php echo $order->cleanString($category['TypeID']); ?>" <?php echo @$categoryCheck; ?> name="category[]" class="sort_rang category"><?php echo ucfirst($category['OrderType']); ?></label></div>
-								</li>
-                                <?php } ?></div></div>
+                                        <h3 style="font-size: 32px;">Filters</h3>
+                                        <h3>Categories</h3>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">All Orders</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">On-Going Orders</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Completed Orders</label></div>
+                                    </div>
                                 </div>
                             </div>
-                            <section class="col-lg-9 col-md-8">
-                        <div class="row" id="results">
-                            <div></div>
                         </div>
-                    </section>
+                        <div class="col-md-9">
+                            <div class="products"><a class="btn btn-primary active" role="button" style="margin-left: 834px;margin-right: -7px;margin-bottom: -12px;margin-top: -16px;" href="AddOrder.php">Add</a>
+                                
+                                <div class="row g-0">
+                                    <?php foreach($orders as $order): ?>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="clean-product-item">
+                                            <div class="image"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID'] ?>"><img class="img-fluid d-block mx-auto rounded" src="<?php echo $order['ItemImg'] ?>" title="<?php echo $order['ItemName'] ?>"></a></div>
+                                            <div class="product-name"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID'] ?>" style="color: rgb(111,66,193);">Order#<?php echo $order['id'] ?> - <?php echo $order['ItemName'] ?></a></div>
+                                            <hr><h6>Ordered by: <strong> <?php echo $order['c_name'] ?> </strong></h6>
+                                            <h6>Quantity: <?php echo $order['OrderQty'] ?></h6>
+                                            <h6>Total Cost: 
+                                            <?php 
+                                                $total = $order['OrderQty'] * $order['ItemPrice'];
+                                                echo "Php".$total;
+                                            ?>
+                                            </h6>
+                                            <span class="badge bg-dark"><?php echo $order['OrderType']; ?></span>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-				<input type="hidden" id="totalRecords" value="<?php echo $totalRecords; ?>">
-            </form>
-        </div>        
-    </div>        
-
-<script src="assets/js/order.js"></script>
+            </div>
+        </section>
+    </main>
+    
                         
-
 <?php require 'layouts/Footer.php';?>

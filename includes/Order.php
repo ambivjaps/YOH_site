@@ -60,13 +60,13 @@ class Order{
             $size = $_POST['size'];
             $sql.=" AND ItemPrice IN (".implode(',',$size).")";
         }
-        $orderPerPage = 9;
+        $orderPerPage = 20;
         $rowCount = $this->getNumRows($sql);
         $totalData = ceil($rowCount / $orderPerPage);
         return $totalData;
     }
     public function getOrders() {
-        $orderPerPage = 9;
+        $orderPerPage = 20;
         $totalRecord  = strtolower(trim(str_replace("/","",$_POST['totalRecord'])));
         $start = ceil($totalRecord * $orderPerPage);
         $sql= "SELECT * FROM ".$this->orderTable." WHERE order_qty != 0";
@@ -102,11 +102,11 @@ class Order{
                 $orderHTML .= '<div class="col-12 col-md-6 col-lg-4">
 									<div class="clean-product-item">
 										<a href="OrderPageAdmin.php?id='.$order['OrderID'].'">
-											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="'.$order['ItemImg'].'" title="'.$order['ItemName'].'" alt="'.$order['ItemName'].'"></div>
+											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="" title="" alt=""></div>
 										</a>
                                         
 										<a href="OrderPageAdmin.php?id='.$order['OrderID'].'" style="text-decoration: none;">
-											<div class="product-name">'.$order['ItemName'].'</div>
+											<div class="product-name"></div>
                                             
 										</a>
 										<span class="badge bg-dark">'.$order['OrderType'].'</span><hr>
@@ -114,9 +114,9 @@ class Order{
 										<div class="about">
                                         <a href="OrderPageAdmin.php" class="btn btn-primary" type="button" style="font-weight: bold;background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>
 										
-                                        <h6>Php '.$order['ItemPrice'].'</h6>
+                                        <h6>Php 200</h6>
                                         <div class="price">
-                                        <h6>Quantity: '.$order['order_qty'].'</h6>
+                                        <h6>Quantity: '.$order['OrderQty'].'</h6>
                                         </div>
                                         <button id="myBtn" class="btn btn-primary" type="button" style="font-weight: bold;background: var(--bs-red);width: 40px;margin-left: 4px;border-color: var(--bs-red);"><i class="fas fa-trash" style="text-align: center;"></i></button></div>	
                                         <div class="price">
