@@ -7,44 +7,17 @@
     include("includes/access.inc.php");
     access('USER');
     $user_data = check_login($con);
-    
-    if (isset($_GET['page'])) {
-        $page = $_GET['page'];
-    } else {
-        $page = 1;
-    }
-    $no_of_records_per_page = 1;
 
-    $offset = ($page-1) * $no_of_records_per_page;
+    if(isset($_SESSION['login_id'])) {
+		$id = mysqli_real_escape_string($con, $_SESSION['login_id']);
+		$item = "SELECT * FROM orders_db INNER JOIN cust_profile 
+        ON orders_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
+        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_status = '1' LIMIT 1";
 
-    $total_pages_sql = "SELECT COUNT(*) FROM orders_db";
-    $result = mysqli_query($con, $total_pages_sql);
-    $total_rows = mysqli_fetch_array($result)[0];
-    $total_pages = ceil($total_rows / $no_of_records_per_page);
-
-        $sql = "SELECT * FROM orders_db LIMIT $offset, $no_of_records_per_page";
-        $res_data = mysqli_query($con, $sql);
-        $orders = mysqli_fetch_all($res_data, MYSQLI_ASSOC);
-        mysqli_free_result($result);
-
-        if(isset($_SESSION['login_id'])) {
-            $id = mysqli_real_escape_string($con, $_SESSION['login_id']);
-
-            // gets specific records based on current user
-            $item = "SELECT orders_db.*, cust_profile.c_name 
-                    FROM cust_profile
-                    LEFT JOIN orders_db ON orders_db.c_id = cust_profile.c_id
-                    WHERE orders_db.c_id = $id
-                    LIMIT $offset, $no_of_records_per_page";
-            
-            $result = mysqli_query($con, $item);
-
-            $result = $con->query($item);
-            $orders = $result->fetch_all();
-
-        }
-
-   
+		$result = mysqli_query($con, $item);
+		$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	    mysqli_free_result($result);
+	}
 
     require 'layouts/Header.php';
 ?>
@@ -75,11 +48,12 @@
 
     <main class="page payment-page;">
         <section class="clean-block payment-form dark" style="height: 1061.328px; background-color:#efe9ef;">
+        <?php foreach($orders as $order): ?>
             <div class="container" style="color: var(--bs-btn-hover-border-color);">
                 <div class="block-heading">
-                <?php foreach($orders as $order): ?>
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black;"> # <?php echo $order[1] ?></h2>
-                    <h2 style="font-size: 18px;text-align: left;margin-bottom: 10.2px;margin-top:10px; color:black;"><?php echo $order[17] ?></h2> 
+             
+                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black;"> Order # <?php echo $order['OrderID']; ?> </h2>
+                    <h2 style="font-size: 18px;text-align: left;margin-bottom: 10.2px;margin-top:10px; color:black;"></h2> 
                 </div>
             </div>
 			<div class="container">
@@ -88,23 +62,24 @@
             <div class="col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"></h5> <br>
+                        <h5 class="card-title"><?php echo $order['ItemName']; ?></h5> <br>
 						<div class="image">
 		<div class="column">
-		<img src="<?php echo $order[3] ?> " height="120px" width="120px"></div>
+		<img src="<?php echo $order['ItemImg']; ?>" height="120px" width="120px"></div>
       </div>
 	  
       <div class="text">
 		  <div class="column">
 		  
 		 <!-- ORDER DETAILS AS PER USER INPUT -->
-		<b> Order Details: </b> <br> <?php echo $order[2] ?> 
+        
+		<b> Order Details: </b> <br> 
 		 <br> <br>
-		 <div class="row"><b> Shipping Details: </b><?php echo $order[15] ?></div> </div>
-		<div class="column"><b>Order Due: </b>  <br> <?php echo $order[9] ?>
+		 <div class="row"><b> Shipping Details: <?php echo $order['address']; ?></b></div> </div>
+		<div class="column"><b>Order Due: <?php echo date("F d, Y", strtotime($order['OrderDate'])); ?> </b>  <br>
 		<br>
 		<br>
-		<div class="row"> <b>Order Status: </b><?php echo $order[16] ?>
+		<div class="row"> <b>Order Status: <?php echo $order['OrderType']; ?> </b>
 		
 		</select> </div> </div>
 		
@@ -119,12 +94,12 @@
 				<i class="fa fa-trash-o" style="font-size:36px"></i>
                     <img class="card-img-top" src="" alt="">
                     <div class="card-body">
-                        <h5 class="card-title"> <a href="AddPaymentCust.php?id=<?php echo $order[1] ?>">Payment</h5></a>
+                        <h5 class="card-title"> <a href="AddPaymentCust.php?id=">Payment</h5></a>
                         <p class="card-text">
-                            <br> <b>Amount: </b>
-							<br> <b>Mode of Payment: </b> <?php echo $order[12] ?> 
-							<br> <b>Status of Payment: </b> <?php echo $order[16] ?> 
-							<br> <b>Proof of Payment: </b> <?php echo $order[11] ?> 
+                            <br> <b>Amount: Php<?php echo $order['OrderTotal']; ?> </b>
+							<br> <b>Mode of Payment: <?php echo $order['p_mode']; ?> </b> 
+							<br> <b>Status of Payment: <?php echo $order['pay_status']; ?> </b> 
+							<br> <b>Proof of Payment: <?php echo $order['proof_img']; ?> </b> 
                         </p>
                     </div>
                 </div>
@@ -141,9 +116,9 @@
                     <div class="card-body">
                         <h5 class="card-title">Order History</h5>
                         <p class="card-text">
-                            <div class="column"><b> Item Name: </b> <br> <?php echo $order[2] ?> </div>
-                            <div class="column"><b> Item Price: </b> <br> PHP <?php echo $order[10] ?> </div>
-                            <div class="column"><b> Order Date: </b> <br> <?php echo $order[9] ?> </div>
+                            <div class="column"><b> Item Name: </b> <br> </div>
+                            <div class="column"><b> Item Price: </b> <br> PHP  </div>
+                            <div class="column"><b> Order Date: </b> <br>  </div>
 						<br> <br>
 						</p>
 						<br>
@@ -157,8 +132,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Tracking Details</h5>
                         <p class="card-text">
-                            <br> <b>Courier: </b> <?php echo $order[14] ?> 
-							<br> <b>Tracking Number: </b> <?php echo $order[13] ?> 
+                            <br> <b>Courier: <?php echo $order['courier_id']; ?>
+							<br> <b>Tracking Number: <?php echo $order['tracking_no']; ?>
 							<br> <br>
                         </p>
 						<br>
@@ -167,10 +142,9 @@
             </div>
         </div>
     </div>
-	<?php endforeach; ?>
+    <?php endforeach; ?>
+
         </section>
     </main>
 
 <?php require 'layouts/Footer.php';?>
-OrderPageCust.php
-Displaying OrderPageCust.php.
