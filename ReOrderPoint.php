@@ -5,6 +5,7 @@
     include("includes/functions.inc.php");
     include("includes/access.inc.php");
     $user_data = check_login($con);
+    access('ADMIN');
 
     require 'layouts/Header.php';
 
@@ -16,6 +17,23 @@
 
 		mysqli_free_result($result);
 	}
+
+    if(isset($_POST['reorder'])){
+       
+        $qty = mysqli_real_escape_string($con, $_POST['ItemQty']);
+        $cur_qty = $inv['ItemQty'];
+        $item = "UPDATE inventory_db SET ItemQty=ItemQty+$qty WHERE ItemID='$id' ";
+        $result = mysqli_query($con, $item);
+        if($result) {
+            echo '<script> alert("Item reorder is successful!") </script>'; 
+            header("Location: ReOrderPoint.php?id=".$inv['ItemID']);
+          
+            mysqli_close($con);
+            exit();
+        } else {
+            echo "<script> alert('Problem occured.') </script>";
+        }
+    }
 ?>
 
 <title> Re-Ordering | Yarn Over Hook </title>
@@ -30,8 +48,8 @@
                 <div class="block-heading">
                     <h2 style="font-weight: bold;">Re - Ordering Links and Methods</h2>
                 </div>
-                <form style="border:none;">
-                
+                <div class="form-group">
+                <form id="form" action="ReOrderPoint.php?id=<?php echo $inv['ItemID'] ?>" method="POST" enctype="multipart/form-data" style="border:none;">
                     <div class="products">
                         <div class="row">
                                 <div class="col-md-2">
@@ -43,6 +61,7 @@
                                 <h3 class="item-name">Stocks: <span id = "stocks"><?php echo $inv['ItemQty']; ?></span></h3>
                             </div>
                         <hr>
+                      
                           
                         <script> 
                                 var sto = document.getElementById("stocks");
@@ -66,68 +85,23 @@
                             <p class="item-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                         </div>
                         <hr>
-                        <span></span><span class="price"></span>
-                        <button class="btn btn-primary d-block w-100" id="myBtn1" type="submit" style="margin-top: 19px; border-color: rgb(119,13,253);background: rgb(119,13,253);">Confirm</button>
-                        <div id="myModal1" class="modal1">
-                                <div class="modal-content1">
-                                    <span class="close1">&times;</span>
-                                    <p style="font-weight:bold;font-size:50px;">Thank you!</p>
-                                    <p style="font-weight:bold;">Your Re-order has been confirmed </p>
-                                    <p style="margin-left:-100px;font-weight:bold;"> How many items: </p> 
-                                    <input type="number"class="form-control rounded" style="width:10%; margin-left:390px; margin-top:-45px;"></input>
-                                    <br>
-                                    <button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px; border-color: rgb(119,13,253);background: rgb(119,13,253);" id="yesBtn">Yes</button></a><button class="btn btn-primary border rounded" id="noBtn" style="width: 78.178px; background: rgb(220, 53, 69); border:rgb(220, 53, 69);">No</button>
-                                    </div>
-                            </div>
+                        
+                    <br>
+                    <div class="form-group">
+                    <label>Input no. of Items</label>
+                        <input class="form-control" type="text" name="ItemQty" placeholder="Enter no. of items"  required style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control button" type="submit" name="reorder" value="Add" style="border-color: rgb(119,13,253); font-weight:bold;background: rgb(119,13,253); color:white;">
                         <a href="Inventory.php" type="button" class="btn btn-primary d-block w-100" class="btn btn-primary d-block w-100"  type="button" value="Cancel" style="margin-top: 19px; background: rgb(220, 53, 69); border:rgb(220, 53, 69); text-decoration:none;color:white;">Cancel</a>
                     </div>
+                        
                 </form>
             </div>
         </section>
     </main>
-    <script>
-
-var modal = document.getElementById("myModal1");
-
-var btn = document.getElementById("myBtn1");
-
-var yesBtn = document.getElementById("yesBtn");
-
-var noBtn = document.getElementById("noBtn");
-
-var yesModal = document.getElementById("yesMess");
-
-var span = document.getElementsByClassName("close1")[0];
-
-var span1 = document.getElementsByClassName("close2")[0];
-
-btn.onclick = function() {
-modal.style.display = "block";
-}
-
-span.onclick = function() {
-modal.style.display = "none";
-}
-
-span1.onclick = function() {
-    yesModal.style.display = "none";
-}
-
-yesBtn.onclick = function() {
-    modal.style.display = "none";
-    yesModal.style.display = "block";
-}
-
-noBtn.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-if (event.target == modal) {
-    modal.style.display = "none";
-}
-}
-</script>
+    
+ 
 <?php else: ?>
         <div class="container my-5">
             <h2> Oops.. Page not found. Please try again. </h2>
