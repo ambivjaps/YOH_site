@@ -12,7 +12,7 @@
 		$id = mysqli_real_escape_string($con, $_SESSION['login_id']);
 		$item = "SELECT * FROM orders_db INNER JOIN cust_profile 
         ON orders_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
-        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_status = '1' LIMIT 1";
+        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_profile.cust_status = '1' AND orders_db.c_id = $id LIMIT 1";
 
 		$result = mysqli_query($con, $item);
 		$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -94,7 +94,7 @@
 				<i class="fa fa-trash-o" style="font-size:36px"></i>
                     <img class="card-img-top" src="" alt="">
                     <div class="card-body">
-                        <h5 class="card-title"> <a href="AddPaymentCust.php?id=">Payment</h5></a>
+                        <h5 class="card-title"> <a href="AddPaymentCust.php?id=<?php echo $order['OrderID']; ?>">Payment</h5></a>
                         <p class="card-text">
                             <br> <b>Amount: Php<?php echo $order['OrderTotal']; ?> </b>
 							<br> <b>Mode of Payment: <?php echo $order['p_mode']; ?> </b> 

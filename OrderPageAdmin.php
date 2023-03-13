@@ -12,7 +12,7 @@
 
 		$item = "SELECT * FROM orders_db INNER JOIN cust_profile 
         ON orders_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
-        ON orders_db.ItemID = inventory_db.ItemID  WHERE OrderID = $id AND cust_status = '1'";
+        ON orders_db.ItemID = inventory_db.ItemID  WHERE OrderID = $id AND cust_profile.cust_status = '1'";
 
 		$result = mysqli_query($con, $item);
 		$order = mysqli_fetch_assoc($result);
