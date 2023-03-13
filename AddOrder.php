@@ -34,7 +34,7 @@
             die;
         }
 
-        $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty')";
+        $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty')";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
