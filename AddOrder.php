@@ -21,6 +21,7 @@
 
 <?php 
     if(isset($_POST['submit'])) {
+
         $CustProf = $_POST['CustProf'];
         $InvItem = $_POST['InvItem'];
         $OrderType = $_POST['OrderType'];
@@ -34,7 +35,16 @@
             die;
         }
 
-        $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty')";
+        $item = "SELECT * FROM inventory_db WHERE ItemID = $InvItem";
+		$result = mysqli_query($con, $item);
+		$selected_item = mysqli_fetch_assoc($result);
+		mysqli_free_result($result);
+
+        $selectPrice = $selected_item['ItemPrice'];
+
+        $OrderTotal = $OrderQty * $selectPrice;
+
+        $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty','$OrderTotal')";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {

@@ -91,29 +91,29 @@
 
         <h1> Edit Order </h1>
         <div class="form-group">
-            <form action="EditOrder.php?id=<?php echo $order['OrderID'] ?>" method="POST" id="form">
+            <form action="EditOrder.php?id=<?php echo $order['OrderID']; ?>" method="POST" id="form">
                 <div class="row my-3">
                     <h3 class="my-3"> Order Details </h3>
 
                     <div class="col-md-12">
-                        <label>Customer (Current: <?php echo $order['c_name'] ?>)</label>
+                        <label>Customer (Current: <?php echo $order['c_name']; ?>)</label>
                         <select class="form-select" id="CustProf" name="CustProf" aria-label=".form-select example">
                             <?php foreach($prof_sel as $prof): ?>
-                            <option value="<?php echo $prof['c_id'] ?>"><?php echo $prof['c_name'] ?></option>
+                            <option value="<?php echo $prof['c_id'] ?>"><?php echo $prof['c_name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label>Item (Current: <?php echo $order['ItemName'] ?>)</label>
+                        <label>Item (Current: <?php echo $order['ItemName']; ?>)</label>
                         <select class="form-select" id="InvItem" name="InvItem" aria-label=".form-select example">
                             <?php foreach($inv_item as $inv): ?>
-                            <option value="<?php echo $inv['ItemID'] ?>"><?php echo $inv['ItemName'] ?></option>
+                            <option value="<?php echo $inv['ItemID'] ?>"><?php echo $inv['ItemName']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
 
                     <div class="col-md-12">
-                        <label>Order Type (Current: <?php echo $order['OrderType'] ?>)</label>
+                        <label>Order Type (Current: <?php echo $order['OrderType']; ?>)</label>
                         <select class="form-select" id="OrderType" name="OrderType" aria-label=".form-select example">
                             <option value="In Process">In Process</option>
                             <option value="Completed">Completed</option>
@@ -121,24 +121,24 @@
                     </div>
                     <div class="col-md-12">
                         <label>Order Quantity</label>
-                        <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty'] ?>">
+                        <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty']; ?>">
                     </div>
 
                     <h3 class="my-3"> Payment Details </h3>
 
                     <div class="col-md-12">
                         <label>Payment Status</label>
-                        <input type="text" name="pay_status" id="pay_status" class="form-control" value="<?php echo $order['pay_status'] ?>">
+                        <input type="text" name="pay_status" id="pay_status" class="form-control" value="<?php echo $order['pay_status']; ?>">
                     </div>
 
                     <h3 class="my-3"> Shipping Details </h3>
                     <div class="col-md-12">
                         <label>Courier</label>
-                        <input type="text" name="courier_id" id="courier_id" class="form-control" value="<?php echo $order['courier_id'] ?>">
+                        <input type="text" name="courier_id" id="courier_id" class="form-control" value="<?php echo $order['courier_id']; ?>">
                     </div>
                     <div class="col-md-12">
                         <label>Tracking Number</label>
-                        <input type="text" name="tracking_no" id="tracking_no" class="form-control" value="<?php echo $order['tracking_no'] ?>">
+                        <input type="text" name="tracking_no" id="tracking_no" class="form-control" value="<?php echo $order['tracking_no']; ?>">
                     </div>
 
                     <div class="button-group float-end">
