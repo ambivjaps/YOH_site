@@ -20,14 +20,17 @@
 
     if(isset($_POST['reorder'])){
        
-        $qty = mysqli_real_escape_string($con, $_POST['ItemQty']);
+        $qty = $_POST['ItemQty'];
         $cur_qty = $inv['ItemQty'];
         $item = "UPDATE inventory_db SET ItemQty=ItemQty+$qty WHERE ItemID='$id' ";
         $result = mysqli_query($con, $item);
         if($result) {
-            echo '<script> alert("Item reorder is successful!") </script>'; 
             header("Location: ReOrderPoint.php?id=".$inv['ItemID']);
-          
+           ?>
+           <script>
+            document.getElementById("Success").style.display="block";        
+           </script>
+           <?php
             mysqli_close($con);
             exit();
         } else {
@@ -47,9 +50,11 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 style="font-weight: bold;">Re - Ordering Links and Methods</h2>
+                     
                 </div>
                 <div class="form-group">
-                <form id="form" action="ReOrderPoint.php?id=<?php echo $inv['ItemID'] ?>" method="POST" enctype="multipart/form-data" style="border:none;">
+                <form name="form" action="" method="POST">
+                
                     <div class="products">
                         <div class="row">
                                 <div class="col-md-2">
@@ -92,16 +97,25 @@
                         <input class="form-control" type="text" name="ItemQty" placeholder="Enter no. of items"  required style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;">
                     </div>
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="reorder" value="Add" style="border-color: rgb(119,13,253); font-weight:bold;background: rgb(119,13,253); color:white;">
+                    <input class="form-control button" type="submit" name="reorder" value="Add" style="border-color: rgb(119,13,253); font-weight:bold;background: rgb(119,13,253); color:white;">
                         <a href="Inventory.php" type="button" class="btn btn-primary d-block w-100" class="btn btn-primary d-block w-100"  type="button" value="Cancel" style="margin-top: 19px; background: rgb(220, 53, 69); border:rgb(220, 53, 69); text-decoration:none;color:white;">Cancel</a>
                     </div>
-                        
+                    <div class="form-group">
+                    <div class="alert alert-success" id="Success" role="alert" style="display:block">
+                                    Item Reorder is Successful!
+                                                </div> 
+                            </div>
                 </form>
             </div>
         </section>
     </main>
     
- 
+    <script src="assets/js/DesignB.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/bs-init.js"></script>
+	<script src="assets/js/DesignA.js"></script>
+	<script src="assets/js/theme.js"></script>
+	<script src="assets/js/DesignAnimation.js"></script>
 <?php else: ?>
         <div class="container my-5">
             <h2> Oops.. Page not found. Please try again. </h2>
