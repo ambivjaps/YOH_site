@@ -89,7 +89,7 @@
 		<div class="column"><b>Order Due: <?php echo date("F d, Y", strtotime($order['OrderDate'])); ?> </b>  <br>
 		<br>
 		<br>
-		<div class="row"> <b>Order Status: <?php echo $order['OrderType']; ?> </b>
+		<div class="row"> <b>Order Status: </b> <span class="badge bg-warning"> <?php echo $order['OrderType']; ?> </span>
 		
 		</select> </div> </div>
 		
