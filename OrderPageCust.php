@@ -126,8 +126,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Tracking Details</h5>
                         <p class="card-text">
-                            <br> <b>Courier: <?php echo $order['courier_id']; ?>
-							<br> <b>Tracking Number: <?php echo $order['tracking_no']; ?>
+                            <br> <b>Courier: <?php echo $order['courier_id']; ?> </b>
+							<br> <b>Tracking Number: <?php echo $order['tracking_no']; ?> </b>
 							<br> <br>
                         </p>
 						<br>
