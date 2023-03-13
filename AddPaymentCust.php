@@ -28,23 +28,32 @@
 
         $p_mode = $_POST['p_mode'];
 
-        $image = $_FILES['proof_img']['name'];
-        $temp_name = $_FILES['proof_img']['tmp_name'];
+        $new_image = $_FILES['proof_img']['name'];
+        $old_image = $_POST['proof_img_old'];
         $unique = strtotime("now").'_'.uniqid(rand()).'_';
 
-        $temp_name = $_FILES['proof_img']['tmp_name'];  
-            if(isset($image) and !empty($image)){
-            $location = './assets/img/upload/payment/';      
-            $saveImage = 'assets/img/upload/payment/'.$unique.$_FILES['proof_img']['name'];
+        if($new_image != '') {
+            $update_filename = 'assets/img/upload/payment/' . $unique . $_FILES['proof_img']['name'];
+        } else {
+            $update_filename = $old_image;
+        }
 
-                if(move_uploaded_file($temp_name, $location.$unique.$image)){
-                    echo '';
+        if(file_exists("assets/img/upload/payment/" . $_FILES['proof_img']['name'])) {
+        } else {
+            $query = "UPDATE orders_db SET proof_img='$update_filename' WHERE OrderID=$OID";
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run) {
+                if($_FILES['proof_img']['name'] != '') {
+                    move_uploaded_file($_FILES['proof_img']['tmp_name'], "assets/img/upload/payment/" . $unique . $_FILES['proof_img']['name']);
+                    unlink($old_image);
                 }
             } else {
-                $saveImage = 'No image uploaded.';
+                echo "<script> alert('Problem occured.') </script>";
             }
+        }
         
-        $query = "UPDATE orders_db SET p_mode='$p_mode',proof_img='$saveImage' WHERE OrderID=$OID";
+        $query = "UPDATE orders_db SET p_mode='$p_mode' WHERE OrderID=$OID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
@@ -89,6 +98,7 @@
                         		</select> 
                             <p class="item-name" style="margin-bottom: 14.2px;margin-top: 14px;">Proof of Payment</p>
                             <input type="file" class="form-control form-control my-3" name="proof_img" required>
+                            <input type="hidden" name="proof_img_old" value="<?php echo $order['proof_img']; ?>">
                         </div>
                             <div class="button-group float-end">
                                 <input class="btn btn-success" type="submit" name="add_payment" value="Submit">
