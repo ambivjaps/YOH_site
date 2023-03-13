@@ -133,13 +133,6 @@
                         <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty']; ?>">
                     </div>
 
-                    <h3 class="my-3"> Payment Details </h3>
-
-                    <div class="col-md-12">
-                        <label>Payment Status</label>
-                        <input type="text" name="pay_status" id="pay_status" class="form-control" value="<?php echo $order['pay_status']; ?>">
-                    </div>
-
                     <h3 class="my-3"> Shipping Details </h3>
                     <div class="col-md-12">
                         <label>Courier</label>

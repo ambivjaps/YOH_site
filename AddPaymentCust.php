@@ -27,6 +27,7 @@
         $OID = $order['OrderID'];
 
         $p_mode = $_POST['p_mode'];
+        $pay_status = $_POST['pay_status'];
 
         $new_image = $_FILES['proof_img']['name'];
         $old_image = $_POST['proof_img_old'];
@@ -53,7 +54,7 @@
             }
         }
         
-        $query = "UPDATE orders_db SET p_mode='$p_mode' WHERE OrderID=$OID";
+        $query = "UPDATE orders_db SET p_mode='$p_mode', pay_status='$pay_status' WHERE OrderID=$OID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
@@ -95,7 +96,14 @@
                               <option value="BDO">BDO</option>
                               <option value="GCash">GCash</option>
                               <option value="FullPayment">Paypal</option>
-                        		</select> 
+                            </select> 
+
+                            <p class="item-name mt-2" style="margin-bottom: 13.2px;" input="read-only">Status of Payment </p>
+                            <select class="form-select" id="pay_status" name="pay_status" aria-label=".form-select example" required>
+                              <option value="Installment">Installment</option>
+                              <option value="Full Payment">Full Payment</option>
+                            </select> 
+                            
                             <p class="item-name" style="margin-bottom: 14.2px;margin-top: 14px;">Proof of Payment</p>
                             <input type="file" class="form-control form-control my-3" name="proof_img" required>
                             <input type="hidden" name="proof_img_old" value="<?php echo $order['proof_img']; ?>">
