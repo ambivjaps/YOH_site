@@ -9,8 +9,9 @@
 
     $order = "SELECT * FROM orders_db INNER JOIN inventory_db 
     ON orders_db.ItemID = inventory_db.ItemID INNER JOIN cust_profile 
-    ON orders_db.c_id = cust_profile.c_id 
-    WHERE cust_status = '1' ORDER BY OrderID";
+    ON orders_db.c_id = cust_profile.c_id
+    WHERE cust_profile.cust_status = '1' ORDER BY OrderID";
+    
 	$result = mysqli_query($con, $order);
 	$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	mysqli_free_result($result);
@@ -52,16 +53,11 @@
                                     <?php foreach($orders as $order): ?>
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="clean-product-item">
-                                            <div class="image"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID'] ?>"><img class="img-fluid d-block mx-auto rounded" src="<?php echo $order['ItemImg'] ?>" title="<?php echo $order['ItemName'] ?>"></a></div>
-                                            <div class="product-name"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID'] ?>" style="color: rgb(111,66,193);">Order#<?php echo $order['OrderID'] ?> - <?php echo $order['ItemName'] ?></a></div>
-                                            <hr><h6>Ordered by: <strong> <?php echo $order['c_name'] ?> </strong></h6>
-                                            <h6>Quantity: <?php echo $order['OrderQty'] ?></h6>
-                                            <h6>Total Cost: 
-                                            <?php 
-                                                $total = $order['OrderQty'] * $order['ItemPrice'];
-                                                echo "Php".$total;
-                                            ?>
-                                            </h6>
+                                            <div class="image"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>"><img class="img-fluid d-block mx-auto rounded" src="<?php echo $order['ItemImg'] ?>" title="<?php echo $order['ItemName'] ?>"></a></div>
+                                            <div class="product-name"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>" style="color: rgb(111,66,193);">Order#<?php echo $order['OrderID'] ?> - <?php echo $order['ItemName'] ?></a></div>
+                                            <hr><h6>Ordered by: <strong> <?php echo $order['c_name']; ?> </strong></h6>
+                                            <h6>Quantity: <?php echo $order['OrderQty']; ?></h6>
+                                            <h6>Total Cost: Php<?php echo $order['OrderTotal']; ?></h6>
                                             <span class="badge bg-dark"><?php echo $order['OrderType']; ?></span>
                                         </div>
                                     </div>
