@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2023 at 02:22 AM
+-- Generation Time: Mar 13, 2023 at 07:00 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -148,12 +148,13 @@ CREATE TABLE `orders_db` (
 --
 
 INSERT INTO `orders_db` (`OrderID`, `ItemID`, `c_id`, `OrderQty`, `OrderType`, `TypeID`, `OrderDate`, `OrderTotal`, `proof_img`, `p_mode`, `tracking_no`, `courier_id`, `pay_status`) VALUES
-(1, 1007, 7242156480, 27, 'In Process', 1, '2023-03-13 01:21:09', 12150, 'None', 'GCash', '1010101010', 'XEND', 'Paid'),
+(1, 1007, 7242156480, 27, 'In Process', 1, '2023-03-13 05:38:05', 12150, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '1010101010', 'XEND', 'Paid'),
 (2, 1002, 4062959512, 5, 'In Process', 1, '2023-03-13 01:14:26', 750, 'None', 'GCash', '9349493939332', 'LBC', 'Unpaid'),
 (3, 1006, 1087763698, 20, 'In Process', 1, '2023-03-13 01:22:27', 3000, 'None', 'Instapay', '', '', ''),
 (6, 1001, 1087763698, 10, 'In Process', 1, '2023-03-13 01:22:30', 2000, 'None', 'Union Bank', '', '', ''),
-(7, 1012, 7242156480, 20, 'In Process', 1, '2023-03-13 01:22:33', 5000, 'None', 'BPI', '', '', ''),
-(8, 1009, 4062959512, 8, 'In Process', 1, '2023-03-13 01:22:38', 2000, 'None', 'BDO', '', '', '');
+(7, 1012, 7242156480, 20, 'Completed', 2, '2023-03-13 05:41:33', 5000, 'None', 'BPI', '3e923e8939', 'XEND', 'Paid'),
+(8, 1009, 4062959512, 8, 'In Process', 1, '2023-03-13 01:22:38', 2000, 'None', 'BDO', '', '', ''),
+(10, 1015, 7242156480, 1, 'Completed', 2, '2023-03-13 05:54:36', 300, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -344,7 +345,7 @@ ALTER TABLE `inventory_db`
 -- AUTO_INCREMENT for table `orders_db`
 --
 ALTER TABLE `orders_db`
-  MODIFY `OrderID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `OrderID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `register`

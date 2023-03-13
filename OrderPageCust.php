@@ -9,14 +9,24 @@
     $user_data = check_login($con);
 
     if(isset($_SESSION['login_id'])) {
+        // current orders
 		$id = mysqli_real_escape_string($con, $_SESSION['login_id']);
 		$item = "SELECT * FROM orders_db INNER JOIN cust_profile 
         ON orders_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
-        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_profile.cust_status = '1' AND orders_db.c_id = $id LIMIT 1";
+        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_profile.cust_status = '1' AND orders_db.c_id = $id AND orders_db.TypeID = '1'";
 
-		$result = mysqli_query($con, $item);
-		$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
-	    mysqli_free_result($result);
+		$result_process = mysqli_query($con, $item);
+		$orders = mysqli_fetch_all($result_process, MYSQLI_ASSOC);
+	    mysqli_free_result($result_process);
+
+        // past orders
+        $item_history = "SELECT * FROM orders_db INNER JOIN cust_profile 
+        ON orders_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
+        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_profile.cust_status = '1' AND orders_db.c_id = $id AND orders_db.TypeID = '2'";
+
+		$result_past = mysqli_query($con, $item_history);
+		$orders_past = mysqli_fetch_all($result_past, MYSQLI_ASSOC);
+	    mysqli_free_result($result_past);
 	}
 
     require 'layouts/Header.php';
@@ -47,7 +57,7 @@
 <?php require 'layouts/nav.php';?>
 
     <main class="page payment-page;">
-        <section class="clean-block payment-form dark" style="height: 1061.328px; background-color:#efe9ef;">
+        <section class="clean-block payment-form dark" style="background-color:#efe9ef;">
         <?php foreach($orders as $order): ?>
             <div class="container" style="color: var(--bs-btn-hover-border-color);">
                 <div class="block-heading">
@@ -109,23 +119,7 @@
 	
 	<div class="container">
         <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="card">
-                    <img class="card-img-top" src="" alt="">
-  
-                    <div class="card-body">
-                        <h5 class="card-title">Order History</h5>
-                        <p class="card-text">
-                            <div class="column"><b> Item Name: </b> <br> </div>
-                            <div class="column"><b> Item Price: </b> <br> PHP  </div>
-                            <div class="column"><b> Order Date: </b> <br>  </div>
-						<br> <br>
-						</p>
-						<br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-4">
+            <div class="col-md-12 mb-4">
                 <div class="card">
                     <img class="card-img-top" src="" alt="">
   
@@ -139,11 +133,45 @@
 						<br>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <img class="card-img-top" src="" alt="">
+  
+                    <div class="card-body">
+                        <h5 class="card-title">Your Order History</h5>
+                        <p class="card-text">
+                            <div class="row">
+                                <table class="table table-striped table-hover table-sm mt-5">
+                                <tr>
+                                    <th> Order# </th>
+                                    <th> Item Name: </th>
+                                    <th> Total Price: </th>
+                                    <th> Order Date: </th>
+                                    <th> Order Status: </th>
+                                </tr>
+            
+                            <?php $loop=1; foreach($orders_past as $history): ?>
+                                <tr><td>  <?php echo $loop; ?> </td>
+                                <td>  <?php echo $history['ItemName']; ?> </td>
+                                <td> <?php echo $history['OrderTotal']; ?> </td>
+                                <td> <?php echo date("F d, Y", strtotime($history['OrderDate'])); ?> </td>
+                                <td> <span class="badge bg-success"><?php echo $history['OrderType']; ?> </span> </td></tr>
+                            <?php $loop++; endforeach; ?>
+                            </table>
+                            </div>
+						<br> <br>
+						</p>
+						<br>
+                    </div>
+                </div>
+            </div>
+        
         </div>
     </div>
-    <?php endforeach; ?>
-
+   
         </section>
     </main>
 
