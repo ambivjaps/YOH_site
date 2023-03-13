@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2023 at 02:33 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.8
+-- Generation Time: Mar 13, 2023 at 02:22 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -77,9 +77,9 @@ INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_avatar`, `c_label`, `emai
 (1, 7242156480, 'Nina De Guzman', 'assets/img/default/default_user.jpg', 'Home', 'ninadeguzman@yahoo.com', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', '09993093997', 1113, 18, '2023-03-11 22:58:09', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 7242156480, 1, 0),
 (2, 1087763698, 'Darwin Manalastas', 'assets/img/default/default_user.jpg', 'Home', 'darwin_2000@gmail.com', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', '09323155312', 1010, 12, '2023-03-11 20:37:20', '12 Pioneer St., Boni Ave, Mandaluyong City', 1087763698, 1, 1),
 (3, 4062959512, 'Rodrigo Villaramas', 'assets/img/default/default_user.jpg', 'Home', 'rod_villa2k@gmail.com', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', '09172238482', 1114, 20, '2023-03-11 22:49:35', '20 Mapayapa St., Gasan City, Marinduque', 4062959512, 1, 0),
-(4, 4062959512, 'Frederico Villaramas', 'assets/img/default/default_user.jpg', 'Ancestral House', 'rod_villa2k@gmail.com', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-11 22:35:22', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1, 0),
-(5, 4062959512, 'Ana Tuason', 'assets/img/default/default_user.jpg', 'Girlfriend\'s Condo', 'rod_villa2k@gmail.com', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-11 22:49:35', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1, 1),
-(6, 7242156480, 'Nina De Guzman', 'assets/img/default/default_user.jpg', 'Condo', 'singjaps@gmail.com', 'QUEZON CITY', 'QUEZON CITY', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-11 22:58:09', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 7242156480, 1, 1);
+(4, 4062959512, 'Rodrigo Villaramas', 'assets/img/default/default_user.jpg', 'Ancestral House', 'rod_villa2k@gmail.com', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-12 22:06:35', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1, 0),
+(5, 4062959512, 'Rodrigo Villaramas', 'assets/img/default/default_user.jpg', 'Girlfriend\'s Condo', 'rod_villa2k@gmail.com', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-12 22:06:31', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1, 1),
+(6, 7242156480, 'Nina De Guzman', 'assets/img/default/default_user.jpg', 'Condo', 'ninadeguzman@gmai.com', 'NCR', 'QUEZON CITY', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-12 22:59:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 7242156480, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -128,31 +128,32 @@ INSERT INTO `inventory_db` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `
 --
 
 CREATE TABLE `orders_db` (
-  `id` bigint(20) NOT NULL,
   `OrderID` bigint(20) NOT NULL,
-  `ItemName` varchar(50) NOT NULL,
-  `ItemImg` varchar(255) NOT NULL,
+  `ItemID` bigint(20) NOT NULL,
+  `c_id` bigint(12) NOT NULL,
+  `OrderQty` int(11) NOT NULL,
   `OrderType` varchar(255) NOT NULL,
   `TypeID` int(11) NOT NULL,
-  `c_id` bigint(20) NOT NULL,
-  `ItemID` int(11) NOT NULL,
-  `order_qty` int(11) NOT NULL,
-  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `ItemPrice` int(12) NOT NULL,
+  `OrderDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `OrderTotal` int(12) NOT NULL,
   `proof_img` varchar(255) NOT NULL,
-  `p_mode` varchar(50) NOT NULL,
+  `p_mode` varchar(255) NOT NULL,
   `tracking_no` varchar(255) NOT NULL,
-  `courier_id` varchar(50) NOT NULL,
-  `pay_status` varchar(50) NOT NULL
+  `courier_id` varchar(255) NOT NULL,
+  `pay_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders_db`
 --
 
-INSERT INTO `orders_db` (`id`, `OrderID`, `ItemName`, `ItemImg`, `OrderType`, `TypeID`, `c_id`, `ItemID`, `order_qty`, `order_date`, `ItemPrice`, `proof_img`, `p_mode`, `tracking_no`, `courier_id`, `pay_status`) VALUES
-(1, 101, 'Neobong 40cm', 'assets/img/avatars/nopicinv.png', 'Completed', 1, 5739793288, 1001, 10, '2023-03-09 18:12:06', 10000, '', '', '', '', ''),
-(2, 102, '10cm Chibi Doll', 'assets/img/avatars/nopicinv.png', 'Ongoing', 2, 4859670294, 25, 3, '2023-03-09 18:12:23', 5000, '', '', '', '', 'Full Payment');
+INSERT INTO `orders_db` (`OrderID`, `ItemID`, `c_id`, `OrderQty`, `OrderType`, `TypeID`, `OrderDate`, `OrderTotal`, `proof_img`, `p_mode`, `tracking_no`, `courier_id`, `pay_status`) VALUES
+(1, 1007, 7242156480, 27, 'In Process', 1, '2023-03-13 01:21:09', 12150, 'None', 'GCash', '1010101010', 'XEND', 'Paid'),
+(2, 1002, 4062959512, 5, 'In Process', 1, '2023-03-13 01:14:26', 750, 'None', 'GCash', '9349493939332', 'LBC', 'Unpaid'),
+(3, 1006, 1087763698, 20, 'In Process', 1, '2023-03-13 01:22:27', 3000, 'None', 'Instapay', '', '', ''),
+(6, 1001, 1087763698, 10, 'In Process', 1, '2023-03-13 01:22:30', 2000, 'None', 'Union Bank', '', '', ''),
+(7, 1012, 7242156480, 20, 'In Process', 1, '2023-03-13 01:22:33', 5000, 'None', 'BPI', '', '', ''),
+(8, 1009, 4062959512, 8, 'In Process', 1, '2023-03-13 01:22:38', 2000, 'None', 'BDO', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -298,9 +299,7 @@ ALTER TABLE `inventory_db`
 -- Indexes for table `orders_db`
 --
 ALTER TABLE `orders_db`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `order_date` (`order_date`),
-  ADD KEY `order_id` (`OrderID`);
+  ADD PRIMARY KEY (`OrderID`);
 
 --
 -- Indexes for table `register`
@@ -345,7 +344,7 @@ ALTER TABLE `inventory_db`
 -- AUTO_INCREMENT for table `orders_db`
 --
 ALTER TABLE `orders_db`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `OrderID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `register`
@@ -363,7 +362,7 @@ ALTER TABLE `slides`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `vid_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `vid_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

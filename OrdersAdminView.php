@@ -56,7 +56,7 @@
                                             <div class="product-name"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>" style="color: rgb(111,66,193);">Order#<?php echo $order['OrderID'] ?> - <?php echo $order['ItemName'] ?></a></div>
                                             <hr><h6>Ordered by: <strong> <?php echo $order['c_name']; ?> </strong></h6>
                                             <h6>Quantity: <?php echo $order['OrderQty']; ?></h6>
-                                            <h6>Total Cost: <?php echo $order['OrderTotal']; ?></h6>
+                                            <h6>Total Cost: Php<?php echo $order['OrderTotal']; ?></h6>
                                             <span class="badge bg-dark"><?php echo $order['OrderType']; ?></span>
                                         </div>
                                     </div>

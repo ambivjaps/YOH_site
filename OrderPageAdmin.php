@@ -108,7 +108,7 @@
             <div class="row mt-5">
                 <div class="col-md-6">
                     <h3><strong> Payment </strong></h3>
-                    <h6> Total Cost: <?php echo $order['OrderTotal']; ?></h6>
+                    <h6> Total Cost: Php<?php echo $order['OrderTotal']; ?></h6>
                     <h6> Mode of Payment: <?php echo $order['p_mode']; ?></h6>
                     <h6> Payment Status: <?php echo $order['pay_status']; ?></h6>
                     <h6> Proof of Payment: <?php echo $order['proof_img']; ?></h6>

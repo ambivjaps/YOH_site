@@ -55,8 +55,17 @@
         } else {
             die;
         }
+
+        $item = "SELECT * FROM inventory_db WHERE ItemID = $InvItem";
+		$result = mysqli_query($con, $item);
+		$selected_item = mysqli_fetch_assoc($result);
+		mysqli_free_result($result);
+
+        $selectPrice = $selected_item['ItemPrice'];
+
+        $OrderTotal = $OrderQty * $selectPrice;
     
-        $query = "UPDATE orders_db SET c_id='$CustProf',ItemID='$InvItem',OrderType='$OrderType',OrderQty='$OrderQty',courier_id='$courier_id',tracking_no='$tracking_no' WHERE OrderID=$OID";
+        $query = "UPDATE orders_db SET c_id='$CustProf',ItemID='$InvItem',OrderType='$OrderType',OrderQty='$OrderQty',OrderTotal='$OrderTotal',courier_id='$courier_id',tracking_no='$tracking_no' WHERE OrderID=$OID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
