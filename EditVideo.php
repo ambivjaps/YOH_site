@@ -73,13 +73,13 @@
                         <textarea type="text" rows="4" class="form-control" name="vid_desc" id="vid_desc"><?php echo $video['vid_desc'] ?></textarea>
                     </div>
                     <div class="col-md-12">
-                        <label>Category <strong>(Current category: <?php echo $video['vid_cat']; ?>)</strong></label>
+                        <label>Category</label>
                         <select class="form-select" id="vid_cat" name="vid_cat" aria-label=".form-select example">
-                            <option value="Crochet Tutorial">Crochet Tutorial</option>
-                            <option value="Crochet with Me">Crochet with Me</option>
-                            <option value="Craft Vlog">Craft Vlog</option>
-                            <option value="Studio Vlog">Studio Vlog</option>
-                            <option value="Crochet Basics">Crochet Basics</option>
+                            <option value="Crochet Tutorial" <?php if($video['vid_cat'] == 'Crochet Tutorial') { ?> selected="selected"<?php } ?>>Crochet Tutorial</option>
+                            <option value="Crochet with Me" <?php if($video['vid_cat'] == 'Crochet with Me') { ?> selected="selected"<?php } ?>>Crochet with Me</option>
+                            <option value="Craft Vlog" <?php if($video['vid_cat'] == 'Craft Vlog') { ?> selected="selected"<?php } ?>>Craft Vlog</option>
+                            <option value="Studio Vlog" <?php if($video['vid_cat'] == 'Studio Vlog') { ?> selected="selected"<?php } ?>>Studio Vlog</option>
+                            <option value="Crochet Basics" <?php if($video['vid_cat'] == 'Crochet Basics') { ?> selected="selected"<?php } ?>>Crochet Basics</option>
                         </select>
                     </div>
                     <div class="col-md-12">
