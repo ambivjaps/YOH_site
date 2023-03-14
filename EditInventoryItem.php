@@ -106,10 +106,10 @@
                         <input type="text" name="ItemName" id="ItemName" class="form-control" value="<?php echo $inv['ItemName'] ?>">
                     </div>
                     <div class="col-md-12">
-                        <label>Type <strong>(Current type: <?php echo $inv['ItemType']; ?>)</strong></label>
+                        <label>Type</label>
                         <select class="form-select" id="ItemType" name="ItemType" aria-label=".form-select example">
-                            <option value="Raw">Raw</option>
-                            <option value="Finished">Finished</option>
+                            <option value="Raw" <?php if($inv['ItemType'] == 'Raw') { ?> selected="selected"<?php } ?>>Raw</option>
+                            <option value="Finished" <?php if($inv['ItemType'] == 'Finished') { ?> selected="selected"<?php } ?>>Finished</option>
                         </select>
                     </div>
                     <div class="col-md-12">
