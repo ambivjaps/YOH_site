@@ -108,8 +108,8 @@
                     <div class="col-md-12">
                         <label>Type</label>
                         <select class="form-select" id="ItemType" name="ItemType" aria-label=".form-select example">
-                            <option value="Raw" <?php if($inv['ItemType'] == 'Raw') { ?> selected="selected"<?php } ?>>Raw</option>
-                            <option value="Finished" <?php if($inv['ItemType'] == 'Finished') { ?> selected="selected"<?php } ?>>Finished</option>
+                            <option value="Raw" <?php if($inv['ItemType'] == 'Raw') { ?>selected="selected"<?php } ?>>Raw</option>
+                            <option value="Finished" <?php if($inv['ItemType'] == 'Finished') { ?>selected="selected"<?php } ?>>Finished</option>
                         </select>
                     </div>
                     <div class="col-md-12">

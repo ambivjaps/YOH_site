@@ -75,11 +75,11 @@
                     <div class="col-md-12">
                         <label>Category</label>
                         <select class="form-select" id="vid_cat" name="vid_cat" aria-label=".form-select example">
-                            <option value="Crochet Tutorial" <?php if($video['vid_cat'] == 'Crochet Tutorial') { ?> selected="selected"<?php } ?>>Crochet Tutorial</option>
-                            <option value="Crochet with Me" <?php if($video['vid_cat'] == 'Crochet with Me') { ?> selected="selected"<?php } ?>>Crochet with Me</option>
-                            <option value="Craft Vlog" <?php if($video['vid_cat'] == 'Craft Vlog') { ?> selected="selected"<?php } ?>>Craft Vlog</option>
-                            <option value="Studio Vlog" <?php if($video['vid_cat'] == 'Studio Vlog') { ?> selected="selected"<?php } ?>>Studio Vlog</option>
-                            <option value="Crochet Basics" <?php if($video['vid_cat'] == 'Crochet Basics') { ?> selected="selected"<?php } ?>>Crochet Basics</option>
+                            <option value="Crochet Tutorial" <?php if($video['vid_cat'] == 'Crochet Tutorial') { ?>selected="selected"<?php } ?>>Crochet Tutorial</option>
+                            <option value="Crochet with Me" <?php if($video['vid_cat'] == 'Crochet with Me') { ?>selected="selected"<?php } ?>>Crochet with Me</option>
+                            <option value="Craft Vlog" <?php if($video['vid_cat'] == 'Craft Vlog') { ?>selected="selected"<?php } ?>>Craft Vlog</option>
+                            <option value="Studio Vlog" <?php if($video['vid_cat'] == 'Studio Vlog') { ?>selected="selected"<?php } ?>>Studio Vlog</option>
+                            <option value="Crochet Basics" <?php if($video['vid_cat'] == 'Crochet Basics') { ?>selected="selected"<?php } ?>>Crochet Basics</option>
                         </select>
                     </div>
                     <div class="col-md-12">

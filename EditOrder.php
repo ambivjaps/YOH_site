@@ -105,27 +105,27 @@
                     <h3 class="my-3"> Order Details </h3>
 
                     <div class="col-md-12">
-                        <label>Customer (Current: <?php echo $order['c_name']; ?>)</label>
+                        <label>Customer</label>
                         <select class="form-select" id="CustProf" name="CustProf" aria-label=".form-select example">
                             <?php foreach($prof_sel as $prof): ?>
-                            <option value="<?php echo $prof['c_id'] ?>"><?php echo $prof['c_name']; ?></option>
+                            <option value="<?php echo $prof['c_id'] ?>" <?php if($order['c_name'] == $prof['c_name']) { ?>selected="selected"<?php } ?>><?php echo $prof['c_name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label>Item (Current: <?php echo $order['ItemName']; ?>)</label>
+                        <label>Item</label>
                         <select class="form-select" id="InvItem" name="InvItem" aria-label=".form-select example">
                             <?php foreach($inv_item as $inv): ?>
-                            <option value="<?php echo $inv['ItemID'] ?>"><?php echo $inv['ItemName']; ?></option>
+                            <option value="<?php echo $inv['ItemID'] ?>" <?php if($order['ItemName'] == $inv['ItemName']) { ?>selected="selected"<?php } ?>><?php echo $inv['ItemName']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
 
                     <div class="col-md-12">
-                        <label>Order Type (Current: <?php echo $order['OrderType']; ?>)</label>
+                        <label>Order Type</label>
                         <select class="form-select" id="OrderType" name="OrderType" aria-label=".form-select example">
-                            <option value="In Process">In Process</option>
-                            <option value="Completed">Completed</option>
+                            <option value="In Process" <?php if($order['OrderType'] == 'In Process') { ?>selected="selected"<?php } ?>>In Process</option>
+                            <option value="Completed" <?php if($order['OrderType'] == 'Completed') { ?>selected="selected"<?php } ?>>Completed</option>
                         </select>
                     </div>
                     <div class="col-md-12">

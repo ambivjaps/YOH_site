@@ -92,16 +92,16 @@
                             <p>Insert more ordering disclaimers here.. </p><hr>
                             <p class="item-name" style="margin-bottom: 13.2px;" input="read-only">Mode of Payment </p>
                             <select class="form-select" id="p_mode" name="p_mode" aria-label=".form-select example" required>
-                              <option value="Paymaya" <?php if($order['p_mode'] == 'Paymaya') { ?> selected="selected"<?php } ?>>Paymaya</option>
-                              <option value="BDO" <?php if($order['p_mode'] == 'BDO') { ?> selected="selected"<?php } ?>>BDO</option>
-                              <option value="GCash" <?php if($order['p_mode'] == 'GCash') { ?> selected="selected"<?php } ?>>GCash</option>
-                              <option value="Paypal" <?php if($order['p_mode'] == 'Paypal') { ?> selected="selected"<?php } ?>>Paypal</option>
+                              <option value="Paymaya" <?php if($order['p_mode'] == 'Paymaya') { ?>selected="selected"<?php } ?>>Paymaya</option>
+                              <option value="BDO" <?php if($order['p_mode'] == 'BDO') { ?>selected="selected"<?php } ?>>BDO</option>
+                              <option value="GCash" <?php if($order['p_mode'] == 'GCash') { ?>selected="selected"<?php } ?>>GCash</option>
+                              <option value="Paypal" <?php if($order['p_mode'] == 'Paypal') { ?>selected="selected"<?php } ?>>Paypal</option>
                             </select>
 
                             <p class="item-name mt-2" style="margin-bottom: 13.2px;" input="read-only">Status of Payment </p>
                             <select class="form-select" id="pay_status" name="pay_status" aria-label=".form-select example" required>
-                              <option value="Installment" <?php if($order['pay_status'] == 'Installment') { ?> selected="selected"<?php } ?>>Installment</option>
-                              <option value="Full Payment" <?php if($order['pay_status'] == 'Full Payment') { ?> selected="selected"<?php } ?>>Full Payment</option>
+                              <option value="Installment" <?php if($order['pay_status'] == 'Installment') { ?>selected="selected"<?php } ?>>Installment</option>
+                              <option value="Full Payment" <?php if($order['pay_status'] == 'Full Payment') { ?>selected="selected"<?php } ?>>Full Payment</option>
                             </select> 
                             
                             <p class="item-name" style="margin-bottom: 14.2px;margin-top: 14px;">Proof of Payment</p>
