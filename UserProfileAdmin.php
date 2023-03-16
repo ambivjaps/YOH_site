@@ -13,7 +13,7 @@
     if(isset($_SESSION['login_id'])) {
 
 		$id = mysqli_real_escape_string($con, $_SESSION['login_id']);
-		$item = "SELECT * FROM register WHERE login_id = $id";
+		$item = "SELECT * FROM register WHERE login_id = $id AND user_rank = 'admin'";
 		$result = mysqli_query($con, $item);
 		$user = mysqli_fetch_assoc($result);
 		mysqli_free_result($result);
