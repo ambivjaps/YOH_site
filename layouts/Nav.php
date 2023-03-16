@@ -42,7 +42,7 @@
                     <li class="nav-item"><a class="nav-link" href="CustomerProfileListAdmin.php"><i class="fas fa-user-friends"></i> Profiles</a></li>
                     <li class="nav-item"><a class="nav-link" href="Inventory.php"><i class="fas fa-dolly-flatbed"></i> Inventory</a></li>
                     <li class="nav-item"><a class="nav-link" href="OrdersAdminView.php"><i class="fas fa-check-square"></i> Orders</a></li>
-                    <li class="nav-item"><a class="nav-link disabled" href="#"><h6><span class="badge rounded-pill text-white" style="background-color: #4a3a4b;"><i class="fas fa-user-cog"></i> '.$_SESSION['cust_name'].'</span></h6></a></li>
+                    <li class="nav-item"><a class="nav-link" href="UserProfileAdmin.php"><h6><span class="badge rounded-pill text-white" style="background-color: #4a3a4b;"><i class="fas fa-user-cog"></i> '.$_SESSION['cust_name'].'</span></h6></a></li>
                     <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit"> <i class="fas fa-sign-out-alt"></i> Logout</button>
                     </ul>';
 
