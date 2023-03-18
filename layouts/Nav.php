@@ -35,6 +35,11 @@
                     <li class="nav-item"><a class="nav-link" href="UserProfile.php"><h6><span class="badge rounded-pill text-white" style="background-color: #4a3a4b;"><i class="fas fa-user-circle"></i> '.$_SESSION['cust_name'].'</span></h6></a></li>
                     <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit"> <i class="fas fa-sign-out-alt"></i> Logout</button>
                     </ul>';
+                    ?>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                    <script src="assets/js/sessiontimeout.js"></script>
+                    <?php
 
                 } else if (isset($_SESSION['login_id']) && $_SESSION['user_rank'] == 'admin') {
                     echo '<ul class="navbar-nav ms-auto">
@@ -45,6 +50,11 @@
                     <li class="nav-item"><a class="nav-link" href="UserProfileAdmin.php"><h6><span class="badge rounded-pill text-white" style="background-color: #4a3a4b;"><i class="fas fa-user-cog"></i> '.$_SESSION['cust_name'].'</span></h6></a></li>
                     <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit"> <i class="fas fa-sign-out-alt"></i> Logout</button>
                     </ul>';
+                    ?>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="assets/js/sessiontimeout.js"></script>
+            <?php
 
                 } else {
                     echo '<ul class="navbar-nav ms-auto">
