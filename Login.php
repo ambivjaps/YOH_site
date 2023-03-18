@@ -23,7 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $user_data = mysqli_fetch_assoc($result);
             $hashedPwdCheck = password_verify($cust_pass, $user_data['cust_pass']);
 
-            if ($hashedPwdCheck == false){
+            if($user_data["status"] == 0){
+                header("Location: verifyuser.php");
+                }
+            else if ($hashedPwdCheck == false){
                 echo "<script>alert('Wrong credentials.')</script>";
                 exit();
 
@@ -82,7 +85,7 @@ if(!empty($_SESSION['cust_id'])) {
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
                 <div class="block-heading"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
                 <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Login</h2>
-                <form data-bss-hover-animate="pulse" class="rounded" style="border:none;width: 554px;;height:545px; color: var(--bs-purple); max-width: 753px;"  method="post" >
+                <form data-bss-hover-animate="pulse" class="rounded" style="border:none;width: 554px;;height:580px; color: var(--bs-purple); max-width: 753px;"  method="post" >
                 <?php if (isset($_GET['registrationSuccess']) && $_GET['registrationSuccess'] === 'true') { ?>
                     <div class="alert alert-success" role="alert">
                         Successfully registered account. Please login.
@@ -103,6 +106,12 @@ if(!empty($_SESSION['cust_id'])) {
                 if (isset($_GET['ChangeSuccess']) && $_GET['ChangeSuccess'] === 'true') { ?>
                     <div class="alert alert-success" role="alert">
                     Password has been Changed! Kindly log-in again.
+                    </div>   
+                <?php } ?> 
+                <?php 
+                if (isset($_GET['VerifySuccess']) && $_GET['VerifySuccess'] === 'true') { ?>
+                    <div class="alert alert-success" role="alert">
+                    Account has been Verified! You can now log-in your account.
                     </div>   
                 <?php } ?> 
                     <div class="mb-3"><label class="form-label" for="email" style=" font-weight:bold; font-size: 20px;color: rgb(111, 66, 193);">Email</label><input class="form-control item" type="text" id="email" name="cust_email" placeholder="Email" required="" style="margin-bottom: 9px;"></div>

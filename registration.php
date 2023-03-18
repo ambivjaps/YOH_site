@@ -24,7 +24,7 @@ if (isset($_POST['cust_name'])) {
     $login_id =  random_num(10);
     
     $query = "insert into register (login_id,cust_name,cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_brgy,cust_unit,cust_phone,cust_zip, cust_address, status) values 
-    ('$login_id','$cust_name','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '1')";
+    ('$login_id','$cust_name','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '0')";
     
     $reg = mysqli_query($con, $query);
     if($reg==1){
