@@ -36,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $_SESSION['user_rank'] = $user_data['user_rank'];
                     $_SESSION['c_id'] = $user_data['c_id'];
                     $_SESSION['cust_name'] = $user_data['cust_name'];
+                    $_SESSION['LAST_ACTIVE_TIME'] = time();
+                    
 
                     header("Location: HomePage.php");
                     exit();
