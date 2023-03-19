@@ -84,15 +84,15 @@
                 <div class="row my-3">
                     <div class="col-md-6">
                         <label>Image</label>
-                        <input type="file" class="form-control rounded"" name="ItemImg">
+                        <input type="file" class="form-control form-control my-3" name="ItemImg">
                     </div>
                     <div class="col-md-12">
                         <label>Item ID</label>
-                        <input type="text" name="ItemID" id="ItemID" class="form-control rounded" required>
+                        <input type="text" name="ItemID" id="ItemID" class="form-control" required>
                     </div>
                     <div class="col-md-12">
                         <label>Name</label>
-                        <input type="text" name="ItemName" id="ItemName" class="form-control rounded" required>
+                        <input type="text" name="ItemName" id="ItemName" class="form-control" required>
                     </div>
                     <div class="col-md-12">
                         <label>Type</label>
@@ -103,18 +103,18 @@
                     </div>
                     <div class="col-md-12">
                         <label>Quantity</label>
-                        <input type="text" name="ItemQty" id="ItemQty" class="form-control rounded" required>
+                        <input type="text" name="ItemQty" id="ItemQty" class="form-control" required>
                     </div>
                     <div class="col-md-12">
                         <label>Price (in Php)</label>
-                        <input type="text" name="ItemPrice" id="ItemPrice" class="form-control rounded" required>
+                        <input type="text" name="ItemPrice" id="ItemPrice" class="form-control" required>
                     </div>      
                     <div class="col-md-12">
                         <label>Description</label>
-                        <textarea type="text" rows="5" class="form-control rounded" name="ItemDesc" id="ItemDesc" required></textarea>
+                        <textarea type="text" rows="5" class="form-control" name="ItemDesc" id="ItemDesc" required></textarea>
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="add-btn" name="add_item" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
+                        <input class="btn btn-success mt-3" id="add-btn" name="add_item" value="Submit">
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
                     </div>
                 </div>

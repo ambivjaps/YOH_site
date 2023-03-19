@@ -82,30 +82,30 @@
 
     <div class="container my-5">
 
-        <h1 style="font-weight:bold;"> Edit Slide <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
+        <h1> Edit Slide </h1>
         <div class="form-group">
             <form action="EditSlide.php?id=<?php echo $slide['slide_id'] ?>" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Image</label>
+                        <label>Image</label>
                         <input type="file" class="form-control form-control my-3" name="slide_img">
                         <input type="hidden" name="slide_img_old" value="<?php echo $slide['slide_img']; ?>">
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Title</label>
+                        <label>Title</label>
                         <input type="text" name="slide_title" id="slide_title" class="form-control" value="<?php echo $slide['slide_title'] ?>">
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Description</label>
+                        <label>Description</label>
                         <input type="text" name="slide_desc" id="slide_desc" class="form-control" value="<?php echo $slide['slide_desc'] ?>">
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Link</label>
+                        <label>Link</label>
                         <input type="text" name="slide_link" id="slide_link" class="form-control" value="<?php echo $slide['slide_link'] ?>">
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editSlide" name="edit_slide" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
+                        <input class="btn btn-success mt-3" id="editSlide" name="edit_slide" value="Submit" style="width:8%">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
                     </div>
                 </div>
             </form>

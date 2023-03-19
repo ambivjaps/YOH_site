@@ -65,54 +65,54 @@
 <body class="d-flex flex-column min-vh-100">
 
 <?php require 'layouts/nav.php';?>
-    
+
     <div class="container my-5">
 
         <?php if($user): ?>
 
         <div class="row my-3">
-            <h3 style="font-weight:bold;"><strong> <i class="fas fa-user"></i> User Profile </strong></h3><hr>
+            <h3><strong> <i class="fas fa-user"></i> User Profile </strong></h3><hr>
 
             <div class="col-md-2">
                 <img class="img-fluid rounded" src="assets/img/default/default_user.jpg" title="<?php echo $user['cust_name'] ?>" alt="<?php echo $user['cust_name'] ?>">
             </div>
 
             <div class="col-md-10">
-                <h1 style="font-weight:bold; color:indigo;"> <?php echo $user['cust_name'] ?> </h1>
-                <p style="font-weight:bold;"> Address: <?php echo $user['cust_address'] ?> </p>
-                <p style="font-weight:bold;"> Phone Number: <?php echo $user['cust_phone'] ?> </p>
-                <p style="font-weight:bold;"> Email: <?php echo $user['cust_email'] ?> </p>
-                <p style="font-weight:bold;"> User since <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
+                <h1> <?php echo $user['cust_name'] ?> </h1>
+                <p> Address: <?php echo $user['cust_address'] ?> </p>
+                <p> Phone Number: <?php echo $user['cust_phone'] ?> </p>
+                <p> Email: <?php echo $user['cust_email'] ?> </p>
+                <p> User since <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
             </div>
 
             <div class="float-end mt-2">
-                <a class="btn btn-dark" href="#" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Edit avatar </a>
-                <a class="btn btn-dark" href="#" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Change password </a>
+                <a class="btn btn-dark" href="#" role="button"> Edit avatar </a>
+                <a class="btn btn-dark" href="#" role="button"> Change password </a>
             </div>
         </div>
 
         <hr><div class="row my-3">
-        <h3><strong> <i class="fas fa-address-card" ></i> Customer Records </strong></h3>
+        <h3><strong> <i class="fas fa-address-card"></i> Customer Records </strong></h3>
 
         <?php foreach($select as $prof): ?>
             <div class="float-end mt-2 mb-5">
-                <a class="btn btn-dark" href="ProfileAccntView.php" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> See your customer profiles </a>
-                <a class="btn btn-dark" href="OrderPageCust.php" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> See your orders </a>
+                <a class="btn btn-dark" href="ProfileAccntView.php" role="button"> See your customer profiles </a>
+                <a class="btn btn-dark" href="OrderPageCust.php" role="button"> See your orders </a>
             </div>
             
             <p> Current customer profile used: <strong> <?php echo $prof['c_label']; ?> </strong> </p>
             <table class="table table-striped table-hover table-sm mt-2">
                 <tr>
-                    <th style="font-weight:bold;"> Name </th>
-                    <th style="font-weight:bold;"> Address </th>
-                    <th style="font-weight:bold;"> Phone No. </th>
-                    <th style="font-weight:bold;"> Action </th>
+                    <th> Name </th>
+                    <th> Address </th>
+                    <th> Phone No. </th>
+                    <th> Action </th>
                 </tr>
 
                 <tr><td> <?php echo $prof['c_name']; ?> </td>
                 <td> <?php echo $prof['address']; ?>  </td>
                 <td> <?php echo $prof['phone_no']; ?> </td>
-                <td> <a class="btn btn-sm btn-primary" href="ProfileAccnt.php?id=<?php echo $prof['id'] ?>" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"><i class="fas fa-eye"></i> View</a> </td></tr>
+                <td> <a class="btn btn-sm btn-primary" href="ProfileAccnt.php?id=<?php echo $prof['id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
             </table>
         <?php endforeach; ?>
 
@@ -135,7 +135,7 @@
                         <?php endforeach; ?>
                     </div>
                     <div class="col-auto">
-                        <input class="btn btn-success" type="submit" id="submit" name="change_current" value="Select"  style="font-weight:bold;background-color:rgb(119,13,253); border-color:rgb(119,13,253);">
+                        <input class="btn btn-success" type="submit" id="submit" name="change_current" value="Select">
                     </div>
                 </form>
             </div>

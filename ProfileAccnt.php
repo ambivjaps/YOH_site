@@ -43,13 +43,12 @@
 
     <?php if($profile): ?>
 
-        <main class="page blog-post">
+    <main class="page blog-post">
     <section class="clean-block clean-post dark" style="background-color:#efe9ef; border:none; ">
         <div class="container">
 
         <form class="mb-3" action="ProfileAccnt.php" method="POST">
-        <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="ProfileAccntView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253);"><i class="fas fa-edit"></i> Edit</a>
+			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
 			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
 			<input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
 		</form>
@@ -57,7 +56,7 @@
     <div class="row gutters">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
     <div class="card h-100">
-        <div class="card-body" style="background: #efe9ef;">
+        <div class="card-body" style="background: #f4e3ff;">
             <div class="account-settings">
                 <div class="user-profile">
                     <div class="user-avatar" >
@@ -74,7 +73,7 @@
     </div>
     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
     <div class="card h-100">
-        <div class="card-body" style="background: #efe9ef;">
+        <div class="card-body" style="background: #f4e3ff;">
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <h6 style="font-weight: bold; font-size:40px; text-align:center; " >Shipping Details</h6>

@@ -60,20 +60,20 @@
 
     <div class="container my-5">
 
-        <h1 style="font-weight:bold;"> Edit Video <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h1><hr>
+        <h1> Edit Video </h1>
         <div class="form-group">
             <form action="EditVideo.php?id=<?php echo $video['vid_id'] ?>" method="POST" id="form">
                 <div class="row my-3">
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Title</label>
+                        <label>Title</label>
                         <input type="text" name="vid_title" id="vid_title" class="form-control" value="<?php echo $video['vid_title'] ?>">
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Description</label>
+                        <label>Description</label>
                         <textarea type="text" rows="4" class="form-control" name="vid_desc" id="vid_desc"><?php echo $video['vid_desc'] ?></textarea>
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Category</label>
+                        <label>Category</label>
                         <select class="form-select" id="vid_cat" name="vid_cat" aria-label=".form-select example">
                             <option value="Crochet Tutorial" <?php if($video['vid_cat'] == 'Crochet Tutorial') { ?>selected="selected"<?php } ?>>Crochet Tutorial</option>
                             <option value="Crochet with Me" <?php if($video['vid_cat'] == 'Crochet with Me') { ?>selected="selected"<?php } ?>>Crochet with Me</option>
@@ -83,13 +83,13 @@
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">URL</label>
+                        <label>URL</label>
                         <input type="text" name="vid_url" id="vid_url" class="form-control" value="<?php echo $video['vid_url'] ?>">
                     </div>
                   
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editVideo" name="edit_video" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
+                        <input class="btn btn-success mt-3" id="editVideo" name="edit_video" value="Submit" style="width:8%">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
                     </div>
                 </div>
             </form>

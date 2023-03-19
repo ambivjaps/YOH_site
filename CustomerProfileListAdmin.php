@@ -34,19 +34,18 @@
                     <div class="clean-blog-post">
                         <div class="row">
                             <div class="col-lg-5">
-                                <img class="rounded img-fluid" src="<?php echo $profile['c_avatar']; ?>" style="margin-left:125px;width:auto;height:auto;">
+                                <img class="rounded img-fluid" src="<?php echo $profile['c_avatar']; ?>" style="margin-left:125px;">
                             </div>
                             <div class="col-lg-7">
-                                <h3><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" style="color:black;text-decoration:none;font-weight:bold; font-size:50px;"><?php echo $profile['c_name']; ?></a></h3>
-                                <hr style="width:450px;">
+                                <h3><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" style="color:black;"><?php echo $profile['c_name']; ?></a></h3>
                                 <div class="info">
                                     <span class="text-muted">Last Ordered on Jan 16, 2018&nbsp;</span>
                                 </div>
-                                <button class="btn btn-outline-primary btn-sm" type="button" style="background: rgb(119,13,253); color:white; font-weight:bold; border-color:rgb(119,13,253);">Delete Profile</button>
+                                <button class="btn btn-outline-primary btn-sm" type="button">Delete Profile</button>
                             </div>
                         </div>
                     </div>
-                <hr><?php endforeach; ?>   
+                <?php endforeach; ?>   
                 </div>
             </div>
         </section>

@@ -51,8 +51,7 @@
             <div class="container">
 
             <form class="mb-3" action="InventoryItem.php" method="POST">
-            <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="Inventory.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"><i class="fas fa-edit"></i> Edit</a>
+			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
 			    <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $inv['ItemID']; ?>">
                 <input type="hidden" name="delete_img" value="<?php echo $inv['ItemImg']; ?>">
 			    <input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
@@ -61,7 +60,7 @@
         <div class="row gutters">
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
         <div class="card h-100">
-            <div class="card-body" style="background:#efe9ef;">
+            <div class="card-body" style="background: #f4e3ff;">
                 <div class="account-settings">
                     <div class="user-profile">
                         <div class="user-avatar" >
@@ -77,7 +76,7 @@
         </div>
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
         <div class="card h-100">
-            <div class="card-body" style="background:#efe9ef;">
+            <div class="card-body" style="background: #f4e3ff;">
                 <div class="row gutters">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <h6 style="font-weight: bold; font-size:40px; text-align:center; " >Item Details</h6>

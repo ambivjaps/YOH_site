@@ -29,7 +29,7 @@
         <section class="clean-block clean-catalog dark" style="background-color:#efe9ef;">
             <div class="container">
                 <div class="block-heading">
-                    <h2 style="margin:54px; font-weight:bold;font-size:54px;">Orders</h2>
+                    <h2 style="margin:54px; color:black; font-size:54px;">Orders</h2>
                 </div>
                 <div class="content">
                     <div class="row">
@@ -37,7 +37,7 @@
                             <div class="d-none d-md-block">
                                 <div class="filters">
                                     <div class="filter-item">
-                                    <h3 style="font-size: 32px;">Filters<span><a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);" data-bs-target="AddOrder.php" href="AddOrder.php"><i class="fas fa-plus" style="text-align: center;"></i></a></h3>
+                                        <h3 style="font-size: 32px;">Filters</h3>
                                         <h3>Categories</h3>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">All Orders</label></div>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">On-Going Orders</label></div>
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <div class="products">
+                            <div class="products"><a class="btn btn-primary active" role="button" style="margin-left: 834px;margin-right: -7px;margin-bottom: -12px;margin-top: -16px;" href="AddOrder.php">Add</a>
                                 
                                 <div class="row g-0">
                                     <?php foreach($orders as $order): ?>

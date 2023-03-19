@@ -45,21 +45,21 @@
 
     <div class="container my-5">
 
-        <h1 style="font-weight:bold;"> Add Video <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="VideosAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
+        <h1> Add Video </h1>
         <div class="form-group">
             <form action="AddVideo.php" method="POST">
                 <div class="row my-3">
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Title</label>
-                        <input type="text" name="vid_title" id="vid_title" class="form-control rounded" required>
+                        <label>Title</label>
+                        <input type="text" name="vid_title" id="vid_title" class="form-control" required>
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Description</label>
-                        <textarea type="text" rows="4" class="form-control rounded" name="vid_desc" id="vid_desc" style="resize:none;" required></textarea>
+                        <label>Description</label>
+                        <textarea type="text" rows="4" class="form-control" name="vid_desc" id="vid_desc" required></textarea>
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Category</label>
-                        <select class="form-select rounded" id="vid_cat" name="vid_cat" aria-label=".form-select example" required>
+                        <label>Category</label>
+                        <select class="form-select" id="vid_cat" name="vid_cat" aria-label=".form-select example" required>
                             <option value="Crochet Tutorial">Crochet Tutorial</option>
                             <option value="Crochet with Me">Crochet with Me</option>
                             <option value="Craft Vlog">Craft Vlog</option>
@@ -68,13 +68,13 @@
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">URL</label>
-                        <input type="text" name="vid_url" id="vid_url" class="form-control rounded" required>
+                        <label>URL</label>
+                        <input type="text" name="vid_url" id="vid_url" class="form-control" required>
                     </div>
                   
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
+                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
                     </div>
                 </div>
             </form>

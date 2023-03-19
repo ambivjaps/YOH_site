@@ -83,17 +83,17 @@ if(isset($_POST['submit'])){
         <section class="clean-block clean-form dark" style="height: 990.391px; background-color:#efe9ef; ">
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
                 <div class="block-heading"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
-                <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Account Verification</h2>
+                <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color:black;;">Account Verification</h2>
                 <div class="container email-container">
                     <form action="" method="POST" name="EmailOTP" class="border rounded justify-content-center" data-bss-hover-animate="pulse" style="width: 554px;max-width: 753px;margin-bottom: 41px;margin-left: 374px;margin-right: 404px;margin-top: 20px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 350px;">
-                    <div class="alert alert-danger mb-3" role="alert" style="width: 475px;">
+                    <div class="alert alert-danger" role="alert">
                        Account is Unverified. Please enter e-mail to get OTP.
                     </div>  
                     <div class="mb-3"><label class="form-label" for="email" style="color: rgb(111, 66, 193);">Email</label><input class="form-control item" type="text" id="email" name="cust_email" placeholder="Email" required autofocus style="margin-bottom: 9px;"></div>
-                    <div class="mb-3"><a class="btn btn-primary border rounded" role="button" href="Login.php" style="border-color: rgb(119,13,253);background: rgb(119,13,253);margin: -414px 195px -254px 356px;margin-left: 463px;min-width: 0px;max-width: none;margin-bottom: -254px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 32px;margin-top: -640px;width: 35px;font-weight:bold;">X</a></div>
                     <div class="mb-3"></div>
-                    <button class="btn btn-primary" type="submit" name="submit" style="margin-left: 162px;min-width: 133px;max-width: 180px;margin-bottom: 10px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 38px;margin-top: 3px;width: 147px; border-color: rgb(119,13,253);background: rgb(119,13,253);Font-weight:bold;">Send Code</button>
-                    
+                    <div class="mb-3"></div>
+                    <button class="btn btn-primary" type="submit" name="submit" style="margin-left: 162px;min-width: 133px;max-width: 180px;margin-bottom: 10px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 38px;margin-top: 3px;width: 147px;">Send Code</button><a class="btn btn-primary border rounded" role="button" href="Login.php" 
+                    style="margin: -414px 195px -254px 356px;margin-left: 463px;min-width: 0px;max-width: none;margin-bottom: -254px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 32px;margin-top: -583px;width: 35px;">X</a>
                     </form>  
         </section>
     </main>  

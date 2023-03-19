@@ -62,7 +62,7 @@
             <div class="container" style="color: var(--bs-btn-hover-border-color);">
                 <div class="block-heading">
              
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black;font-weight:bold;"> Order # <?php echo $order['OrderID']; ?> </h2><hr>
+                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black;"> Order # <?php echo $order['OrderID']; ?> </h2>
                     <h2 style="font-size: 18px;text-align: left;margin-bottom: 10.2px;margin-top:10px; color:black;"></h2> 
                 </div>
             </div>

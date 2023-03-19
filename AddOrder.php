@@ -71,23 +71,23 @@
 
     <div class="container my-5">
 
-    <h1 style="font-weight:bold;"> Add Order <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="OrdersAdminView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h1>
+    <h1> Add Order </h1>
         <div class="form-group">
             <form action="AddOrder.php" method="POST">
                 <div class="row my-3">
-                    <h3 class="my-3" style="font-weight:bold;"> Order Details </h3>
+                    <h3 class="my-3"> Order Details </h3>
 
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Customer</label>
-                        <select class="form-select rounded" id="CustProf" name="CustProf" aria-label=".form-select example" required>
+                        <label>Customer</label>
+                        <select class="form-select" id="CustProf" name="CustProf" aria-label=".form-select example" required>
                             <?php foreach($prof_sel as $prof): ?>
                             <option value="<?php echo $prof['c_id'] ?>"><?php echo $prof['c_name'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Item</label>
-                        <select class="form-select rounded" id="InvItem" name="InvItem" aria-label=".form-select example" required>
+                        <label>Item</label>
+                        <select class="form-select" id="InvItem" name="InvItem" aria-label=".form-select example" required>
                             <?php foreach($inv_item as $inv): ?>
                             <option value="<?php echo $inv['ItemID'] ?>"><?php echo $inv['ItemName'] ?></option>
                             <?php endforeach; ?>
@@ -95,20 +95,20 @@
                     </div>
 
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Order Type</label>
-                        <select class="form-select rounded" id="OrderType" name="OrderType" aria-label=".form-select example" required>
+                        <label>Order Type</label>
+                        <select class="form-select" id="OrderType" name="OrderType" aria-label=".form-select example" required>
                             <option value="In Process">In Process</option>
                             <option value="Completed">Completed</option>
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Order Quantity</label>
-                        <input type="text" name="OrderQty" id="OrderQty" class="form-control rounded" required>
+                        <label>Order Quantity</label>
+                        <input type="text" name="OrderQty" id="OrderQty" class="form-control" required>
                     </div>
                    
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
+                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
                     </div>
                 </div>
             </form>

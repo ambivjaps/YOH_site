@@ -29,17 +29,17 @@
 <main class="page blog-post">
         <section class="clean-block clean-post dark" style="background-color:#efe9ef;">
             <div class="container my-5">
-            <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="HomePage.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-                <button class="btn btn-outline-primary text-truncate float-none float-sm-none add-another-btn" type="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253); color:white; font-weight:bold;"><a  href="AddVideo.php" style="color:white; text-decoration:none;"> Add video <i class="fas fa-plus-circle edit-icon"></i></a></button><hr>
 
-                <h1 style="font-weight:bold;"> Videos </h1>
+                <a class="btn btn-success" href="AddVideo.php" role="button"> Add video </a><hr>
+
+                <h1> Videos </h1>
                 
                 <table class="table table-striped table-hover table-sm mt-5">
                     <tr>
                         <th> # </th>
                         <th> Title </th>
                         <th> Category </th>
-                        <th> URL </th>
+                        <th> Last Updated </th>
                         <th> Action </th>
                     </tr>
 
@@ -47,22 +47,22 @@
                         <tr><td> <?php echo $video['vid_id']; ?> </td>
                         <td> <?php echo $video['vid_title']; ?> </td>
                         <td> <?php echo $video['vid_cat']; ?> </td>
-                        <td> <?php echo $video['vid_url']; ?> </td>
-                        <td> <a class="btn btn-sm btn-primary" href="Video.php?id=<?php echo $video['vid_id'] ?>" role="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253);"><i class="fas fa-eye"></i> View</a> </td></tr>
+                        <td> <?php echo $video['created_at']; ?> </td>
+                        <td> <a class="btn btn-sm btn-dark" href="Video.php?id=<?php echo $video['vid_id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
                     <?php endforeach; ?>
                 </table>
                 <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>
 
                 <nav style="margin-bottom: 15px;margin-top: 10px;">
                     <ul class="pagination pagination-sm justify-content-end flex-wrap">
-                        <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true" style="color:rgb(119,13,253);">«</span></a></li>
+                        <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
                         <li class="page-item previous">
-                            <a class="page-link" href="#" style="color:rgb(119,13,253); font-weight:bold;">Prev</a>
+                            <a class="page-link" href="#">Prev</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#" style="color:rgb(119,13,253); font-weight:bold;">Next</a>
+                            <a class="page-link" href="#">Next</a>
                         </li>
-                        <li class="page-item"><a class="page-link" aria-label="Next" href="#" style="color:rgb(119,13,253);"><span aria-hidden="true" style="color:rgb(119,13,253);">»</span></a></li>
+                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
                     </ul>
                 </nav>
             </div>
