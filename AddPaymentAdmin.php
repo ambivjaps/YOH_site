@@ -51,7 +51,7 @@
         <section class="clean-block payment-form dark" style="height: 663.328px;background-color: #efe9ef;">
             <div class="container" style="margin-bottom: 35px;margin-top: 20px;">
                 <div class="block-heading">
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black; font-weight:bold;">Add Payment</h2>
+                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: left;margin-top:64px; color:black; font-weight:bold;">Add Payment<span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h2>
                 </div>
                 <form action="AddPaymentAdmin.php?id=<?php echo $orders['OrderID']?>" method="POST">
                     <div class="products" style="margin-bottom: 15px;margin-top: 2px;">
@@ -72,7 +72,7 @@
                     <div class="total">
                     <div class="item"></div>
                         <div class="total">
-                            <button class="btn btn-primary" name="submit" type="submit" id="submit" style="margin-left: 344px;width: 80.4844px;">Save</button>
+                            <button class="btn btn-primary" name="submit" type="submit" id="submit" style="margin-left: 344px;width: 80.4844px;" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">Save</button>
                         <a href="OrderPageAdmin.php?id=<?php echo $orders['OrderID']?>"><button class="btn btn-primary" type="button" style="margin-left: 14px;">Cancel</button></a></div>
             </div>
         </section>
