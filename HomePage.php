@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    
     include("includes/dbh.inc.php");
     include("includes/functions.inc.php");
     include("includes/access.inc.php");
@@ -17,10 +16,10 @@
         <?php 
             if (isset($_SESSION['login_id']) && $_SESSION['user_rank'] == 'user') {
                 include_once("views/customer_home.php");
-            } else if (isset($_SESSION['login_id']) && $_SESSION['user_rank'] == 'admin') {
+            }else if (isset($_SESSION['login_id']) && $_SESSION['user_rank'] == 'admin') {
                 include_once("views/admin_dashboard.php");
-            } else {
-                include_once("views/customer_home.php");
+            }else{
+                include_once("views/unreg_home.php");
             }
         ?>
 
@@ -46,3 +45,4 @@
           }
       })
 </script>
+
