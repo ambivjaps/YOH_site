@@ -14,7 +14,6 @@
 	$profiles = mysqli_fetch_all($result, MYSQLI_ASSOC);
     $query = mysqli_num_rows($result);
 	mysqli_free_result($result);
-	mysqli_close($con);
 ?>
 
 <title> Customer Profile | Yarn Over Hook </title>
@@ -34,7 +33,14 @@
                     <div class="clean-blog-post">
                         <div class="row">
                             <div class="col-lg-5">
-                                <img class="rounded img-fluid" src="<?php echo $profile['c_avatar']; ?>" style="margin-left:125px;width:auto;height:auto;">
+                                <?php 
+                                    $current_user = $profile['login_id'];
+                                    $item_av = "SELECT * FROM register WHERE login_id = $current_user";
+                                    $result_av = mysqli_query($con, $item_av);
+                                    $prof_avatar = mysqli_fetch_assoc($result_av);
+                                    mysqli_free_result($result_av);
+                                ?>
+                                <img class="rounded img-fluid" src="<?php echo $prof_avatar['cust_avatar']; ?>" title="<?php echo $profile['c_name']; ?>" alt="<?php echo $profile['c_name']; ?>" style="margin-left:125px;width:auto;height:auto;">
                             </div>
                             <div class="col-lg-7">
                                 <h3><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" style="color:black;text-decoration:none;font-weight:bold; font-size:50px;"><?php echo $profile['c_name']; ?></a></h3>

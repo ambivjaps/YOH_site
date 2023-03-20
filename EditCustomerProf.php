@@ -30,32 +30,30 @@
     
         $c_label = mysqli_real_escape_string($con, $_POST['c_label']);
         $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
-        $email = mysqli_real_escape_string($con, $_POST['email']);
+
         $address = mysqli_real_escape_string($con, $_POST['address']);
-        
         $region = mysqli_real_escape_string($con, $_POST['region']);
         $city = mysqli_real_escape_string($con, $_POST['city']);
         $street = mysqli_real_escape_string($con, $_POST['street']);
+
         $barangay = mysqli_real_escape_string($con, $_POST['barangay']);
-        
         $phone_no = mysqli_real_escape_string($con, $_POST['phone_no']);
         $zip_code = mysqli_real_escape_string($con, $_POST['zip_code']);
         $unit_no = mysqli_real_escape_string($con, $_POST['unit_no']);
 
-        $query = "UPDATE cust_profile SET c_label='$c_label',c_name='$c_name',email='$email',address='$address',region='$region',city='$city',street='$street',barangay='$barangay',phone_no='$phone_no',zip_code='$zip_code',unit_no='$unit_no' WHERE id=$PID";
+        $query = "UPDATE cust_profile SET c_label='$c_label',c_name='$c_name',address='$address',region='$region',city='$city',street='$street',barangay='$barangay',phone_no='$phone_no',zip_code='$zip_code',unit_no='$unit_no' WHERE id=$PID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['c_label'] = $_POST['c_label'];
             $_SESSION['c_name'] = $_POST['c_name'];
-            $_SESSION['email'] = $_POST['email'];
-            $_SESSION['address'] = $_POST['address'];
 
+            $_SESSION['address'] = $_POST['address'];
             $_SESSION['region'] = $_POST['region'];
             $_SESSION['city'] = $_POST['city'];
             $_SESSION['street'] = $_POST['street'];
-            $_SESSION['barangay'] = $_POST['barangay'];
 
+            $_SESSION['barangay'] = $_POST['barangay'];
             $_SESSION['phone_no'] = $_POST['phone_no'];
             $_SESSION['zip_code'] = $_POST['zip_code'];
             $_SESSION['unit_no'] = $_POST['unit_no'];
@@ -120,11 +118,7 @@
                         <label style="font-weight:bold;">Region</label>
                         <input type="text" name="region" id="region" class="form-control rounded" value="<?php echo $profile['region'] ?>">
                     </div>
-                    <div class="col-md-6">
-                        <label style="font-weight:bold;">E-mail Address</label>
-                        <input type="email" name="email" id="email" class="form-control rounded" value="<?php echo $profile['email'] ?>">
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label style="font-weight:bold;">Phone Number</label>
                         <input type="text" name="phone_no" id="phone_no" class="form-control rounded" value="<?php echo $profile['phone_no'] ?>">
                     </div>

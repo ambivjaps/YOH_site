@@ -22,14 +22,22 @@ if (isset($_POST['cust_name'])) {
     $password_hash = password_hash($cust_pass, PASSWORD_BCRYPT);
     
     $login_id =  random_num(10);
+
+    // default avatar
+    $unique = strtotime("now").'_'.uniqid(rand()).'_';
+
+    $default = 'assets/img/default/default_user.jpg';
+    $default_name = 'default_user.jpg';
+    $saveImage = 'assets/img/upload/avatars/'.$unique.$default_name;
+    $copyDefault = copy($default, $saveImage);
     
-    $query = "insert into register (login_id,cust_name,cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_brgy,cust_unit,cust_phone,cust_zip, cust_address, status) values 
-    ('$login_id','$cust_name','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '0')";
+    $query = "insert into register (login_id,cust_name,cust_avatar,cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_brgy,cust_unit,cust_phone,cust_zip, cust_address, status) values 
+    ('$login_id','$cust_name','$saveImage','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '0')";
     
     $reg = mysqli_query($con, $query);
     if($reg==1){
-        $cquery = "insert into cust_profile (c_id,login_id,c_name,c_avatar,c_label,email,region,street,city,barangay,unit_no,phone_no,zip_code,address,cust_status) values
-        ('$login_id','$login_id','$cust_name','assets/img/default/default_user.jpg','Home','$cust_email','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip','$cust_address','1')";
+        $cquery = "insert into cust_profile (c_id,login_id,c_name,c_label,region,street,city,barangay,unit_no,phone_no,zip_code,address,cust_status) values
+        ('$login_id','$login_id','$cust_name','Home','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip','$cust_address','1')";
         $regcust = mysqli_query($con, $cquery);
        
     }

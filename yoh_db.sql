@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2023 at 07:00 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: Mar 20, 2023 at 08:48 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -52,9 +52,7 @@ CREATE TABLE `cust_profile` (
   `id` bigint(20) NOT NULL,
   `c_id` bigint(12) NOT NULL,
   `c_name` varchar(60) NOT NULL,
-  `c_avatar` varchar(255) NOT NULL,
   `c_label` varchar(255) NOT NULL,
-  `email` varchar(60) NOT NULL,
   `region` varchar(60) NOT NULL,
   `city` varchar(60) NOT NULL,
   `street` varchar(60) NOT NULL,
@@ -73,13 +71,13 @@ CREATE TABLE `cust_profile` (
 -- Dumping data for table `cust_profile`
 --
 
-INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_avatar`, `c_label`, `email`, `region`, `city`, `street`, `barangay`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`, `login_id`, `unique_id`, `cust_status`) VALUES
-(1, 7242156480, 'Nina De Guzman', 'assets/img/default/default_user.jpg', 'Home', 'ninadeguzman@yahoo.com', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', '09993093997', 1113, 18, '2023-03-11 22:58:09', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 7242156480, 1, 0),
-(2, 1087763698, 'Darwin Manalastas', 'assets/img/default/default_user.jpg', 'Home', 'darwin_2000@gmail.com', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', '09323155312', 1010, 12, '2023-03-11 20:37:20', '12 Pioneer St., Boni Ave, Mandaluyong City', 1087763698, 1, 1),
-(3, 4062959512, 'Rodrigo Villaramas', 'assets/img/default/default_user.jpg', 'Home', 'rod_villa2k@gmail.com', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', '09172238482', 1114, 20, '2023-03-11 22:49:35', '20 Mapayapa St., Gasan City, Marinduque', 4062959512, 1, 0),
-(4, 4062959512, 'Rodrigo Villaramas', 'assets/img/default/default_user.jpg', 'Ancestral House', 'rod_villa2k@gmail.com', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-12 22:06:35', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1, 0),
-(5, 4062959512, 'Rodrigo Villaramas', 'assets/img/default/default_user.jpg', 'Girlfriend\'s Condo', 'rod_villa2k@gmail.com', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-12 22:06:31', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1, 1),
-(6, 7242156480, 'Nina De Guzman', 'assets/img/default/default_user.jpg', 'Condo', 'ninadeguzman@gmai.com', 'NCR', 'QUEZON CITY', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-12 22:59:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 7242156480, 1, 1);
+INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_label`, `region`, `city`, `street`, `barangay`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`, `login_id`, `unique_id`, `cust_status`) VALUES
+(1, 7242156480, 'Nina De Guzman', 'Home', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', '09993093997', 1113, 18, '2023-03-11 22:58:09', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 7242156480, 1, 0),
+(2, 1087763698, 'Darwin Manalastas', 'Home', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', '09323155312', 1010, 12, '2023-03-11 20:37:20', '12 Pioneer St., Boni Ave, Mandaluyong City', 1087763698, 1, 1),
+(3, 4062959512, 'Rodrigo Villaramas', 'Home', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', '09172238482', 1114, 20, '2023-03-11 22:49:35', '20 Mapayapa St., Gasan City, Marinduque', 4062959512, 1, 0),
+(4, 4062959512, 'Rodrigo Villaramas', 'Ancestral House', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-12 22:06:35', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1, 0),
+(5, 4062959512, 'Rodrigo Villaramas', 'Girlfriend\'s Condo', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-12 22:06:31', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1, 1),
+(6, 7242156480, 'Nina De Guzman', 'Condo', 'NCR', 'QUEZON CITY', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-12 22:59:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 7242156480, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -165,6 +163,7 @@ INSERT INTO `orders_db` (`OrderID`, `ItemID`, `c_id`, `OrderQty`, `OrderType`, `
 CREATE TABLE `register` (
   `id` bigint(20) NOT NULL,
   `cust_name` varchar(60) NOT NULL,
+  `cust_avatar` varchar(255) NOT NULL,
   `cust_email` varchar(60) DEFAULT NULL,
   `cust_pass` varchar(255) NOT NULL,
   `cust_reg` varchar(60) CHARACTER SET latin1 NOT NULL,
@@ -185,11 +184,11 @@ CREATE TABLE `register` (
 -- Dumping data for table `register`
 --
 
-INSERT INTO `register` (`id`, `cust_name`, `cust_email`, `cust_pass`, `cust_reg`, `cust_city`, `cust_st`, `cust_brgy`, `cust_unit`, `cust_zip`, `cust_phone`, `login_id`, `date`, `user_rank`, `cust_address`, `status`) VALUES
-(1, 'Lia Maranan', 'admin_yoh@gmail.com', '$2y$10$fCdhA3A5h7CxPFESCubXl.Mr7nGRTStyI8w0LY1sXTxA9Qe063hSq', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-10 20:02:16', 'admin', '123 Block 1 Mabilis St., Quezon City', 1),
-(2, 'Nina De Guzman', 'ninadeguzman@yahoo.com', '$2y$10$4XW/LEsGXoB4QQG/Udk87.0SuXiNd/j/3eFW7uOVdBfWM6rSbhqqy', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-10 20:03:56', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1),
-(3, 'Darwin Manalastas', 'darwin_2000@gmail.com', '$2y$10$ybvqzAyPWJ4/J2sc2sPu0OWo0fFwouZ3K0LvegjwQyeKtmT/8G0Fy', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-10 20:05:57', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1),
-(4, 'Rodrigo Villaramas', 'rod_villa2k@gmail.com', '$2y$10$l69ahigJ5x.L.FjaKKyIOOZxecmBUNf..tQMKjzZlSY5Xc3XB5agG', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-10 20:11:22', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1);
+INSERT INTO `register` (`id`, `cust_name`, `cust_avatar`, `cust_email`, `cust_pass`, `cust_reg`, `cust_city`, `cust_st`, `cust_brgy`, `cust_unit`, `cust_zip`, `cust_phone`, `login_id`, `date`, `user_rank`, `cust_address`, `status`) VALUES
+(1, 'Lia Maranan', 'assets/img/upload/avatars/1679338770_2610132126418ad1256c18_default_user.jpg', 'admin_yoh@gmail.com', '$2y$10$fCdhA3A5h7CxPFESCubXl.Mr7nGRTStyI8w0LY1sXTxA9Qe063hSq', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-20 19:24:02', 'admin', '123 Block 1 Mabilis St., Quezon City', 1),
+(2, 'Nina De Guzman', 'assets/img/upload/avatars/1679340114_416098726418b252bf1eb_default_user.jpg', 'ninadeguzman@yahoo.com', '$2y$10$4XW/LEsGXoB4QQG/Udk87.0SuXiNd/j/3eFW7uOVdBfWM6rSbhqqy', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-20 19:24:07', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1),
+(3, 'Darwin Manalastas', 'assets/img/upload/avatars/1679340165_20204964496418b28503b49_default_user.jpg', 'darwin_2000@gmail.com', '$2y$10$ybvqzAyPWJ4/J2sc2sPu0OWo0fFwouZ3K0LvegjwQyeKtmT/8G0Fy', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-20 19:24:11', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1),
+(4, 'Rodrigo Villaramas', 'assets/img/upload/avatars/1679340205_18515456106418b2ad42155_default_user.jpg', 'rod_villa2k@gmail.com', '$2y$10$l69ahigJ5x.L.FjaKKyIOOZxecmBUNf..tQMKjzZlSY5Xc3XB5agG', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-20 19:24:15', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1);
 
 -- --------------------------------------------------------
 
@@ -333,7 +332,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `cust_profile`
 --
 ALTER TABLE `cust_profile`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `inventory_db`
