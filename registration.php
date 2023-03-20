@@ -125,7 +125,7 @@ if (isset($_POST['cust_name'])) {
                                         <div class="form-check" style="margin-left: 69px;">
                       <input class="form-check-input" type="checkbox" name="cust_terms" id="formCheck-1" style="margin-left: -17px;">
                       <label class="form-check-label" for="formCheck-1" style="margin-left: 14px;">
-                        By Checking, You accept and understood the <a href = "TermsConditions.php"> Terms &amp; Conditions </a> of the system
+                        By checking, you accept and understood the <a href = "TermsConditions.php"> Terms &amp; Conditions </a> of the system.
                       </label>
                     </div>
                     

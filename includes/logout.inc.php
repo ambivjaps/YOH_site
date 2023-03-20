@@ -6,6 +6,6 @@ if(isset($_SESSION['login_id']))
     session_destroy();
 }
 
-header("Location: ../homepage.php");
+header("Location: ../HomePage.php");
 die;
 ?>

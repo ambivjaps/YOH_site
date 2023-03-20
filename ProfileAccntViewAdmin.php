@@ -28,13 +28,14 @@
 
     <?php if($profile): ?>
 
-    <main class="page blog-post">
+        <main class="page blog-post">
     <section class="clean-block clean-post dark" style="background-color:#efe9ef; border:none; ">
         <div class="container">
+        <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="CustomerProfileListAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
     <div class="row gutters">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
     <div class="card h-100">
-        <div class="card-body" style="background: #f4e3ff;">
+        <div class="card-body" style="background:#efe9ef;">
             <div class="account-settings">
                 <div class="user-profile">
                     <div class="user-avatar" >
@@ -49,9 +50,9 @@
         </div>
     </div>
     </div>
-    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" style="background-color:#efe9ef;">
     <div class="card h-100">
-        <div class="card-body" style="background: #f4e3ff;">
+        <div class="card-body" style="background: #efe9ef;">
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <h6 style="font-weight: bold; font-size:40px; text-align:center; " >Shipping Details</h6>
@@ -117,6 +118,7 @@
     </div>
     </div>
     </div>
+    
             <?php else: ?>
                 <div class="container my-5">
                     <h2> Oops.. Page not found. Please try again. </h2>
@@ -125,7 +127,5 @@
 
         </section>
     </main>
-
-    
-    
+  
 <?php require 'layouts/Footer.php';?>

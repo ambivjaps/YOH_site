@@ -58,11 +58,11 @@ if(isset($_POST["update-password"])){
             $mail->SMTPSecure='tls';
 
             // h-hotel account
-            $mail->Username='abellanoj@gmail.com';
-            $mail->Password='pdifytlnmtyblohw';
+            $mail->Username='slightlylimited0018@gmail.com';
+            $mail->Password='rmhlupihisommzsw';
 
             // send by h-hotel email
-            $mail->setFrom('abellanoj@gmail.com', 'Password Changed');
+            $mail->setFrom('slightlylimited0018@gmail.com', 'Password Changed');
             // get email from input
             $mail->addAddress($_POST["cust_email"]);
             //$mail->addReplyTo('lamkaizhe16@gmail.com');

@@ -40,13 +40,13 @@ require 'layouts/Header.php';
                                     <div class="filter-item">
                                         <h3>Filters</h3>
                                         <div class="d-flex mt-4 mb-5">
-                                            <input type="text" name="searchInput">
+                                            <input class="form-control rounded" type="text" name="searchInput">
                                             <button type="submit" id="searchInventory" class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);">
                                                 <i class="fas fa-search" style="text-align: center;"></i>
                                             </button>
                                             <a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);" data-bs-target="AddInventoryItem.php" href="AddInventoryItem.php"><i class="fas fa-plus" style="text-align: center;"></i></a>
                                         </div>
-
+                                    
                                         <?php 
                                             foreach ($categories as $key => $category) {
                                                 if(isset($_POST['category'])) {

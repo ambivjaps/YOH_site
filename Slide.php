@@ -48,11 +48,12 @@
         <section class="clean-block clean-post dark" style="background-color:#efe9ef;">
             <div class="container my-5">
 
-                <form class="mb-3" action="Slide.php" id="form" method="POST">
-			        <a class="btn btn-dark" href="EditSlide.php?id=<?php echo $slide['slide_id'] ?>" type="submit" name="edit" role="button"><i class="fas fa-edit"></i> Edit</a>
+                <form class="mb-3" action="Slide.php" method="POST">
+                <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="SlidesAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
+			        <a class="btn btn-dark" href="EditSlide.php?id=<?php echo $slide['slide_id'] ?>" type="submit" name="edit" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);" ><i class="fas fa-edit" ></i> Edit</a>
 			        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $slide['slide_id']; ?>">
                     <input type="hidden" name="delete_img" value="<?php echo $slide['slide_img']; ?>">
-			        <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%">
+			        <input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete" >
 		        </form><hr>
 
                 <div class="row">
