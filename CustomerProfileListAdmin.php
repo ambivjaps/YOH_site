@@ -40,15 +40,23 @@
                                     $prof_avatar = mysqli_fetch_assoc($result_av);
                                     mysqli_free_result($result_av);
                                 ?>
-                                <img class="rounded img-fluid" src="<?php echo $prof_avatar['cust_avatar']; ?>" title="<?php echo $profile['c_name']; ?>" alt="<?php echo $profile['c_name']; ?>" style="margin-left:125px;width:auto;height:auto;">
+                                <a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>">
+                                    <img class="rounded img-fluid" src="<?php echo $prof_avatar['cust_avatar']; ?>" title="<?php echo $profile['c_name']; ?>" alt="<?php echo $profile['c_name']; ?>" style="margin-left:125px;width:auto;height:auto;">
+                                </a>
                             </div>
                             <div class="col-lg-7">
-                                <h3><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" style="color:black;text-decoration:none;font-weight:bold; font-size:50px;"><?php echo $profile['c_name']; ?></a></h3>
-                                <hr style="width:450px;">
+                                <h4><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" style="color:black;text-decoration:none;font-weight:bold; font-size:35px;"><?php echo $profile['c_name']; ?></a></h4>
+                  
                                 <div class="info">
-                                    <span class="text-muted">Last Ordered on Jan 16, 2018&nbsp;</span>
+                                    <?php 
+                                        $current_user = $profile['login_id'];
+                                        $item_order = "SELECT * FROM orders_db WHERE c_id = $current_user ORDER BY OrderID DESC LIMIT 1";
+                                        $result_order = mysqli_query($con, $item_order);
+                                        $latest_order = mysqli_fetch_assoc($result_order);
+                                        mysqli_free_result($result_order);
+                                    ?>
+                                    <span class="text-muted">Last Ordered on <i> <?php echo date("F d, Y h:i:s A (l)", strtotime($latest_order['OrderDate'])); ?> </i> &nbsp;</span>
                                 </div>
-                                <button class="btn btn-outline-primary btn-sm" type="button" style="background: rgb(119,13,253); color:white; font-weight:bold; border-color:rgb(119,13,253);">Delete Profile</button>
                             </div>
                         </div>
                     </div>
