@@ -32,7 +32,7 @@
                 <?php foreach($profiles as $profile): ?>
                     <div class="clean-blog-post">
                         <div class="row">
-                            <div class="col-lg-5">
+                            <div class="col-lg-4">
                                 <?php 
                                     $current_user = $profile['login_id'];
                                     $item_av = "SELECT * FROM register WHERE login_id = $current_user";
