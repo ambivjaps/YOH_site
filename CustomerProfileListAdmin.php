@@ -57,6 +57,7 @@
                                     ?>
                                     <span class="text-muted">Last Ordered on <i> <?php echo date("F d, Y h:i:s A (l)", strtotime($latest_order['OrderDate'])); ?> </i> &nbsp;</span>
                                 </div>
+                                <a class="btn btn-sm btn-primary" href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" role="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253);"><i class="fas fa-eye"></i> View</a>
                             </div>
                         </div>
                     </div>
