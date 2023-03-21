@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2023 at 05:09 AM
+-- Generation Time: Mar 21, 2023 at 07:17 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `yoh_db`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin_db`
---
-
-CREATE TABLE `admin_db` (
-  `id` bigint(20) NOT NULL,
-  `admin_email` varchar(50) NOT NULL,
-  `admin_pass` varchar(50) NOT NULL,
-  `user_rank` varchar(20) CHARACTER SET latin1 NOT NULL DEFAULT 'admin'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `admin_db`
---
-
-INSERT INTO `admin_db` (`id`, `admin_email`, `admin_pass`, `user_rank`) VALUES
-(1, 'admin', '$2y$10$MqtvOXz4p2Rg4sT7ICeWgeTkEyO5biTtG9A6sxNX/hx', 'admin'),
-(2, 'admin@admin.com', '12345678', 'admin');
 
 -- --------------------------------------------------------
 
@@ -272,12 +251,6 @@ INSERT INTO `videos` (`vid_id`, `vid_title`, `vid_desc`, `vid_cat`, `vid_url`, `
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin_db`
---
-ALTER TABLE `admin_db`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cust_profile`
