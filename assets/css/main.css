@@ -74,7 +74,7 @@ nav {
 	margin-bottom: 20px;
 }
 
-.card a {
+.card .card-dashboard a {
     color: #000000;
     text-decoration: none;
 }

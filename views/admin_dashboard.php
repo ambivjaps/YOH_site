@@ -99,7 +99,7 @@
         <div class="col-md-6 my-2">
             <h3><strong> <i class="fas fa-dolly-flatbed"></i> Latest Inventory Items </strong></h3>
             <?php foreach($latest_inv as $inv): ?>
-            <div class="card">
+            <div class="card card-dashboard">
                 <div class="row">
                     <div class="col-md-4 col-4">
                         <a href="InventoryItem.php?id=<?php echo $inv['ItemID']; ?>">
@@ -124,7 +124,7 @@
         <div class="col-md-6 my-2">
             <h3><strong> <i class="fas fa-check-square"></i> Latest Orders </strong></h3>
             <?php foreach($latest_order as $order): ?>
-            <div class="card">
+            <div class="card card-dashboard">
                 <div class="row">
                     <div class="col-md-4 col-4">
                         <a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>">
