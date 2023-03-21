@@ -44,12 +44,12 @@
                 <h6 style="font-weight:bold;"> <span class="badge bg-dark"> Administrator </span></h6>
                 <p style="font-weight:bold;"> Address: <?php echo $user['cust_address'] ?> </p>
                 <p style="font-weight:bold;"> Phone Number: <?php echo $user['cust_phone'] ?> </p>
-                <p style="font-weight:bold;"> Email: <?php echo $user['cust_email'] ?> </p>
-                <p style="font-weight:bold;"> User since <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
+                <p style="font-weight:bold;"> E-mail: <?php echo $user['cust_email'] ?> </p>
+                <p style="font-weight:bold;"> Account last updated on: <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
             </div>
 
             <div class="float-end mt-2">
-                <a class="btn btn-dark" href="#" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Edit avatar </a>
+                <a class="btn btn-dark" href="UserProfileAdminEdit.php" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Edit profile </a>
                 <a class="btn btn-dark" href="ChangePassword.php" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Change password </a>
             </div>
         </div>

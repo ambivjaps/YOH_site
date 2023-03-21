@@ -5,7 +5,7 @@
     include("includes/functions.inc.php");
     include("includes/access.inc.php");
 
-    access('USER');
+    access('ADMIN');
     $user_data = check_login($con);
 
     require 'layouts/Header.php';
@@ -13,7 +13,7 @@
     if(isset($_SESSION['login_id'])) {
 
 		$id = mysqli_real_escape_string($con, $_SESSION['login_id']);
-		$item = "SELECT * FROM register WHERE login_id = $id AND user_rank = 'user'";
+		$item = "SELECT * FROM register WHERE login_id = $id AND user_rank = 'admin'";
 		$result = mysqli_query($con, $item);
 		$user = mysqli_fetch_assoc($result);
 		mysqli_free_result($result);
@@ -79,7 +79,7 @@
             $_SESSION['cust_email'] = $_POST['cust_email'];
             $_SESSION['cust_phone'] = $_POST['cust_phone'];
 
-            header("Location: UserProfile.php");
+            header("Location: UserProfileAdmin.php");
             mysqli_close($con);
             exit();
         } else {
@@ -99,9 +99,9 @@
     <?php if($user): ?>
 
         <h1 style="font-weight:bold;"> Edit User Profile <span>
-        <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="UserProfile.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h1><hr>
+        <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="UserProfileAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h1><hr>
         <div class="form-group">
-            <form action="UserProfileEdit.php" method="POST" id="form" enctype="multipart/form-data">
+            <form action="UserProfileAdminEdit.php" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
                     <h3> Personal Information </h3>
 

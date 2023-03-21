@@ -81,8 +81,8 @@
                 <h1 style="font-weight:bold; color:indigo;"> <?php echo $user['cust_name'] ?> </h1>
                 <p style="font-weight:bold;"> Address: <?php echo $user['cust_address'] ?> </p>
                 <p style="font-weight:bold;"> Phone Number: <?php echo $user['cust_phone'] ?> </p>
-                <p style="font-weight:bold;"> Email: <?php echo $user['cust_email'] ?> </p>
-                <p style="font-weight:bold;"> User since <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
+                <p style="font-weight:bold;"> E-mail Address: <?php echo $user['cust_email'] ?> </p>
+                <p style="font-weight:bold;"> Account last updated on: <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
             </div>
 
             <div class="float-end mt-2">

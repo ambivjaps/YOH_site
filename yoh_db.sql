@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 08:48 PM
+-- Generation Time: Mar 21, 2023 at 04:38 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -185,10 +185,10 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `cust_name`, `cust_avatar`, `cust_email`, `cust_pass`, `cust_reg`, `cust_city`, `cust_st`, `cust_brgy`, `cust_unit`, `cust_zip`, `cust_phone`, `login_id`, `date`, `user_rank`, `cust_address`, `status`) VALUES
-(1, 'Lia Maranan', 'assets/img/upload/avatars/1679338770_2610132126418ad1256c18_default_user.jpg', 'admin_yoh@gmail.com', '$2y$10$fCdhA3A5h7CxPFESCubXl.Mr7nGRTStyI8w0LY1sXTxA9Qe063hSq', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-20 19:24:02', 'admin', '123 Block 1 Mabilis St., Quezon City', 1),
-(2, 'Nina De Guzman', 'assets/img/upload/avatars/1679340114_416098726418b252bf1eb_default_user.jpg', 'ninadeguzman@yahoo.com', '$2y$10$4XW/LEsGXoB4QQG/Udk87.0SuXiNd/j/3eFW7uOVdBfWM6rSbhqqy', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-20 19:24:07', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1),
-(3, 'Darwin Manalastas', 'assets/img/upload/avatars/1679340165_20204964496418b28503b49_default_user.jpg', 'darwin_2000@gmail.com', '$2y$10$ybvqzAyPWJ4/J2sc2sPu0OWo0fFwouZ3K0LvegjwQyeKtmT/8G0Fy', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-20 19:24:11', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1),
-(4, 'Rodrigo Villaramas', 'assets/img/upload/avatars/1679340205_18515456106418b2ad42155_default_user.jpg', 'rod_villa2k@gmail.com', '$2y$10$l69ahigJ5x.L.FjaKKyIOOZxecmBUNf..tQMKjzZlSY5Xc3XB5agG', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-20 19:24:15', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1);
+(1, 'Lia Maranan', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'admin_yoh@gmail.com', '$2y$10$fCdhA3A5h7CxPFESCubXl.Mr7nGRTStyI8w0LY1sXTxA9Qe063hSq', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-21 03:30:45', 'admin', '123 Block 1 Mabilis St., Quezon City', 1),
+(2, 'Nina De Guzman', 'assets/img/upload/avatars/1679367700_173386665964191e14e3efa_woman-portrait-23496008.jpg', 'ninadeguzman@yahoo.com', '$2y$10$4XW/LEsGXoB4QQG/Udk87.0SuXiNd/j/3eFW7uOVdBfWM6rSbhqqy', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-21 03:01:40', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1),
+(3, 'Darwin Manalastas', 'assets/img/upload/avatars/1679368290_168071116064192062082be_janno.jpg', 'darwin_2000@gmail.com', '$2y$10$ybvqzAyPWJ4/J2sc2sPu0OWo0fFwouZ3K0LvegjwQyeKtmT/8G0Fy', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-21 03:11:30', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1),
+(4, 'Rodrigo Villaramas', 'assets/img/upload/avatars/1679368309_1581349859641920750ba66_ronaldo.jpg', 'rod_villa2k@gmail.com', '$2y$10$l69ahigJ5x.L.FjaKKyIOOZxecmBUNf..tQMKjzZlSY5Xc3XB5agG', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-21 03:11:49', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1);
 
 -- --------------------------------------------------------
 

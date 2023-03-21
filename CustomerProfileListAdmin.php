@@ -41,7 +41,7 @@
                                     mysqli_free_result($result_av);
                                 ?>
                                 <a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>">
-                                    <img class="rounded img-fluid" src="<?php echo $prof_avatar['cust_avatar']; ?>" title="<?php echo $profile['c_name']; ?>" alt="<?php echo $profile['c_name']; ?>" style="margin-left:125px;width:auto;height:auto;">
+                                    <img class="rounded img-fluid" src="<?php echo $prof_avatar['cust_avatar']; ?>" title="<?php echo $profile['c_name']; ?>" alt="<?php echo $profile['c_name']; ?>">
                                 </a>
                             </div>
                             <div class="col-lg-7">
