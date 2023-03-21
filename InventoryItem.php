@@ -83,19 +83,19 @@
                         <h6 style="font-weight: bold; font-size:40px; text-align:center; " >Item Details</h6>
                         <hr>
                     </div>
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label style="font-weight:bold; font-size:30px; ">Type</label>
                             <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $inv['ItemType']; ?></p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label style="font-weight:bold;font-size:30px; ">Quantity</label>
                             <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $inv['ItemQty']; ?></p>
                         </div>
                     </div>
-                    <div class="col-md-12 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label style="font-weight:bold;font-size:30px; " >Price</label>
                             <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;">Php<?php echo $inv['ItemPrice']; ?></p>
@@ -104,7 +104,7 @@
                     <div class="col-md-12 col-12">
                         <div class="form-group">
                             <label style="font-weight:bold;font-size:30px; ">Description</label>
-                            <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $inv['ItemDesc']; ?></p>
+                            <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo nl2br($inv['ItemDesc']) ?></p>
                         </div>
                     </div>
                 </div>     
