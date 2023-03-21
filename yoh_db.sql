@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2023 at 07:17 AM
+-- Generation Time: Mar 21, 2023 at 09:25 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -125,13 +125,13 @@ CREATE TABLE `orders_db` (
 --
 
 INSERT INTO `orders_db` (`OrderID`, `ItemID`, `c_id`, `OrderQty`, `OrderType`, `TypeID`, `OrderDate`, `OrderTotal`, `proof_img`, `p_mode`, `tracking_no`, `courier_id`, `pay_status`) VALUES
-(1, 1007, 7242156480, 27, 'In Process', 1, '2023-03-21 04:08:17', 12150, 'assets/img/upload/payment/1678689913_2137652967640ec679428f8_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '1010101010', 'XEND', 'Paid'),
-(2, 1002, 4062959512, 5, 'In Process', 1, '2023-03-13 01:14:26', 750, 'None', 'GCash', '9349493939332', 'LBC', 'Unpaid'),
-(3, 1006, 1087763698, 20, 'In Process', 1, '2023-03-13 01:22:27', 3000, 'None', 'Instapay', '', '', ''),
-(6, 1001, 1087763698, 10, 'In Process', 1, '2023-03-13 01:22:30', 2000, 'None', 'Union Bank', '', '', ''),
-(7, 1012, 7242156480, 20, 'Completed', 2, '2023-03-13 05:41:33', 5000, 'None', 'BPI', '3e923e8939', 'XEND', 'Paid'),
-(8, 1009, 4062959512, 8, 'In Process', 1, '2023-03-13 01:22:38', 2000, 'None', 'BDO', '', '', ''),
-(10, 1015, 7242156480, 1, 'Completed', 2, '2023-03-13 05:54:36', 300, '', '', '', '', '');
+(1, 1007, 7242156480, 27, 'In Process', 1, '2023-03-21 07:32:50', 12150, 'assets/img/upload/payment/1678689913_2137652967640ec679428f8_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '1010101010', 'XEND', 'Paid'),
+(2, 1002, 4062959512, 5, 'In Process', 1, '2023-03-21 08:17:37', 750, '', 'GCash', '9349493939332', 'LBC', 'Unpaid'),
+(3, 1006, 1087763698, 20, 'In Process', 1, '2023-03-21 08:25:11', 3000, '', 'Paymaya', '', '', 'Installment'),
+(6, 1001, 1087763698, 10, 'In Process', 1, '2023-03-21 08:17:40', 2000, '', 'Union Bank', '', '', ''),
+(7, 1012, 7242156480, 20, 'Completed', 2, '2023-03-21 08:17:41', 5000, '', 'BPI', '3e923e8939', 'XEND', 'Paid'),
+(8, 1009, 4062959512, 8, 'In Process', 1, '2023-03-21 08:17:42', 2000, '', 'BDO', '', '', ''),
+(10, 1015, 7242156480, 1, 'Completed', 2, '2023-03-21 08:25:18', 300, '', 'Union Bank', '', '', '');
 
 -- --------------------------------------------------------
 

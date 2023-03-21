@@ -118,7 +118,11 @@
                     <h6> Total Cost: Php<?php echo $order['OrderTotal']; ?></h6>
                     <h6> Mode of Payment: <?php echo $order['p_mode']; ?></h6>
                     <h6> Payment Status: <?php echo $order['pay_status']; ?></h6>
+                    <?php if (!empty($order['proof_img'])) { ?>
                     <h6> Proof of Payment: <a class="btn btn-primary btn-sm" href="<?php echo $order['proof_img']; ?>"> Click here to view receipt </a></h6>
+                    <?php } else { ?>
+                    <h6> Proof of Payment: No proof of payment uploaded yet. </h6>
+                    <?php } ?>
                 </div>
                 <div class="col-md-6">
                     <h3><strong> Tracking Details </strong></h3>

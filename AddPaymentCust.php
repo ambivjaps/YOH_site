@@ -47,7 +47,6 @@
             if($query_run) {
                 if($_FILES['proof_img']['name'] != '') {
                     move_uploaded_file($_FILES['proof_img']['tmp_name'], "assets/img/upload/payment/" . $unique . $_FILES['proof_img']['name']);
-                    unlink($old_image);
                 }
             } else {
                 echo "<script> alert('Problem occured.') </script>";
