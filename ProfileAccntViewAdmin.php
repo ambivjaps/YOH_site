@@ -12,7 +12,7 @@
 
     if(isset($_GET['id'])) {
 		$id = mysqli_real_escape_string($con, $_GET['id']);
-		$item = "SELECT * FROM cust_profile WHERE id = $id";
+		$item = "SELECT * FROM cust_profile WHERE id = $id AND cust_status='1'";
 		$result = mysqli_query($con, $item);
 		$profile = mysqli_fetch_assoc($result);
 		mysqli_free_result($result);

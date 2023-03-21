@@ -3,7 +3,7 @@
     $user_data = check_login($con);
 
     // retrieves profile count
-    $profile_count = "SELECT COUNT(*) FROM cust_profile";
+    $profile_count = "SELECT COUNT(*) FROM cust_profile WHERE cust_status='1'";
     $result_prof = mysqli_query($con, $profile_count);
     $profiles = mysqli_fetch_array($result_prof)[0];
     mysqli_free_result($result_prof);
