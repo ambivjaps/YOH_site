@@ -70,6 +70,25 @@ nav {
 	"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(221, 209, 222, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
 }
 
+.card {
+	margin-bottom: 20px;
+}
+
+.card a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.card-thumbnail:hover {
+    opacity: 0.8;
+    transition: 0.4s all;
+}
+
+.card-seg-thumbnail:hover {
+	opacity: 0.8;
+    transition: 0.4s all;
+}
+
 .card-thumbnail {
     max-height: 350px;
     overflow: hidden;

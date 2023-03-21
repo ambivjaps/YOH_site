@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-md-8 col-8">
                         <div class="card-body">
-                            <a href="InventoryItem.php?id=<?php echo $inv['ItemID']; ?>"><h6><?php echo $inv['ItemName']; ?></h6></a><hr>
+                            <a href="InventoryItem.php?id=<?php echo $inv['ItemID']; ?>"><h5><?php echo $inv['ItemName']; ?></h5></a><hr>
                             <h6><span class="badge bg-dark"><?php echo $inv['ItemType']; ?></span></h6>
                             <h6>Price: Php<?php echo $inv['ItemPrice']; ?></h6>
                             <h6>Quantity: <?php echo $inv['ItemQty']; ?></h6>
@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-md-8 col-8">
                         <div class="card-body">
-                            <a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>"><h6><?php echo $order['ItemName']; ?></h6></a><hr>
+                            <a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>"><h5><?php echo $order['ItemName']; ?></h5></a><hr>
                             <h6><span class="badge bg-dark"><?php echo $order['OrderType']; ?></span></h6>
                             <h6>Ordered by: <?php echo $order['c_name']; ?></h6>
                             <h6>Total Price: Php<?php echo $order['OrderTotal']; ?></h6>
