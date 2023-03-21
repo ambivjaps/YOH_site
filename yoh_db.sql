@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2023 at 04:38 AM
+-- Generation Time: Mar 21, 2023 at 05:09 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -103,7 +103,7 @@ CREATE TABLE `inventory_db` (
 --
 
 INSERT INTO `inventory_db` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `ItemType`, `TypeID`, `ItemPrice`, `ItemQty`, `created_at`) VALUES
-(1, 1001, 'Beginner Crochet Kit', 'assets/img/upload/inventory/1678474952_40830720640b7ec8d36e7_crochet kit.jpg', 'Basic Materials every crochet beginner needs\r\n\r\nThis Kit includes:\r\n- 2 crochet hooks (4.5 mm and 5mm)\r\n- 2 milk cotton yarn (50 grams each)\r\n- 2 darning needle\r\n- 2 stitch markers\r\n\r\nBONUS: youtube links to basic tutorials\r\n(random colors will be given, but send us a message if you want to pick your own colors)\r\n\r\nThis kit is perfect to use for practicing the new hobby.', 'Raw', 2, 200, 20, '2023-03-10 19:02:32'),
+(1, 1001, 'Beginner Crochet Kit', 'assets/img/upload/inventory/1678474952_40830720640b7ec8d36e7_crochet kit.jpg', 'Basic Materials every crochet beginner needsss\r\n\r\nThis Kit includes:\r\n- 2 crochet hooks (4.5 mm and 5mm)\r\n- 2 milk cotton yarn (50 grams each)\r\n- 2 darning needle\r\n- 2 stitch markers\r\n\r\nBONUS: youtube links to basic tutorials\r\n(random colors will be given, but send us a message if you want to pick your own colors)\r\n\r\nThis kit is perfect to use for practicing the new hobby.', 'Raw', 2, 200, 20, '2023-03-21 04:08:56'),
 (2, 1002, 'Handmade Crochet (Ghibli Earrings) - Calcifer', 'assets/img/upload/inventory/1678472170_1393039690640b73ea7733a_ghibli earrings_calcifer.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 88, '2023-03-10 19:05:24'),
 (3, 1003, 'Handmade Crochet (Ghibli Earrings) - Jiji', 'assets/img/upload/inventory/1678472389_1371896684640b74c52edbb_ghibli earrings_jiji.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 59, '2023-03-10 18:19:49'),
 (4, 1004, 'Handmade Crochet (Ghibli Earrings) - Soot Sprites', 'assets/img/upload/inventory/1678472481_1083544921640b7521b9769_ghiblie earrings_soot sprite.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 33, '2023-03-10 19:04:39'),
@@ -146,7 +146,7 @@ CREATE TABLE `orders_db` (
 --
 
 INSERT INTO `orders_db` (`OrderID`, `ItemID`, `c_id`, `OrderQty`, `OrderType`, `TypeID`, `OrderDate`, `OrderTotal`, `proof_img`, `p_mode`, `tracking_no`, `courier_id`, `pay_status`) VALUES
-(1, 1007, 7242156480, 27, 'In Process', 1, '2023-03-13 05:38:05', 12150, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '1010101010', 'XEND', 'Paid'),
+(1, 1007, 7242156480, 27, 'In Process', 1, '2023-03-21 04:08:17', 12150, 'assets/img/upload/payment/1678689913_2137652967640ec679428f8_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '1010101010', 'XEND', 'Paid'),
 (2, 1002, 4062959512, 5, 'In Process', 1, '2023-03-13 01:14:26', 750, 'None', 'GCash', '9349493939332', 'LBC', 'Unpaid'),
 (3, 1006, 1087763698, 20, 'In Process', 1, '2023-03-13 01:22:27', 3000, 'None', 'Instapay', '', '', ''),
 (6, 1001, 1087763698, 10, 'In Process', 1, '2023-03-13 01:22:30', 2000, 'None', 'Union Bank', '', '', ''),
@@ -214,7 +214,7 @@ INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_img`, `slide_desc`, `sli
 (2, 'Buy now!', 'assets/img/upload/slides/1678476965_1530631567640b86a51a386_slide2.jpg', 'Register on our website to order.', 'Registration.php', '2023-03-10 19:36:05'),
 (3, 'Watch new videos.', 'assets/img/upload/slides/1678476992_1892085598640b86c0422a8_slide3.jpg', 'New video tutorials available.', 'Videos.php', '2023-03-10 19:36:32'),
 (4, 'Custom work', 'assets/img/upload/slides/1678477028_794739955640b86e4c9082_slide4.jpg', 'For custom work, message us for inquiries.', 'https://www.facebook.com/y.o.h.plus', '2023-03-10 19:37:08'),
-(5, 'Social media accounts', 'assets/img/upload/slides/1678477049_389322224640b86f92b552_slide5.jpg', 'Follow us on our official social media accounts.', 'https://yohplus.carrd.co/', '2023-03-10 19:37:29');
+(5, 'Social media accounts', 'assets/img/upload/slides/1678477049_389322224640b86f92b552_slide5.jpg', 'Follow us on our official social media accounts.', 'https://yohplus.carrd.co/', '2023-03-21 04:03:12');
 
 -- --------------------------------------------------------
 
@@ -267,7 +267,7 @@ INSERT INTO `videos` (`vid_id`, `vid_title`, `vid_desc`, `vid_cat`, `vid_url`, `
 (29, 'How to crochet a Magic Circle\r\n', 'If you have been wondering how to start a crochet circle, then this is the video for you! ', 'Crochet Basics', 'Ixhg8oUw1HE', '2023-03-01 22:13:53'),
 (30, 'Crochet Pillow\n', 'Another tutorial video. This time, I will teach you how to make a crochet pillow.', 'Crochet Tutorial', 'XRUr6bf9weM', '2023-03-01 22:17:52'),
 (31, 'How to crochet Boo Tao', 'This project is perfect for crochet beginners as it uses the basic stitches and techniques!', 'Crochet Tutorial', 'e9of07fxTV8', '2023-03-01 22:19:17'),
-(32, 'Making a Doll from scratch🍳', 'I am back with another egg-citing crochet with me video! I made this cute doll based on an egg.', 'Crochet Tutorial', 'mr9dzRfSIeg', '2023-03-01 22:19:10');
+(32, 'Making a Doll from scratch🍳', 'I am back with another egg-citing crochet with me video! I made this cute doll based on an egg.', 'Crochet Tutorial', 'mr9dzRfSIeg', '2023-03-21 03:56:46');
 
 --
 -- Indexes for dumped tables
