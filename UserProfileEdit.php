@@ -25,8 +25,18 @@
         $UID = $user['login_id'];
     
         $cust_name = mysqli_real_escape_string($con, $_POST['cust_name']);
+        $cust_address = mysqli_real_escape_string($con, $_POST['cust_address']);
+        $cust_unit = mysqli_real_escape_string($con, $_POST['cust_unit']);
+        $cust_st = mysqli_real_escape_string($con, $_POST['cust_st']);
 
-        
+        $cust_brgy = mysqli_real_escape_string($con, $_POST['cust_brgy']);
+        $cust_city = mysqli_real_escape_string($con, $_POST['cust_city']);
+        $cust_reg = mysqli_real_escape_string($con, $_POST['cust_reg']);
+        $cust_zip = mysqli_real_escape_string($con, $_POST['cust_zip']);
+
+        $cust_email = mysqli_real_escape_string($con, $_POST['cust_email']);
+        $cust_phone = mysqli_real_escape_string($con, $_POST['cust_phone']);
+
         $new_image = $_FILES['cust_avatar']['name'];
         $old_image = $_POST['cust_avatar_old'];
         $unique = strtotime("now").'_'.uniqid(rand()).'_';
@@ -52,11 +62,22 @@
             }
         }
     
-        $query = "UPDATE register SET cust_name='$cust_name' WHERE login_id=$UID";
+        $query = "UPDATE register SET cust_name='$cust_name', cust_address='$cust_address', cust_unit='$cust_unit', cust_st='$cust_st', cust_brgy='$cust_brgy', cust_city='$cust_city', cust_reg='$cust_reg', cust_zip='$cust_zip', cust_email='$cust_email', cust_phone='$cust_phone' WHERE login_id=$UID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['cust_name'] = $_POST['cust_name'];
+            $_SESSION['cust_address'] = $_POST['cust_address'];
+            $_SESSION['cust_unit'] = $_POST['cust_unit'];
+            $_SESSION['cust_st'] = $_POST['cust_st'];
+
+            $_SESSION['cust_brgy'] = $_POST['cust_brgy'];
+            $_SESSION['cust_city'] = $_POST['cust_city'];
+            $_SESSION['cust_reg'] = $_POST['cust_reg'];
+            $_SESSION['cust_zip'] = $_POST['cust_zip'];
+
+            $_SESSION['cust_email'] = $_POST['cust_email'];
+            $_SESSION['cust_phone'] = $_POST['cust_phone'];
 
             header("Location: UserProfile.php");
             mysqli_close($con);
@@ -85,12 +106,12 @@
                     <h3> Personal Information </h3>
 
                     <div class="col-md-2">
-                        <img class="img-fluid rounded" src="<?php echo $user['cust_avatar']; ?>">
+                        <img class="img-fluid rounded" src="<?php echo $user['cust_avatar']; ?>" id="imgDisplay">
                     </div>
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Avatar</label>
-                        <input class="form-control rounded" type="file" class="form-control form-control my-3" name="cust_avatar">
-                        <input class="form-control rounded" type="hidden" name="cust_avatar_old" value="<?php echo $user['cust_avatar']; ?>">
+                        <input class="form-control rounded" type="file" onchange="readURL(this)" class="form-control form-control my-3" name="cust_avatar">
+                        <input class="form-control rounded" type="hidden" onchange="readURL(this)" name="cust_avatar_old" value="<?php echo $user['cust_avatar']; ?>">
                     </div>
 
                     <div class="col-md-12">
@@ -140,13 +161,22 @@
                     </div>
 
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="editUser" name="edit_user" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
+                        <input class="btn btn-success mt-3" id="editUser" name="edit_user" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
                     </div>
                 </div>
             </form>
         </div>
 
+        <div id="editModal" class="modal" style="display: none">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to edit this?</p>
+                <div class="modal-footer">
+                    <button onClick="editUser()">OK</button>
+                    <button onClick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <?php else: ?>
@@ -154,5 +184,32 @@
             <h2> Oops.. Page not found. Please try again. </h2>
         </div>
     <?php endif ?>
+
+    <script>
+        document.getElementById('editUser').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('editModal').style.display = 'block';
+        });
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        function editUser() {
+            document.getElementById("form").submit();
+        }
+
+        function readURL(el) {
+            if (el.files && el.files[0]) {
+                var FR= new FileReader();
+                FR.onload = function(e) {
+                    $("#imgDisplay").attr("src", e.target.result);
+                    socket.emit('image', e.target.result);
+                    console.log(e.target.result);
+                };       
+                FR.readAsDataURL( el.files[0] );
+            } 
+        };
+    </script>
 
 <?php require 'layouts/Footer.php';?>
