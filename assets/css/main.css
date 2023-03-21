@@ -74,11 +74,6 @@ nav {
 	margin-bottom: 20px;
 }
 
-.card .card-dashboard a {
-    color: #000000;
-    text-decoration: none;
-}
-
 .card-thumbnail:hover {
     opacity: 0.8;
     transition: 0.4s all;
