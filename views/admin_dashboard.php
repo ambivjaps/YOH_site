@@ -97,7 +97,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-6 my-2">
-            <h3> Latest Inventory Items </h3>
+            <h3><strong> <i class="fas fa-dolly-flatbed"></i> Latest Inventory Items </strong></h3>
             <?php foreach($latest_inv as $inv): ?>
             <div class="card">
                 <div class="row">
@@ -122,7 +122,7 @@
         </div>
 
         <div class="col-md-6 my-2">
-            <h3> Latest Orders </h3>
+            <h3><strong> <i class="fas fa-check-square"></i> Latest Orders </strong></h3>
             <?php foreach($latest_order as $order): ?>
             <div class="card">
                 <div class="row">
