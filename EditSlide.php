@@ -86,22 +86,25 @@
         <div class="form-group">
             <form action="EditSlide.php?id=<?php echo $slide['slide_id'] ?>" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
-                    <div class="col-md-12">
+                    <div class="col-md-5">
+                        <img class="img-fluid rounded" src="<?php echo $slide['slide_img']; ?>" id="imgDisplay">
+                    </div>
+                    <div class="col-md-6">
                         <label style="font-weight:bold;">Image</label>
-                        <input type="file" class="form-control form-control my-3" name="slide_img">
-                        <input type="hidden" name="slide_img_old" value="<?php echo $slide['slide_img']; ?>">
+                        <input type="file" onchange="readURL(this)" class="form-control rounded my-3" name="slide_img">
+                        <input type="hidden" onchange="readURL(this)" class="form-control rounded my-3" name="slide_img_old" value="<?php echo $slide['slide_img']; ?>">
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Title</label>
-                        <input type="text" name="slide_title" id="slide_title" class="form-control" value="<?php echo $slide['slide_title'] ?>">
+                        <input type="text" name="slide_title" id="slide_title" class="form-control rounded" value="<?php echo $slide['slide_title'] ?>">
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Description</label>
-                        <input type="text" name="slide_desc" id="slide_desc" class="form-control" value="<?php echo $slide['slide_desc'] ?>">
+                        <input type="text" name="slide_desc" id="slide_desc" class="form-control rounded" value="<?php echo $slide['slide_desc'] ?>">
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Link</label>
-                        <input type="text" name="slide_link" id="slide_link" class="form-control" value="<?php echo $slide['slide_link'] ?>">
+                        <input type="text" name="slide_link" id="slide_link" class="form-control rounded" value="<?php echo $slide['slide_link'] ?>">
                     </div>
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" id="editSlide" name="edit_slide" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
@@ -141,6 +144,18 @@
         function editSlide() {
             document.getElementById("form").submit();
         }
+
+        function readURL(el) {
+            if (el.files && el.files[0]) {
+                var FR= new FileReader();
+                FR.onload = function(e) {
+                    $("#imgDisplay").attr("src", e.target.result);
+                    socket.emit('image', e.target.result);
+                    console.log(e.target.result);
+                };       
+                FR.readAsDataURL( el.files[0] );
+            } 
+        };
     </script>
     
 <?php require 'layouts/Footer.php';?>

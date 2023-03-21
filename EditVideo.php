@@ -66,11 +66,11 @@
                 <div class="row my-3">
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Title</label>
-                        <input type="text" name="vid_title" id="vid_title" class="form-control" value="<?php echo $video['vid_title'] ?>">
+                        <input type="text" name="vid_title" id="vid_title" class="form-control rounded" value="<?php echo $video['vid_title'] ?>">
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Description</label>
-                        <textarea type="text" rows="4" class="form-control" name="vid_desc" id="vid_desc"><?php echo $video['vid_desc'] ?></textarea>
+                        <textarea type="text" rows="4" class="form-control rounded" name="vid_desc" id="vid_desc"><?php echo $video['vid_desc'] ?></textarea>
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Category</label>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">URL</label>
-                        <input type="text" name="vid_url" id="vid_url" class="form-control" value="<?php echo $video['vid_url'] ?>">
+                        <input type="text" name="vid_url" id="vid_url" class="form-control rounded" value="<?php echo $video['vid_url'] ?>">
                     </div>
                   
                     <div class="button-group float-end">
