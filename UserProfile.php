@@ -79,6 +79,7 @@
 
             <div class="col-md-10">
                 <h1 style="font-weight:bold; color:indigo;"> <?php echo $user['cust_name'] ?> </h1>
+                <h6 style="font-weight:bold;"> <span class="badge bg-dark"> Verified User </span></h6>
                 <p style="font-weight:bold;"> Address: <?php echo $user['cust_address'] ?> </p>
                 <p style="font-weight:bold;"> Phone Number: <?php echo $user['cust_phone'] ?> </p>
                 <p style="font-weight:bold;"> E-mail Address: <?php echo $user['cust_email'] ?> </p>
