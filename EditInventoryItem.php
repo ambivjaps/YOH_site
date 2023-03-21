@@ -99,7 +99,7 @@
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Image</label>
                         <input class="form-control rounded" type="file" class="form-control form-control my-3" name="ItemImg">
-                        <input  class="form-control rounded"type="hidden" name="ItemImg_old" value="<?php echo $inv['ItemImg']; ?>">
+                        <input class="form-control rounded" type="hidden" name="ItemImg_old" value="<?php echo $inv['ItemImg']; ?>">
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Name</label>
