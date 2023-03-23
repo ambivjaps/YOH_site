@@ -18,8 +18,13 @@
 		$item = "SELECT * FROM cust_profile WHERE id = $id AND login_id = $current_user";
 		$result = mysqli_query($con, $item);
 		$profile = mysqli_fetch_assoc($result);
+        mysqli_free_result($result);
 
-		mysqli_free_result($result);
+        // get avatar from current user
+		$item_av = "SELECT * FROM register WHERE login_id = $current_user";
+		$result_av = mysqli_query($con, $item_av);
+		$prof_avatar = mysqli_fetch_assoc($result_av);
+		mysqli_free_result($result_av);
 	}
 
     if(isset($_POST['delete'])) {
@@ -61,10 +66,9 @@
             <div class="account-settings">
                 <div class="user-profile">
                     <div class="user-avatar" >
-                        <img src="<?php echo $profile['c_avatar']; ?>" style="height:200px; width:200px;">
+                        <img src="<?php echo $prof_avatar['cust_avatar']; ?>" style="height:200px; width:200px;" title="<?php echo $profile['c_name']; ?>" alt="<?php echo $profile['c_name']; ?>">
                     </div>
                     <h5 class="user-name" style="font-weight: bold; font-size:40px; color: var(--bs-indigo);"><?php echo $profile['c_name']; ?></h5>
-                    <p style="font-weight: bold; "><?php echo $profile['email']; ?></p>
                     <p style="font-weight: bold; "><?php echo $profile['phone_no']; ?></p>
                 </div>
             </div>

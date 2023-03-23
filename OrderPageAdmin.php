@@ -89,14 +89,20 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
-                        <img class="rounded img-fluid" src="<?php echo $order['c_avatar']; ?>">
+                        <?php 
+                            $current_user = $order['login_id'];
+                            $item_av = "SELECT * FROM register WHERE login_id = $current_user";
+                            $result_av = mysqli_query($con, $item_av);
+                            $prof_avatar = mysqli_fetch_assoc($result_av);
+                            mysqli_free_result($result_av);
+                        ?>
+                        <img class="rounded img-fluid" src="<?php echo $prof_avatar['cust_avatar']; ?>" title="<?php echo $order['c_name']; ?>" alt="<?php echo $order['c_name']; ?>">
                     </div>
                     <div class="col-md-8">
                         <h3><strong> Customer Details </strong></h3>
                         <h6> Customer Profile used: <?php echo $order['c_label']; ?></h6>
                         <h6> Name: <?php echo $order['c_name']; ?> </h6>
                         <h6> Address: <?php echo $order['address']; ?></h6>
-                        <h6> Email: <?php echo $order['email']; ?></h6>
                         <h6> Region: <?php echo $order['region']; ?></h6>
                         <h6> City: <?php echo $order['city']; ?></h6>
                         <h6> Barangay: <?php echo $order['barangay']; ?></h6>
@@ -112,12 +118,17 @@
                     <h6> Total Cost: Php<?php echo $order['OrderTotal']; ?></h6>
                     <h6> Mode of Payment: <?php echo $order['p_mode']; ?></h6>
                     <h6> Payment Status: <?php echo $order['pay_status']; ?></h6>
-                    <h6> Proof of Payment: <a href="<?php echo $order['proof_img']; ?>"> Click here to view receipt. </a></h6>
+                    <?php if (!empty($order['proof_img'])) { ?>
+                    <h6> Proof of Payment: <a class="btn btn-primary btn-sm" href="<?php echo $order['proof_img']; ?>"> Click here to view receipt </a></h6>
+                    <?php } else { ?>
+                    <h6> Proof of Payment: No proof of payment uploaded yet. </h6>
+                    <?php } ?>
                 </div>
                 <div class="col-md-6">
                     <h3><strong> Tracking Details </strong></h3>
                     <h6> Courier: <?php echo $order['courier_id']; ?></h6>
                     <h6> Tracking Number: <?php echo $order['tracking_no']; ?></h6>
+                    <a class="btn btn-primary btn-sm" href="TrackingDetails.php?id=<?php echo $order['OrderID']; ?>"> Edit tracking details </a>
                 </div>
             </div>
         </div>

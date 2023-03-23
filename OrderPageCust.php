@@ -109,7 +109,11 @@
                             <br> <b>Amount: Php<?php echo $order['OrderTotal']; ?> </b>
 							<br> <b>Mode of Payment: <?php echo $order['p_mode']; ?> </b> 
 							<br> <b>Status of Payment: <?php echo $order['pay_status']; ?> </b> 
-							<br> <b>Proof of Payment: <a href="<?php echo $order['proof_img']; ?>"> Click here to view uploaded receipt. </a> </b> 
+							<br> <b><?php if (!empty($order['proof_img'])) { ?>
+                                Proof of Payment: <a class="btn btn-primary btn-sm" href="<?php echo $order['proof_img']; ?>"> Click here to view receipt </a>
+                                <?php } else { ?>
+                                Proof of Payment: No proof of payment uploaded yet.
+                                <?php } ?> </b> 
                         </p>
                     </div>
                 </div>

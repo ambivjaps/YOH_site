@@ -47,7 +47,6 @@
             if($query_run) {
                 if($_FILES['proof_img']['name'] != '') {
                     move_uploaded_file($_FILES['proof_img']['tmp_name'], "assets/img/upload/payment/" . $unique . $_FILES['proof_img']['name']);
-                    unlink($old_image);
                 }
             } else {
                 echo "<script> alert('Problem occured.') </script>";
@@ -109,7 +108,7 @@
                             <input type="hidden" name="proof_img_old" value="<?php echo $order['proof_img']; ?>">
                         </div>
                         <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
+                        <input class="btn btn-success mt-3" type="submit" name="add_payment" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
                         <a href="OrderPageCust.php"><input class="btn btn-danger mt-3" type="reset" id="reset" value="Cancel" style="width:150px;"></a>
                     </div>
                             

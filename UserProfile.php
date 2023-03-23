@@ -74,19 +74,20 @@
             <h3 style="font-weight:bold;"><strong> <i class="fas fa-user"></i> User Profile </strong></h3><hr>
 
             <div class="col-md-2">
-                <img class="img-fluid rounded" src="assets/img/default/default_user.jpg" title="<?php echo $user['cust_name'] ?>" alt="<?php echo $user['cust_name'] ?>">
+                <img class="img-fluid rounded" src="<?php echo $user['cust_avatar'] ?>" title="<?php echo $user['cust_name'] ?>" alt="<?php echo $user['cust_name'] ?>">
             </div>
 
             <div class="col-md-10">
                 <h1 style="font-weight:bold; color:indigo;"> <?php echo $user['cust_name'] ?> </h1>
+                <h6 style="font-weight:bold;"> <span class="badge bg-dark"> Verified User </span></h6>
                 <p style="font-weight:bold;"> Address: <?php echo $user['cust_address'] ?> </p>
                 <p style="font-weight:bold;"> Phone Number: <?php echo $user['cust_phone'] ?> </p>
-                <p style="font-weight:bold;"> Email: <?php echo $user['cust_email'] ?> </p>
-                <p style="font-weight:bold;"> User since <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
+                <p style="font-weight:bold;"> E-mail Address: <?php echo $user['cust_email'] ?> </p>
+                <p style="font-weight:bold;"> Account last updated on: <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
             </div>
 
             <div class="float-end mt-2">
-                <a class="btn btn-dark" href="#" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Edit avatar </a>
+                <a class="btn btn-dark" href="UserProfileEdit.php" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Edit profile </a>
                 <a class="btn btn-dark" href="ChangePassword.php" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Change password </a>
             </div>
         </div>

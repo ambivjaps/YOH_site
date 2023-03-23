@@ -22,6 +22,14 @@ if (isset($_POST['cust_name'])) {
     $password_hash = password_hash($cust_pass, PASSWORD_BCRYPT);
     
     $login_id =  random_num(10);
+
+    // default avatar
+    $unique = strtotime("now").'_'.uniqid(rand()).'_';
+
+    $default = 'assets/img/default/default_user.jpg';
+    $default_name = 'default_user.jpg';
+    $saveImage = 'assets/img/upload/avatars/'.$unique.$default_name;
+    $copyDefault = copy($default, $saveImage);
     
     $emailquery = "SELECT count(*) as total FROM register WHERE cust_email = '$cust_email'";
     $result = mysqli_query($con, $emailquery);

@@ -41,10 +41,7 @@
         $CustProf = $_POST['CustProf'];
         $InvItem = $_POST['InvItem'];
         $OrderType = $_POST['OrderType'];
-
         $OrderQty = mysqli_real_escape_string($con, $_POST['OrderQty']);
-        $courier_id = mysqli_real_escape_string($con, $_POST['courier_id']);
-        $tracking_no = mysqli_real_escape_string($con, $_POST['tracking_no']);
 
         if($OrderType == 'In Process'){
             $query = "UPDATE orders_db SET TypeID='1' WHERE OrderID=$OID";
@@ -65,7 +62,7 @@
 
         $OrderTotal = $OrderQty * $selectPrice;
     
-        $query = "UPDATE orders_db SET c_id='$CustProf',ItemID='$InvItem',OrderType='$OrderType',OrderQty='$OrderQty',OrderTotal='$OrderTotal',courier_id='$courier_id',tracking_no='$tracking_no' WHERE OrderID=$OID";
+        $query = "UPDATE orders_db SET c_id='$CustProf',ItemID='$InvItem',OrderType='$OrderType',OrderQty='$OrderQty',OrderTotal='$OrderTotal' WHERE OrderID=$OID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
@@ -73,8 +70,6 @@
             $_SESSION['InvItem'] = $_POST['InvItem'];
             $_SESSION['OrderType'] = $_POST['OrderType'];
             $_SESSION['OrderQty'] = $_POST['OrderQty'];
-            $_SESSION['courier_id'] = $_POST['courier_id'];
-            $_SESSION['tracking_no'] = $_POST['tracking_no'];
 
             mysqli_close($con);
             header("Location: OrdersAdminView.php");
@@ -131,16 +126,6 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Quantity</label>
                         <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty']; ?>">
-                    </div>
-
-                    <h3 class="my-3" style="font-weight:bold;"> Shipping Details </h3>
-                    <div class="col-md-12">
-                        <label>Courier</label>
-                        <input type="text" name="courier_id" id="courier_id" class="form-control" value="<?php echo $order['courier_id']; ?>">
-                    </div>
-                    <div class="col-md-12">
-                        <label style="font-weight:bold;">Tracking Number</label>
-                        <input type="text" name="tracking_no" id="tracking_no" class="form-control" value="<?php echo $order['tracking_no']; ?>">
                     </div>
 
                     <div class="button-group float-end">
