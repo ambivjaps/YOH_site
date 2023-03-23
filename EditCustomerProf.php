@@ -80,57 +80,57 @@
 
     <div class="container my-5">
 
-        <h1> Edit Profile </h1>
+        <h1 style="font-weight:bold;"> Edit Profile <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h1><hr>
         <div class="form-group">
             <form action="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" method="POST" id="form">
                 <div class="row my-3">
                     <div class="col-md-12">
-                        <label>Label</label>
-                        <input type="text" name="c_label" id="c_label" class="form-control" value="<?php echo $profile['c_label'] ?>">
+                        <label style="font-weight:bold;">Label</label>
+                        <input type="text" name="c_label" id="c_label" class="form-control rounded" value="<?php echo $profile['c_label'] ?>">
                     </div>
                     <div class="col-md-6">
-                        <label>Name</label>
-                        <input type="text" name="c_name" id="c_name" class="form-control" value="<?php echo $profile['c_name'] ?>">
+                        <label style="font-weight:bold;">Name</label>
+                        <input type="text" name="c_name" id="c_name" class="form-control rounded" value="<?php echo $profile['c_name'] ?>">
                     </div>
                     <div class="col-md-6">
-                        <label>Address</label>
-                        <input type="text" name="address" id="address" class="form-control" value="<?php echo $profile['address'] ?>">
+                        <label style="font-weight:bold;">Address</label>
+                        <input type="text" name="address" id="address" class="form-control rounded" value="<?php echo $profile['address'] ?>">
                     </div>
                     <div class="col-md-4">
-                        <label>Street</label>
-                        <input type="text" name="street" id="street" class="form-control" value="<?php echo $profile['street'] ?>">
+                        <label style="font-weight:bold;">Street</label>
+                        <input type="text" name="street" id="street" class="form-control rounded" value="<?php echo $profile['street'] ?>">
                     </div>
                     <div class="col-md-4">
-                        <label>City</label>
-                        <input type="text" name="city" id="city" class="form-control" value="<?php echo $profile['city'] ?>">
+                        <label style="font-weight:bold;">City</label>
+                        <input type="text" name="city" id="city" class="form-control rounded" value="<?php echo $profile['city'] ?>">
                     </div>
                     <div class="col-md-4">
-                        <label>Barangay</label>
-                        <input type="text" name="barangay" id="barangay" class="form-control" value="<?php echo $profile['barangay'] ?>">
+                        <label style="font-weight:bold;">Barangay</label>
+                        <input type="text" name="barangay" id="barangay" class="form-control rounded" value="<?php echo $profile['barangay'] ?>">
                     </div>
                     <div class="col-md-4">
-                        <label>Unit Number</label>
-                        <input type="text" name="unit_no" id="unit_no" class="form-control" value="<?php echo $profile['unit_no'] ?>">
+                        <label style="font-weight:bold;">Unit Number</label>
+                        <input type="text" name="unit_no" id="unit_no" class="form-control rounded" value="<?php echo $profile['unit_no'] ?>">
                     </div>
                     <div class="col-md-4">
-                        <label>Zip Code</label>
-                        <input type="text" name="zip_code" id="zip_code" class="form-control" value="<?php echo $profile['zip_code'] ?>">
+                        <label style="font-weight:bold;">Zip Code</label>
+                        <input type="text" name="zip_code" id="zip_code" class="form-control rounded" value="<?php echo $profile['zip_code'] ?>">
                     </div>
                     <div class="col-md-4">
-                        <label>Region</label>
-                        <input type="text" name="region" id="region" class="form-control" value="<?php echo $profile['region'] ?>">
+                        <label style="font-weight:bold;">Region</label>
+                        <input type="text" name="region" id="region" class="form-control rounded" value="<?php echo $profile['region'] ?>">
                     </div>
                     <div class="col-md-6">
-                        <label>E-mail Address</label>
-                        <input type="email" name="email" id="email" class="form-control" value="<?php echo $profile['email'] ?>">
+                        <label style="font-weight:bold;">E-mail Address</label>
+                        <input type="email" name="email" id="email" class="form-control rounded" value="<?php echo $profile['email'] ?>">
                     </div>
                     <div class="col-md-6">
-                        <label>Phone Number</label>
-                        <input type="text" name="phone_no" id="phone_no" class="form-control" value="<?php echo $profile['phone_no'] ?>">
+                        <label style="font-weight:bold;">Phone Number</label>
+                        <input type="text" name="phone_no" id="phone_no" class="form-control rounded" value="<?php echo $profile['phone_no'] ?>">
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editProfile" name="edit_profile" value="Submit">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
+                        <input class="btn btn-success mt-3" id="editProfile" name="edit_profile" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
                     </div>
                 </div>
             </form>

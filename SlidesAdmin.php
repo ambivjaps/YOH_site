@@ -29,10 +29,9 @@
 <main class="page blog-post">
         <section class="clean-block clean-post dark" style="background-color:#efe9ef;">
             <div class="container my-5">
-
-                <a class="btn btn-success" href="AddSlide.php" role="button"> Add slide </a><hr>
-
-                <h1> Slides </h1>
+                <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="HomePage.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
+            <button class="btn btn-outline-primary text-truncate float-none float-sm-none add-another-btn" type="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253); color:white; font-weight:bold;"><a  href="AddSlide.php" style="color:white; text-decoration:none;"> Add slide <i class="fas fa-plus-circle edit-icon"></i></a></button><hr>
+                <h1 style="font-weight:bold;"> Slides </h1>
                 
                 <table class="table table-striped table-hover table-sm mt-5">
                     <tr>
@@ -48,21 +47,21 @@
                         <td> <img width="250px" src="<?php echo $slide['slide_img']; ?>"> </td>
                         <td> <?php echo $slide['slide_title']; ?> </td>
                         <td> <?php echo $slide['created_at']; ?> </td>
-                        <td> <a class="btn btn-sm btn-dark" href="Slide.php?id=<?php echo $slide['slide_id'] ?>" role="button"><i class="fas fa-eye"></i> View</a> </td></tr>
+                        <td> <a class="btn btn-sm btn-dark" href="Slide.php?id=<?php echo $slide['slide_id'] ?>" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"><i class="fas fa-eye" ></i> View</a> </td></tr>
                     <?php endforeach; ?>
                 </table>
                 <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>
 
                 <nav style="margin-bottom: 15px;margin-top: 10px;">
                     <ul class="pagination pagination-sm justify-content-end flex-wrap">
-                        <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                        <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true" style="color:rgb(119,13,253);">«</span></a></li>
                         <li class="page-item previous">
-                            <a class="page-link" href="#">Prev</a>
+                            <a class="page-link" href="#" style="color:rgb(119,13,253); font-weight:bold;">Prev</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                            <a class="page-link" href="#" style="color:rgb(119,13,253);  font-weight:bold;">Next</a>
                         </li>
-                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true" style="color:rgb(119,13,253);">»</span></a></li>
                     </ul>
                 </nav>
             </div>

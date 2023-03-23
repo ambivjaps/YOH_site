@@ -92,41 +92,41 @@
 
     <div class="container my-5">
 
-        <h1> Edit Inventory Item </h1>
+        <h1 style="font-weight:bold;"> Edit Inventory Item <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
         <div class="form-group">
             <form action="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-6">
-                        <label>Image</label>
-                        <input type="file" class="form-control form-control my-3" name="ItemImg">
-                        <input type="hidden" name="ItemImg_old" value="<?php echo $inv['ItemImg']; ?>">
+                        <label style="font-weight:bold;">Image</label>
+                        <input class="form-control rounded" type="file" class="form-control form-control my-3" name="ItemImg">
+                        <input  class="form-control rounded"type="hidden" name="ItemImg_old" value="<?php echo $inv['ItemImg']; ?>">
                     </div>
                     <div class="col-md-12">
-                        <label>Name</label>
-                        <input type="text" name="ItemName" id="ItemName" class="form-control" value="<?php echo $inv['ItemName'] ?>">
+                        <label style="font-weight:bold;">Name</label>
+                        <input type="text" name="ItemName" id="ItemName" class="form-control rounded" value="<?php echo $inv['ItemName'] ?>">
                     </div>
                     <div class="col-md-12">
-                        <label>Type</label>
+                        <label style="font-weight:bold;"style="font-weight:bold;">Type</label>
                         <select class="form-select" id="ItemType" name="ItemType" aria-label=".form-select example">
                             <option value="Raw" <?php if($inv['ItemType'] == 'Raw') { ?>selected="selected"<?php } ?>>Raw</option>
                             <option value="Finished" <?php if($inv['ItemType'] == 'Finished') { ?>selected="selected"<?php } ?>>Finished</option>
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label>Quantity</label>
-                        <input type="text" name="ItemQty" id="ItemQty" class="form-control" value="<?php echo $inv['ItemQty'] ?>">
+                        <label style="font-weight:bold;">Quantity</label>
+                        <input type="text" name="ItemQty" id="ItemQty" class="form-control rounded" value="<?php echo $inv['ItemQty'] ?>">
                     </div>
                     <div class="col-md-12">
-                        <label>Price (in Php)</label>
-                        <input type="text" name="ItemPrice" id="ItemPrice" class="form-control" value="<?php echo $inv['ItemPrice'] ?>">
+                        <label style="font-weight:bold;">Price (in Php)</label>
+                        <input type="text" name="ItemPrice" id="ItemPrice" class="form-control rounded" value="<?php echo $inv['ItemPrice'] ?>">
                     </div>      
                     <div class="col-md-12">
-                        <label>Description</label>
-                        <textarea type="text" rows="5" class="form-control" name="ItemDesc" id="ItemDesc"><?php echo $inv['ItemDesc'] ?></textarea>
+                        <label style="font-weight:bold;">Description</label>
+                        <textarea type="text" rows="5" class="form-control rounded" name="ItemDesc" id="ItemDesc"><?php echo $inv['ItemDesc'] ?></textarea>
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editInventory" name="edit_inventory" value="Submit">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
+                        <input class="btn btn-success mt-3" id="editInventory" name="edit_inventory" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
                     </div>
                 </div>
             </form>

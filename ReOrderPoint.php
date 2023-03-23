@@ -25,14 +25,10 @@
         $item = "UPDATE inventory_db SET ItemQty=ItemQty+$qty WHERE ItemID='$id' ";
         $result = mysqli_query($con, $item);
         if($result) {
-            header("Location: ReOrderPoint.php?id=".$inv['ItemID']);
-           ?>
-           <script>
-            document.getElementById("Success").style.display="block";        
-           </script>
-           <?php
+            header("Location: ReOrderPoint.php?id=".$inv['ItemID'] ."&success=true");
             mysqli_close($con);
             exit();
+    
         } else {
             echo "<script> alert('Problem occured.') </script>";
         }
@@ -50,8 +46,16 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 style="font-weight: bold;">Re - Ordering Links and Methods</h2>
-                     
                 </div>
+                <?php 
+                    if (isset($_GET['success']) && $_GET['success'] === 'true') { ?>
+                        <div class="d-flex justify-content-center">
+                            <div class="alert alert-success text-center w-25" role="alert">
+                                Item reorder is successful!
+                            </div>   
+                        </div>
+                <?php } ?>
+
                 <div class="form-group">
                 <form name="form" action="" method="POST">
                 
@@ -90,7 +94,6 @@
                             <p class="item-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                         </div>
                         <hr>
-                        
                     <br>
                     <div class="form-group">
                     <label>Input no. of Items</label>
@@ -101,11 +104,8 @@
                         <a href="Inventory.php" type="button" class="btn btn-primary d-block w-100" class="btn btn-primary d-block w-100"  type="button" value="Cancel" style="margin-top: 19px; background: rgb(220, 53, 69); border:rgb(220, 53, 69); text-decoration:none;color:white;">Cancel</a>
                     </div>
                     <div class="form-group">
-                    <div class="alert alert-success" id="Success" role="alert" style="display:block">
-                                    Item Reorder is Successful!
-                                                </div> 
-                            </div>
                 </form>
+
             </div>
         </section>
     </main>

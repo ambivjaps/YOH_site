@@ -98,14 +98,14 @@
 
     <div class="container my-5">
 
-        <h1> Edit Order </h1>
+        <h1 style="font-weight:bold;"> Edit Order <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
         <div class="form-group">
             <form action="EditOrder.php?id=<?php echo $order['OrderID']; ?>" method="POST" id="form">
                 <div class="row my-3">
-                    <h3 class="my-3"> Order Details </h3>
+                    <h3 class="my-3" style="font-weight:bold;"> Order Details </h3>
 
                     <div class="col-md-12">
-                        <label>Customer</label>
+                        <label style="font-weight:bold;">Customer</label>
                         <select class="form-select" id="CustProf" name="CustProf" aria-label=".form-select example">
                             <?php foreach($prof_sel as $prof): ?>
                             <option value="<?php echo $prof['c_id'] ?>" <?php if($order['c_name'] == $prof['c_name']) { ?>selected="selected"<?php } ?>><?php echo $prof['c_name']; ?></option>
@@ -113,7 +113,7 @@
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label>Item</label>
+                        <label style="font-weight:bold;">Item</label>
                         <select class="form-select" id="InvItem" name="InvItem" aria-label=".form-select example">
                             <?php foreach($inv_item as $inv): ?>
                             <option value="<?php echo $inv['ItemID'] ?>" <?php if($order['ItemName'] == $inv['ItemName']) { ?>selected="selected"<?php } ?>><?php echo $inv['ItemName']; ?></option>
@@ -122,30 +122,30 @@
                     </div>
 
                     <div class="col-md-12">
-                        <label>Order Type</label>
+                        <label style="font-weight:bold;">Order Type</label>
                         <select class="form-select" id="OrderType" name="OrderType" aria-label=".form-select example">
                             <option value="In Process" <?php if($order['OrderType'] == 'In Process') { ?>selected="selected"<?php } ?>>In Process</option>
                             <option value="Completed" <?php if($order['OrderType'] == 'Completed') { ?>selected="selected"<?php } ?>>Completed</option>
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label>Order Quantity</label>
+                        <label style="font-weight:bold;">Order Quantity</label>
                         <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty']; ?>">
                     </div>
 
-                    <h3 class="my-3"> Shipping Details </h3>
+                    <h3 class="my-3" style="font-weight:bold;"> Shipping Details </h3>
                     <div class="col-md-12">
                         <label>Courier</label>
                         <input type="text" name="courier_id" id="courier_id" class="form-control" value="<?php echo $order['courier_id']; ?>">
                     </div>
                     <div class="col-md-12">
-                        <label>Tracking Number</label>
+                        <label style="font-weight:bold;">Tracking Number</label>
                         <input type="text" name="tracking_no" id="tracking_no" class="form-control" value="<?php echo $order['tracking_no']; ?>">
                     </div>
 
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editOrder" name="edit_order" value="Submit" style="width:8%">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
+                        <input class="btn btn-success mt-3" id="editOrder" name="edit_order" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
                     </div>
                 </div>
             </form>

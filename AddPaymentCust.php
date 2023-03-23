@@ -80,22 +80,22 @@
         <section class="clean-block payment-form dark" style="background-color: #efe9ef;">
             <div class="container" style="margin-bottom: 35px;margin-top: 20px;">
                 <div class="block-heading">
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:64px; color:black; font-weight:bold;">Add Payment</h2>
+                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:64px; color:black; font-weight:bold;"> Add Payment <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="VideosAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h2>
                 </div>
-                <form action="AddPaymentCust.php?id=<?php echo $order['OrderID']; ?>" method="POST" enctype="multipart/form-data">
-                    <div class="products" style="margin-bottom: 15px;margin-top: 2px;">
+                <form action="AddPaymentCust.php?id=<?php echo $order['OrderID']; ?>" method="POST" enctype="multipart/form-data" style="border:none;">
+                    <div class="products" style="margin-bottom: 15px;margin-top: 2px;height:500px;">
                         <div></div>
                         <div class="item"><span class="price"></span>
                             <div></div>
-                            <p class="item-name">Total Amount Due: Php<?php echo $order['OrderTotal']; ?> </p>
+                            <p class="item-name" style="font-weight:bold;">Total Amount Due: Php<?php echo $order['OrderTotal']; ?> </p>
                             <p>Send your payment thru.. (insert bank details) </p>
                             <p>Insert more ordering disclaimers here.. </p><hr>
-                            <p class="item-name" style="margin-bottom: 13.2px;" input="read-only">Mode of Payment </p>
+                            <p class="item-name" style="margin-bottom: 13.2px;" input="read-only" style="font-weight:bold;">Mode of Payment </p>
                             <select class="form-select" id="p_mode" name="p_mode" aria-label=".form-select example" required>
-                              <option value="Paymaya" <?php if($order['p_mode'] == 'Paymaya') { ?>selected="selected"<?php } ?>>Paymaya</option>
-                              <option value="BDO" <?php if($order['p_mode'] == 'BDO') { ?>selected="selected"<?php } ?>>BDO</option>
-                              <option value="GCash" <?php if($order['p_mode'] == 'GCash') { ?>selected="selected"<?php } ?>>GCash</option>
-                              <option value="Paypal" <?php if($order['p_mode'] == 'Paypal') { ?>selected="selected"<?php } ?>>Paypal</option>
+                              <option value="Paymaya" <?php if($order['p_mode'] == 'Paymaya') { ?>selected="selected"<?php } ?> style="font-weight:bold;">Paymaya</option>
+                              <option value="BDO" <?php if($order['p_mode'] == 'BDO') { ?>selected="selected"<?php } ?> style="font-weight:bold;">BDO</option>
+                              <option value="GCash" <?php if($order['p_mode'] == 'GCash') { ?>selected="selected"<?php } ?> style="font-weight:bold;">GCash</option>
+                              <option value="Paypal" <?php if($order['p_mode'] == 'Paypal') { ?>selected="selected"<?php } ?> style="font-weight:bold;">Paypal</option>
                             </select>
 
                             <p class="item-name mt-2" style="margin-bottom: 13.2px;" input="read-only">Status of Payment </p>
@@ -108,10 +108,11 @@
                             <input type="file" class="form-control form-control my-3" name="proof_img" required>
                             <input type="hidden" name="proof_img_old" value="<?php echo $order['proof_img']; ?>">
                         </div>
-                            <div class="button-group float-end">
-                                <input class="btn btn-success" type="submit" name="add_payment" value="Submit">
-                                <a href="OrderPageCust.php"><button class="btn btn-primary" type="button" style="margin-left: 14px;">Cancel</button></a>
-                            </div>
+                        <div class="button-group float-end">
+                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
+                        <a href="OrderPageCust.php"><input class="btn btn-danger mt-3" type="reset" id="reset" value="Cancel" style="width:150px;"></a>
+                    </div>
+                            
                         </div>
                     </div>
                 </form>

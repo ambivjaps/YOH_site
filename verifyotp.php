@@ -22,7 +22,7 @@ if(isset($_POST["verify"])){
            <?php
             
     }else{
-        mysqli_query($connect, "UPDATE register SET status = 1 WHERE cust_email = '$email'");
+        mysqli_query($connect, "UPDATE register SET cust_status = 1 WHERE cust_email = '$email'");
         ?>
          <script>
                window.location.replace("Login.php?VerifySuccess=true");
@@ -64,12 +64,15 @@ if(isset($_POST["verify"])){
         <section class="clean-block clean-form dark" style="height: 990.391px; background-color:#efe9ef; ">
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
                 <div class="block-heading"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
-                <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color:black;;">Account Verification</h2>
+                <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Account Verification</h2>
                     <form action="" method="POST" name="VerifyOtp" class="border rounded justify-content-center" data-bss-hover-animate="pulse" style="width: 554px;max-width: 753px;margin-bottom: 41px;margin-left: 374px;margin-right: 404px;margin-top: 20px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 221px;">
-                    <div class="mb-3"><label class="form-label" for="email" style="color: rgb(111, 66, 193);">Enter OTP</label><input class="form-control item" type="text" id="otp" name="otp_code" placeholder="OTP" required autofocus style="margin-bottom: 9px;"></div>
+                    <div class="mb-3"><label class="form-label" for="email" style="color: rgb(111, 66, 193);font-weight:bold;">Enter OTP</label><input class="form-control item" type="text" id="otp" name="otp_code" placeholder="OTP" required autofocus style="margin-bottom: 9px;"></div>
                     <div class="mb-3"></div>
                     <div class="mb-3"></div>
-                    <button class="btn btn-primary" type="submit" value="verify" name="verify" style="margin-left: 162px;min-width: 133px;max-width: 180px;margin-bottom: 10px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 38px;margin-top: 3px;width: 147px;">Submit OTP</button>
+                    <div class="button-group float-end">
+                        <input class="btn btn-success mt-3" type="submit" id="submit" name="verify" value="Submit OTP" style="width:120px;border-color: rgb(119,13,253);background: rgb(119,13,253);">
+                        <a href="login.php" ><input class="btn btn-danger mt-3"  type="cancel" value="Cancel" style="width:120px;"> </a>
+                    </div>  
                 </form>
         </section>
     </main>  
