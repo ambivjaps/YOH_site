@@ -39,7 +39,7 @@ if (isset($_POST['cust_name'])) {
     }
     
     $query = "insert into register (login_id,cust_name, cust_avatar, cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_brgy,cust_unit,cust_phone,cust_zip, cust_address, cust_status) values
-    ('$login_id','$cust_name', 'assets/img/default/default_user.jpg','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '0')";
+    ('$login_id','$cust_name','$saveImage','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '0')";
     
     $reg = mysqli_query($con, $query);
     if ($reg == 1) {
