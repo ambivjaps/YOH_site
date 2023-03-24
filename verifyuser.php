@@ -47,7 +47,6 @@ if(isset($_POST['submit'])){
     <br><br>
     <p>With regards,</p>
     <b>YarnOverHook</b>";
-    $mail->send();
     if($mail->send()){
         ?>
             <script>
