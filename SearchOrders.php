@@ -71,7 +71,7 @@ foreach ($result as $order) :
                 <h6>Ordered by: <strong> <?php echo $order['c_name']; ?> </strong></h6>
                 <h6>Quantity: <?php echo $order['OrderQty']; ?></h6>
                 <h6>Total Cost: Php<?php echo $order['OrderTotal']; ?></h6>
-                <span class="badge bg-dark"><?php echo $order['OrderType']; ?></span>
+                <span class="badge" style="background-color: indigo;"><?php echo $order['OrderType']; ?></span>
             </div>
         </div>
 <?php
