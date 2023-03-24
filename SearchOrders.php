@@ -68,10 +68,10 @@ foreach ($result as $order) :
                 <div class="image"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>"><img class="img-fluid d-block mx-auto rounded" src="<?php echo $order['ItemImg'] ?>" title="<?php echo $order['ItemName'] ?>"></a></div>
                 <div class="product-name"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>" style="color: rgb(111,66,193);">Order#<?php echo $order['OrderID'] ?> - <?php echo $order['ItemName'] ?></a></div>
                 <hr>
-                <h6>Ordered by: <strong> <?php echo $order['c_name']; ?> </strong></h6>
-                <h6>Quantity: <?php echo $order['OrderQty']; ?></h6>
-                <h6>Total Cost: Php<?php echo $order['OrderTotal']; ?></h6>
-                <span class="badge" style="background-color: indigo;"><?php echo $order['OrderType']; ?></span>
+                <h6 style="font-weight:bold;">Ordered by: <span style="color:rgb(111,66,193);font-weight:bold;"><?php echo $order['c_name']; ?> </strong></h6>
+                <h6 style="font-weight:bold;">Quantity: <span style="font-weight:bold;color:rgb(111,66,193);"><?php echo $order['OrderQty']; ?></h6>
+                <h6 style="font-weight:bold;">Total Cost: <span style="font-weight:bold;color:rgb(111,66,193);"> PHP <?php echo $order['OrderTotal']; ?></h6>
+                <span class="badge"style="background-color:pink; border-color: pink; color:purple;text-decoration:none;"><?php echo $order['OrderType']; ?></span>
             </div>
         </div>
 <?php
