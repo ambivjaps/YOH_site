@@ -74,24 +74,24 @@
                     </div>
                     <div class="col-md-8">
                         <h3 style="font-size:40px; color:indigo;"><strong> Order Details </strong></h3><hr style="width:50%;">
-                        <h6 style="font-weight:bold;"> Order# <?php echo $order['OrderID']; ?> </h6>
-                        <h6 style="font-weight:bold;"> Item Name: <?php echo $order['ItemName']; ?></h6>
-                        <h6 style="font-weight:bold;"> Price: Php<?php echo $order['ItemPrice']; ?></h6>
-                        <h6 style="font-weight:bold;"> Quantity: <?php echo $order['OrderQty']; ?></h6>
+                        <h6 style="font-weight:bold;"> Order# <span style="font-weight:lighter;color:indigo;"><?php echo $order['OrderID']; ?></span></h6>
+                        <h6 style="font-weight:bold;"> Item Name: <span style="font-weight:lighter;color:indigo;"><?php echo $order['ItemName']; ?></span></h6>
+                        <h6 style="font-weight:bold;"> Price: PHP <span style="font-weight:lighter;color:indigo;"><?php echo $order['ItemPrice']; ?></span></h6>
+                        <h6 style="font-weight:bold;"> Quantity: <span style="font-weight:lighter;color:indigo;">><?php echo $order['OrderQty']; ?></span></h6>
                         <h6 style="font-weight:bold;"> Materials Used: </h6>
-                        <h6 style="font-weight:bold;"> Ordered by: <?php echo $order['c_name']; ?></h6>
-                        <h6 style="font-weight:bold;"> Due on: <?php echo date("F d, Y", strtotime($order['OrderDate'])); ?></h6>
-                        <h6 style="font-weight:bold;"> Status: <?php echo $order['OrderType']; ?></h6>
+                        <h6 style="font-weight:bold;"> Ordered by: <span style="font-weight:lighter;color:indigo;"><?php echo $order['c_name']; ?></h6>
+                        <h6 style="font-weight:bold;"> Due on: <span style="font-weight:lighter;color:indigo;"><?php echo date("F d, Y", strtotime($order['OrderDate'])); ?></span></h6>
+                        <h6 style="font-weight:bold;"> Status: <span class="badge" style="background-color:indigo"><?php echo $order['OrderType']; ?></span></h6>
                     </div>
                 </div>
             </div>
             
             <div class="col-md-6">
                     <h3 style="font-size:40px; color:indigo;"><strong> Payment </strong></h3><hr style="width:50%;">
-                    <h6 style="font-weight:bold;"> Total Cost: Php<?php echo $order['OrderTotal']; ?></h6>
-                    <h6 style="font-weight:bold;"> Mode of Payment: <?php echo $order['p_mode']; ?></h6>
-                    <h6 style="font-weight:bold;"> Payment Status: <?php echo $order['pay_status']; ?></h6>
-                    <h6 style="font-weight:bold;"> Proof of Payment: <a href="<?php echo $order['proof_img']; ?>" > Click here to view receipt. </a></h6>
+                    <h6 style="font-weight:bold;"> Total Cost: PHP <span style="font-weight:lighter;color:indigo;"><?php echo $order['OrderTotal']; ?></h6>
+                    <h6 style="font-weight:bold;"> Mode of Payment: <span class="badge" style="background-color:blue"><?php echo $order['p_mode']; ?></h6>
+                    <h6 style="font-weight:bold;"> Payment Status: <span style="font-weight:bold;color:red;"><?php echo $order['pay_status']; ?></h6>
+                    <h6 style="font-weight:bold;"> Proof of Payment: <a href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;;color:violet;text-decoration:none;" > Click here to view receipt. </a></h6>
                 </div>
         </div>
         <br><hr>
@@ -103,23 +103,23 @@
                     </div>
                     <div class="col-md-8">
                     <h3 style="font-size:40px; color:indigo;"><strong> Customer Details </strong></h3><hr style="width:50%;">
-                        <h6 style="font-weight:bold;"> Customer Profile used: <?php echo $order['c_label']; ?></h6>
-                        <h6 style="font-weight:bold;"> Name: <?php echo $order['c_name']; ?> </h6>
-                        <h6 style="font-weight:bold;"> Address: <?php echo $order['address']; ?></h6>
-                        <h6 style="font-weight:bold;"> Email: <?php echo $order['email']; ?></h6>
-                        <h6 style="font-weight:bold;"> Region: <?php echo $order['region']; ?></h6>
-                        <h6 style="font-weight:bold;"> City: <?php echo $order['city']; ?></h6>
-                        <h6 style="font-weight:bold;"> Barangay: <?php echo $order['barangay']; ?></h6>
-                        <h6 style="font-weight:bold;"> Phone No: <?php echo $order['phone_no']; ?></h6>
-                        <h6 style="font-weight:bold;"> ZIP Code: <?php echo $order['zip_code']; ?></h6>
+                        <h6 style="font-weight:bold;"> Customer Profile used: <span style="font-weight:lighter;color:indigo;"><?php echo $order['c_label']; ?></h6>
+                        <h6 style="font-weight:bold;"> Name: <span style="font-weight:lighter;color:indigo;"><?php echo $order['c_name']; ?> </h6>
+                        <h6 style="font-weight:bold;"> Address: <span style="font-weight:lighter;color:indigo;"><?php echo $order['address']; ?></h6>
+                        <h6 style="font-weight:bold;"> Email: <span style="font-weight:lighter;color:indigo;"><?php echo $order['email']; ?></h6>
+                        <h6 style="font-weight:bold;"> Region: <span style="font-weight:lighter;color:indigo;"><?php echo $order['region']; ?></h6>
+                        <h6 style="font-weight:bold;"> City: <span style="font-weight:lighter;color:indigo;"><?php echo $order['city']; ?></h6>
+                        <h6 style="font-weight:bold;"> Barangay: <span style="font-weight:lighter;color:indigo;"><?php echo $order['barangay']; ?></h6>
+                        <h6 style="font-weight:bold;"> Phone No: <span style="font-weight:lighter;color:indigo;"><?php echo $order['phone_no']; ?></h6>
+                        <h6 style="font-weight:bold;"> ZIP Code: <span style="font-weight:lighter;color:indigo;"><?php echo $order['zip_code']; ?></h6>
                     </div>
                 </div>
             </div>
             
             <div class="col-md-6">
                     <h3 style="font-size:40px; color:indigo;"><strong> Tracking Details </strong></h3><hr style="width:50%;">
-                    <h6 style="font-weight:bold;"> Courier: <?php echo $order['courier_id']; ?></h6>
-                    <h6 style="font-weight:bold;"> Tracking Number: <?php echo $order['tracking_no']; ?></h6>
+                    <h6 style="font-weight:bold;"> Courier: <span style="font-weight:lighter;color:indigo;"><?php echo $order['courier_id']; ?></h6>
+                    <h6 style="font-weight:bold;"> Tracking Number: <span style="font-weight:lighter;color:indigo;"><?php echo $order['tracking_no']; ?></h6>
                 </div>
         </div>
             

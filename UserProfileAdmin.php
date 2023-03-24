@@ -42,10 +42,10 @@
             <div class="col-md-10">
                 <h1 style="font-weight:bold;color: rgb(111, 66, 193);"> <?php echo $user['cust_name'] ?> </h1>
                 <h6 style="font-weight:bold;"> <span class="badge" style="background-color:#507963;"> Administrator </span></h6>
-                <p style="font-weight:bold;"> Address: <?php echo $user['cust_address'] ?> </p>
-                <p style="font-weight:bold;"> Phone Number: <?php echo $user['cust_phone'] ?> </p>
-                <p style="font-weight:bold;"> E-mail: <?php echo $user['cust_email'] ?> </p>
-                <p style="font-weight:bold;"> Account last updated on: <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
+                <p style="font-weight:bold;"> Address: <span style="font-weight:lighter;color:indigo;"> <?php echo $user['cust_address'] ?></span> </p>
+                <p style="font-weight:bold;"> Phone Number: <span style="font-weight:lighter;color:indigo;"><?php echo $user['cust_phone'] ?></span> </p>
+                <p style="font-weight:bold;"> E-mail: <span style="font-weight:lighter;color:indigo;"><?php echo $user['cust_email'] ?></span> </p>
+                <p style="font-weight:bold;"> Account last updated on: <i> <span style="font-weight:lighter;color:indigo;"><?php echo date("F d, Y", strtotime($user['date'])); ?></span></i></p>
             </div>
 
             <div class="float-end mt-2">

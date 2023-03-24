@@ -105,11 +105,11 @@ class Order{
 											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="" title="" alt=""></div>
 										</a>
                                         
-										<a href="OrderPageAdmin.php?id='.$order['OrderID'].'" style="color:indigo;">
-											<div class="product-name"></div>
+										<a href="OrderPageAdmin.php?id='.$order['OrderID'].'" style="style="color:rgb(111,66,193);font-weight:bold;"">
+											<div class="product-name" style="style="color:rgb(111,66,193);font-weight:bold;"></div>
                                             
 										</a>
-										<span class="badge bg-dark">'.$order['OrderType'].'</span><hr>
+										<span class="badge" style="background-color:indigo;">'.$order['OrderType'].'</span><hr>
 									
 										<div class="about">
                                         <a href="OrderPageAdmin.php" class="btn btn-primary" type="button" style="font-weight: bold;background: indigo;border-color: indigo;width: 40px;"><i class="far fa-edit" style="text-align: center;"></i></a>

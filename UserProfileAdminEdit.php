@@ -146,10 +146,10 @@
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">ZIP Code</label>
-                        <input type="text" name="cust_zip" id="cust_zip" class="form-control rounded" value="<?php echo $user['cust_zip'] ?>">
-                    </div>
+                        <input type="text" name="cust_zip" id="cust_zip" class="form-control rounded" value="<?php echo $user['cust_zip'] ?>"><br>
+                    </div><br>
                    
-                    <h3> Contact Details </h3>
+                    <h3 style="font-weight:bold;"> Contact Details </h3>
                     
                     <div class="col-md-6">
                         <label style="font-weight:bold;">E-mail Address</label>
@@ -162,7 +162,7 @@
 
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" id="editUser" name="edit_user" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;font-weight:bold;">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;font-weight:bold;"><br>
                     </div>
                 </div>
             </form>
@@ -170,8 +170,9 @@
 
         <div id="editModal" class="modal" style="display: none">
             <div class="modal-content">
-                <p style="text-align:center; font-weight: bold;">Are you sure you want to edit this?</p>
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to edit this?</p><br>
                 <div class="modal-footer">
+                    
                     <button class="btn btn-success mt-3" onClick="editUser()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
                     <button class="btn mt-3"onClick="closeModal()" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Cancel</button>
                 </div>

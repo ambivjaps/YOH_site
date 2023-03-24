@@ -48,7 +48,7 @@ require 'layouts/Header.php';
                                             <hr>
                                             <h3 style="font-size: 20px; font-weight:bold;">Categories</h3>
                                             <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1" style="font-weight:bold;">All Orders</label></div>
-                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2" style="font-weight:bold;">In Process</label></div>
+                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2" style="font-weight:bold;">On-Going</label></div>
                                             <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3" style="font-weight:bold;">Completed Orders</label></div>
                                         </div>
                                     </div>
