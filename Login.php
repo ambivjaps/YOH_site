@@ -31,10 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $user_data = mysqli_fetch_assoc($result);
         $hashedPwdCheck = password_verify($cust_pass, $user_data['cust_pass']);
 
-            if($user_data["cust_status"] == 0){
-                header("Location: verifyuser.php");
-                }
-            else if ($hashedPwdCheck == false){
+           if ($hashedPwdCheck == false){
                     $_SESSION['login_attempts'] += 1;
                     header("Location: Login.php?login=false"); 
                     $query = "UPDATE register SET login_attempt=login_attempt+1 where cust_email = '$cust_email' LIMIT 1";
@@ -48,6 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 }
                    
              else if ($hashedPwdCheck == true) {
+                if($user_data["cust_status"] == 0){
+                    header("Location: verifyuser.php");
+                    }
                 if ($response != "") {
                     $_SESSION['login_id'] = $user_data['login_id'];
                     $_SESSION['user_rank'] = $user_data['user_rank'];
@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     header("Location: HomePage.php");
                     exit();
                 } 
+                
             } }
             else {
                 $_SESSION["login_attempts"] += 1;
@@ -74,8 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 }
 
-
-    $disabled = '';
 if(isset($_SESSION['login_attempts']) && $_SESSION['login_attempts'] >= 3){
     $disabled = "disabled";}
 
