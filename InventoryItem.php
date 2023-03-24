@@ -51,11 +51,11 @@
             <div class="container">
 
             <form class="mb-3" action="InventoryItem.php" method="POST">
-            <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="Inventory.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"><i class="fas fa-edit"></i> Edit</a>
+            <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: indigo;background: indigo;"><a href="Inventory.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
+			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"><i class="fas fa-edit"></i> Edit</a>
 			    <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $inv['ItemID']; ?>">
                 <input type="hidden" name="delete_img" value="<?php echo $inv['ItemImg']; ?>">
-			    <input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
+			    <input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete" style="font-weight:bold;">
 		    </form>
 
         <div class="row gutters">

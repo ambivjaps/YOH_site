@@ -32,7 +32,7 @@
             <form class="rounded" data-bss-hover-animate="pulse" style="border:none; width: 554px;max-width: 753px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 830px;"  method="post" >
             
             <div class="mb-3">
-            <div style="margin-left:430px;margin-top:-30px;"><a class="btn btn-primary border rounded" role="button" href="Registration.php" style="border-color: rgb(119,13,253);background: rgb(119,13,253);font-weight:bold;">Back</a></div><br>
+            <div style="margin-left:430px;margin-top:-30px;"><a class="btn btn-primary border rounded" role="button" href="Registration.php" style="border-color:indigo;background:indigo;font-weight:bold;">Back</a></div><br>
                 <b>
                     <center>
                 <label class="form-label" style="color: rgb(111, 66, 193);">Please be sure to read the TERMS AND CONDITIONS

@@ -61,9 +61,9 @@
 
         <form class="mb-3" method="POST" id="form">
         <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;"><a href="OrdersAdminView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-            <a class="btn btn-dark" href="EditOrder.php?id=<?php echo $order['OrderID']; ?>" type="submit" name="edit" role="button" style="border-color:indigo;background-color:indigo;"><i class="fas fa-edit"></i> Edit</a>
+            <a class="btn btn-dark" href="EditOrder.php?id=<?php echo $order['OrderID']; ?>" type="submit" name="edit" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"><i class="fas fa-edit"></i> Edit</a>
             <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $order['OrderID']; ?>" >
-            <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%">
+            <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%;font-weight:bold;">
         </form><hr>
 
         <div class="row mt-5">

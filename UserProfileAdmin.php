@@ -40,8 +40,8 @@
             </div>
 
             <div class="col-md-10">
-                <h1 style="font-weight:bold;color:indigo;"> <?php echo $user['cust_name'] ?> </h1>
-                <h6 style="font-weight:bold;"> <span class="badge bg-dark"> Administrator </span></h6>
+                <h1 style="font-weight:bold;color: rgb(111, 66, 193);"> <?php echo $user['cust_name'] ?> </h1>
+                <h6 style="font-weight:bold;"> <span class="badge" style="background-color:#507963;"> Administrator </span></h6>
                 <p style="font-weight:bold;"> Address: <?php echo $user['cust_address'] ?> </p>
                 <p style="font-weight:bold;"> Phone Number: <?php echo $user['cust_phone'] ?> </p>
                 <p style="font-weight:bold;"> E-mail: <?php echo $user['cust_email'] ?> </p>
@@ -49,8 +49,8 @@
             </div>
 
             <div class="float-end mt-2">
-                <a class="btn btn-dark" href="UserProfileAdminEdit.php" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Edit profile </a>
-                <a class="btn btn-dark" href="ChangePassword.php" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Change password </a>
+                <a class="btn btn-dark" href="UserProfileAdminEdit.php" role="button" style="border-color:indigo;background-color:indigo;font-weight:bold;"> Edit profile </a>
+                <a class="btn btn-dark" href="ChangePassword.php" role="button" style="border-color:indigo;background-color:indigo;font-weight:bold;"> Change password </a>
             </div>
         </div>
         

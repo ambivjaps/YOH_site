@@ -108,8 +108,8 @@
                             <input type="hidden" name="proof_img_old" value="<?php echo $order['proof_img']; ?>">
                         </div>
                         <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" name="add_payment" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
-                        <a href="OrderPageCust.php"><input class="btn btn-danger mt-3" type="reset" id="reset" value="Cancel" style="width:150px;"></a>
+                        <input class="btn btn-success mt-3" type="submit" name="add_payment" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);font-weight:bold;">
+                        <a href="OrderPageCust.php"><input class="btn btn-danger mt-3" type="reset" id="reset" value="Cancel" style="width:150px;font-weight:bold;"></a>
                     </div>
                             
                         </div>

@@ -25,11 +25,14 @@ require 'layouts/Header.php';
                 <div class="block-heading">
                     <h2 style="margin:40px; color: black;font-size: 50px;font-weight: bold;">Customer Profiles</h2>
                 </div>
-                <input type="text" name="searchInput" id="searchCustomerProfile">
-                <button type="submit" id="searchInventory" class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);">
-                    <i class="fas fa-search" style="text-align: center;"></i>
+                <div class="d-flex mt-10 mb-5">
+                <input class="form-control rounded" type="text" name="searchInput" id="searchCustomerProfile" value="Search Profile Here" style="width:200px;">
+                <button type="submit" id="searchInventory" class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color:indigo;background:indigo;">
+                    <i class="fas fa-search" style="text-align: center;" ></i>
                 </button>
+                </div>
                 <div class="block-content" id="searchOutput">
+                    
                     <!-- DOM CONTENT in JS -->
                 </div>
             </div>

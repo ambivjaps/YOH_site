@@ -102,7 +102,7 @@
             <div class="card">
                 <div class="row">
                     <div class="col-md-4 col-4">
-                        <a href="InventoryItem.php?id=<?php echo $inv['ItemID']; ?>">
+                        <a style="color:rgb(111,66,193);" href="InventoryItem.php?id=<?php echo $inv['ItemID']; ?>">
                             <div class="card-seg-thumbnail">
                                 <img src="<?php echo $inv['ItemImg']; ?>" class="img-fluid rounded-start" title="<?php echo $inv['ItemName']; ?>" alt="<?php echo $inv['ItemName']; ?>">
                             </div>
@@ -110,8 +110,8 @@
                     </div>
                     <div class="col-md-8 col-8">
                         <div class="card-body">
-                            <a href="InventoryItem.php?id=<?php echo $inv['ItemID']; ?>"><h5><?php echo $inv['ItemName']; ?></h5></a><hr>
-                            <h6><span class="badge bg-dark"><?php echo $inv['ItemType']; ?></span></h6>
+                            <a style="color:rgb(111,66,193);" href="InventoryItem.php?id=<?php echo $inv['ItemID']; ?>"><h5><?php echo $inv['ItemName']; ?></h5></a><hr>
+                            <h6><span class="badge" style="background-color:indigo;"><?php echo $inv['ItemType']; ?></span></h6>
                             <h6>Price: Php<?php echo $inv['ItemPrice']; ?></h6>
                             <h6>Quantity: <?php echo $inv['ItemQty']; ?></h6>
                         </div>
@@ -127,7 +127,7 @@
             <div class="card">
                 <div class="row">
                     <div class="col-md-4 col-4">
-                        <a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>">
+                        <a style="color:rgb(111,66,193);" href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>">
                             <div class="card-seg-thumbnail">
                                 <img src="<?php echo $order['ItemImg']; ?>" class="img-fluid rounded-start" title="<?php echo $order['ItemName']; ?>" alt="<?php echo $order['ItemName']; ?>">
                             </div>
@@ -135,8 +135,8 @@
                     </div>
                     <div class="col-md-8 col-8">
                         <div class="card-body">
-                            <a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>"><h5><?php echo $order['ItemName']; ?></h5></a><hr>
-                            <h6><span class="badge bg-dark"><?php echo $order['OrderType']; ?></span></h6>
+                            <a style="color:rgb(111,66,193);" href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>"><h5><?php echo $order['ItemName']; ?></h5></a><hr>
+                            <h6><span class="badge" style="background-color:indigo;"><?php echo $order['OrderType']; ?></span></h6>
                             <h6>Ordered by: <?php echo $order['c_name']; ?></h6>
                             <h6>Total Price: Php<?php echo $order['OrderTotal']; ?></h6>
                         </div>

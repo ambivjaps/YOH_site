@@ -78,7 +78,7 @@
 
     <div class="container my-5">
 
-        <h1 style="font-weight:bold;"> Edit Profile <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h1><hr>
+        <h1 style="font-weight:bold;"> Edit Profile <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h1><hr>
         <div class="form-group">
             <form action="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" method="POST" id="form">
                 <div class="row my-3">
@@ -123,7 +123,7 @@
                         <input type="text" name="phone_no" id="phone_no" class="form-control rounded" value="<?php echo $profile['phone_no'] ?>">
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editProfile" name="edit_profile" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
+                        <input class="btn btn-success mt-3" id="editProfile" name="edit_profile" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;">
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
                     </div>
                 </div>
@@ -134,8 +134,8 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to edit this?</p>
                 <div class="modal-footer">
-                    <button onClick="editProfile()">OK</button>
-                    <button onClick="closeModal()">Cancel</button>
+                    <button class="btn btn-success mt-3" onClick="editProfile()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                    <button class="btn mt-3" onClick="closeModal()" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Cancel</button>
                 </div>
             </div>
         </div>

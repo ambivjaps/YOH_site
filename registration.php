@@ -188,10 +188,10 @@ if (isset($_POST['cust_name'])) {
                         <div class="btn-group" role="group"></div>
 
                         <div></div>
-                        <button class="btn btn-danger form-btn" id="regBtn" type="submit" style="margin-left: 275px;width: 137.797px;max-width: none;margin-top: -10px; border-color: rgb(119,13,253);background: rgb(119,13,253); ">REGISTER</button>
+                        <button class="btn btn-danger form-btn" id="regBtn" type="submit" style="margin-left: 275px;width: 137.797px;max-width: none;margin-top: -10px; border-color:indigo;background:indigo;font-weight:bold; ">REGISTER</button>
                         <div></div>
                         <a href="Login.php">
-                            <button class="btn btn-danger form-btn" type="button" style="margin-left: 421px;width: 137.797px;max-width: none;margin-top: -65px; background: rgb(220, 53, 69);">CANCEL</button></a>
+                            <button class="btn btn-danger form-btn" type="button" style="margin-left: 421px;width: 137.797px;max-width: none;margin-top: -65px; background: rgb(220, 53, 69);font-weight:bold;">CANCEL</button></a>
                 </form>
             </div>
         </section>
@@ -200,17 +200,17 @@ if (isset($_POST['cust_name'])) {
                 <p style="text-align:center; font-weight: bold;">Registration complete!</p>
                 <p style="text-align:center;">You will now be redirected to Login</p>
                 <div class="modal-footer">
-                    <button id="okBtn">OK</button>
+                    <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
                 </div>
             </div>
         </div>
 
         <div id="myModal3" class="modal">
             <div class="modal-content">
-                <p style="text-align:center; font-weight: bold;">Unable to register!</p>
+                <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
                 <p style="text-align:center;" id="error-message"></p>
                 <div class="modal-footer">
-                    <button id="errorBtnClode">OK</button>
+                    <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
                 </div>
             </div>
         </div>
@@ -237,13 +237,13 @@ if (isset($_POST['cust_name'])) {
                 event.preventDefault()
                 // password 
                 if (password.value !== confirmPassword.value) {
-                    document.getElementById('error-message').innerHTML = 'The password does not match.';
+                    document.getElementById('error-message').innerHTML = '<p style="font-weight:bold;">The password does not match.</p>';
                     modalError.style.display = "block";
                     return
                 }
 
                 if (!passwordRegex.test(password.value)) {
-                    document.getElementById('error-message').innerHTML = 'Invalid password. Password must have at least 8 characters, at least 1 uppercase letter, at least 1 special character, and at least 1 lowercase letter.';
+                    document.getElementById('error-message').innerHTML = '<p style="font-weight:bold;">Invalid password. Password must have at least 8 characters, at least 1 uppercase letter, at least 1 special character, and at least 1 lowercase letter.</p>';
                     modalError.style.display = "block";
                     return
                 }

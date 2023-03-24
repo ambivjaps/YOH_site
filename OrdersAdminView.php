@@ -24,7 +24,7 @@ require 'layouts/Header.php';
         <section class="clean-block clean-catalog dark" style="background-color:#efe9ef;">
             <div class="container">
                 <div class="block-heading">
-                    <h2 style="margin:54px; color:black; font-size:54px;">Orders</h2>
+                <h2 style="margin:40px; color: black;font-size: 50px;font-weight: bold;">Orders</h2>
                 </div>
                 <div class="content">
                     <div class="row">
@@ -35,27 +35,28 @@ require 'layouts/Header.php';
                                         <div class="float-start float-md-end mt-5 mt-md-0 search-area" style="margin-left: 14px;margin-right: -4px;">
                                             <div class="float-start float-md-end mt-5 mt-md-0 search-area"></div>
                                         </div>
-
+                                        
                                         <div class="filter-item">
-                                            <h3 style="font-size: 32px;">Filters</h3>
-                                            <input type="text" id="searchOrder">
-                                            <button type="submit" class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: rgb(119,13,253);background: rgb(119,13,253);">
+                                            <h3 style="font-size: 32px; font-weight:bold;">Filters</h3>
+                                            <div class="d-flex mt-4 mb-5">
+                                            <input type="text" id="searchOrder" class="form-control rounded">
+                                            <button type="submit" class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: indigo;background: indigo;">
                                                 <i class="fas fa-search" style="text-align: center;"></i>
                                             </button>
-
-                                            <h3>Categories</h3>
-                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">All Orders</label></div>
-                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">In Process</label></div>
-                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Completed Orders</label></div>
+                                            <a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color: indigo;background: indigo;" href="AddOrder.php"><i class="fas fa-plus" style="text-align: center;"></i></a>
+                                        </div>
+                                            <hr>
+                                            <h3 style="font-size: 20px; font-weight:bold;">Categories</h3>
+                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1" style="font-weight:bold;">All Orders</label></div>
+                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2" style="font-weight:bold;">In Process</label></div>
+                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3" style="font-weight:bold;">Completed Orders</label></div>
                                         </div>
                                     </div>
-
-
                             </div>
                         </div>
 
                         <div class="col-md-9">
-                            <div class="products"><a class="btn btn-primary active" role="button" style="margin-left: 834px;margin-right: -7px;margin-bottom: -12px;margin-top: -16px;" href="AddOrder.php">Add</a>
+                            <div class="products">
 
                                 <div class="row g-0" id="searchAndSortOutput">
                                     <!-- DOM CONTENTS ARE LOADED HERE -->

@@ -5,7 +5,6 @@
     include("includes/functions.inc.php");
     include("includes/access.inc.php");
     $user_data = check_login($con);
-    access('ADMIN');
 
     require 'layouts/Header.php';
 
@@ -17,22 +16,6 @@
 
 		mysqli_free_result($result);
 	}
-
-    if(isset($_POST['reorder'])){
-       
-        $qty = $_POST['ItemQty'];
-        $cur_qty = $inv['ItemQty'];
-        $item = "UPDATE inventory_db SET ItemQty=ItemQty+$qty WHERE ItemID='$id' ";
-        $result = mysqli_query($con, $item);
-        if($result) {
-            header("Location: ReOrderPoint.php?id=".$inv['ItemID'] ."&success=true");
-            mysqli_close($con);
-            exit();
-    
-        } else {
-            echo "<script> alert('Problem occured.') </script>";
-        }
-    }
 ?>
 
 <title> Re-Ordering | Yarn Over Hook </title>
@@ -40,46 +23,37 @@
 <body class="d-flex flex-column min-vh-100">
 
 <?php require 'layouts/nav.php';?>
-<?php if($inv): ?>
+        
     <main class="page payment-page">
         <section class="clean-block payment-form dark" style="min-height: 17px;height: 971px; background-color:#efe9ef;">
             <div class="container">
                 <div class="block-heading">
                     <h2 style="font-weight: bold;">Re - Ordering Links and Methods</h2>
                 </div>
-                <?php 
-                    if (isset($_GET['success']) && $_GET['success'] === 'true') { ?>
-                        <div class="d-flex justify-content-center">
-                            <div class="alert alert-success text-center w-25" role="alert">
-                                Item reorder is successful!
-                            </div>   
-                        </div>
-                <?php } ?>
-
-                <div class="form-group">
-                <form name="form" action="" method="POST">
+                <form style="border:none;">
                 
-                    <div class="products">
+                    <div class="products" style="border:none;" >
                         <div class="row">
                                 <div class="col-md-2">
                                     <img class="img-fluid" src="<?php echo $inv['ItemImg']; ?>">
                                 </div>
                             <div class="col-md-10">
-                                <h3 class="item-name">Product: <?php echo $inv['ItemName']; ?></h3>
-                                <h3 class="item-name">Price: Php<?php echo $inv['ItemPrice']; ?></h3>
-                                <h3 class="item-name">Stocks: <span id = "stocks"><?php echo $inv['ItemQty']; ?></span></h3>
+                                <h3 class="item-name" style="font-weight:bold;">Product: <?php echo $inv['ItemName']; ?></h3>
+                                <h3 class="item-name" style="font-weight:bold;">Price: Php<?php echo $inv['ItemPrice']; ?></h3>
+                                <h3 class="item-name" style="font-weight:bold;">Stocks: <span id = "stocks"><?php echo $inv['ItemQty']; ?></span></h3>
                             </div>
                         <hr>
-                      
                           
                         <script> 
                                 var sto = document.getElementById("stocks");
                                 
-                                if (sto.innerText <= 5) {
+                                if (sto.innerText <= 9) {
                                     sto.setAttribute('style', 'color: red');
-                                } else if (sto.innerText <= 8) {
+                                } else if (sto.innerText <= 10) {
                                     sto.setAttribute('style', 'color: orange');
-                                } else if (sto.innerText <= 15) {
+                                } else if (sto.innerText <= 20) {
+                                    sto.setAttribute('style', 'color: #8B8000');
+                                } else if (sto.innerText <= 30) {
                                     sto.setAttribute('style', 'color: green');
                                 } else {
                                     sto.setAttribute('style', 'color: green');
@@ -90,35 +64,71 @@
                         <a class="item-description" href="https://shopee.ph/product/52800866/20050831178" style="text-decoration:none;color:black;"><p>https://shopee.ph/product/52800866/20050831178</p></a>
                         <hr>
                         <div class="item">
-                            <p class="item-name">Item Description</p>
+                            <p class="item-name" style="font-weight:bold;">Item Description</p>
                             <p class="item-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                         </div>
                         <hr>
-                    <br>
-                    <div class="form-group">
-                    <label>Input no. of Items</label>
-                        <input class="form-control" type="text" name="ItemQty" placeholder="Enter no. of items"  required style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;">
+                        <span></span><span class="price"></span>
+                        <button class="btn btn-primary d-block w-100" id="myBtn1" type="submit" style="margin-top: 19px; border-color:indigo;background:indigo;">Confirm</button>
+                        <div id="myModal1" class="modal1">
+                                <div class="modal-content1">
+                                    <span class="close1">&times;</span>
+                                    <p style="font-weight:bold;font-size:50px;">Thank you!</p>
+                                    <p style="font-weight:bold;">Your Re-order has been confirmed </p>
+                                    <p style="margin-left:-100px;font-weight:bold;"> How many items: </p> 
+                                    <input type="number"class="form-control rounded" style="width:10%; margin-left:390px; margin-top:-45px;"></input>
+                                    <br>
+                                    <button class="btn btn-primary border rounded" type="submit" style="margin-left: -21px;margin-right: 22px;width: 78.178px; border-color: rgb(119,13,253);background: rgb(119,13,253);" id="yesBtn">Yes</button></a><button class="btn btn-primary border rounded" id="noBtn" style="width: 78.178px; background: rgb(220, 53, 69); border:rgb(220, 53, 69);">No</button>
+                                    </div>
+                        </div>
+                        <a href="Inventory.php" type="button" class="btn btn-primary d-block w-100" class="btn btn-primary d-block w-100"  type="button" style="margin-top: 19px; background: rgb(220, 53, 69); border:rgb(220, 53, 69); text-decoration:none;color:white;">Cancel</a>
                     </div>
-                    <div class="form-group">
-                    <input class="form-control button" type="submit" name="reorder" value="Add" style="border-color: rgb(119,13,253); font-weight:bold;background: rgb(119,13,253); color:white;">
-                        <a href="Inventory.php" type="button" class="btn btn-primary d-block w-100" class="btn btn-primary d-block w-100"  type="button" value="Cancel" style="margin-top: 19px; background: rgb(220, 53, 69); border:rgb(220, 53, 69); text-decoration:none;color:white;">Cancel</a>
-                    </div>
-                    <div class="form-group">
                 </form>
-
             </div>
         </section>
     </main>
-    
-    <script src="assets/js/DesignB.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/bs-init.js"></script>
-	<script src="assets/js/DesignA.js"></script>
-	<script src="assets/js/theme.js"></script>
-	<script src="assets/js/DesignAnimation.js"></script>
-<?php else: ?>
-        <div class="container my-5">
-            <h2> Oops.. Page not found. Please try again. </h2>
-        </div>
-    <?php endif ?>
+    <script>
+
+var modal = document.getElementById("myModal1");
+
+var btn = document.getElementById("myBtn1");
+
+var yesBtn = document.getElementById("yesBtn");
+
+var noBtn = document.getElementById("noBtn");
+
+var yesModal = document.getElementById("yesMess");
+
+var span = document.getElementsByClassName("close1")[0];
+
+var span1 = document.getElementsByClassName("close2")[0];
+
+btn.onclick = function() {
+modal.style.display = "block";
+}
+
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+span1.onclick = function() {
+    yesModal.style.display = "none";
+}
+
+yesBtn.onclick = function() {
+    modal.style.display = "none";
+    yesModal.style.display = "block";
+}
+
+noBtn.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+if (event.target == modal) {
+    modal.style.display = "none";
+}
+}
+</script>
+
 <?php require 'layouts/Footer.php';?>

@@ -159,7 +159,7 @@ if(isset($_POST["update-password"])){
                         <input class="form-control" type="password" name="conf_pass" placeholder="Confirm your password" minlength="8" required style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;">
                     </div><br>
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="update-password" value="Change" style="border-color: rgb(119,13,253); font-weight:bold;background: rgb(119,13,253); color:white;">
+                        <input class="form-control button" type="submit" name="update-password" value="Change" style="border-color:indigo;; font-weight:bold;background:indigo;; color:white;">
                 </form>
             </div>
         </section>

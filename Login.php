@@ -187,7 +187,9 @@ if (isset($_SESSION["locked"]))
                         $_SESSION["locked"] = time();
                         echo "<p style='color:red; text-align:center; font-weight:bold;'> Maximum login attempt reached. Please wait for 30 seconds and refresh the page.</p>";
                       }else { ?>
-                      <button class="btn btn-primary" type="submit"  style="font-weight: bold; width: 147px; height: auto; margin:auto; display:flex; display:grid; border-color: rgb(119,13,253);background: rgb(119,13,253);">Login</button>
+                      <button class="btn btn-primary" type="submit"  style="font-weight: bold; width: 147px; height: auto; margin:auto; display:flex; display:grid; border-color: indigo;background: indigo;">Login</button>
+                      
+                      <br>
                     <?php } ?>
                     
                     <a href="registration.php" style="margin-left: 86px;margin-top: -8px;margin-bottom: 173px;margin-right: 12px;color: rgb(111,66,193);">Don't have an account? Register Here</a>

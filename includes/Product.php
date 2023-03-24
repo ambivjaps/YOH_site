@@ -111,20 +111,25 @@ class Product{
 										<a href="InventoryItem.php?id='.$product['ItemID'].'">
 											<div class="image"><img class="img-fluid d-block mx-auto rounded" src="'.$product['ItemImg'].'" title="'.$product['ItemName'].'" alt="'.$product['ItemName'].'"></div>
 										</a>
-										<a href="InventoryItem.php?id='.$product['ItemID'].'" style="text-decoration: none;">
-											<div class="product-name">'.$product['ItemName'].'</div>
+										<a href="InventoryItem.php?id='.$product['ItemID'].'" style="text-decoration: none; color:rgb(111,66,193); font-weight:bold;">
+											<div class="product-name" style="color:">'.$product['ItemName'].'</div>
 										</a>
 										<span class="badge bg-dark">'.$product['ItemType'].'</span><hr>
 									
 										<div class="about">
-											<a href="ReOrderPoint.php?id='.$product['ItemID'].'"><button class="btn btn-primary" type="button" style="background: rgb(119,13,253);border-color: var(--bs-purple);width: 40px;"><i class="fas fa-shopping-bag"></i></button></a>
+											<a href="ReOrderPoint.php?id='.$product['ItemID'].'"><button class="btn btn-primary" type="button" style="background: indigo;border-color:indigo;width: 40px;"><i class="fas fa-shopping-bag"></i></button></a>
 											<div class="price">
 												<h6>Php '.$product['ItemPrice'].'</h6>
 												<h6>Quantity: '.$product['ItemQty'].'</h6>
 											</div>
 										</div>
 									</div>
-								</div>';
+								</div>
+								
+								
+								
+								';
+								
 			}
 		}
 		return 	$productHTML;	

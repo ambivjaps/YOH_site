@@ -84,10 +84,10 @@
 
     <div id="logoutconfirmation" class="modal">
         <div class="modal-content">
-            <p style="text-align:center; font-weight: bold;">Are you sure you want to logout?</p>
+            <p style="text-align:center; font-weight: bold; font-size:20px;">Are you sure you want to logout?</p>
             <div class="modal-footer">
-                <button id="okLogout">OK</button>
-                <button id="cancelLogout">Cancel</button>
+                <button class="btn btn-success mt-3" id="okLogout" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                <button class="btn  mt-3" value="Cancel" id="cancelLogout" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Cancel</button>
             </div>
         </div>
     </div>

@@ -53,10 +53,10 @@
         <div class="container">
 
         <form class="mb-3" action="ProfileAccnt.php" method="POST">
-        <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="ProfileAccntView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253);"><i class="fas fa-edit"></i> Edit</a>
+        <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;"><a href="ProfileAccntView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
+			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button" style="border-color:indigo;background:indigo;font-weight:bold;"><i class="fas fa-edit"></i> Edit</a>
 			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
-			<input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete">
+			<input class="btn btn-danger" type="submit" name="delete" role="button" value="Delete" style="font-weight:bold;">
 		</form>
 
     <div class="row gutters">

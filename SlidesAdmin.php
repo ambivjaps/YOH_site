@@ -29,8 +29,8 @@
 <main class="page blog-post">
         <section class="clean-block clean-post dark" style="background-color:#efe9ef;">
             <div class="container my-5">
-                <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="HomePage.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-            <button class="btn btn-outline-primary text-truncate float-none float-sm-none add-another-btn" type="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253); color:white; font-weight:bold;"><a  href="AddSlide.php" style="color:white; text-decoration:none;"> Add slide <i class="fas fa-plus-circle edit-icon"></i></a></button><hr>
+                <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;"><a href="HomePage.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
+            <button class="btn btn-outline-primary text-truncate float-none float-sm-none add-another-btn" type="button" style="border-color:indigo;background:indigo; color:white; font-weight:bold;"><a  href="AddSlide.php" style="color:white; text-decoration:none;"> Add slide <i class="fas fa-plus-circle edit-icon"></i></a></button><hr>
                 <h1 style="font-weight:bold;"> Slides </h1>
                 
                 <table class="table table-striped table-hover table-sm mt-5">
@@ -47,7 +47,7 @@
                         <td> <img width="250px" src="<?php echo $slide['slide_img']; ?>"> </td>
                         <td> <?php echo $slide['slide_title']; ?> </td>
                         <td> <?php echo $slide['created_at']; ?> </td>
-                        <td> <a class="btn btn-sm btn-dark" href="Slide.php?id=<?php echo $slide['slide_id'] ?>" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"><i class="fas fa-eye" ></i> View</a> </td></tr>
+                        <td> <a class="btn btn-sm btn-dark" href="Slide.php?id=<?php echo $slide['slide_id'] ?>" role="button" style="border-color:indigo;background-color:indigo;"><i class="fas fa-eye" ></i> View</a> </td></tr>
                     <?php endforeach; ?>
                 </table>
                 <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>

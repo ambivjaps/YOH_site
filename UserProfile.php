@@ -78,8 +78,8 @@
             </div>
 
             <div class="col-md-10">
-                <h1 style="font-weight:bold; color:indigo;"> <?php echo $user['cust_name'] ?> </h1>
-                <h6 style="font-weight:bold;"> <span class="badge bg-dark"> Verified User </span></h6>
+                <h1 style="font-weight:bold;color: rgb(111, 66, 193);"> <?php echo $user['cust_name'] ?> </h1>
+                <h6 style="font-weight:bold;"> <span class="badge" style="background-color:green;"> Verified User </span></h6>
                 <p style="font-weight:bold;"> Address: <?php echo $user['cust_address'] ?> </p>
                 <p style="font-weight:bold;"> Phone Number: <?php echo $user['cust_phone'] ?> </p>
                 <p style="font-weight:bold;"> E-mail Address: <?php echo $user['cust_email'] ?> </p>
@@ -87,8 +87,8 @@
             </div>
 
             <div class="float-end mt-2">
-                <a class="btn btn-dark" href="UserProfileEdit.php" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Edit profile </a>
-                <a class="btn btn-dark" href="ChangePassword.php" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> Change password </a>
+                <a class="btn btn-dark" href="UserProfileEdit.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;;"> Edit profile </a>
+                <a class="btn btn-dark" href="ChangePassword.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"> Change password </a>
             </div>
         </div>
 
@@ -97,8 +97,8 @@
 
         <?php foreach($select as $prof): ?>
             <div class="float-end mt-2 mb-5">
-                <a class="btn btn-dark" href="ProfileAccntView.php" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> See your customer profiles </a>
-                <a class="btn btn-dark" href="OrderPageCust.php" role="button" style="font-weight:bold;border-color:rgb(119,13,253);background-color:rgb(119,13,253);"> See your orders </a>
+                <a class="btn btn-dark" href="ProfileAccntView.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"> See your customer profiles </a>
+                <a class="btn btn-dark" href="OrderPageCust.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"> See your orders </a>
             </div>
             
             <p> Current customer profile used: <strong> <?php echo $prof['c_label']; ?> </strong> </p>
@@ -113,7 +113,7 @@
                 <tr><td> <?php echo $prof['c_name']; ?> </td>
                 <td> <?php echo $prof['address']; ?>  </td>
                 <td> <?php echo $prof['phone_no']; ?> </td>
-                <td> <a class="btn btn-sm btn-primary" href="ProfileAccnt.php?id=<?php echo $prof['id'] ?>" role="button" style="border-color:rgb(119,13,253);background-color:rgb(119,13,253);"><i class="fas fa-eye"></i> View</a> </td></tr>
+                <td> <a class="btn btn-sm btn-primary" href="ProfileAccnt.php?id=<?php echo $prof['id'] ?>" role="button" style="border-color:indigo;background-color:indigo;;"><i class="fas fa-eye"></i> View</a> </td></tr>
             </table>
         <?php endforeach; ?>
 
@@ -136,7 +136,7 @@
                         <?php endforeach; ?>
                     </div>
                     <div class="col-auto">
-                        <input class="btn btn-success" type="submit" id="submit" name="change_current" value="Select"  style="font-weight:bold;background-color:rgb(119,13,253); border-color:rgb(119,13,253);">
+                        <input class="btn btn-success" type="submit" id="submit" name="change_current" value="Select"  style="font-weight:bold;background-color:indigo;border-color:indigo;">
                     </div>
                 </form>
             </div>

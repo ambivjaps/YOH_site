@@ -18,7 +18,7 @@
         <section class="clean-block clean-catalog dark" style="background-color:#efe9ef;">
             <div class="container-xxl mt-5">
                 <div class="block-heading">
-                    <h2 style="font-size: 43px;text-align: center;">Frequently Asked Questions</h2>
+                    <h2 style="font-size: 43px;text-align: center; font-weight:bold;">Frequently Asked Questions</h2>
                 </div>
                 <div class="content">
                     <div class="row my-5">

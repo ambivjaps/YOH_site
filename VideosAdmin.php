@@ -29,8 +29,8 @@
 <main class="page blog-post">
         <section class="clean-block clean-post dark" style="background-color:#efe9ef;">
             <div class="container my-5">
-            <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;"><a href="HomePage.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-                <button class="btn btn-outline-primary text-truncate float-none float-sm-none add-another-btn" type="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253); color:white; font-weight:bold;"><a  href="AddVideo.php" style="color:white; text-decoration:none;"> Add video <i class="fas fa-plus-circle edit-icon"></i></a></button><hr>
+            <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;"><a href="HomePage.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
+            <button class="btn btn-outline-primary text-truncate float-none float-sm-none add-another-btn" type="button" style="border-color:indigo;background:indigo; color:white; font-weight:bold;"><a  href="AddVideo.php" style="color:white; text-decoration:none;"> Add video <i class="fas fa-plus-circle edit-icon"></i></a></button><hr>
 
                 <h1 style="font-weight:bold;"> Videos </h1>
                 
@@ -48,7 +48,7 @@
                         <td> <?php echo $video['vid_title']; ?> </td>
                         <td> <?php echo $video['vid_cat']; ?> </td>
                         <td> <?php echo $video['vid_url']; ?> </td>
-                        <td> <a class="btn btn-sm btn-primary" href="Video.php?id=<?php echo $video['vid_id'] ?>" role="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253);"><i class="fas fa-eye"></i> View</a> </td></tr>
+                        <td> <a class="btn btn-sm btn-primary" href="Video.php?id=<?php echo $video['vid_id'] ?>" role="button" style="border-color:indigo;background:indigo;"><i class="fas fa-eye"></i> View</a> </td></tr>
                     <?php endforeach; ?>
                 </table>
                 <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>

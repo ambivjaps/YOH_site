@@ -92,7 +92,7 @@
 
     <div class="container my-5">
 
-        <h1 style="font-weight:bold;"> Edit Inventory Item <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
+        <h1 style="font-weight:bold;"> Edit Inventory Item <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
         <div class="form-group">
             <form action="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
@@ -128,8 +128,8 @@
                         <textarea type="text" rows="5" class="form-control rounded" name="ItemDesc" id="ItemDesc"><?php echo $inv['ItemDesc'] ?></textarea>
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editInventory" name="edit_inventory" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
+                        <input class="btn btn-success mt-3" id="editInventory" name="edit_inventory" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;font-weight:bold;">
                     </div>
                 </div>
             </form>
@@ -139,8 +139,8 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to edit this?</p>
                 <div class="modal-footer">
-                    <button onClick="editInventory()">OK</button>
-                    <button onClick="closeModal()">Cancel</button>
+                    <button class="btn btn-success mt-3" onClick="editInventory()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                    <button class="btn mt-3" onClick="closeModal()" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Cancel</button>
                 </div>
             </div>
         </div>

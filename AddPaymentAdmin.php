@@ -72,8 +72,8 @@
                     <div class="total">
                     <div class="item"></div>
                         <div class="total">
-                            <button class="btn btn-primary" name="submit" type="submit" id="submit" style="margin-left: 344px;width: 80.4844px;" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">Save</button>
-                        <a href="OrderPageAdmin.php?id=<?php echo $orders['OrderID']?>"><button class="btn btn-primary" type="button" style="margin-left: 14px;">Cancel</button></a></div>
+                            <button class="btn btn-primary" name="submit" type="submit" id="submit" style="margin-left: 344px;width: 80.4844px;" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">Save</button>
+                        <a href="OrderPageAdmin.php?id=<?php echo $orders['OrderID']?>"><button class="btn btn-primary" type="button" style="margin-left: 14px;font-weight:bold;">Cancel</button></a></div>
             </div>
         </section>
     </main>

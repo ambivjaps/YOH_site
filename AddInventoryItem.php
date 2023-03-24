@@ -78,44 +78,44 @@
         
 <div class="container my-5">
 
-    <h1> Add Inventory Item </h1>
+<h1 style="font-weight:bold;"> Add Inventory Item <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: indigo;background: indigo;width:40px;"><a href="Inventory.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
         <div class="form-group">
             <form action="AddInventoryItem.php" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-6">
-                        <label>Image</label>
+                        <label style="font-weight:bold;">Image</label>
                         <input type="file" class="form-control rounded"" name="ItemImg">
                     </div>
                     <div class="col-md-12">
-                        <label>Item ID</label>
+                        <label style="font-weight:bold;">Item ID</label>
                         <input type="text" name="ItemID" id="ItemID" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
-                        <label>Name</label>
+                        <label style="font-weight:bold;">Name</label>
                         <input type="text" name="ItemName" id="ItemName" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
-                        <label>Type</label>
+                        <label style="font-weight:bold;">Type</label>
                         <select class="form-select" id="ItemType" name="ItemType" aria-label=".form-select example" required>
                             <option value="Raw">Raw</option>
                             <option value="Finished">Finished</option>
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label>Quantity</label>
+                        <label style="font-weight:bold;">Quantity</label>
                         <input type="text" name="ItemQty" id="ItemQty" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
-                        <label>Price (in Php)</label>
+                        <label style="font-weight:bold;">Price (in Php)</label>
                         <input type="text" name="ItemPrice" id="ItemPrice" class="form-control rounded" required>
                     </div>      
                     <div class="col-md-12">
-                        <label>Description</label>
+                        <label style="font-weight:bold;">Description</label>
                         <textarea type="text" rows="5" class="form-control rounded" name="ItemDesc" id="ItemDesc" required></textarea>
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="add-btn" name="add_item" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form">
+                        <input class="btn btn-success mt-3" id="add-btn" name="add_item" value="Submit" style="font-weight:bold;width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style=" font-weight:bold;width:150px;font-weight:bold;">
                     </div>
                 </div>
             </form>

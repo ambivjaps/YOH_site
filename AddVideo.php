@@ -45,7 +45,7 @@
 
     <div class="container my-5">
 
-        <h1 style="font-weight:bold;"> Add Video <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="VideosAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
+        <h1 style="font-weight:bold;"> Add Video <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;width:40px;"><a href="VideosAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
         <div class="form-group">
             <form action="AddVideo.php" method="POST">
                 <div class="row my-3">
@@ -73,8 +73,8 @@
                     </div>
                   
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
+                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;font-weight:bold;">
                     </div>
                 </div>
             </form>
