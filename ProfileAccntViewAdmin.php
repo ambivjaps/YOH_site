@@ -42,7 +42,7 @@
                     <div class="user-avatar" >
                         <img src="assets/img/avatars/nopic1.jpg" style="height:200px; width:200px;">
                     </div>
-                    <h5 class="user-name" style="font-weight: bold; font-size:40px; color: var(--bs-indigo);"><?php echo $profile['c_name']; ?></h5>
+                    <h5 class="user-name" style="font-weight: bold; font-size:40px; color:indigo"><?php echo $profile['c_name']; ?></h5>
                     <p style="font-weight: bold; "><?php echo $profile['email']; ?></p>
                     <p style="font-weight: bold; "><?php echo $profile['phone_no']; ?></p>
                 </div>

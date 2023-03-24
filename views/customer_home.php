@@ -52,7 +52,7 @@
 
                     <?php 
                         if (isset($_SESSION['login_id']) && $_SESSION['user_rank'] == 'user') {
-                            echo "<h2> Welcome back, ".$_SESSION['cust_name']."! </h2>";
+                            echo "<h2> Welcome back, <span style='color:indigo; font-weight:bold'> ".$_SESSION['cust_name']."! </h2>";
                         } else {
                             echo "<h2> Hello. Let's start creating with a smile! </h2>";
                         }

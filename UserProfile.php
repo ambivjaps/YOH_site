@@ -87,8 +87,8 @@
             </div>
 
             <div class="float-end mt-2">
-                <a class="btn btn-dark" href="UserProfileEdit.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;;"> Edit profile </a>
-                <a class="btn btn-dark" href="ChangePassword.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"> Change password </a>
+                <a class="btn btn-dark" href="UserProfileEdit.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;;"> Edit Profile </a>
+                <a class="btn btn-dark" href="ChangePassword.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"> Change Password </a>
             </div>
         </div>
 

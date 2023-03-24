@@ -114,13 +114,13 @@ class Product{
 										<a href="InventoryItem.php?id='.$product['ItemID'].'" style="text-decoration: none; color:rgb(111,66,193); font-weight:bold;">
 											<div class="product-name" style="color:">'.$product['ItemName'].'</div>
 										</a>
-										<span class="badge bg-dark">'.$product['ItemType'].'</span><hr>
+										<span class="badge" style="background-color:pink; border-color: pink; color:purple;" >'.$product['ItemType'].'</span><hr>
 									
 										<div class="about">
 											<a href="ReOrderPoint.php?id='.$product['ItemID'].'"><button class="btn btn-primary" type="button" style="background: indigo;border-color:indigo;width: 40px;"><i class="fas fa-shopping-bag"></i></button></a>
 											<div class="price">
-												<h6>Php '.$product['ItemPrice'].'</h6>
-												<h6>Quantity: '.$product['ItemQty'].'</h6>
+												<h6 style="font-weight:bold;"> PHP <span style="color:rgb(111,66,193);" >'.$product['ItemPrice'].'</h6>
+												<h6 style="font-weight:bold;">Quantity: <span style="color:rgb(111,66,193);" >'.$product['ItemQty'].'</h6>
 											</div>
 										</div>
 									</div>

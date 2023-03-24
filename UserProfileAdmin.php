@@ -49,8 +49,8 @@
             </div>
 
             <div class="float-end mt-2">
-                <a class="btn btn-dark" href="UserProfileAdminEdit.php" role="button" style="border-color:indigo;background-color:indigo;font-weight:bold;"> Edit profile </a>
-                <a class="btn btn-dark" href="ChangePassword.php" role="button" style="border-color:indigo;background-color:indigo;font-weight:bold;"> Change password </a>
+                <a class="btn btn-dark" href="UserProfileAdminEdit.php" role="button" style="border-color:indigo;background-color:indigo;font-weight:bold;"> Edit Profile </a>
+                <a class="btn btn-dark" href="ChangePassword.php" role="button" style="border-color:indigo;background-color:indigo;font-weight:bold;"> Change Password </a>
             </div>
         </div>
         

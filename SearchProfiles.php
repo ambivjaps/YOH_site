@@ -32,7 +32,7 @@ foreach ($result as $profile) :
                     </a>
                 </div>
                 <div class="col-lg-7">
-                    <h4><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" style="color:black;text-decoration:none;font-weight:bold; font-size:35px;"><?php echo $profile['c_name']; ?></a></h4>
+                    <h4><a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" style="color:rgb(111,66,193);text-decoration:none;font-weight:bold; font-size:35px;"><?php echo $profile['c_name']; ?></a></h4>
 
                     <div class="info">
                         <?php
@@ -51,7 +51,7 @@ foreach ($result as $profile) :
                           <?php } 
                             ?> </i> &nbsp;</span>
                     </div>
-                    <a class="btn btn-sm btn-primary" href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" role="button" style="border-color: rgb(119,13,253);background: rgb(119,13,253);"><i class="fas fa-eye"></i> View</a>
+                    <a class="btn btn-sm btn-primary" href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" role="button" style="border-color:indigo;background:indigo;"><i class="fas fa-eye"></i> View</a>
                 </div>
             </div>
         </div>

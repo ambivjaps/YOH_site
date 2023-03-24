@@ -93,7 +93,7 @@
 
     <div class="container my-5">
 
-        <h1 style="font-weight:bold;"> Edit Order <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background: indigo;width:40px;"><a href="" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
+        <h1 style="font-weight:bold;"> Edit Order <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background: indigo;width:40px;"><a href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
         <div class="form-group">
             <form action="EditOrder.php?id=<?php echo $order['OrderID']; ?>" method="POST" id="form">
                 <div class="row my-3">

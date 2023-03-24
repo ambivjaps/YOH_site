@@ -62,7 +62,7 @@
             <div class="container" style="color: var(--bs-btn-hover-border-color);">
                 <div class="block-heading">
              
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:64px; color:black;font-weight:bold;"> Order # <?php echo $order['OrderID']; ?> </h2><hr>
+                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:64px; color:black;font-weight:bold;"> Order # <span style="color: rgb(111, 66, 193);"><?php echo $order['OrderID']; ?> </h2><hr>
                     <h2 style="font-size: 18px;text-align: left;margin-bottom: 10.2px;margin-top:10px; color:black;"></h2> 
                 </div>
             </div>
@@ -83,10 +83,10 @@
 		  
 		 <!-- ORDER DETAILS AS PER USER INPUT -->
         
-		<b> Order Details: </b> <br> 
+		<b> Order Details:  </b> <br> 
 		 <br> <br>
-		 <div class="row" style="font-weight:bold;"><b> Shipping Details: <?php echo $order['address']; ?></b></div> </div>
-		<div class="column" style="font-weight:bold;"><b>Order Due: <?php echo date("F d, Y", strtotime($order['OrderDate'])); ?> </b>  <br>
+		 <div class="row" style="font-weight:bold;"><b> Shipping Details: <span style="font-weight:bold;color:indigo;"><?php echo $order['address']; ?></b></div> </div>
+		<div class="column" style="font-weight:bold;"><b>Order Due: <span style="font-weight:bold;color:indigo;"><?php echo date("F d, Y", strtotime($order['OrderDate'])); ?> </b>  <br>
 		<br>
 		<br>
 		<div class="row"> <b>Order Status: </b> <span class="badge bg-warning"> <?php echo $order['OrderType']; ?> </span>
@@ -106,10 +106,10 @@
                     <div class="card-body">
                         <h5 ><a href="AddPaymentCust.php?id=<?php echo $order['OrderID']; ?>" style="font-weight:bold; text-decoration:none;color: rgb(111, 66, 193);">Payment</h5></a><hr>
                         <p class="card-text">
-                            <br> <b>Amount: Php<?php echo $order['OrderTotal']; ?> </b>
-							<br> <b>Mode of Payment: <?php echo $order['p_mode']; ?> </b> 
-							<br> <b>Status of Payment: <?php echo $order['pay_status']; ?> </b> 
-							<br> <b><?php if (!empty($order['proof_img'])) { ?>
+                            <br> <b style="font-weight:bold;">Amount:  <span style="font-weight:bold;color:indigo;"> PHP <?php echo $order['OrderTotal']; ?> </b>
+							<br> <b style="font-weight:bold;">Mode of Payment: <span class="badge" style="background-color:blue"> <?php echo $order['p_mode']; ?> </b> 
+							<br> <b style="font-weight:bold;">Status of Payment: <span  style="font-weight:bold;color:indigo; text-transform:capitalize;"><?php echo $order['pay_status']; ?></span> </b> 
+							<br> <b style="font-weight:bold;"><?php if (!empty($order['proof_img'])) { ?>
                                 Proof of Payment:  <a class="btn btn-primary btn-sm rounded" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
                                 <?php } else { ?>
                                 Proof of Payment: No proof of payment uploaded yet.
@@ -130,8 +130,8 @@
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight:bold;color: rgb(111, 66, 193);">Tracking Details</h5><hr>
                         <p class="card-text">
-                            <br> <b>Courier: <?php echo $order['courier_id']; ?> </b>
-							<br> <b>Tracking Number: <?php echo $order['tracking_no']; ?> </b>
+                            <br> <b>Courier: <span style="font-weight:bold;color:indigo;"><?php echo $order['courier_id']; ?> </b>
+							<br> <b>Tracking Number: <span style="font-weight:bold;color:indigo;"><?php echo $order['tracking_no']; ?> </b>
 							<br> <br>
                         </p>
 						<br>

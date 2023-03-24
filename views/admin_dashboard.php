@@ -54,7 +54,7 @@
 
     <div class="admin-welcome mt-3">
         <h2><strong> <i class="fas fa-user-cog"></i> Administrator Dashboard </strong></h2>
-        <h5> Welcome back, <?php echo $_SESSION['cust_name']; ?>!</h5><hr>
+        <h5> Welcome back, <span style="color:indigo; font-weight:bold;"><?php echo $_SESSION['cust_name']; ?>!</h5><hr>
     </div>
 
     <div class="row justify-content-center g-1">
@@ -110,9 +110,9 @@
                     </div>
                     <div class="col-md-8 col-8">
                         <div class="card-body">
-                            <a style="color:rgb(111,66,193);font-weight:bold;" href="InventoryItem.php?id=<?php echo $inv['ItemID']; ?>"><h5 style="font-weight:bold;"><?php echo $inv['ItemName']; ?></h5></a><hr>
-                            <h6 style="font-weight:bold;"><span class="badge" style="background-color:indigo;"><?php echo $inv['ItemType']; ?></span></h6>
-                            <h6 style="font-weight:bold;">Price: PHP <span style="color:rgb(111,66,193);"><?php echo $inv['ItemPrice']; ?></h6>
+                            <a style="color:rgb(111,66,193);font-weight:bold;text-decoration:none;" href="InventoryItem.php?id=<?php echo $inv['ItemID']; ?>"><h5 style="font-weight:bold;"><?php echo $inv['ItemName']; ?></h5></a><hr>
+                            <h6 style="font-weight:bold;"><span class="badge" style="background-color:pink; border-color: pink; color:purple;"><?php echo $inv['ItemType']; ?></span></h6>
+                            <h6 style="font-weight:bold;">Price:  <span style="color:rgb(111,66,193);"> PHP <?php echo $inv['ItemPrice']; ?></h6>
                             <h6 style="font-weight:bold;">Quantity: <span style="color:rgb(111,66,193);"><?php echo $inv['ItemQty']; ?></h6>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
             <div class="card">
                 <div class="row">
                     <div class="col-md-4 col-4">
-                        <a style="color:rgb(111,66,193);font-weight:bold;" href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>">
+                        <a style="color:rgb(111,66,193);font-weight:bold;text-decoration:none;" href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>">
                             <div class="card-seg-thumbnail">
                                 <img src="<?php echo $order['ItemImg']; ?>" class="img-fluid rounded-start" title="<?php echo $order['ItemName']; ?>" alt="<?php echo $order['ItemName']; ?>">
                             </div>
@@ -135,10 +135,10 @@
                     </div>
                     <div class="col-md-8 col-8">
                         <div class="card-body">
-                            <a style="color:rgb(111,66,193);font-weight:bold;" href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>"><h5 style="font-weight:bold;"><?php echo $order['ItemName']; ?></h5></a><hr>
-                            <h6 style="font-weight:bold;"><span class="badge" style="background-color:indigo;"><?php echo $order['OrderType']; ?></span></h6>
+                            <a style="color:rgb(111,66,193);font-weight:bold;text-decoration:none;" href="OrderPageAdmin.php?id=<?php echo $order['OrderID']; ?>"><h5 style="font-weight:bold;"><?php echo $order['ItemName']; ?></h5></a><hr>
+                            <h6 style="font-weight:bold;"><span class="badge" style="background-color:pink; border-color: pink; color:purple;"><?php echo $order['OrderType']; ?></span></h6>
                             <h6 style="font-weight:bold;">Ordered by: <span style="color:rgb(111,66,193);"><?php echo $order['c_name']; ?></h6>
-                            <h6 style="font-weight:bold;">Total Price: PHP <span style="color:rgb(111,66,193);"><?php echo $order['OrderTotal']; ?></h6>
+                            <h6 style="font-weight:bold;">Total Price:  <span style="color:rgb(111,66,193);"> PHP <?php echo $order['OrderTotal']; ?></h6>
                         </div>
                     </div>
                 </div>

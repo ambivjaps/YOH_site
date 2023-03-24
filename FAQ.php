@@ -36,8 +36,8 @@
                             </div>
                         </div>
                         <div class="col-md-9 p-5">
-                            <div class="tab-content" id="faq-tabContent">
-                                <div class="tab-pane fade show active" id="faq-product" role="tabpanel" aria-labelledby="faq-product-tab">
+                            <div class="tab-content" id="faq-tabContent" >
+                                <div class="tab-pane fade show active" id="faq-product" role="tabpanel" aria-labelledby="faq-product-tab" >
                                     <strong> 1. What is the height of the dolls? </strong>
                                     <ul> 
                                         <li> Height of chibi dolls is 4.5” x 3”. </li>
