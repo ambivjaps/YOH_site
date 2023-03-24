@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2023 at 10:29 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Mar 24, 2023 at 02:50 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `cust_profile` (
   `login_id` bigint(12) NOT NULL,
   `unique_id` int(5) NOT NULL DEFAULT 1,
   `cust_status` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cust_profile`
@@ -58,7 +58,9 @@ INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_label`, `region`, `city`,
 (5, 4062959512, 'Rodrigo Villaramas', 'Girlfriend\'s Condo', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-22 10:25:15', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1, 0),
 (6, 7242156480, 'Nina De Guzman', 'Condo', 'NCR', 'QUEZON CITY', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-12 22:59:03', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 7242156480, 1, 1),
 (10, 9943549504, 'John D. Baptist', 'Home', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', '09123456789', 8, 7, '2023-03-13 13:21:06', '#7 Apostles Street, Brgy. Ginebra, Mandaluyong City, NCR', 9943549504, 1, 1),
-(11, 3408394783, 'Joseph Abellano', 'Home', 'NCR', 'Quezon City', 'Mango', 'Brgy. Apple', '09123456789', 198, 23, '2023-03-19 05:15:56', '#23 Mango Street, Brgy. Apple, Quezon City, NCR                     ', 3408394783, 1, 1);
+(11, 3408394783, 'Joseph Abellano', 'Home', 'NCR', 'Quezon City', 'Mango', 'Brgy. Apple', '09123456789', 198, 23, '2023-03-19 05:15:56', '#23 Mango Street, Brgy. Apple, Quezon City, NCR                     ', 3408394783, 1, 1),
+(14, 8239005971, 'James Anthony Sing', 'Home', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', '09993093997', 1114, 12, '2023-03-24 13:42:20', '18-D Palali St. Sta. Mesa Heights, Quezon City', 8239005971, 1, 1),
+(15, 6291638703, 'Engelbird Humperdinck', 'Home', 'NCR', 'Quezon City', '12', 'Sienna', '09158433229', 1114, 12, '2023-03-24 13:45:18', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 6291638703, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -77,7 +79,7 @@ CREATE TABLE `inventory_db` (
   `ItemPrice` int(12) NOT NULL,
   `ItemQty` int(12) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `inventory_db`
@@ -120,7 +122,7 @@ CREATE TABLE `orders_db` (
   `tracking_no` varchar(255) NOT NULL,
   `courier_id` varchar(255) NOT NULL,
   `pay_status` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders_db`
@@ -148,7 +150,7 @@ CREATE TABLE `register` (
   `cust_avatar` varchar(255) NOT NULL,
   `cust_email` varchar(60) DEFAULT NULL,
   `cust_pass` varchar(255) NOT NULL,
-  `cust_reg` varchar(60) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `cust_reg` varchar(60) CHARACTER SET latin1 NOT NULL,
   `cust_city` varchar(50) NOT NULL,
   `cust_st` text NOT NULL,
   `cust_brgy` varchar(50) NOT NULL,
@@ -157,12 +159,12 @@ CREATE TABLE `register` (
   `cust_phone` varchar(50) NOT NULL,
   `login_id` bigint(12) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `user_rank` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'user',
+  `user_rank` varchar(20) CHARACTER SET latin1 NOT NULL DEFAULT 'user',
   `cust_address` varchar(60) NOT NULL,
   `cust_status` int(11) NOT NULL,
   `login_attempt` int(11) NOT NULL,
   `otp` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `register`
@@ -170,12 +172,14 @@ CREATE TABLE `register` (
 
 INSERT INTO `register` (`id`, `cust_name`, `cust_avatar`, `cust_email`, `cust_pass`, `cust_reg`, `cust_city`, `cust_st`, `cust_brgy`, `cust_unit`, `cust_zip`, `cust_phone`, `login_id`, `date`, `user_rank`, `cust_address`, `cust_status`, `login_attempt`, `otp`) VALUES
 (1, 'Lia Maranan', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'yarnoverhook.official@gmail.com', '$2y$10$fCdhA3A5h7CxPFESCubXl.Mr7nGRTStyI8w0LY1sXTxA9Qe063hSq', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-24 08:53:30', 'admin', '123 Block 1 Mabilis St., Quezon City', 1, 0, 415175),
-(2, 'Nina De Guzman', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'ninadguzman.2k23@gmail.com', '$2y$10$4XW/LEsGXoB4QQG/Udk87.0SuXiNd/j/3eFW7uOVdBfWM6rSbhqqy', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-24 08:53:32', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1, 0, 0),
-(3, 'Darwin Manalastas', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'darwin.manalastas334@gmail.com', '$2y$10$ybvqzAyPWJ4/J2sc2sPu0OWo0fFwouZ3K0LvegjwQyeKtmT/8G0Fy', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-24 08:53:34', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1, 0, 0),
-(4, 'Rodrigo Villaramas', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'rodrigo.villaramas@gmail.com', '$2y$10$l69ahigJ5x.L.FjaKKyIOOZxecmBUNf..tQMKjzZlSY5Xc3XB5agG', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-24 08:53:36', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1, 0, 0),
+(2, 'Nina De Guzman', 'assets/img/upload/avatars/1679367700_173386665964191e14e3efa_woman-portrait-23496008.jpg', 'ninadguzman.2k23@gmail.com', '$2y$10$4XW/LEsGXoB4QQG/Udk87.0SuXiNd/j/3eFW7uOVdBfWM6rSbhqqy', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-24 13:40:18', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1, 0, 0),
+(3, 'Darwin Manalastas', 'assets/img/upload/avatars/1679368290_168071116064192062082be_janno.jpg', 'darwin.manalastas334@gmail.com', '$2y$10$ybvqzAyPWJ4/J2sc2sPu0OWo0fFwouZ3K0LvegjwQyeKtmT/8G0Fy', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-24 13:40:10', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1, 0, 0),
+(4, 'Rodrigo Villaramas', '1679368309_1581349859641920750ba66_ronaldo.jpg', 'rodrigo.villaramas@gmail.com', '$2y$10$l69ahigJ5x.L.FjaKKyIOOZxecmBUNf..tQMKjzZlSY5Xc3XB5agG', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-24 13:40:36', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1, 0, 0),
 (5, 'John D. Baptist', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'yosefudesu@gmail.com', '$2y$10$Jq0VdlAPl19dntZ8MgGlm.MgmfLkd0d9mExUQ1htkHVn92LZSHBJO', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', 7, 8, '09123456789', 9943549504, '2023-03-24 08:53:40', 'user', '#7 Apostles Street, Brgy. Ginebra, Mandaluyong City, NCR', 1, 0, 876296),
 (7, 'Joseph Abellano', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'abellanojoseph@gmail.com', '$2y$10$SPplx32xpw8ZOdKcip7tZOz5PbzxepVoy7R7XhBdYMKhPI7hJAbSi', 'NCR', 'Quezon City', 'Mango', 'Brgy. Apple', 23, 198, '09123456789', 3408394783, '2023-03-24 08:53:42', 'user', '#23 Mango Street, Brgy. Apple, Quezon City, NCR             ', 1, 0, 763884),
-(8, 'JJ CA', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'abellanoj@gmail.com', '$2y$10$Jq0VdlAPl19dntZ8MgGlm.MgmfLkd0d9mExUQ1htkHVn92LZSHBJO', 'NCR', 'Manila', 'Banawe', 'Brgy. Ewan', 32, 1820, '09123456789', 319496508, '2023-03-24 08:53:44', 'user', '#32 Banawe Street, Brgy. Ewan, Manila, NCR                  ', 1, 0, 355863);
+(8, 'JJ CA', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'abellanoj@gmail.com', '$2y$10$Jq0VdlAPl19dntZ8MgGlm.MgmfLkd0d9mExUQ1htkHVn92LZSHBJO', 'NCR', 'Manila', 'Banawe', 'Brgy. Ewan', 32, 1820, '09123456789', 319496508, '2023-03-24 08:53:44', 'user', '#32 Banawe Street, Brgy. Ewan, Manila, NCR                  ', 1, 0, 355863),
+(9, 'James Anthony Sing', 'assets/img/default/default_user.jpg', 'singjaps@gmail.com', '$2y$10$apj13eAyvSkzz9C/F5d4rO2M86QO1mDX3FMOfxkrb7cew.6fUAosO', 'NCR', 'Quezon City', 'Palali St.', 'Sienna', 12, 1114, '09993093997', 8239005971, '2023-03-24 13:42:20', 'user', '18-D Palali St. Sta. Mesa Heights, Quezon City', 0, 0, 0),
+(10, 'Engelbird Humperdinck', 'assets/img/upload/avatars/1679665518_753092441641da96e3bcba_default_user.jpg', 'ambivjaps@gmail.com', '$2y$10$ByEffx4DubwC7h4iDKoq6ufGq.ahWjkEJ4T74KWvQRzaNxpLnSP0W', 'NCR', 'Quezon City', '12', 'Sienna', 12, 1114, '09158433229', 6291638703, '2023-03-24 13:47:37', 'user', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon ', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -190,7 +194,7 @@ CREATE TABLE `slides` (
   `slide_desc` varchar(255) NOT NULL,
   `slide_link` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `slides`
@@ -216,7 +220,7 @@ CREATE TABLE `videos` (
   `vid_cat` varchar(255) NOT NULL,
   `vid_url` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `videos`
@@ -313,7 +317,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `cust_profile`
 --
 ALTER TABLE `cust_profile`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `inventory_db`
@@ -331,7 +335,7 @@ ALTER TABLE `orders_db`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `slides`
