@@ -37,14 +37,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $query = "UPDATE register SET login_attempt=login_attempt+1 where cust_email = '$cust_email' LIMIT 1";
                     $result = mysqli_query($con, $query);
 
-                    if($user_data["login_attempt"] >= 5){       
+                    if($user_data["cust_status"] == 0){
+                        header("Location: verifyuser.php");
+                        }
+                    else if($user_data["login_attempt"] >= 5){       
                         $sql = "UPDATE register SET cust_status='0' where cust_email = '$cust_email' ";
                         $result = mysqli_query($con, $sql);
                         header("Location: Login.php?account=lock"); 
                     }
-                    if($user_data["cust_status"] == 0){
-                        header("Location: verifyuser.php");
-                        }
+                    
                 }
                    
              else if ($hashedPwdCheck == true) {

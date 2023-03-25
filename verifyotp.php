@@ -18,7 +18,7 @@ if(isset($_POST["verify"])){
             header("Location: VerifyOTP.php?otp=false"); 
             
     }else{
-        mysqli_query($connect, "UPDATE register SET cust_status = 1 WHERE cust_email = '$email'");
+        mysqli_query($connect, "UPDATE register SET cust_status = 1, login_attempt = 0 WHERE cust_email = '$email'");
         ?>
          <script>
                window.location.replace("Login.php?VerifySuccess=true");
