@@ -67,6 +67,20 @@
             echo "<script> alert('Problem occured.') </script>";
         }
     }
+
+    if(isset($_POST['delete'])){
+        $OID = $order['OrderID'];
+
+        $query = "UPDATE orders_db SET proof_img= 'None', p_mode= NULL , pay_status= NULL WHERE OrderID=$OID";
+        $query_run = mysqli_query($con, $query);
+        if($query_run) {
+            $_SESSION['p_mode'] = $_POST['p_mode'];
+            header("Location: OrderPageCust.php");
+            mysqli_close($con);
+            
+            exit();
+        }
+    }
 ?>
 
 <title> Add Payment | Yarn Over Hook </title>
@@ -79,7 +93,7 @@
         <section class="clean-block payment-form dark" style="background-color: #efe9ef;">
             <div class="container" style="margin-bottom: 35px;margin-top: 20px;">
                 <div class="block-heading">
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:64px; color:black; font-weight:bold;"> Add Payment <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="VideosAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h2>
+                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:64px; color:black; font-weight:bold;"> Add Payment <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="OrderPageCust.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h2>
                 </div>
                 <form action="AddPaymentCust.php?id=<?php echo $order['OrderID']; ?>" method="POST" enctype="multipart/form-data" style="border:none;">
                     <div class="products" style="margin-bottom: 15px;margin-top: 2px;height:500px;">
@@ -104,12 +118,12 @@
                             </select> 
                             
                             <p class="item-name" style="margin-bottom: 14.2px;margin-top: 14px;">Proof of Payment</p>
-                            <input type="file" class="form-control form-control my-3" name="proof_img" required>
+                            <input type="file" class="form-control form-control my-3" name="proof_img" >
                             <input type="hidden" name="proof_img_old" value="<?php echo $order['proof_img']; ?>">
                         </div>
                         <div class="button-group float-end">
                         <input class="btn btn-success mt-3" type="submit" name="add_payment" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);font-weight:bold;">
-                        <a href="OrderPageCust.php"><input class="btn btn-danger mt-3" type="reset" id="reset" value="Cancel" style="width:150px;font-weight:bold;"></a>
+                        <a href="OrderPageCust.php"><input class="btn btn-danger mt-3" type="submit" id="reset" name="delete" value="Reset" style="width:150px;font-weight:bold;"></a>
                     </div>
                             
                         </div>

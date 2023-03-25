@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
 $searchParam = "%" . $_POST['search'] . "%";
 $query = "SELECT * FROM orders_db INNER JOIN inventory_db
     ON orders_db.ItemID = inventory_db.ItemID INNER JOIN cust_profile
-    ON orders_db.c_id = cust_profile.c_id
+    ON orders_db.c_id = cust_profile.c_id AND orders_db.cust_status = cust_profile.cust_status
     ";
 
 if (!$_POST['inprocess'] && !$_POST['completed']) {

@@ -9,14 +9,23 @@
 
     require 'layouts/Header.php';
 
-	$vid = "SELECT * FROM videos ORDER BY vid_id DESC";
-    $count = "SELECT COUNT(*) FROM videos";
+    if (isset($_GET['page'])) {
+        $pageno = $_GET['page'];
+    } else {
+        $pageno = 1;
+    }
 
+    $no_of_records_per_page = 15;
+    $offset = ($pageno-1) * $no_of_records_per_page;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM videos";
+    $result_page = mysqli_query($con, $total_pages_sql);
+    $total_rows = mysqli_fetch_array($result_page)[0];
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+	$vid = "SELECT * FROM videos ORDER BY vid_id DESC LIMIT $offset, $no_of_records_per_page";
 	$result = mysqli_query($con, $vid);
-    $result_count = mysqli_query($con, $count);
-
 	$videos = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    $r_count = mysqli_fetch_array($result_count)[0];
 	mysqli_free_result($result);
 ?>
 
@@ -51,18 +60,22 @@
                         <td> <a class="btn btn-sm btn-primary" href="Video.php?id=<?php echo $video['vid_id'] ?>" role="button" style="border-color:indigo;background:indigo;"><i class="fas fa-eye"></i> View</a> </td></tr>
                     <?php endforeach; ?>
                 </table>
-                <p> Showing <strong> <?php echo $r_count ?> </strong> records found. </p>
+                <p> Showing Page <?php echo $pageno ?> of <?php echo $total_pages ?> </p>
 
-                <nav style="margin-bottom: 15px;margin-top: 10px;">
+                <nav>
                     <ul class="pagination pagination-sm justify-content-end flex-wrap">
-                        <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true" style="color:rgb(119,13,253);">«</span></a></li>
-                        <li class="page-item previous">
-                            <a class="page-link" href="#" style="color:rgb(119,13,253); font-weight:bold;">Prev</a>
+                        <li class="page-item">
+                            <a class="page-link" aria-label="Previous" href="?page=1"><span aria-hidden="true">«</span></a>
+                        </li>
+                        <li class="page-item <?php if($pageno <= 1){ echo 'disabled'; } ?>">
+                            <a class="page-link" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?page=".($pageno - 1); } ?>">Prev</a>
+                        </li>
+                        <li class="page-item <?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
+                            <a class="page-link" href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?page=".($pageno + 1); } ?>">Next</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#" style="color:rgb(119,13,253); font-weight:bold;">Next</a>
+                            <a class="page-link" aria-label="Next" href="?page=<?php echo $total_pages; ?>"><span aria-hidden="true">»</span></a>
                         </li>
-                        <li class="page-item"><a class="page-link" aria-label="Next" href="#" style="color:rgb(119,13,253);"><span aria-hidden="true" style="color:rgb(119,13,253);">»</span></a></li>
                     </ul>
                 </nav>
             </div>

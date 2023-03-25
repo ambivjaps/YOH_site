@@ -107,7 +107,7 @@
                         <h5 ><a href="AddPaymentCust.php?id=<?php echo $order['OrderID']; ?>" style="font-weight:bold; text-decoration:none;color: rgb(111, 66, 193);">Payment</h5></a><hr>
                         <p class="card-text">
                             <br> <b style="font-weight:bold;">Amount:  <span style="font-weight:bold;color:indigo;"> PHP <?php echo $order['OrderTotal']; ?> </b>
-							<br> <b style="font-weight:bold;">Mode of Payment: <span class="badge" style="background-color:blue"> <?php echo $order['p_mode']; ?> </b> 
+							<br> <b style="font-weight:bold;">Mode of Payment: <span style="font-weight:bold;color:indigo; text-transform:capitalize;"> <?php echo $order['p_mode']; ?> </b> 
 							<br> <b style="font-weight:bold;">Status of Payment: <span  style="font-weight:bold;color:indigo; text-transform:capitalize;"><?php echo $order['pay_status']; ?></span> </b> 
 							<br> <b style="font-weight:bold;"><?php if (!empty($order['proof_img'])) { ?>
                                 Proof of Payment:  <a class="btn btn-primary btn-sm rounded" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
