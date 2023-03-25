@@ -22,10 +22,10 @@ if (isset($_POST['cust_name'])) {
     $password_hash = password_hash($cust_pass, PASSWORD_BCRYPT);
     
     $login_id =  random_num(10);
-
+    
     // default avatar
     $unique = strtotime("now").'_'.uniqid(rand()).'_';
-
+    
     $default = 'assets/img/default/default_user.jpg';
     $default_name = 'default_user.jpg';
     $saveImage = 'assets/img/upload/avatars/'.$unique.$default_name;
@@ -121,48 +121,48 @@ if (isset($_POST['cust_name'])) {
                     <div class="mb-3" style="padding-left: -6px;">
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                             Full Name
-                            <input class="form-control item" type="text" id="text" name="cust_name" style=" font-weight: bold;width: 289px;margin-bottom: 4px;" required>
+                            <input class="form-control item" type="text" id="text" name="cust_name" style=" font-weight: bold;width: 289px;margin-bottom: 4px;" required="">
                         </label>
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 148px;padding-left: -6px;color: rgb(111,66,193);">
                             Street
-                            <input class="form-control item" type="text" id="text" name="cust_st" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required>
+                            <input class="form-control item" type="text" id="text" name="cust_st" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required="">
                         </label>
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 42px;color: rgb(111,66,193);">
                             Barangay
-                            <input class="form-control item" type="text" id="text" name="cust_brgy" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required>
+                            <input class="form-control item" type="text" id="text" name="cust_brgy" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required="">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                             Email Address
-                            <input class="form-control item" type="text" id="text" name="cust_email" style="width: 289px;margin-bottom: 4px;" required>
+                            <input class="form-control item" type="text" id="text" name="cust_email" style="width: 289px;margin-bottom: 4px;" required="">
                         </label>
                         <label class="form-label" for="name" style="font-weight: bold;margin-left: 148px;color: rgb(111,66,193);">
                             Zip Code<br>
-                            <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required>
+                            <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required="">
                         </label>
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 42px;color: rgb(111,66,193);">
                             Unit No.
-                            <input class="form-control item" type="text" id="text" name="cust_unit" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required>
+                            <input class="form-control item" type="text" id="text" name="cust_unit" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required="">
                         </label>
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 44px;color: rgb(111,66,193);margin-top: -17px;margin-bottom: -91px;margin-right: 12px;text-align: left;">
                             <br>Address
-                            <textarea class="form-control d-flex d-xxl-flex align-items-start order-1 align-items-xxl-start item" type="text" id="text" name="cust_address" style="resize:none; margin: -3px; margin-bottom:-35px; margin-left:3px; width:725px;height:105px;" required>
+                            <textarea class="form-control d-flex d-xxl-flex align-items-start order-1 align-items-xxl-start item" type="text" id="text" name="cust_address" style="resize:none; margin: -3px; margin-bottom:-35px; margin-left:3px; width:725px;height:105px;" required="">
                                 </textarea>
                         </label>
 
                         <div class="mb-3">
                             <label class="form-label" for="name" style="font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
                                 <br> <br>Region
-                                <input class="form-control item" type="text" id="text" name="cust_reg" style="width: 121px;margin-bottom: 4px;" required>
+                                <input class="form-control item" type="text" id="text" name="cust_reg" style="width: 121px;margin-bottom: 4px;" required="">
                             </label>
                             <label class="form-label" for="name" style=" font-weight: bold;margin-left: 48px;width: 117px;color: rgb(111,66,193);">
                                 City
-                                <input class="form-control item" type="text" id="text" name="cust_city" style="width: 121px;margin-bottom: 4px;" required>
+                                <input class="form-control item" type="text" id="text" name="cust_city" style="width: 121px;margin-bottom: 4px;" required="">
                             </label>
                             <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
                                 Phone Number
-                                <input class="form-control item" type="text" id="text" name="cust_phone" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" required>
+                                <input class="form-control item" type="text" id="text" name="cust_phone" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" required="">
                             </label>
                         </div>
                         <div class="mb-3" style="margin-bottom: 9px;margin-top: 42px;">
@@ -172,12 +172,12 @@ if (isset($_POST['cust_name'])) {
                             </label>
                             <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
                                 Re - Type Password
-                                <input class="form-control item" type="password" id="confirmPassword" name="conf_pass" style="width: 289px;margin-bottom: 4px;padding-left: 18px;" required>
+                                <input class="form-control item" type="password" id="confirmPassword" name="conf_pass" style="width: 289px;margin-bottom: 4px;padding-left: 18px;" required="">
                             </label>
                         </div>
                         <div></div>
                         <div class="form-check" style="margin-left: 69px;">
-                            <input class="form-check-input" type="checkbox" name="cust_terms" id="formCheck-1" style="margin-left: -17px;" required>
+                            <input class="form-check-input" type="checkbox" name="cust_terms" id="formCheck-1" style="margin-left: -17px;" required="">
                             <label class="form-check-label" for="formCheck-1" style="margin-left: 14px;">
                                 By checking, You accept and understood the <a href="TermsConditions.php"> Terms &amp; Conditions </a> of the system.
                             </label>
@@ -188,7 +188,7 @@ if (isset($_POST['cust_name'])) {
                         <div class="btn-group" role="group"></div>
 
                         <div></div>
-                        <button class="btn btn-danger form-btn" id="regBtn" type="submit" style="margin-left: 275px;width: 137.797px;max-width: none;margin-top: -10px; border-color:indigo;background:indigo;font-weight:bold; ">REGISTER</button>
+                        <button class="btn btn-danger form-btn" id="regBtn" type="button" style="margin-left: 275px;width: 137.797px;max-width: none;margin-top: -10px; border-color:indigo;background:indigo;font-weight:bold; ">REGISTER</button>
                         <div></div>
                         <a href="Login.php">
                             <button class="btn btn-danger form-btn" type="button" style="margin-left: 421px;width: 137.797px;max-width: none;margin-top: -65px; background: rgb(220, 53, 69);font-weight:bold;">CANCEL</button></a>
@@ -220,41 +220,78 @@ if (isset($_POST['cust_name'])) {
             const password = document.querySelector('#password')
             const confirmPassword = document.querySelector('#confirmPassword')
 
+            var btn = document.getElementById("regBtn");
             var modal = document.getElementById("myModal2");
             var modalError = document.getElementById("myModal3");
+            var modal4 = document.getElementById("myModal4");
+            var okBtn = document.getElementById("okBtn");
             var errorBtn = document.getElementById("errorBtnClode");
+            
+            okBtn.onclick = function() {
+                modal.style.display = "none";
+                window.location.href = "Login.php";
+            }
 
 
             errorBtn.onclick = function() {
                 modalError.style.display = "none";
             }
+            
+            btn.onclick = function() {
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*)(?=.*[@$!%*?&])[A-Za-z@$!%*?&]{8,}$/;
+                let fields = {
+                    'cust_name': 'Full name',
+                    'cust_st': 'Street',
+                    'cust_brgy': 'Barangay',
+                    'cust_email': 'Email',
+                    'cust_zip': 'Zip code',
+                    'cust_address': 'Address',
+                    'cust_reg': 'Region',
+                    'cust_city': 'City',
+                    'cust_phone': 'Phone Number',
+                    'cust_pass': 'Password',
+                    'conf_pass': 'Retype Password',
+                }
 
-            //regex
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+                for (const key in fields) {
+                    if (document.getElementsByName(key)[0].value.length === 0) {
+                        document.getElementById('error-message').innerHTML = fields[key] + ' is required';
+                        modalError.style.display = "block";
+                        return;
+                    }
+                }
 
-
-            registrationForm.addEventListener('submit', (event) => {
-                event.preventDefault()
-                // password 
-                if (password.value !== confirmPassword.value) {
-                    document.getElementById('error-message').innerHTML = '<p style="font-weight:bold;">The password does not match.</p>';
+                if(document.getElementsByName('cust_pass')[0].value.length < 8) {
+                    document.getElementById('error-message').innerHTML = 'The password must have atleast 8 characters';
                     modalError.style.display = "block";
-                    return
+                    return;
+                }
+
+                if (document.getElementsByName('cust_pass')[0].value !== document.getElementsByName('conf_pass')[0].value) {
+                    document.getElementById('error-message').innerHTML = 'The password does not match';
+                    modalError.style.display = "block";
+                    return;
                 }
 
                 if (!passwordRegex.test(password.value)) {
-                    document.getElementById('error-message').innerHTML = '<p style="font-weight:bold;">Invalid password. Password must have at least 8 characters, at least 1 uppercase letter, at least 1 special character, and at least 1 lowercase letter.</p>';
+                    document.getElementById('error-message').innerHTML = 'Invalid password. Password must have at least 8 characters, at least 1 uppercase letter, at least 1 special character, and at least 1 lowercase letter.';
                     modalError.style.display = "block";
                     return
                 }
+                
+                if (!document.getElementsByName('cust_terms')[0].checked) {
+                    document.getElementById('error-message').innerHTML = 'Please agree to the terms and conditions';
+                    modalError.style.display = "block";
+                    return;
+                }
 
-                modal.style.display = 'block'
+                document.getElementById('myForm').submit();
+            }
 
-                setTimeout(() => {
-                    registrationForm.submit()
-                }, 1500);
+            //regex
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-            })
+
         </script>
     </main>
     <script src="assets/js/DesignB.js"></script>

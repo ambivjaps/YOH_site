@@ -109,11 +109,13 @@
                             <br> <b style="font-weight:bold;">Amount:  <span style="font-weight:bold;color:indigo;"> PHP <?php echo $order['OrderTotal']; ?> </b>
 							<br> <b style="font-weight:bold;">Mode of Payment: <span style="font-weight:bold;color:indigo; text-transform:capitalize;"> <?php echo $order['p_mode']; ?> </b> 
 							<br> <b style="font-weight:bold;">Status of Payment: <span  style="font-weight:bold;color:indigo; text-transform:capitalize;"><?php echo $order['pay_status']; ?></span> </b> 
-							<br> <b style="font-weight:bold;"><?php if (!empty($order['proof_img'])) { ?>
-                                Proof of Payment:  <a class="btn btn-primary btn-sm rounded" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
-                                <?php } else { ?>
-                                Proof of Payment: No proof of payment uploaded yet.
-                                <?php } ?> </b> 
+							<br> <b style="font-weight:bold;">
+                            Proof of Payment:
+                            <?php if (!empty($order['proof_img']) && $order['proof_img'] !== 'None') { ?>
+                                <a class="btn btn-primary btn-sm rounded" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
+                            <?php } else { ?>
+                                <a class="btn btn-primary btn-sm rounded" id="no-receipt" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
+                            <?php }?>
                         </p>
                     </div>
                 </div>
@@ -176,6 +178,24 @@
     </div>
    
         </section>
+        <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <p style="text-align:center;font-weight:bold">No uploaded receipt</p>
+                <div class="modal-footer">
+                    <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                </div>
+            </div>
+        </div>
     </main>
+    
+    <script>
+        document.getElementById('no-receipt').addEventListener('click', () => {
+            document.getElementById('myModal2').style.display='block';
+        });
+
+        document.getElementById('okBtn').addEventListener('click', () => {
+            document.getElementById('myModal2').style.display='none';
+        });
+    </script>
 
 <?php require 'layouts/Footer.php';?>
