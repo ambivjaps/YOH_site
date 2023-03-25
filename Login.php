@@ -42,13 +42,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         $result = mysqli_query($con, $sql);
                         header("Location: Login.php?account=lock"); 
                     }
+                    if($user_data["cust_status"] == 0){
+                        header("Location: verifyuser.php");
+                        }
                 }
                    
              else if ($hashedPwdCheck == true) {
                 if($user_data["cust_status"] == 0){
                     header("Location: verifyuser.php");
                     }
-                if ($response != "") {
+                else if($user_data["login_attempt"] >= 5){       
+                    $sql = "UPDATE register SET cust_status='0' where cust_email = '$cust_email' ";
+                    $result = mysqli_query($con, $sql);
+                     header("Location: Login.php?account=lock"); 
+                    }
+                else if ($response != "") {
                     $_SESSION['login_id'] = $user_data['login_id'];
                     $_SESSION['user_rank'] = $user_data['user_rank'];
                     $_SESSION['c_id'] = $user_data['c_id'];
@@ -119,7 +127,7 @@ if (isset($_SESSION["locked"]))
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
                 <div class="block-heading"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
                 <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Login</h2>
-                <form data-bss-hover-animate="pulse" class="rounded" style="border:none;width: 554px;;height:580px; color: var(--bs-purple); max-width: 753px;" action="login.php"  method="post" >
+                <form data-bss-hover-animate="pulse" class="rounded" style="border:none;width: 554px;;height:590px; color: var(--bs-purple); max-width: 753px;" action="login.php"  method="post" >
                 <?php if (isset($_GET['registrationSuccess']) && $_GET['registrationSuccess'] === 'true') { ?>
                     <div class="alert alert-success" role="alert">
                         Successfully registered account. Please login.
