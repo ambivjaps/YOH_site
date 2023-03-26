@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2023 at 09:42 AM
+-- Generation Time: Mar 26, 2023 at 10:47 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -136,8 +136,8 @@ CREATE TABLE `orders_db` (
 INSERT INTO `orders_db` (`OrderID`, `ItemID`, `c_id`, `cust_status`, `OrderQty`, `OrderType`, `TypeID`, `OrderDate`, `OrderTotal`, `proof_img`, `p_mode`, `tracking_no`, `courier_id`, `pay_status`) VALUES
 (1, 1007, 7242156480, 1, 27, 'In Process', 1, '2023-03-26 05:27:03', 12150, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '1010101010', 'XEND', 'Installment'),
 (2, 1002, 4062959512, 1, 5, 'In Process', 1, '2023-03-26 06:31:51', 750, '', 'GCash', '9349493939332', 'LBC', 'Installment'),
-(3, 1006, 1087763698, 1, 20, 'In Process', 1, '2023-03-26 06:31:52', 3000, '', '', '', '', ''),
-(6, 1001, 1087763698, 1, 10, 'In Process', 1, '2023-03-26 06:31:53', 2000, '', 'GCash', '123412341234', 'Lalamove', 'Installment'),
+(3, 1006, 1087763698, 1, 20, 'In Process', 1, '2023-03-26 08:43:09', 3000, '', '', '', '', ''),
+(6, 1001, 1087763698, 1, 10, 'In Process', 1, '2023-03-26 08:38:10', 2000, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '123412341234', 'Lalamove', 'Installment'),
 (7, 1012, 7242156480, 1, 20, 'Completed', 2, '2023-03-26 06:31:54', 5000, '', 'PayPal', '3e923e8939', 'XEND', 'Full Payment'),
 (8, 1009, 4062959512, 1, 8, 'In Process', 1, '2023-03-26 06:31:56', 2000, '', 'BDO', '5261162734', 'Flash Express', 'Full Payment'),
 (10, 1015, 7242156480, 1, 1, 'Completed', 2, '2023-03-26 05:28:17', 300, '', 'GCash', '012341531', 'Shopee Xpress', 'Full Payment'),
@@ -177,8 +177,8 @@ CREATE TABLE `register` (
 
 INSERT INTO `register` (`id`, `cust_name`, `cust_avatar`, `cust_email`, `cust_pass`, `cust_reg`, `cust_city`, `cust_st`, `cust_brgy`, `cust_unit`, `cust_zip`, `cust_phone`, `login_id`, `date`, `user_rank`, `cust_address`, `cust_status`, `login_attempt`, `otp`) VALUES
 (1, 'Lia Maranan', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'yarnoverhook.official@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-26 06:16:45', 'admin', '123 Block 1 Mabilis St., Quezon City', 1, 0, 415175),
-(2, 'Nina De Guzman', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'ninadguzman.2k23@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-25 14:10:35', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1, 0, 0),
-(3, 'Darwin Manalastas', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'darwin.manalastas334@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-26 06:13:44', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1, 0, 0),
+(2, 'Nina De Guzman', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'ninadguzman.2k23@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-26 08:08:32', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1, 0, 0),
+(3, 'Darwin Manalastas', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'darwin.manalastas334@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-26 08:19:02', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1, 0, 0),
 (4, 'Rodrigo Villaramas', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'rodrigo.villaramas@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-25 14:10:40', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1, 0, 0),
 (5, 'John D. Baptist', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'yosefudesu@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', 7, 8, '09123456789', 9943549504, '2023-03-25 14:10:41', 'user', '#7 Apostles Street, Brgy. Ginebra, Mandaluyong City, NCR', 1, 0, 876296),
 (7, 'Joseph Abellano', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'abellanojoseph@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Quezon City', 'Mango', 'Brgy. Apple', 23, 198, '09123456789', 3408394783, '2023-03-25 14:10:44', 'user', '#23 Mango Street, Brgy. Apple, Quezon City, NCR             ', 1, 0, 763884),

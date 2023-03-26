@@ -110,7 +110,7 @@
                     <?php if (!empty($order['proof_img'])) { ?>
                         <a class="btn btn-sm text-white" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold; background-color:indigo;"> Click here to view receipt. </a></h6>
                     <?php } else {  ?>
-                        <span style="font-weight:lighter;color:indigo;">No receipt uploaded yet.</span>
+                        <span style="font-weight:lighter;color:indigo;">No proof of payment uploaded yet.</span>
                     <?php } ?>
                     </h6>
                 </div>
