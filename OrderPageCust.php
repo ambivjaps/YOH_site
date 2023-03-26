@@ -127,7 +127,7 @@
                             <?php if (!empty($order['proof_img'])) { ?>
                                 <a class="btn btn-primary btn-sm rounded" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
                             <?php } else { ?>
-                                <span style="font-weight:bold;color:indigo;">No proof of payment uploaded yet.</span> </b> 
+                                <a class="btn btn-primary btn-sm rounded no-receipt" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
                             <?php }?>
                         </p>
                     </div>
@@ -214,6 +214,26 @@
         </div>
 
         </section>
+        <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <p style="text-align:center;font-weight:bold">No uploaded receipt</p>
+                <div class="modal-footer">
+                    <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                </div>
+            </div>
+        </div>
     </main>
+    
+    <script>
+        [...document.getElementsByClassName('no-receipt')].forEach((e) => {
+            e.addEventListener('click', () => {
+                document.getElementById('myModal2').style.display='block';
+            });
+        });
+
+        document.getElementById('okBtn').addEventListener('click', () => {
+            document.getElementById('myModal2').style.display='none';
+        });
+    </script>
 
 <?php require 'layouts/Footer.php';?>
