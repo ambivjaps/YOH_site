@@ -77,7 +77,7 @@
                         <h6 style="font-weight:bold;"> Order# <span style="font-weight:lighter;color:indigo;"><?php echo $order['OrderID']; ?></span></h6>
                         <h6 style="font-weight:bold;"> Item Name: <span style="font-weight:lighter;color:indigo;"><?php echo $order['ItemName']; ?></span></h6>
                         <h6 style="font-weight:bold;"> Price: PHP <span style="font-weight:lighter;color:indigo;"><?php echo $order['ItemPrice']; ?></span></h6>
-                        <h6 style="font-weight:bold;"> Quantity: <span style="font-weight:lighter;color:indigo;">><?php echo $order['OrderQty']; ?></span></h6>
+                        <h6 style="font-weight:bold;"> Quantity: <span style="font-weight:lighter;color:indigo;"><?php echo $order['OrderQty']; ?></span></h6>
                         <h6 style="font-weight:bold;"> Materials Used: </h6>
                         <h6 style="font-weight:bold;"> Ordered by: <span style="font-weight:lighter;color:indigo;"><?php echo $order['c_name']; ?></h6>
                         <h6 style="font-weight:bold;"> Due on: <span style="font-weight:lighter;color:indigo;"><?php echo date("F d, Y", strtotime($order['OrderDate'])); ?></span></h6>
@@ -89,19 +89,45 @@
             <div class="col-md-6">
                     <h3 style="font-size:40px; color:indigo;"><strong> Payment </strong></h3><hr style="width:50%;">
                     <h6 style="font-weight:bold;"> Total Cost: PHP <span style="font-weight:lighter;color:indigo;"><?php echo $order['OrderTotal']; ?></h6>
-                    <h6 style="font-weight:bold;"> Mode of Payment: <span class="badge" style="background-color:blue"><?php echo $order['p_mode']; ?></h6>
-                    <h6 style="font-weight:bold;"> Payment Status: <span style="font-weight:bold;color:red;"><?php echo $order['pay_status']; ?></h6>
-                    <h6 style="font-weight:bold;"> Proof of Payment:  <?php if (!empty($order['proof_img']) && $order['proof_img'] !== 'None') { ?>
-                                <a class="btn btn-primary btn-sm rounded" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
-                            <?php } else { ?>
-                                <a class="btn btn-primary btn-sm rounded" id="no-receipt" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
-                            <?php }?></div>
+
+                    <h6 style="font-weight:bold;"> Mode of Payment: 
+                    <?php if (!empty($order['p_mode'])) { ?>
+                        <span class="badge" style="background-color:blue"><?php echo $order['p_mode']; ?></span>
+                    <?php } else {  ?>
+                        <span style="font-weight:lighter;color:indigo;">No mode of payment chosen yet.</span>
+                    <?php } ?>
+                    </h6>
+
+                    <h6 style="font-weight:bold;"> Payment Status: 
+                    <?php if (!empty($order['pay_status'])) { ?>
+                        <span style="font-weight:bold;color:red;"><?php echo $order['pay_status']; ?></span>
+                    <?php } else {  ?>
+                        <span style="font-weight:lighter;color:indigo;">No payment status chosen yet.</span>
+                    <?php } ?>
+                    </h6>
+
+                    <h6 style="font-weight:bold;"> Proof of Payment: 
+                    <?php if (!empty($order['proof_img'])) { ?>
+                        <a class="btn btn-sm text-white" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold; background-color:indigo;"> Click here to view receipt. </a></h6>
+                    <?php } else {  ?>
+                        <span style="font-weight:lighter;color:indigo;">No receipt uploaded yet.</span>
+                    <?php } ?>
+                    </h6>
+                </div>
         </div>
         <br><hr>
         <div class="row mt-5">
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
+                    <?php
+                        $current_user = $order['login_id'];
+                        $item_av = "SELECT * FROM register WHERE login_id = $current_user";
+                        $result_av = mysqli_query($con, $item_av);
+                        $prof_avatar = mysqli_fetch_assoc($result_av);
+                        mysqli_free_result($result_av);
+                    ?>
+                    <img class="rounded img-fluid" src="<?php echo $prof_avatar['cust_avatar']; ?>">
                     </div>
                     <div class="col-md-8">
                     <h3 style="font-size:40px; color:indigo;"><strong> Customer Details </strong></h3><hr style="width:50%;">
@@ -119,8 +145,23 @@
             
             <div class="col-md-6">
                     <h3 style="font-size:40px; color:indigo;"><strong> Tracking Details </strong></h3><hr style="width:50%;">
-                    <h6 style="font-weight:bold;"> Courier: <span style="font-weight:lighter;color:indigo;"><?php echo $order['courier_id']; ?></h6>
-                    <h6 style="font-weight:bold;"> Tracking Number: <span style="font-weight:lighter;color:indigo;"><?php echo $order['tracking_no']; ?></h6>
+
+                    <h6 style="font-weight:bold;"> Courier: 
+                    <?php if (!empty($order['courier_id'])) { ?>
+                        <span style="font-weight:lighter;color:indigo;"><?php echo $order['courier_id']; ?></span>
+                    <?php } else {  ?>
+                        <span style="font-weight:lighter;color:indigo;"> No courier selected yet. </span>
+                    <?php } ?>
+                    </h6>
+
+                    <h6 style="font-weight:bold;"> Tracking Number: 
+                    <?php if (!empty($order['tracking_no'])) { ?>
+                        <span style="font-weight:lighter;color:indigo;"><?php echo $order['tracking_no']; ?></span>
+                    <?php } else {  ?>
+                        <span style="font-weight:lighter;color:indigo;"> No tracking number added yet. </span>
+                    <?php } ?>
+                    </h6>
+                   
                 </div>
         </div>
             
@@ -134,14 +175,6 @@
             </div>
         </div>
 
-        <div id="myModal2" class="modal">
-            <div class="modal-content">
-                <p style="text-align:center;font-weight:bold">No uploaded receipt</p>
-                <div class="modal-footer">
-                    <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
-                </div>
-            </div>
-        </div>
         <script>
             document.getElementsByName('delete')[0].addEventListener('click', (e) => {
                 e.preventDefault();
@@ -155,14 +188,6 @@
             function deleteOrderForm() {
                 document.getElementById("form").submit();
             }
-
-            document.getElementById('no-receipt').addEventListener('click', () => {
-            document.getElementById('myModal2').style.display='block';
-        });
-
-        document.getElementById('okBtn').addEventListener('click', () => {
-            document.getElementById('myModal2').style.display='none';
-        });
         </script>
 
     </div>
