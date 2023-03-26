@@ -128,7 +128,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Type</label>
                         <select class="form-select" id="OrderType" name="OrderType" aria-label=".form-select example">
-                            <option value="In Process" <?php if($order['OrderType'] == 'In Process') { ?>selected="selected"<?php } ?>>In Process</option>
+                            <option value="On-Going" <?php if($order['OrderType'] == 'On-Going') { ?>selected="selected"<?php } ?>>On-Going</option>
                             <option value="Completed" <?php if($order['OrderType'] == 'Completed') { ?>selected="selected"<?php } ?>>Completed</option>
                         </select>
                     </div>
@@ -139,7 +139,6 @@
 
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" id="editOrder" name="edit_order" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;font-weight:bold;">
                     </div>
                 </div>
             </form>

@@ -2,7 +2,7 @@
 include("includes/dbh.inc.php");
 include("includes/functions.inc.php");
 include("includes/access.inc.php");
-access('USER');
+access('ADMIN');
 
 $errors = array();
 
@@ -88,10 +88,10 @@ if(isset($_POST["cust_email"])){
             // HTML body
             $mail->isHTML(true);
             $mail->Subject="Password Changed!";
-            $mail->Body="<b>Dear lovely Customer,</b>
+            $mail->Body="<b>Dear lovely Admin,</b>
             <h3>We noticed that YOUR PASSWORD has been changed. </h3>
             <p>If you didn't change it, reset your password here . </p>
-            http://localhost:3000/ResetPass.php
+            http://localhost:3000/ResetPassAdmin.php
             <br><br>
             <p>With regards,</p>
             <b>YarnOverHook</b>";
@@ -121,7 +121,7 @@ if(isset($_POST["cust_email"])){
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title> Change Password | Yarn Over Hook </title>
+    <title> Change Password Admin| Yarn Over Hook </title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">

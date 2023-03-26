@@ -50,7 +50,7 @@
 
             <div class="float-end mt-2">
                 <a class="btn btn-dark" href="UserProfileAdminEdit.php" role="button" style="border-color:indigo;background-color:indigo;font-weight:bold;"> Edit Profile </a>
-                <a class="btn btn-dark" href="ChangePassword.php" role="button" style="border-color:indigo;background-color:indigo;font-weight:bold;"> Change Password </a>
+                <a class="btn btn-dark" href="ChangePasswordAdmin.php" role="button" style="border-color:indigo;background-color:indigo;font-weight:bold;"> Change Password </a>
             </div>
         </div>
         

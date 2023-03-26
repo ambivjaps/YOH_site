@@ -104,7 +104,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Type</label>
                         <select class="form-select rounded" id="OrderType" name="OrderType" aria-label=".form-select example" required>
-                            <option value="In Process">In Process</option>
+                            <option value="In Process">On-Going</option>
                             <option value="Completed">Completed</option>
                         </select>
                     </div>

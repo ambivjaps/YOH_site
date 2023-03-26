@@ -1,6 +1,56 @@
 <?php 
 session_start();
 
+include("includes/dbh.inc.php");
+include("includes/functions.inc.php");
+
+    function send_password_reset($email, $token){
+
+        require "phpmailer/PHPMailerAutoload.php";
+        $mail = new PHPMailer;
+
+        $mail->isSMTP();
+        $mail->Host='smtp.gmail.com';
+        $mail->Port=587;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='tls';
+
+        // YOH account
+        $mail->Username='slightlylimited0018@gmail.com';
+        $mail->Password='rmhlupihisommzsw';
+
+        // send by business email
+        $mail->setFrom('slightlylimited0018@gmail.com', 'Password Reset');
+        // get email from input
+        $mail->addAddress($_POST["cust_email"]);
+
+        // HTML body
+        $mail->isHTML(true);
+        $mail->Subject="Recover your password";
+        $mail->Body="<b>Dear User</b>
+        <h3>We received a request to reset your password.</h3>
+        <p>Kindly click the below link to reset your password</p>
+        <a href='http://localhost:3000/ResetPass.php?token=$token&email=$email'>Reset Password </a>
+        <br><br>
+        <p>With regards,</p>
+        <b>YarnOverHook</b>";
+
+        if(!$mail->send()){
+            ?>
+                <script>
+                    alert("<?php echo " Invalid Email "?>");
+                </script>
+            <?php
+        }else{
+            ?>
+                <script>
+                    window.location.replace("Login.php?RecoverSuccess=true");
+                </script>
+            <?php
+        }
+
+    }
+
     if(isset($_POST["recover"])){
         include("includes/dbh.inc.php");
         $email = $_POST["cust_email"];
@@ -15,54 +65,16 @@ session_start();
         return;
         }else{
             // generate token by binaryhexa 
-            $token = bin2hex(random_bytes(50));
+            $token = random_num(30);
+            $verify_token = "UPDATE register SET verify_token ='$token' WHERE cust_email='$email' LIMIT 1";
+            $verify_run = mysqli_query($connect, $verify_token);
+            if($verify_run){
 
-            //session_start ();
-            $_SESSION['token'] = $token;
-            $_SESSION['cust_email'] = $email;
+                send_password_reset($email, $token);
 
-            require "phpmailer/PHPMailerAutoload.php";
-            $mail = new PHPMailer;
-
-            $mail->isSMTP();
-            $mail->Host='smtp.gmail.com';
-            $mail->Port=587;
-            $mail->SMTPAuth=true;
-            $mail->SMTPSecure='tls';
-
-            // YOH account
-            $mail->Username='slightlylimited0018@gmail.com';
-            $mail->Password='rmhlupihisommzsw';
-
-            // send by business email
-            $mail->setFrom('slightlylimited0018@gmail.com', 'Password Reset');
-            // get email from input
-            $mail->addAddress($_POST["cust_email"]);
-
-            // HTML body
-            $mail->isHTML(true);
-            $mail->Subject="Recover your password";
-            $mail->Body="<b>Dear User</b>
-            <h3>We received a request to reset your password.</h3>
-            <p>Kindly click the below link to reset your password</p>
-            http://localhost:3000/ResetPass.php
-            <br><br>
-            <p>With regards,</p>
-            <b>YarnOverHook</b>";
-
-            if(!$mail->send()){
-                ?>
-                    <script>
-                        alert("<?php echo " Invalid Email "?>");
-                    </script>
-                <?php
-            }else{
-                ?>
-                    <script>
-                        window.location.replace("Login.php?RecoverSuccess=true");
-                    </script>
-                <?php
             }
+            //session_start ();
+
         }
     }
 

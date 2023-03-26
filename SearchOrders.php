@@ -20,18 +20,18 @@ if (!$_POST['inprocess'] && !$_POST['completed']) {
 
 if ($_POST['inprocess'] && $_POST['completed']) {
     $query .= "
-        WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'In Process' OR orders_db.OrderType = 'Completed'
-        OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'In Process' OR orders_db.OrderType = 'Completed'
-        OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'In Process' OR orders_db.OrderType = 'Completed'
-        OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'In Process' OR orders_db.OrderType = 'Completed'
+        WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed'
+        OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed'
+        OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed'
+        OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed'
         AND cust_profile.cust_status = '1'";
 } else {
     if ($_POST['inprocess']) {
         $query .= "
-            WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'In Process'
-            OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'In Process'
-            OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'In Process'
-            OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'In Process'
+            WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'On-Going'
+            OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'On-Going'
+            OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'On-Going'
+            OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'On-Going'
             AND cust_profile.cust_status = '1'";
     }
     
@@ -47,7 +47,7 @@ if ($_POST['inprocess'] && $_POST['completed']) {
 
 
 $query .= " ORDER BY OrderID";
-$type = "In Process";
+$type = "On-Going"; 
 $stmt = $con->prepare($query);
 
 $stmt->bind_param(

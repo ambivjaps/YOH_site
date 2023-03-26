@@ -238,7 +238,7 @@ if (isset($_POST['cust_name'])) {
             }
             
             btn.onclick = function() {
-                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*)(?=.*[@$!%*?&])[A-Za-z@$!%*?&]{8,}$/;
+                const passwordRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
                 let fields = {
                     'cust_name': 'Full name',
                     'cust_st': 'Street',
@@ -289,7 +289,7 @@ if (isset($_POST['cust_name'])) {
             }
 
             //regex
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+           
 
 
         </script>
@@ -300,6 +300,7 @@ if (isset($_POST['cust_name'])) {
     <script src="assets/js/DesignA.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/DesignAnimation.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 </body>
 
 </html>
