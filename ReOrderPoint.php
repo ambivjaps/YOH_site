@@ -85,13 +85,10 @@
                                     sto.setAttribute('style', 'color: green');
                                 }
                             </script>
-                        <a class="item-description" href="https://shopee.ph/product/52800866/20050831178" style="text-decoration:none;color:black;"><p>https://shopee.ph/product/52800866/20050831178</p></a>
-                        <a class="item-description" href="https://shopee.ph/product/52800866/20050831178" style="text-decoration:none;color:black;"><p>https://shopee.ph/product/52800866/20050831178</p></a>
-                        <a class="item-description" href="https://shopee.ph/product/52800866/20050831178" style="text-decoration:none;color:black;"><p>https://shopee.ph/product/52800866/20050831178</p></a>
-                        <hr>
+                            
                         <div class="item">
-                            <p class="item-name">Item Description</p>
-                            <p class="item-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <p class="item-name" style="font-weight:bold;">Item Description</p>
+                            <p class="item-description"><?php echo nl2br($inv['ItemDesc']); ?></p>
                         </div>
                         <hr>
                     <br>
