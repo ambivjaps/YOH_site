@@ -72,7 +72,7 @@ if(isset($_GET['id'])) {
 
         $OID = $order['OrderID'];
 
-        $query = "UPDATE orders_db SET proof_img= 'None', p_mode= NULL , pay_status= NULL WHERE OrderID=$OID";
+        $query = "UPDATE orders_db SET proof_img= NULL, p_mode= NULL , pay_status= NULL WHERE OrderID=$OID";
         $query_run = mysqli_query($con, $query);
         if($query_run) {
             header("Location: OrderPageCust.php");
@@ -101,8 +101,7 @@ if(isset($_GET['id'])) {
                         <div class="item"><span class="price"></span>
                             <div></div>
                             <p class="item-name" style="font-weight:bold;color: rgb(111, 66, 193);font-weight:bold;">Total Amount Due: <span style="font-weight:lighter;color:indigo;"> PHP <?php echo $order['OrderTotal']; ?> </p>
-                            <p>Send your payment thru.. (insert bank details) </p>
-                            <p>Insert more ordering disclaimers here.. </p><hr>
+                            <hr>
                             <p class="item-name" style="margin-bottom: 13.2px;color: rgb(111, 66, 193);font-weight:bold;" input="read-only" style="font-weight:bold;">Mode of Payment </p>
                             <select class="form-select" id="p_mode" name="p_mode" aria-label=".form-select example" required>
                               <option value="Paymaya" <?php if($order['p_mode'] == 'Paymaya') { ?>selected="selected"<?php } ?> style="font-weight:bold;">Paymaya</option>

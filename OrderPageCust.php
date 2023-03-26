@@ -58,6 +58,7 @@
 
     <main class="page payment-page;">
         <section class="clean-block payment-form dark" style="background-color:#efe9ef;"><br><br>
+        <?php if (!empty($orders)) { ?>
         <?php foreach($orders as $order): ?>
             <div class="container" style="color: var(--bs-btn-hover-border-color);">
                 <div class="block-heading">
@@ -89,7 +90,7 @@
 		<div class="column" style="font-weight:bold;"><b>Order Due: <span style="font-weight:bold;color:indigo;"><?php echo date("F d, Y", strtotime($order['OrderDate'])); ?> </b>  <br>
 		<br>
 		<br>
-		<div class="row"> <b>Order Status: </b> <span class="badge bg-warning"> <?php echo $order['OrderType']; ?> </span>
+		<div class="row"> <b>Order Status: </b> <span class="badge bg-warning text-dark"> <?php echo $order['OrderType']; ?> </span>
 		
 		</select> </div> </div>
 		
@@ -107,14 +108,26 @@
                         <h5 ><a href="AddPaymentCust.php?id=<?php echo $order['OrderID']; ?>" style="font-weight:bold; text-decoration:none;color: rgb(111, 66, 193);">Payment</h5></a><hr>
                         <p class="card-text">
                             <br> <b style="font-weight:bold;">Amount:  <span style="font-weight:bold;color:indigo;"> PHP <?php echo $order['OrderTotal']; ?> </b>
-							<br> <b style="font-weight:bold;">Mode of Payment: <span style="font-weight:bold;color:indigo; text-transform:capitalize;"> <?php echo $order['p_mode']; ?> </b> 
-							<br> <b style="font-weight:bold;">Status of Payment: <span  style="font-weight:bold;color:indigo; text-transform:capitalize;"><?php echo $order['pay_status']; ?></span> </b> 
+							<br> <b style="font-weight:bold;">Mode of Payment: 
+                            <?php if (!empty($order['p_mode'])) { ?>
+                                <span style="font-weight:bold;color:indigo; text-transform:capitalize;"> <?php echo $order['p_mode']; ?></span> </b> 
+                            <?php } else {  ?>
+                                <span style="font-weight:bold;color:indigo;">No mode of payment chosen yet.</span> </b> 
+                            <?php } ?>
+
+							<br> <b style="font-weight:bold;">Status of Payment: 
+                            <?php if (!empty($order['pay_status'])) { ?>
+                                <span style="font-weight:bold;color:indigo; text-transform:capitalize;"><?php echo $order['pay_status']; ?></span> </b> 
+                            <?php } else {  ?>
+                                <span style="font-weight:bold;color:indigo;">No payment status chosen yet.</span> </b> 
+                            <?php } ?>
+
 							<br> <b style="font-weight:bold;">
                             Proof of Payment:
-                            <?php if (!empty($order['proof_img']) && $order['proof_img'] !== 'None') { ?>
+                            <?php if (!empty($order['proof_img'])) { ?>
                                 <a class="btn btn-primary btn-sm rounded" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
                             <?php } else { ?>
-                                <a class="btn btn-primary btn-sm rounded" id="no-receipt" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
+                                <span style="font-weight:bold;color:indigo;">No proof of payment uploaded yet.</span> </b> 
                             <?php }?>
                         </p>
                     </div>
@@ -126,14 +139,23 @@
 	<div class="container">
         <div class="row">
             <div class="col-md-12 mb-4">
-                <div class="card">
-                    <img class="card-img-top" src="" alt="">
-  
+                <div class="card"> 
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight:bold;color: rgb(111, 66, 193);">Tracking Details</h5><hr>
                         <p class="card-text">
-                            <br> <b>Courier: <span style="font-weight:bold;color:indigo;"><?php echo $order['courier_id']; ?> </b>
-							<br> <b>Tracking Number: <span style="font-weight:bold;color:indigo;"><?php echo $order['tracking_no']; ?> </b>
+                            <br> <b>Courier: </b>
+                            <?php if (!empty($order['courier_id'])) { ?>
+                            <span style="font-weight:bold;color:indigo;"><?php echo $order['courier_id']; ?> </span>
+                            <?php } else { ?>
+                            <span style="font-weight:bold;color:indigo;">No courier selected yet. </span>
+                            <?php } ?>
+                            
+                            <br> <b>Tracking Number: </b>
+                            <?php if (!empty($order['tracking_no'])) { ?>
+							<span style="font-weight:bold;color:indigo;"><?php echo $order['tracking_no']; ?> </span>
+                            <?php } else { ?>
+                            <span style="font-weight:bold;color:indigo;">No tracking number added yet. </span>
+                            <?php } ?>
 							<br> <br>
                         </p>
 						<br>
@@ -142,60 +164,56 @@
                 <?php endforeach; ?>
             </div>
 
+            <?php } else { ?>
+                <div class="container my-5">
+                    <h2 class="card-text"> You have no orders in process. Please place an order. </h2>
+                </div>
+        <?php } ?>
+
+        <div class="container my-5">
+
             <div class="col-md-12">
                 <div class="card">
-                    <img class="card-img-top" src="" alt="" >
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight:bold;color: rgb(111, 66, 193);">Your Order History</h5><hr>
-                        <p class="card-text">
-                            <div class="row">
-                                <table class="table table-striped table-hover table-sm mt-5">
-                                <tr>
-                                    <th> Order# </th>
-                                    <th> Item Name: </th>
-                                    <th> Total Price: </th>
-                                    <th> Order Date: </th>
-                                    <th> Order Status: </th>
-                                </tr>
-            
-                            <?php $loop=1; foreach($orders_past as $history): ?>
-                                <tr><td>  <?php echo $loop; ?> </td>
-                                <td>  <?php echo $history['ItemName']; ?> </td>
-                                <td> <?php echo $history['OrderTotal']; ?> </td>
-                                <td> <?php echo date("F d, Y", strtotime($history['OrderDate'])); ?> </td>
-                                <td> <span class="badge bg-success"><?php echo $history['OrderType']; ?> </span> </td></tr>
-                            <?php $loop++; endforeach; ?>
-                            </table>
-                            </div>
-						<br> <br>
-						</p>
+
+                        <?php if (!empty($orders_past)) { ?>
+                            <p class="card-text">
+                                <div class="row">
+                                    <table class="table table-striped table-hover table-sm mt-5">
+                                    <tr>
+                                        <th> Order# </th>
+                                        <th> Item Name: </th>
+                                        <th> Total Price: </th>
+                                        <th> Order Date: </th>
+                                        <th> Order Status: </th>
+                                    </tr>
+                
+                                <?php $loop=1; foreach($orders_past as $history): ?>
+                                    <tr><td>  <?php echo $loop; ?> </td>
+                                    <td>  <?php echo $history['ItemName']; ?> </td>
+                                    <td> <?php echo $history['OrderTotal']; ?> </td>
+                                    <td> <?php echo date("F d, Y", strtotime($history['OrderDate'])); ?> </td>
+                                    <td> <span class="badge bg-success"><?php echo $history['OrderType']; ?> </span> </td></tr>
+                                <?php $loop++; endforeach; ?>
+                                </table>
+                                </div>
+                            <br> <br>
+                            </p>
+                        <?php } else { ?>
+                            <p class="card-text"> No completed order history available for your account. </p>
+                        <?php } ?>
+
 						<br>
                     </div>
                 </div>
             </div>
         
-        </div>
-    </div>
-   
-        </section>
-        <div id="myModal2" class="modal">
-            <div class="modal-content">
-                <p style="text-align:center;font-weight:bold">No uploaded receipt</p>
-                <div class="modal-footer">
-                    <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
                 </div>
             </div>
         </div>
-    </main>
-    
-    <script>
-        document.getElementById('no-receipt').addEventListener('click', () => {
-            document.getElementById('myModal2').style.display='block';
-        });
 
-        document.getElementById('okBtn').addEventListener('click', () => {
-            document.getElementById('myModal2').style.display='none';
-        });
-    </script>
+        </section>
+    </main>
 
 <?php require 'layouts/Footer.php';?>
