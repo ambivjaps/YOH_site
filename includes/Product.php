@@ -1,4 +1,5 @@
 <?php
+
 class Product{
 	private $host  = 'localhost';
     private $user  = 'root';
