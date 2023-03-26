@@ -91,22 +91,23 @@
                     <h6 style="font-weight:bold;"> Total Cost: PHP <span style="font-weight:lighter;color:indigo;"><?php echo $order['OrderTotal']; ?></h6>
                     <h6 style="font-weight:bold;"> Mode of Payment: <span class="badge" style="background-color:blue"><?php echo $order['p_mode']; ?></h6>
                     <h6 style="font-weight:bold;"> Payment Status: <span style="font-weight:bold;color:red;"><?php echo $order['pay_status']; ?></h6>
-                    <h6 style="font-weight:bold;"> Proof of Payment: <a href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;;color:violet;text-decoration:none;" > Click here to view receipt. </a></h6>
-                </div>
+                    <h6 style="font-weight:bold;"> Proof of Payment:  <?php if (!empty($order['proof_img']) && $order['proof_img'] !== 'None') { ?>
+                                <a class="btn btn-primary btn-sm rounded" href="<?php echo $order['proof_img']; ?>" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
+                            <?php } else { ?>
+                                <a class="btn btn-primary btn-sm rounded" id="no-receipt" style="font-weight:bold;background:indigo;border-color:indigo;"> Click here to view receipt </a>
+                            <?php }?></div>
         </div>
         <br><hr>
         <div class="row mt-5">
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
-                    <img class="rounded img-fluid" src="<?php echo $order['c_avatar']; ?>">
                     </div>
                     <div class="col-md-8">
                     <h3 style="font-size:40px; color:indigo;"><strong> Customer Details </strong></h3><hr style="width:50%;">
                         <h6 style="font-weight:bold;"> Customer Profile used: <span style="font-weight:lighter;color:indigo;"><?php echo $order['c_label']; ?></h6>
                         <h6 style="font-weight:bold;"> Name: <span style="font-weight:lighter;color:indigo;"><?php echo $order['c_name']; ?> </h6>
                         <h6 style="font-weight:bold;"> Address: <span style="font-weight:lighter;color:indigo;"><?php echo $order['address']; ?></h6>
-                        <h6 style="font-weight:bold;"> Email: <span style="font-weight:lighter;color:indigo;"><?php echo $order['email']; ?></h6>
                         <h6 style="font-weight:bold;"> Region: <span style="font-weight:lighter;color:indigo;"><?php echo $order['region']; ?></h6>
                         <h6 style="font-weight:bold;"> City: <span style="font-weight:lighter;color:indigo;"><?php echo $order['city']; ?></h6>
                         <h6 style="font-weight:bold;"> Barangay: <span style="font-weight:lighter;color:indigo;"><?php echo $order['barangay']; ?></h6>
@@ -133,6 +134,14 @@
             </div>
         </div>
 
+        <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <p style="text-align:center;font-weight:bold">No uploaded receipt</p>
+                <div class="modal-footer">
+                    <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                </div>
+            </div>
+        </div>
         <script>
             document.getElementsByName('delete')[0].addEventListener('click', (e) => {
                 e.preventDefault();
@@ -146,6 +155,14 @@
             function deleteOrderForm() {
                 document.getElementById("form").submit();
             }
+
+            document.getElementById('no-receipt').addEventListener('click', () => {
+            document.getElementById('myModal2').style.display='block';
+        });
+
+        document.getElementById('okBtn').addEventListener('click', () => {
+            document.getElementById('myModal2').style.display='none';
+        });
         </script>
 
     </div>

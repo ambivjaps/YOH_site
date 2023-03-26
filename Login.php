@@ -57,6 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $result = mysqli_query($con, $sql);
                      header("Location: Login.php?account=lock"); 
                     }
+                    
+                else if(empty($response)) {
+                    header("Location: Login.php?captcha=fail");}
+
                 else if ($response != "") {
                     $_SESSION['login_id'] = $user_data['login_id'];
                     $_SESSION['user_rank'] = $user_data['user_rank'];
@@ -77,12 +81,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 header("Location: Login.php?email=exists");
             }
         
-        }
-    else {
-        echo "<script>alert('Captcha verification failed.')</script>";
+        }else if(empty($response)) {
+            header("Location: Login.php?captcha=fail");
     }
-
 }
+
 
 if(isset($_SESSION['login_attempts']) && $_SESSION['login_attempts'] >= 3){
     $disabled = "disabled";}
@@ -177,6 +180,13 @@ if (isset($_SESSION["locked"]))
                     <br>Kindly verify your account again.
                     </div>   
                 <?php } ?> 
+                <?php 
+                if (isset($_GET['captcha']) && $_GET['captcha'] === 'fail') { ?>
+                    <div class="alert alert-danger text-center" role="alert">
+                    Verify you are not a robot.
+                    <br>Please answer the CAPTCHA.
+                    </div>   
+                <?php } ?> 
                     <div class="mb-3"><label class="form-label" for="email" style=" font-weight:bold; font-size: 20px;color: rgb(111, 66, 193);">Email</label><input class="form-control item" type="text" id="email" name="cust_email" placeholder="Email" required="" style="margin-bottom: 9px;"></div>
                     <div class="mb-3"><label class="form-label" for="password" style=" font-weight:bold; font-size: 20px;color: rgb(111, 66, 193);">Password</label><input class="form-control" type="password" id="password" name="cust_pass" placeholder="Password" required="" style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;"></div>
                                     
@@ -195,7 +205,7 @@ if (isset($_SESSION["locked"]))
                         $_SESSION["locked"] = time();
                         echo "<p style='color:red; text-align:center; font-weight:bold;'> Maximum login attempt reached. Please wait for 30 seconds and refresh the page.</p>";
                       }else { ?>
-                      <button class="btn btn-primary" type="submit"  style="font-weight: bold; width: 147px; height: auto; margin:auto; display:flex; display:grid; border-color: indigo;background: indigo;">Login</button>
+                      <button class="btn btn-primary" type="submit" id="login" name="login" style="font-weight: bold; width: 147px; height: auto; margin:auto; display:flex; display:grid; border-color: indigo;background: indigo;">Login</button>
                       
                       <br>
                     <?php } ?>
@@ -210,7 +220,6 @@ if (isset($_SESSION["locked"]))
     <script src="assets/js/DesignA.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/DesignAnimation.js"></script>
-
 </body>
 
 </html>

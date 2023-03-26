@@ -92,7 +92,7 @@ if(isset($_GET['id'])) {
         <section class="clean-block payment-form dark" style="background-color: #efe9ef;">
             <div class="container" style="margin-bottom: 35px;margin-top: 20px;">
                 <div class="block-heading">
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:64px; color:black; font-weight:bold;"> Add Payment <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="OrderPageCust.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h2>
+                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:64px; color:black; font-weight:bold;"> Add Payment <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background-color:indigo;width:40px;"><a href="OrderPageCust.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h2>
                 </div>
                 <form action="AddPaymentCust.php?id=<?php echo $order['OrderID']; ?>" method="POST" enctype="multipart/form-data" style="border:none;">
                     <input type="text" name="id-order" value="<?php echo $order['OrderID']; ?>" hidden>
@@ -100,10 +100,10 @@ if(isset($_GET['id'])) {
                         <div></div>
                         <div class="item"><span class="price"></span>
                             <div></div>
-                            <p class="item-name" style="font-weight:bold;">Total Amount Due: Php<?php echo $order['OrderTotal']; ?> </p>
+                            <p class="item-name" style="font-weight:bold;color: rgb(111, 66, 193);font-weight:bold;">Total Amount Due: <span style="font-weight:lighter;color:indigo;"> PHP <?php echo $order['OrderTotal']; ?> </p>
                             <p>Send your payment thru.. (insert bank details) </p>
                             <p>Insert more ordering disclaimers here.. </p><hr>
-                            <p class="item-name" style="margin-bottom: 13.2px;" input="read-only" style="font-weight:bold;">Mode of Payment </p>
+                            <p class="item-name" style="margin-bottom: 13.2px;color: rgb(111, 66, 193);font-weight:bold;" input="read-only" style="font-weight:bold;">Mode of Payment </p>
                             <select class="form-select" id="p_mode" name="p_mode" aria-label=".form-select example" required>
                               <option value="Paymaya" <?php if($order['p_mode'] == 'Paymaya') { ?>selected="selected"<?php } ?> style="font-weight:bold;">Paymaya</option>
                               <option value="BDO" <?php if($order['p_mode'] == 'BDO') { ?>selected="selected"<?php } ?> style="font-weight:bold;">BDO</option>
@@ -111,19 +111,19 @@ if(isset($_GET['id'])) {
                               <option value="Paypal" <?php if($order['p_mode'] == 'Paypal') { ?>selected="selected"<?php } ?> style="font-weight:bold;">Paypal</option>
                             </select>
 
-                            <p class="item-name mt-2" style="margin-bottom: 13.2px;" input="read-only">Status of Payment </p>
+                            <p class="item-name mt-2" style="margin-bottom: 13.2px;color: rgb(111, 66, 193);font-weight:bold;" input="read-only">Status of Payment </p>
                             <select class="form-select" id="pay_status" name="pay_status" aria-label=".form-select example" required>
                               <option value="Installment" <?php if($order['pay_status'] == 'Installment') { ?>selected="selected"<?php } ?>>Installment</option>
                               <option value="Full Payment" <?php if($order['pay_status'] == 'Full Payment') { ?>selected="selected"<?php } ?>>Full Payment</option>
                             </select> 
                             
-                            <p class="item-name" style="margin-bottom: 14.2px;margin-top: 14px;">Proof of Payment</p>
+                            <p class="item-name" style="margin-bottom: 14.2px;margin-top: 14px;color: rgb(111, 66, 193);font-weight:bold;">Proof of Payment</p>
                             <input type="file" class="form-control form-control my-3" name="proof_img" >
                             <input type="hidden" name="proof_img_old" value="<?php echo $order['proof_img']; ?>">
                         </div>
                         <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" name="add_payment" value="Submit" style="width:150px;border-color:rgb(119,13,253);background-color:rgb(119,13,253);font-weight:bold;">
-                        <input class="btn btn-danger mt-3" id="reset" name="delete" style="width:150px;font-weight:bold;" value="Reset">
+                        <input class="btn btn-success mt-3" type="submit" name="add_payment" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
+                        <input class="btn btn-danger mt-3"  type="reset" id="reset" name="delete" style="width:150px;font-weight:bold;" value="Reset">
                     </div>
                             
                         </div>
@@ -134,7 +134,7 @@ if(isset($_GET['id'])) {
 
         <div id="myModal2" class="modal">
             <div class="modal-content">
-                <p style="text-align:center;">Do you want to reset the payment method?</p>
+                <p style="text-align:center;font-weight:bold;">Do you want to reset the payment method?</p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
                     <button class="btn bg-danger text-white mt-3" id="cancelBtn" style="border-color:indigo;font-weight:bold;width:100px;">Cancel</button>
