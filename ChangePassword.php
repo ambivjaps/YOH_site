@@ -57,22 +57,20 @@ if(isset($_POST["update-password"])){
             $mail->SMTPAuth=true;
             $mail->SMTPSecure='tls';
 
-            // h-hotel account
+            // YOH account
             $mail->Username='slightlylimited0018@gmail.com';
             $mail->Password='rmhlupihisommzsw';
 
-            // send by h-hotel email
+            // send by business email
             $mail->setFrom('slightlylimited0018@gmail.com', 'Password Changed');
             // get email from input
             $mail->addAddress($_POST["cust_email"]);
-            //$mail->addReplyTo('lamkaizhe16@gmail.com');
 
             // HTML body
             $mail->isHTML(true);
             $mail->Subject="Password Changed!";
             $mail->Body="<b>Dear lovely Customer,</b>
             <h3>We noticed that YOUR PASSWORD has been changed. </h3>
-            <br><br>
             <p>If you didn't change it, reset your password here . </p>
             http://localhost:3000/ResetPass.php
             <br><br>

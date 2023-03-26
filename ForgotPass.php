@@ -30,11 +30,11 @@ session_start();
             $mail->SMTPAuth=true;
             $mail->SMTPSecure='tls';
 
-            // h-hotel account
+            // YOH account
             $mail->Username='slightlylimited0018@gmail.com';
             $mail->Password='rmhlupihisommzsw';
 
-            // send by h-hotel email
+            // send by business email
             $mail->setFrom('slightlylimited0018@gmail.com', 'Password Reset');
             // get email from input
             $mail->addAddress($_POST["cust_email"]);
