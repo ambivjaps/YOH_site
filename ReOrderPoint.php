@@ -6,6 +6,7 @@
     include("includes/functions.inc.php");
     include("includes/access.inc.php");
     $user_data = check_login($con);
+    
     access('ADMIN');
 
     require 'layouts/Header.php';
