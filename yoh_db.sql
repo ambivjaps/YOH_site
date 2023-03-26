@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2023 at 03:17 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Mar 26, 2023 at 09:42 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `cust_profile` (
   `login_id` bigint(12) NOT NULL,
   `unique_id` int(5) NOT NULL DEFAULT 1,
   `cust_status` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cust_profile`
@@ -53,13 +53,13 @@ CREATE TABLE `cust_profile` (
 INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_label`, `region`, `city`, `street`, `barangay`, `phone_no`, `zip_code`, `unit_no`, `date`, `address`, `login_id`, `unique_id`, `cust_status`) VALUES
 (1, 7242156480, 'Nina De Guzman', 'Home', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', '09993093997', 1113, 18, '2023-03-24 16:48:22', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 7242156480, 1, 1),
 (2, 1087763698, 'Darwin Manalastas', 'Home', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', '09323155312', 1010, 12, '2023-03-22 10:25:39', '12 Pioneer St., Boni Ave, Mandaluyong City', 1087763698, 1, 1),
-(3, 4062959512, 'Rodrigo Villaramas', 'Home', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', '09172238482', 1114, 20, '2023-03-24 16:51:29', '20 Mapayapa St., Gasan City, Marinduque', 4062959512, 1, 0),
-(4, 4062959512, 'Rodrigo Villaramas', 'Ancestral House', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-24 16:51:38', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1, 0),
-(5, 4062959512, 'Rodrigo Villaramas', 'Girlfriend\'s Condo', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-24 16:51:38', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1, 1),
+(3, 4062959512, 'Rodrigo Villaramas', 'Home', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', '09172238482', 1114, 20, '2023-03-25 16:50:35', '20 Mapayapa St., Gasan City, Marinduque', 4062959512, 1, 1),
+(4, 4062959512, 'Rodrigo Villaramas', 'Ancestral House', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-25 16:50:35', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1, 0),
+(5, 4062959512, 'Rodrigo Villaramas', 'Girlfriend\'s Condo', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-25 16:50:28', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1, 0),
 (6, 7242156480, 'Nina De Guzman', 'Condo', 'NCR', 'QUEZON CITY', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-24 16:48:22', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 7242156480, 1, 0),
 (10, 9943549504, 'John D. Baptist', 'Home', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', '09123456789', 8, 7, '2023-03-13 13:21:06', '#7 Apostles Street, Brgy. Ginebra, Mandaluyong City, NCR', 9943549504, 1, 1),
 (11, 3408394783, 'Joseph Abellano', 'Home', 'NCR', 'Quezon City', 'Mango', 'Brgy. Apple', '09123456789', 198, 23, '2023-03-19 05:15:56', '#23 Mango Street, Brgy. Apple, Quezon City, NCR                     ', 3408394783, 1, 1),
-(14, 4219818691, 'Try Lang', 'Home', '12412', '1241121', '123', '12312', '09123456789', 12312, 21, '2023-03-25 14:07:18', '1212412                                ', 4219818691, 1, 1);
+(14, 3408394783, 'Try Lang', 'Home', '12412', '1241121', '123', '12312', '09123456789', 12312, 21, '2023-03-26 07:39:32', '1212412                                ', 3408394783, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -78,7 +78,7 @@ CREATE TABLE `inventory_db` (
   `ItemPrice` int(12) NOT NULL,
   `ItemQty` int(12) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `inventory_db`
@@ -99,7 +99,12 @@ INSERT INTO `inventory_db` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `
 (12, 1012, 'Happy Little Keychains - Orange', 'assets/img/upload/inventory/1678477819_1877358099640b89fb8c3a1_default_inv.jpg', 'These are a bunch of happy little keychains inspired by little everyday things. More are to come soon but have this nice little carrot and orange :> \r\n\r\nMaterial:\r\nYarn Crochet', 'Finished', 1, 250, 100, '2023-03-10 19:50:43'),
 (13, 1013, 'Happy Little Keychains - Carrot', 'assets/img/upload/inventory/1678477826_555860640640b8a0296f58_default_inv.jpg', 'These are a bunch of happy little keychains inspired by little everyday things. More are to come soon but have this nice little carrot and orange :> \r\n\r\nMaterial:\r\nYarn Crochet', 'Finished', 1, 250, 100, '2023-03-10 19:50:37'),
 (14, 1014, 'Blackpink Lightstick Strap - Black', 'assets/img/upload/inventory/1678473556_1008125315640b795487e43_blackpink lightstick holder_black.jpg', 'Calling all Blinks out there! \r\n\r\nThis was a highly requested Item, and we have made a lightstick holder for you guys!\r\n\r\nStrap is 40 inches long.', 'Finished', 1, 300, 10, '2023-03-10 19:05:07'),
-(15, 1015, 'Blackpink Lightstick Strap - Chevron', 'assets/img/upload/inventory/1678473618_1774975424640b7992d0361_blackpink lightstick holder_chevron.jpg', 'Calling all Blinks out there! \r\n\r\nThis was a highly requested Item, and we have made a lightstick holder for you guys!\r\n\r\nStrap is 40 inches long.', 'Finished', 1, 300, 14, '2023-03-10 19:05:14');
+(15, 1015, 'Blackpink Lightstick Strap - Chevron', 'assets/img/upload/inventory/1678473618_1774975424640b7992d0361_blackpink lightstick holder_chevron.jpg', 'Calling all Blinks out there! \r\n\r\nThis was a highly requested Item, and we have made a lightstick holder for you guys!\r\n\r\nStrap is 40 inches long.', 'Finished', 1, 300, 14, '2023-03-10 19:05:14'),
+(16, 1016, 'Chonky Otori Sama', 'assets/img/upload/inventory/1679814616_709284961641fefd8a59be_chonky otori sama.jpg', 'This is a placeholder description!!', 'Finished', 1, 250, 100, '2023-03-26 07:10:16'),
+(17, 1017, 'Egg Beret', 'assets/img/upload/inventory/1679814673_1864746821641ff011b18e0_egg beret .jpeg', 'This is a placeholder text!!!', 'Finished', 1, 200, 100, '2023-03-26 07:11:13'),
+(18, 1018, 'Mochi Family', 'assets/img/upload/inventory/1679814697_130860885641ff029315f4_mochi family.jpg', 'This is a placeholder text!!!', 'Finished', 1, 200, 100, '2023-03-26 07:11:37'),
+(19, 1019, 'Potchi Pillow', 'assets/img/upload/inventory/1679814727_1120092999641ff047489c1_potchi pillow.jpg', 'This is a placeholder text!!', 'Finished', 1, 250, 100, '2023-03-26 07:12:07'),
+(20, 1020, 'Rainbow Sweater', 'assets/img/upload/inventory/1679814749_1926548014641ff05d7d71d_rainbow sweater.jpeg', 'This is a placeholder text!', 'Finished', 1, 500, 50, '2023-03-26 07:12:29');
 
 -- --------------------------------------------------------
 
@@ -122,21 +127,21 @@ CREATE TABLE `orders_db` (
   `tracking_no` varchar(255) NOT NULL,
   `courier_id` varchar(255) NOT NULL,
   `pay_status` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders_db`
 --
 
 INSERT INTO `orders_db` (`OrderID`, `ItemID`, `c_id`, `cust_status`, `OrderQty`, `OrderType`, `TypeID`, `OrderDate`, `OrderTotal`, `proof_img`, `p_mode`, `tracking_no`, `courier_id`, `pay_status`) VALUES
-(1, 1007, 7242156480, 1, 27, 'In Process', 1, '2023-03-24 16:42:15', 12150, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '1010101010', 'XEND', 'Paid'),
-(2, 1002, 4062959512, 1, 5, 'In Process', 1, '2023-03-24 16:42:18', 750, 'None', 'GCash', '9349493939332', 'LBC', 'Unpaid'),
-(3, 1006, 1087763698, 1, 20, 'In Process', 1, '2023-03-25 11:22:42', 3000, 'None', 'Paymaya', '', '', 'Installment'),
-(6, 1001, 1087763698, 1, 10, 'In Process', 1, '2023-03-24 16:42:22', 2000, 'None', 'Union Bank', '', '', ''),
-(7, 1012, 7242156480, 1, 20, 'Completed', 2, '2023-03-24 16:42:24', 5000, 'None', 'BPI', '3e923e8939', 'XEND', 'Paid'),
-(8, 1009, 4062959512, 1, 8, 'In Process', 1, '2023-03-24 16:42:28', 2000, 'None', 'BDO', '', '', ''),
-(10, 1015, 7242156480, 1, 1, 'Completed', 2, '2023-03-24 16:42:31', 300, '', '', '', '', ''),
-(13, 1012, 9943549504, 1, 1, 'In Process', 1, '2023-03-24 16:42:34', 250, '', '', '', '', '');
+(1, 1007, 7242156480, 1, 27, 'In Process', 1, '2023-03-26 05:27:03', 12150, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '1010101010', 'XEND', 'Installment'),
+(2, 1002, 4062959512, 1, 5, 'In Process', 1, '2023-03-26 06:31:51', 750, '', 'GCash', '9349493939332', 'LBC', 'Installment'),
+(3, 1006, 1087763698, 1, 20, 'In Process', 1, '2023-03-26 06:31:52', 3000, '', '', '', '', ''),
+(6, 1001, 1087763698, 1, 10, 'In Process', 1, '2023-03-26 06:31:53', 2000, '', 'GCash', '123412341234', 'Lalamove', 'Installment'),
+(7, 1012, 7242156480, 1, 20, 'Completed', 2, '2023-03-26 06:31:54', 5000, '', 'PayPal', '3e923e8939', 'XEND', 'Full Payment'),
+(8, 1009, 4062959512, 1, 8, 'In Process', 1, '2023-03-26 06:31:56', 2000, '', 'BDO', '5261162734', 'Flash Express', 'Full Payment'),
+(10, 1015, 7242156480, 1, 1, 'Completed', 2, '2023-03-26 05:28:17', 300, '', 'GCash', '012341531', 'Shopee Xpress', 'Full Payment'),
+(13, 1012, 9943549504, 1, 1, 'In Process', 1, '2023-03-26 06:31:57', 250, '', 'Paymaya', '123456789', 'J&T Express', 'Full Payment');
 
 -- --------------------------------------------------------
 
@@ -150,7 +155,7 @@ CREATE TABLE `register` (
   `cust_avatar` varchar(255) NOT NULL,
   `cust_email` varchar(60) DEFAULT NULL,
   `cust_pass` varchar(255) NOT NULL,
-  `cust_reg` varchar(60) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `cust_reg` varchar(60) CHARACTER SET latin1 NOT NULL,
   `cust_city` varchar(50) NOT NULL,
   `cust_st` text NOT NULL,
   `cust_brgy` varchar(50) NOT NULL,
@@ -159,25 +164,25 @@ CREATE TABLE `register` (
   `cust_phone` varchar(50) NOT NULL,
   `login_id` bigint(12) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `user_rank` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'user',
+  `user_rank` varchar(20) CHARACTER SET latin1 NOT NULL DEFAULT 'user',
   `cust_address` varchar(60) NOT NULL,
   `cust_status` int(11) NOT NULL,
   `login_attempt` int(11) NOT NULL,
   `otp` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `register`
 --
 
 INSERT INTO `register` (`id`, `cust_name`, `cust_avatar`, `cust_email`, `cust_pass`, `cust_reg`, `cust_city`, `cust_st`, `cust_brgy`, `cust_unit`, `cust_zip`, `cust_phone`, `login_id`, `date`, `user_rank`, `cust_address`, `cust_status`, `login_attempt`, `otp`) VALUES
-(1, 'Lia Maranan', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'yarnoverhook.official@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-25 14:10:17', 'admin', '123 Block 1 Mabilis St., Quezon City', 1, 0, 415175),
+(1, 'Lia Maranan', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'yarnoverhook.official@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-26 06:16:45', 'admin', '123 Block 1 Mabilis St., Quezon City', 1, 0, 415175),
 (2, 'Nina De Guzman', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'ninadguzman.2k23@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-25 14:10:35', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1, 0, 0),
-(3, 'Darwin Manalastas', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'darwin.manalastas334@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-25 14:10:38', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1, 0, 0),
+(3, 'Darwin Manalastas', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'darwin.manalastas334@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-26 06:13:44', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1, 0, 0),
 (4, 'Rodrigo Villaramas', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'rodrigo.villaramas@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-25 14:10:40', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1, 0, 0),
 (5, 'John D. Baptist', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'yosefudesu@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', 7, 8, '09123456789', 9943549504, '2023-03-25 14:10:41', 'user', '#7 Apostles Street, Brgy. Ginebra, Mandaluyong City, NCR', 1, 0, 876296),
 (7, 'Joseph Abellano', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'abellanojoseph@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Quezon City', 'Mango', 'Brgy. Apple', 23, 198, '09123456789', 3408394783, '2023-03-25 14:10:44', 'user', '#23 Mango Street, Brgy. Apple, Quezon City, NCR             ', 1, 0, 763884),
-(8, 'JJ CA', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'abellanoj@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Manila', 'Banawe', 'Brgy. Ewan', 32, 1820, '09123456789', 319496508, '2023-03-25 14:16:12', 'user', '#32 Banawe Street, Brgy. Ewan, Manila, NCR                  ', 0, 5, 355863);
+(8, 'JJ CA', 'assets/img/upload/avatars/1679369435_1044462018641924db303be_admin.jpg', 'abellanoj@gmail.com', '$2y$10$O.JMSl2GKYFuSg3D65mOWOwnJsV9C2ob7EkwNutSRcPM9P8xlOEOe', 'NCR', 'Manila', 'Banawe', 'Brgy. Ewan', 32, 1820, '09123456789', 319496508, '2023-03-25 16:46:01', 'user', '#32 Banawe Street, Brgy. Ewan, Manila, NCR                  ', 1, 0, 780029);
 
 -- --------------------------------------------------------
 
@@ -192,7 +197,7 @@ CREATE TABLE `slides` (
   `slide_desc` varchar(255) NOT NULL,
   `slide_link` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `slides`
@@ -218,7 +223,7 @@ CREATE TABLE `videos` (
   `vid_cat` varchar(255) NOT NULL,
   `vid_url` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `videos`
@@ -321,7 +326,7 @@ ALTER TABLE `cust_profile`
 -- AUTO_INCREMENT for table `inventory_db`
 --
 ALTER TABLE `inventory_db`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `orders_db`
