@@ -21,7 +21,6 @@
 
 <?php 
     if(isset($_POST['submit'])) {
-
         $CustProf = $_POST['CustProf'];
         $InvItem = $_POST['InvItem'];
         $OrderType = $_POST['OrderType'];
@@ -52,6 +51,14 @@
             $_SESSION['InvItem'] = $_POST['InvItem'];
             $_SESSION['OrderType'] = $_POST['OrderType'];
             $_SESSION['OrderQty'] = $_POST['OrderQty'];
+
+            $sql = "UPDATE inventory_db SET ItemQty=ItemQty-$OrderQty WHERE ItemID='$InvItem' ";
+            $result = mysqli_query($con, $sql);
+            if($result) {
+            header("Location: OrdersAdminView.php");
+            mysqli_close($con);
+            exit();
+            }
 
             mysqli_close($con);
             header("Location: OrdersAdminView.php");
