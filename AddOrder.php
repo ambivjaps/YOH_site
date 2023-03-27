@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Quantity</label>
-                        <input type="text" name="OrderQty" id="OrderQty" class="form-control rounded" required>
+                        <input type="text" name="OrderQty" id="OrderQty" minlength="11" maxlength="11"  onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
                     </div>
                    
                     <div class="button-group float-end">
@@ -122,4 +122,13 @@
         </div>
     </div>
 
+         <script>
+        function restrictAlphabets(e){
+            var x = e.which || e.keycode;
+            if((x >= 48 && x <=57 ))
+                return true;
+            else
+                return false;
+        }
+        </script>
 <?php require 'layouts/Footer.php';?>

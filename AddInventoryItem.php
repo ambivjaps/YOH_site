@@ -1,13 +1,13 @@
-<?php 
-    session_start();
+<?php
+session_start();
 
-    include("includes/dbh.inc.php");
-    include("includes/functions.inc.php");
-    include("includes/access.inc.php");
-    access('ADMIN');
-    $user_data = check_login($con);
+include("includes/dbh.inc.php");
+include("includes/functions.inc.php");
+include("includes/access.inc.php");
+access('ADMIN');
+$user_data = check_login($con);
 
-    require 'layouts/Header.php';
+require 'layouts/Header.php';
 
 ?>
 
@@ -52,13 +52,6 @@
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            $_SESSION['ItemID'] = $_POST['ItemID'];
-            $_SESSION['ItemName'] = $_POST['ItemName'];
-            $_SESSION['ItemDesc'] = $_POST['ItemDesc'];
-            $_SESSION['ItemType'] = $_POST['ItemType'];
-            $_SESSION['ItemPrice'] = $_POST['ItemPrice'];
-            $_SESSION['ItemQty'] = $_POST['ItemQty'];
-
             header("Location: Inventory.php");
             mysqli_close($con);
             
@@ -71,6 +64,49 @@
 ?>
 
 <title> Add Inventory | Yarn Over Hook </title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alef&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/ProdListDesign.css.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <style>
+        #myModal2 {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        #myModal3 {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            top: 30%;
+            width: 23%;
+            background-color: #fee8e8;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .modal-footer {
+            border: none;
+        }
+
+        .modal-footer button {
+            background-color: white;
+            margin: 0 auto;
+            border: none;
+        }
+    </style>
+
 
 <body class="d-flex flex-column min-vh-100">
 
@@ -79,7 +115,6 @@
 <div class="container my-5">
 
 <h1 style="font-weight:bold;"> Add Inventory Item <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: indigo;background: indigo;width:40px;"><a href="Inventory.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span></h1><hr>
-        <div class="form-group">
             <form action="AddInventoryItem.php" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-6">
@@ -103,7 +138,7 @@
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Quantity</label>
-                        <input type="text" name="ItemQty" id="ItemQty" class="form-control rounded" required>
+                        <input type="text" name="ItemQty" id="ItemQty" minlength="11" maxlength="11"  onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Price (in Php)</label>
@@ -132,19 +167,68 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('add-btn').addEventListener('click', (e) => {
+    <div id="myModal3" class="modal">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to add!</p>
+                <p style="text-align:center;" id="error-message"></p>
+                <div class="modal-footer">
+                    <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            document.getElementById('add-btn').addEventListener('click', (e) => {
+            var modalError = document.getElementById("myModal3");
+            var errorBtn = document.getElementById("errorBtnClode");
+            
+            errorBtn.onclick = function() {
+                modalError.style.display = "none";
+            }
+            
+            document.getElementById('add-btn').onclick = function() {
+                let fields = {
+                    'ItemID': 'ItemID',
+                    'ItemName': 'Name',
+                    'ItemType': 'Type',
+                    'ItemQty': 'Quantity',
+                    'ItemPrice': 'Price',
+                    'ItemDesc': 'Description',
+                    
+                }
+
+                for (const key in fields) {
+                    if (document.getElementsByName(key)[0].value.length === 0) {
+                        document.getElementById('error-message').innerHTML = fields[key] + ' is required';
+                        modalError.style.display = "block";
+                        return;
+                    }
+                }
+                
             e.preventDefault();
             document.getElementById('addModal').style.display = 'block';
-        });
+        }});
 
         function closeModal() {
             document.getElementById('addModal').style.display = 'none';
         }
 
         function addItem() {
+            
             document.getElementById("form").submit();
+            window.location.href('Inventory.php');
         }
-    </script>
+    
+        </script>
+        
+         <script>
+        function restrictAlphabets(e){
+            var x = e.which || e.keycode;
+            if((x >= 48 && x <=57 ))
+                return true;
+            else
+                return false;
+        }
+        </script>
 
 <?php require 'layouts/Footer.php';?>

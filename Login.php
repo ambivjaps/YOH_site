@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     
                     $query = "UPDATE register SET login_attempt=0 where cust_email = '$cust_email' LIMIT 1";
                     $result = mysqli_query($con, $query);
-
+                    
                     unset($_SESSION["login_attempts"]);
                     header("Location: HomePage.php");
                     exit();
@@ -126,10 +126,9 @@ if (isset($_SESSION["locked"]))
 
 <body style="overflow-x:hidden;">
     <main class="page login-page">
-        
         <section class="clean-block clean-form dark" style="height: 990.391px; background-color:#efe9ef;">
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
-                <div class="block-heading"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
+                <div class="block-heading"><a href="HomePage.php"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div></a>
                 <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Login</h2>
                 <form data-bss-hover-animate="pulse" class="rounded" style="border:none;width: 554px;;height:590px; color: var(--bs-purple); max-width: 753px;" action="login.php"  method="post" >
                 <?php if (isset($_GET['registrationSuccess']) && $_GET['registrationSuccess'] === 'true') { ?>

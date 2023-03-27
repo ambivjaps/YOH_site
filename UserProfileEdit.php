@@ -157,7 +157,7 @@
                     </div>
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Phone Number</label>
-                        <input type="text" name="cust_phone" id="cust_phone" class="form-control rounded" value="<?php echo $user['cust_phone'] ?>">
+                        <input type="text" name="cust_phone" id="cust_phone" minlength="11" maxlength="11"  onkeypress="return restrictAlphabets(event)" class="form-control rounded" value="<?php echo $user['cust_phone'] ?>">
                     </div>
 
                     <div class="button-group float-end">
@@ -211,5 +211,15 @@
             } 
         };
     </script>
+    
+             <script>
+        function restrictAlphabets(e){
+            var x = e.which || e.keycode;
+            if((x >= 48 && x <=57 ))
+                return true;
+            else
+                return false;
+        }
+        </script>
 
 <?php require 'layouts/Footer.php';?>
