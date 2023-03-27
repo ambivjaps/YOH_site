@@ -139,7 +139,7 @@ if (isset($_POST['cust_name'])) {
                         </label>
                         <label class="form-label" for="name" style="font-weight: bold;margin-left: 148px;color: rgb(111,66,193);">
                             Zip Code<br>
-                            <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required="">
+                            <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" onkeypress="return restrictAlphabets(event)" required="">
                         </label>
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 42px;color: rgb(111,66,193);">
                             Unit No.
@@ -162,7 +162,7 @@ if (isset($_POST['cust_name'])) {
                             </label>
                             <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
                                 Phone Number
-                                <input class="form-control item" type="text" id="text" name="cust_phone" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" required="">
+                                <input class="form-control item" type="text" id="text" name="cust_phone" minlength="11" maxlength="11" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" onkeypress="return restrictAlphabets(event)" required="">
                             </label>
                         </div>
                         <div class="mb-3" style="margin-bottom: 9px;margin-top: 42px;">
@@ -291,6 +291,17 @@ if (isset($_POST['cust_name'])) {
             //regex
            
 
+
+        </script>
+        <script>
+
+        function restrictAlphabets(e){
+            var x = e.which || e.keycode;
+            if((x >= 48 && x <=57 ))
+                return true;
+            else
+                return false;
+        }
 
         </script>
     </main>

@@ -25,7 +25,7 @@
 ?>
 
 <?php 
-    if(isset($_POST['edit_profile'])) {
+    if(isset($_POST['c_name'])) {
         $PID = $profile['id'];
     
         $c_label = mysqli_real_escape_string($con, $_POST['c_label']);
@@ -120,7 +120,7 @@
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Phone Number</label>
-                        <input type="text" name="phone_no" id="phone_no" class="form-control rounded" value="<?php echo $profile['phone_no'] ?>">
+                        <input type="text" name="phone_no" id="phone_no" class="form-control rounded" minlength="11" maxlength="11" onkeypress="return restrictAlphabets(event)" required="" value="<?php echo $profile['phone_no'] ?>">
                     </div>
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" id="editProfile" name="edit_profile" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;">
@@ -140,6 +140,17 @@
             </div>
         </div>
     </div>
+    
+    <div id="myModal3" class="modal">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
+                <p style="text-align:center;" id="error-message"></p>
+                <div class="modal-footer">
+                    <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                </div>
+            </div>
+        </div>
+
 
     <?php else: ?>
         <div class="container my-5">
@@ -149,9 +160,38 @@
 
     <script>
         document.getElementById('editProfile').addEventListener('click', (e) => {
+            var modalError = document.getElementById("myModal3");
+            var errorBtn = document.getElementById("errorBtnClode");
+            
+            errorBtn.onclick = function() {
+                modalError.style.display = "none";
+            }
+            
+            document.getElementById('editProfile').onclick = function() {
+                let fields = {
+                    'c_label': 'Label',
+                    'c_name': 'Name',
+                    'address': 'Address',
+                    'street': 'Street',
+                    'city': 'City',
+                    'barangay': 'Barangay',
+                    'unit_no': 'Unit No.',
+                    'zip_code': 'Zip code',
+                    'region': 'Region',
+                    'phone_no': 'Phone Number',
+                    
+                }
+
+                for (const key in fields) {
+                    if (document.getElementsByName(key)[0].value.length === 0) {
+                        document.getElementById('error-message').innerHTML = fields[key] + ' is required';
+                        modalError.style.display = "block";
+                        return;
+                    }
+                }
             e.preventDefault();
             document.getElementById('editModal').style.display = 'block';
-        });
+        }});
 
         function closeModal() {
             document.getElementById('editModal').style.display = 'none';
@@ -161,5 +201,6 @@
             document.getElementById("form").submit();
         }
     </script>
+    
     
 <?php require 'layouts/Footer.php';?>

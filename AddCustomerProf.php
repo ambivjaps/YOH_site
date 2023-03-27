@@ -12,7 +12,7 @@
 ?>
 
 <?php 
-    if(isset($_POST['add_profile'])) {
+    if(isset($_POST['c_name'])) {
         $CID = $_SESSION['login_id'];
 
         $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
@@ -55,8 +55,56 @@
         }
     }
 ?>
+<head>
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Add Customer Profile | Yarn Over Hook </title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alef&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/ProdListDesign.css.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <style>
+        #myModal2 {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        #myModal3 {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
 
-<title> Add Customer Profile | Yarn Over Hook </title>
+        .modal-content {
+            top: 30%;
+            width: 23%;
+            background-color: #fee8e8;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .modal-footer {
+            border: none;
+        }
+
+        .modal-footer button {
+            background-color: white;
+            margin: 0 auto;
+            border: none;
+        }
+    </style>
+</head>
+
 
 <body class="d-flex flex-column min-vh-100">
 
@@ -106,10 +154,10 @@
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Phone Number</label>
-                        <input type="text" name="phone_no" id="phone_no" class="form-control rounded" required>
+                        <input type="text" name="phone_no" id="phone_no" minlength="11" maxlength="11" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="add-btn" name="add_profile" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;">
+                        <input class="btn btn-success mt-3" id="add-btn"  name="add_profile" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;">
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
                     </div>
                 </div>
@@ -126,20 +174,76 @@
             </div>
         </div>
     </div>
+    
+    <div id="myModal3" class="modal">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
+                <p style="text-align:center;" id="error-message"></p>
+                <div class="modal-footer">
+                    <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                </div>
+            </div>
+        </div>
 
     <script>
-        document.getElementById('add-btn').addEventListener('click', (e) => {
+            document.getElementById('add-btn').addEventListener('click', (e) => {
+            var modalError = document.getElementById("myModal3");
+            var errorBtn = document.getElementById("errorBtnClode");
+            
+            errorBtn.onclick = function() {
+                modalError.style.display = "none";
+            }
+            
+            document.getElementById('add-btn').onclick = function() {
+                let fields = {
+                    'c_label': 'Label',
+                    'c_name': 'Name',
+                    'address': 'Address',
+                    'street': 'Street',
+                    'city': 'City',
+                    'barangay': 'Barangay',
+                    'unit_no': 'Unit No.',
+                    'zip_code': 'Zip code',
+                    'region': 'Region',
+                    'phone_no': 'Phone Number',
+                    
+                }
+
+                for (const key in fields) {
+                    if (document.getElementsByName(key)[0].value.length === 0) {
+                        document.getElementById('error-message').innerHTML = fields[key] + ' is required';
+                        modalError.style.display = "block";
+                        return;
+                    }
+                }
+                
             e.preventDefault();
             document.getElementById('addModal').style.display = 'block';
-        });
+        }});
 
         function closeModal() {
             document.getElementById('addModal').style.display = 'none';
         }
 
         function addProfile() {
+            
             document.getElementById("form").submit();
         }
-    </script>  
+    
+        </script>
+    
+<script>
+
+        function restrictAlphabets(e){
+            var x = e.which || e.keycode;
+            if((x >= 48 & x <= 57))
+                return true;
+            else
+                return false;
+        }
+
+        </script>
+    
+      
         
 <?php require 'layouts/Footer.php';?>
