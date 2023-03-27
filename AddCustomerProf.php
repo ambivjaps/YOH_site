@@ -70,43 +70,43 @@
                 <div class="row my-3">
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Label</label>
-                        <input type="text" name="c_label" id="c_label" class="form-control rounded">
+                        <input type="text" name="c_label" id="c_label" class="form-control rounded" required>
                     </div>
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Name</label>
-                        <input type="text" name="c_name" id="c_name" class="form-control rounded">
+                        <input type="text" name="c_name" id="c_name" class="form-control rounded" required>
                     </div>
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Address</label>
-                        <input type="text" name="address" id="address" class="form-control rounded">
+                        <input type="text" name="address" id="address" class="form-control rounded" required>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">Street</label>
-                        <input type="text" name="street" id="street" class="form-control rounded">
+                        <input type="text" name="street" id="street" class="form-control rounded" required>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">City</label>
-                        <input type="text" name="city" id="city" class="form-control rounded">
+                        <input type="text" name="city" id="city" class="form-control rounded" required>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">Barangay</label>
-                        <input type="text" name="barangay" id="barangay" class="form-control rounded">
+                        <input type="text" name="barangay" id="barangay" class="form-control rounded" required>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">Unit Number</label>
-                        <input type="text" name="unit_no" id="unit_no" class="form-control rounded">
+                        <input type="text" name="unit_no" id="unit_no" class="form-control rounded" required>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">Zip Code</label>
-                        <input type="text" name="zip_code" id="zip_code" class="form-control rounded">
+                        <input type="text" name="zip_code" id="zip_code" class="form-control rounded" required>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">Region</label>
-                        <input type="text" name="region" id="region" class="form-control rounded">
+                        <input type="text" name="region" id="region" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Phone Number</label>
-                        <input type="text" name="phone_no" id="phone_no" class="form-control rounded">
+                        <input type="text" name="phone_no" id="phone_no" class="form-control rounded" required>
                     </div>
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" id="add-btn" name="add_profile" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;">

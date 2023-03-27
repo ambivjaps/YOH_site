@@ -84,7 +84,7 @@
                 <div class="row my-3">
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Image</label>
-                        <input type="file" class="form-control rounded"" name="ItemImg">
+                        <input type="file" class="form-control rounded" name="ItemImg">
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Item ID</label>

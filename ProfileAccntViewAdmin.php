@@ -40,7 +40,7 @@
 
 <title> Profile Account: <?php echo $profile['c_name']; ?> | Yarn Over Hook </title>
 
-<body class="d-flex flex-column min-vh-100" ">
+<body class="d-flex flex-column min-vh-100">
 
 <?php require 'layouts/nav.php';?>
 
@@ -51,8 +51,9 @@
         <div class="container">
         <form class="mb-3" action="ProfileAccntViewAdmin.php" method="POST" id="form">
         <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: indigo;background: indigo;"><a href="CustomerProfileListAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
         <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%; font-weight:bold;">
+        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
+    </form>
     <div class="row gutters">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
     <div class="card h-100">
@@ -145,8 +146,9 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
                 <div class="modal-footer">
-                    <button onClick="deleteProfile()">OK</button>
-                    <button onClick="closeModal()">Cancel</button>
+                <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
+                    <button class="btn btn-success mt-3" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;" onClick="deleteProfile()">OK</button>
+                    <button class="btn mt-3" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;" onClick="closeModal()">Cancel</button>
                 </div>
             </div>
         </div>

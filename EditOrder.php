@@ -133,7 +133,7 @@
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Quantity</label>
-                        <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty']; ?>">
+                        <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty']; ?>" required>
                     </div>
 
                     <div class="button-group float-end">
