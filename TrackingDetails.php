@@ -1,22 +1,22 @@
-<?php 
-    session_start();
+<?php
+session_start();
+
+include("includes/dbh.inc.php");
+include("includes/functions.inc.php");
+include("includes/access.inc.php");
+access('ADMIN');
+$user_data = check_login($con);
+
+if(isset($_GET['id'])) {
+    $id = mysqli_real_escape_string($con, $_GET['id']);
+    $item = "SELECT * FROM orders_db WHERE OrderID = $id";
+    $result = mysqli_query($con, $item);
+    $order = mysqli_fetch_assoc($result);
     
-    include("includes/dbh.inc.php");
-    include("includes/functions.inc.php");
-    include("includes/access.inc.php");
-    access('ADMIN');
-    $user_data = check_login($con);
+    mysqli_free_result($result);
+}
 
-    if(isset($_GET['id'])) {
-        $id = mysqli_real_escape_string($con, $_GET['id']);
-        $item = "SELECT * FROM orders_db WHERE OrderID = $id";
-        $result = mysqli_query($con, $item);
-        $order = mysqli_fetch_assoc($result);
-        
-        mysqli_free_result($result);
-    }
-
-    require 'layouts/Header.php';
+require 'layouts/Header.php';
 ?>
 
 <?php 
@@ -40,6 +40,19 @@
             echo "<script> alert('Problem occured.') </script>";
         }
     }
+    
+    if(isset($_GET['delete'])){
+        
+        $OID = $order['OrderID'];
+        
+        $query = "UPDATE orders_db WHERE OrderID=$OID";
+        $query_run = mysqli_query($con, $query);
+        if($query_run) {
+            header("Location: OrderPageAdmin.php");
+            
+            exit();
+        }
+    }
 ?>
 
 <title> Tracking Details | Yarn Over Hook </title>
@@ -56,8 +69,14 @@
             <form action="TrackingDetails.php?id=<?php echo $order['OrderID']; ?>" method="POST">
                 <div class="row my-3">
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Courier</label>
-                        <input type="text" name="courier_id" id="courier_id" class="form-control" value="<?php echo $order['courier_id']; ?>">
+                        <p class="item-name" style="margin-bottom: 13.2px;color: rgb(111, 66, 193);font-weight:bold;" input="read-only" style="font-weight:bold;">Courier </p>
+                            <select class="form-select" id="p_mode" name="courier_id" aria-label=".form-select example" required>
+                              <option value="Paymaya" <?php if($order['courier_id'] == 'J&T') { ?>selected="selected"<?php } ?> style="font-weight:bold;">J&T</option>
+                              <option value="BDO" <?php if($order['courier_id'] == 'Fifth Express') { ?>selected="selected"<?php } ?> style="font-weight:bold;">Fifth Express</option>
+                              <option value="GCash" <?php if($order['courier_id'] == 'Lalamove') { ?>selected="selected"<?php } ?> style="font-weight:bold;">Lalamove</option>
+                              <option value="Paypal" <?php if($order['courier_id'] == 'Grab') { ?>selected="selected"<?php } ?> style="font-weight:bold;">Grab</option>
+                              <option value="Paypal" <?php if($order['courier_id'] == 'Mr. Speedy') { ?>selected="selected"<?php } ?> style="font-weight:bold;">Mr. Speedy</option>
+                            </select>
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Tracking Number</label>
@@ -70,23 +89,37 @@
                     </div>
                 </div>
                 <form>
-                        <div class="col-md-">
-                            <h1></h1>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Courier<br><input class="form-control item" type="text" id="name-4" style="width: 171px;margin-bottom: 4px;" required=""></label></div>
-                                <div class="col-sm-12 col-md-6 col-xxl-10"><label class="col-form-label" for="name" style="margin-left: 31px;">Tracking ID<br><input class="form-control item" type="text" id="name-3" style="width: 121px;margin-bottom: 4px;" required=""></label></div>
-                                
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">SAVE </button><a class="btn btn-danger form-btn" role="button" href="OrderPageAdmin.php?id=<?php echo $orders['OrderID']?>">CANCEL </a></div>
-                            </div>
-                        </div>
+
                     </div>
                 </form>
             </div>
         </section>
     </main>
+    
+    <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <p style="text-align:center;font-weight:bold;">Do you want to reset the tracking details?</p>
+                <div class="modal-footer">
+                    <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                    <button class="btn bg-danger text-white mt-3" id="cancelBtn" style="border-color:indigo;font-weight:bold;width:100px;">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        document.getElementsByName('delete')[0].addEventListener('click', () => {
+            document.getElementById('myModal2').style.display='block';
+        });
+
+        document.getElementById('cancelBtn').addEventListener('click', () => {
+            document.getElementById('myModal2').style.display='none';
+        });
+
+        document.getElementById('okBtn').addEventListener('click', () => {
+            const id = document.getElementsByName('id-order')[0].value;
+            window.location.href = 'AddPaymentCust.php?id=' + id + '&delete=true';
+        });
+    </script>
 
 <?php require 'layouts/Footer.php';?>

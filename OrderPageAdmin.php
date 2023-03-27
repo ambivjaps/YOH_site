@@ -144,7 +144,8 @@
             </div>
             
             <div class="col-md-6">
-                    <h3 style="font-size:40px; color:indigo;"><strong> Tracking Details </strong></h3><hr style="width:50%;">
+                    <h3 style="font-size:40px; color:indigo;"><a href="TrackingDetails.php" style="text-decoration:none;color:indigo;">
+                    <strong> Tracking Details </strong></a></h3><hr style="width:50%;">
 
                     <h6 style="font-weight:bold;"> Courier: 
                     <?php if (!empty($order['courier_id'])) { ?>
