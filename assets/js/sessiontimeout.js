@@ -20,7 +20,7 @@ $(function()
         var timeDiff    = currentTime - pastTime;
         var minPast     = Math.floor( (timeDiff/60000) ); 
 
-        if( minPast > maxMinutes)
+        if( minPast >= maxMinutes)
         {
             sessionStorage.removeItem("lastTimeStamp");
             window.location = "includes/logout.inc.php";

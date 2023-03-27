@@ -25,6 +25,12 @@ $errors = array();
             $run_query = mysqli_query($con, $update_pass);
          
             if($run_query){
+                
+                if(isset($_SESSION['login_id']))
+                {
+                    unset($_SESSION['login_id']);
+                    session_destroy();
+                }
                 header('Location:  Login.php?ResetSuccess=true');
             }else{
                 $errors['db-error'] = "Failed to change your password!";
@@ -129,9 +135,7 @@ $errors = array();
                         <input class="form-control" type="password" id="confirmPassword" name="conf_pass" placeholder="Confirm your password" minlength="8" required="" style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;">
                     </div><br>
                     <div class="form-group">
-                        
-                        <button class="btn btn-danger form-btn" id="regBtn" type="button" name="update-password" style="margin-left: 275px;width: 137.797px;max-width: none;margin-top: -10px; border-color:indigo;background:indigo;font-weight:bold; ">CHANGE</button>
-                        
+                    <input class="form-control button" id="regBtn" type="button" name="update-password" value="CHANGE" style="border-color: rgb(119,13,253); font-weight:bold;background: rgb(119,13,253); color:white;">
                     </div>
                 </form>
             </div>

@@ -26,7 +26,7 @@
         $OrderType = $_POST['OrderType'];
         $OrderQty = mysqli_real_escape_string($con, $_POST['OrderQty']);
 
-        if($OrderType == 'In Process'){
+        if($OrderType == 'On-Going'){
             $TypeID = "1";
         } else if($OrderType == 'Completed') {
             $TypeID = "2";
@@ -104,7 +104,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Type</label>
                         <select class="form-select rounded" id="OrderType" name="OrderType" aria-label=".form-select example" required>
-                            <option value="In Process">On-Going</option>
+                            <option value="On-Going">On-Going</option>
                             <option value="Completed">Completed</option>
                         </select>
                     </div>

@@ -88,7 +88,7 @@ if(isset($_POST["cust_email"])){
             // HTML body
             $mail->isHTML(true);
             $mail->Subject="Password Changed!";
-            $mail->Body="<b>Dear lovely Admin,</b>
+            $mail->Body="<b>Dear lovely Customer,</b>
             <h3>We noticed that YOUR PASSWORD has been changed. </h3>
             <p>If you didn't change it, reset your password here . </p>
             <a href='http://localhost:3000/ForgotPass.php'>Reset Password</a>
@@ -97,6 +97,13 @@ if(isset($_POST["cust_email"])){
             <b>YarnOverHook</b>";
 
             if($mail->send()){
+
+                if(isset($_SESSION['login_id']))
+                {
+                    unset($_SESSION['login_id']);
+                    session_destroy();
+                }
+                
                 header('Location:  Login.php?ChangeSuccess=true');
             }
         
@@ -121,7 +128,7 @@ if(isset($_POST["cust_email"])){
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title> Change Password Admin| Yarn Over Hook </title>
+    <title> Change Password | Yarn Over Hook </title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
@@ -203,9 +210,7 @@ if(isset($_POST["cust_email"])){
                         <input class="form-control" type="password" id="confirmPassword" name="conf_pass" placeholder="Confirm your password" minlength="8" required="" style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;">
                     </div><br>
                     <div class="form-group">
-                        
-                        <button class="btn btn-danger form-btn" id="regBtn" type="button" name="update-password" style="margin-left: 275px;width: 137.797px;max-width: none;margin-top: -10px; border-color:indigo;background:indigo;font-weight:bold; ">CHANGE</button>
-                        
+                    <input class="form-control button" id="regBtn" type="button" name="update-password" value="Change" style="border-color: rgb(119,13,253); font-weight:bold;background: rgb(119,13,253); color:white;">      
                     </div>
                 </form>
             </div>
@@ -214,7 +219,7 @@ if(isset($_POST["cust_email"])){
         <div id="myModal2" class="modal">
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Registration complete!</p>
-                <p style="text-align:center;">You will now be redirected to Login</p>
+                <p style="text-align:center;font-weight:bold;">You will now be redirected to Login</p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
                 </div>
@@ -225,7 +230,7 @@ if(isset($_POST["cust_email"])){
                 <div id="myModal3" class="modal">
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
-                <p style="text-align:center;" id="error-message"></p>
+                <p style="text-align:center; font-weight:bold;" id="error-message"></p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
                 </div>

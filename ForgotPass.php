@@ -125,7 +125,7 @@ include("includes/functions.inc.php");
                     <div class="mb-3"><label class="form-label" for="email" style="color: rgb(111, 66, 193); font-weight:bold;">Email</label><input class="form-control item" type="text" id="email_address" name="cust_email" placeholder="Email" required autofocus style="margin-bottom: 9px;"></div>
                     <div class="mb-3"></div>
                     <div class="mb-3"></div>
-                    <button class="btn btn-primary" type="submit" value="Recover" name="recover" style="margin-left: 162px;min-width: 133px;max-width: 180px;margin-bottom: 10px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 38px;margin-top: 3px;width: 147px; border-color: rgb(119,13,253);background: rgb(119,13,253);">Send Code</button>
+                    <button class="btn btn-primary" type="submit" value="Recover" name="recover" style="margin-left: 162px;min-width: 133px;max-width: 180px;margin-bottom: 10px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 38px;margin-top: 3px;width: 147px; border-color: rgb(119,13,253);background: rgb(119,13,253);">Send Email</button>
                     <a class="btn btn-primary border rounded" role="button" href="Login.php" style="margin: -414px 195px -254px 356px;margin-left: 463px;min-width: 0px;max-width: none;margin-bottom: -254px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 32px;margin-top: -583px;width: 35px; border-color: rgb(119,13,253);background: rgb(119,13,253);">X</a>
                 </form>
                 

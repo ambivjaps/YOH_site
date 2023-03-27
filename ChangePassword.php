@@ -97,6 +97,13 @@ if(isset($_POST["cust_email"])){
             <b>YarnOverHook</b>";
 
             if($mail->send()){
+              
+                if(isset($_SESSION['login_id']))
+                {
+                    unset($_SESSION['login_id']);
+                    session_destroy();
+                }
+                
                 header('Location:  Login.php?ChangeSuccess=true');
             }
         
@@ -203,9 +210,7 @@ if(isset($_POST["cust_email"])){
                         <input class="form-control" type="password" id="confirmPassword" name="conf_pass" placeholder="Confirm your password" minlength="8" required="" style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;">
                     </div><br>
                     <div class="form-group">
-                        
-                        <button class="btn btn-danger form-btn" id="regBtn" type="button" name="update-password" style="margin-left: 275px;width: 137.797px;max-width: none;margin-top: -10px; border-color:indigo;background:indigo;font-weight:bold; ">CHANGE</button>
-                        
+                    <input class="form-control button" id="regBtn" type="button" name="update-password" value="Change" style="border-color: rgb(119,13,253); font-weight:bold;background: rgb(119,13,253); color:white;">
                     </div>
                 </form>
             </div>
@@ -225,7 +230,7 @@ if(isset($_POST["cust_email"])){
                 <div id="myModal3" class="modal">
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
-                <p style="text-align:center;" id="error-message"></p>
+                <p style="text-align:center;font-weight:bold;" id="error-message"></p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
                 </div>

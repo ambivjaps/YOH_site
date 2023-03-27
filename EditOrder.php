@@ -37,13 +37,13 @@
 <?php 
     if(isset($_POST['edit_order'])) {
         $OID = $order['OrderID'];
-        $CurrentQTY = mysqli_real_escape_string($con, $_SESSION['OrderQty']);
+        $CurrentQTY = $order['OrderQty'];
         $CustProf = $_POST['CustProf'];
         $InvItem = $_POST['InvItem'];
         $OrderType = $_POST['OrderType'];
         $OrderQty = mysqli_real_escape_string($con, $_POST['OrderQty']);
 
-        if($OrderType == 'In Process'){
+        if($OrderType == 'On-Going'){
             $query = "UPDATE orders_db SET TypeID='1' WHERE OrderID=$OID";
             $query_run = mysqli_query($con, $query);
         } else if($OrderType == 'Completed') {
@@ -71,7 +71,7 @@
             $_SESSION['OrderType'] = $_POST['OrderType'];
             $_SESSION['OrderQty'] = $_POST['OrderQty'];
 
-            
+            if($CurrentQTY !== $OrderQty){
             $sql = "UPDATE inventory_db SET ItemQty=ItemQty+$CurrentQTY-$OrderQty WHERE ItemID='$InvItem' ";
             $result = mysqli_query($con, $sql);
             if($result) {
@@ -79,11 +79,10 @@
             mysqli_close($con);
             exit();
             }
-
-            mysqli_close($con);
+        }
             header("Location: OrdersAdminView.php");
+            mysqli_close($con);
             exit();
-
         } else {
             echo "<script> alert('Problem occured.') </script>";
         }
