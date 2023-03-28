@@ -107,8 +107,8 @@
                         <input type="text" name="slide_link" id="slide_link" class="form-control rounded" value="<?php echo $slide['slide_link'] ?>">
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editSlide" name="edit_slide" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
-                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;font-weight:bold;">
+                        <input class="btn btn-success mt-3" id="editSlide" name="edit_slide" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;font-weight:bold;">
+                        <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;font-weight:bold;font-weight:bold;">
                     </div>
                 </div>
             </form>

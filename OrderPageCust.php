@@ -166,7 +166,7 @@
 
             <?php } else { ?>
                 <div class="container my-5">
-                    <h2 class="card-text"> You have no orders in process. Please place an order. </h2>
+                    <h2 class="card-text" style="font-weight:bold;"> You have no orders in process. Please place an order. </h2>
                 </div>
         <?php } ?>
 

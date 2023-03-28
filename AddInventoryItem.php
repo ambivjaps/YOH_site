@@ -149,7 +149,7 @@ require 'layouts/Header.php';
                         <textarea type="text" rows="5" class="form-control rounded" name="ItemDesc" id="ItemDesc" required></textarea>
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="add-btn" name="add_item" value="Submit" style="font-weight:bold;width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
+                        <input class="btn btn-success mt-3" id="add-btn" name="add_item" value="Submit" style="font-weight:bold;width:150px;border-color:indigo;background-color:indigo;font-weight:bold;" readonly>
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style=" font-weight:bold;width:150px;font-weight:bold;">
                     </div>
                 </div>

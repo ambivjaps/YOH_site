@@ -56,7 +56,7 @@
         <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;"><a href="ProfileAccntView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
 			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button" style="border-color:indigo;background:indigo;font-weight:bold;"><i class="fas fa-edit"></i> Edit</a>
 			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
-			<input class="btn btn-danger" name="delete" role="button" value="Delete" style="font-weight:bold;">
+			<input class="btn btn-danger" name="delete" role="button" value="Delete" style="font-weight:bold;width: 8%;">
 		</form>
 
     <div class="row gutters">
@@ -155,10 +155,10 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
                 <div class="modal-footer">
-                <button onClick="deleteProfile()">OK
+                <button class="btn mt-3"onClick="deleteProfile()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;color:white;">OK
                 <input type="hidden" class="delete_id" name="delete" value="<?php echo $profile['id']; ?>">
                     </button>
-                    <button onClick="closeModal()">Cancel</button>
+                    <button class="btn mt-3" onClick="closeModal()" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Cancel</button>
                 </div>
             </div>
         </div> 

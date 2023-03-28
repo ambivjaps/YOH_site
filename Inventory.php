@@ -44,7 +44,7 @@ require 'layouts/Header.php';
                                                 <i class="fas fa-search" style="text-align: center;"></i>
                                             </button>
                                             <a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color:indigo;background:indigo;" data-bs-target="AddInventoryItem.php" href="AddInventoryItem.php"><i class="fas fa-plus" style="text-align: center;"></i></a>
-                                        </div>
+                                        </div><hr>
                                         <h3 style="font-size: 20px; font-weight:bold;">Categories</h3>
                                         <?php 
                                             foreach ($categories as $key => $category) {
@@ -58,7 +58,7 @@ require 'layouts/Header.php';
                                         ?>
                                         
                                         <li class="list-group-item">
-                                            <div class="checkbox"><label style="font-weight:bold;"><input type="checkbox" value="<?php echo $product->cleanString($category['TypeID']); ?>" <?php echo @$categoryCheck; ?> name="category[]" class="sort_rang category"><?php echo ucfirst($category['ItemType']); ?></label></div>
+                                            <div class="form-check"><label class="form-check-label" style="font-weight:bold;"> <input class="form-check-input" type="checkbox" value="<?php echo $product->cleanString($category['TypeID']); ?>" <?php echo @$categoryCheck; ?> name="category[]" class="sort_rang category"><?php echo ucfirst($category['ItemType']); ?></label></div>
                                         </li>
 
                                     <?php } ?></div>

@@ -176,7 +176,7 @@
                         <input type="text" name="phone_no" id="phone_no" minlength="11" maxlength="11" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
                     </div>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="add-btn"  name="add_profile" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;">
+                        <input class="btn btn-success mt-3" id="add-btn"  name="add_profile" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;" readonly>
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;">
                     </div>
                 </div>
@@ -187,8 +187,8 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to add this?</p>
                 <div class="modal-footer">
-                    <button onClick="addProfile()">OK</button>
-                    <button onClick="closeModal()">Cancel</button>
+                    <button class="btn btn-success mt-3" onClick="addProfile()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                    <button class="btn mt-3" onClick="closeModal()" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Cancel</button>
                 </div>
             </div>
         </div>

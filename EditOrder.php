@@ -147,7 +147,7 @@
                              
                     <?php } ?>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editOrder" name="edit_order" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;" readonly>
+                        <input class="btn btn-success mt-3" id="editOrder" name="edit_order" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;font-weight:bold;" readonly>
                     </div>
                 </div>
             </form>

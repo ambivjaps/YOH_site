@@ -93,8 +93,8 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to add this?</p>
                 <div class="modal-footer">
-                    <button onClick="addSlide()">OK</button>
-                    <button onClick="closeModal()">Cancel</button>
+                    <button class="btn btn-success mt-3" onClick="addSlide()" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">OK</button>
+                    <button class="btn mt-3" onClick="closeModal()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">Cancel</button>
                 </div>
             </div>
         </div>

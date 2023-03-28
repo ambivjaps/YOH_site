@@ -28,8 +28,8 @@
             </div>
 
             <div class="col-md-8">
-                <h3> <?php echo $video['vid_title']; ?> </h3>
-                <span class="badge bg-dark"><?php echo $video['vid_cat']; ?></span><hr>
+                <h3 style="color:rgb(111,66,193); font-weight:bold;"> <?php echo $video['vid_title']; ?> </h3>
+                <span class="badge" style="background-color:pink; border-color: pink; color:purple;"><?php echo $video['vid_cat']; ?></span><hr>
                 <p><?php echo $video['vid_desc']; ?></p>
             </div>
 

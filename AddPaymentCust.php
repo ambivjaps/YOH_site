@@ -121,7 +121,7 @@ if(isset($_GET['id'])) {
                             <input type="hidden" name="proof_img_old" value="<?php echo $order['proof_img']; ?>">
                         </div>
                         <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" name="add_payment" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
+                        <input class="btn btn-success mt-3" type="submit" name="add_payment" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;" readonly>
                         <input class="btn btn-danger mt-3"  type="reset" id="reset" name="delete" style="width:150px;font-weight:bold;" value="Reset">
                     </div>
                             
