@@ -41,7 +41,13 @@
                 
 
                 <h1 style="font-weight:bold;"> Profiles for <span style="color: rgb(111, 66, 193);"> <?php echo $_SESSION['cust_name'] ?></span></h1>
-                
+                <?php 
+                if (isset($_GET['profile']) && $_GET['profile'] === 'error') { ?>
+                    <div class="alert alert-danger text-center" role="alert">
+                    Error in adding profile. 
+                    <br>Maximum number of profiles reached.
+                    </div>   
+                <?php } ?> 
                 <table class="table table-striped table-hover table-sm mt-5">
                     <tr>
                         <th> # </th>

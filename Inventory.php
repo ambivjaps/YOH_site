@@ -77,7 +77,19 @@ require 'layouts/Header.php';
             </div>
         </section>
     </main>
-
+    <script> 
+			var sto = document.getElementById("stocks");
+			
+			if (sto.innerText <= 5) {
+				sto.setAttribute('style', 'color: red');
+			} else if (sto.innerText <= 8) {
+				sto.setAttribute('style', 'color: orange');
+			} else if (sto.innerText <= 15) {
+				sto.setAttribute('style', 'color: green');
+			} else {
+				sto.setAttribute('style', 'color: green');
+			}
+		</script>
 <?php require 'layouts/Footer.php';?>
 
 <script src="assets/js/inventory.js"></script>

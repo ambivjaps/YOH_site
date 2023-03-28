@@ -56,7 +56,7 @@
                 <form action="TrackingDetails.php?id=<?php echo $order['OrderID']; ?>" method="POST" enctype="multipart/form-data" style="border:none;">
             <div class="row my-3">
                 <div class="col-md-12">
-                    <label style="font-weight:bold;">Customer</label>
+                    <label style="font-weight:bold;">Courier</label>
                     <select class="form-select rounded" id="courier_id" name="courier_id" aria-label=".form-select example" style="width:450px;font-weight:bold; font-size:18px;" required>
                     <option selected> Select Courier: </option>
                     <option value="J&T Express" <?php if($order['courier_id'] == 'J&T Express') { ?>selected="selected"<?php } ?> style="font-weight:bold;">J&T Express</option>

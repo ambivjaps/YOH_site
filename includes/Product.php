@@ -121,14 +121,21 @@ class Product{
 											<a href="ReOrderPoint.php?id='.$product['ItemID'].'"><button class="btn btn-primary" type="button" style="background: indigo;border-color:indigo;width: 40px;"><i class="fas fa-shopping-bag"></i></button></a>
 											<div class="price">
 												<h6 style="font-weight:bold;"> PHP <span style="color:rgb(111,66,193);" >'.$product['ItemPrice'].'</h6>
-												<h6 style="font-weight:bold;"> Quantity: <span style="color:rgb(111,66,193);" >'.$product['ItemQty'].'</h6>
+												<h6 style="font-weight:bold;"> Quantity: <span id="stocks" style="color:rgb(111,66,193);" >'.$product['ItemQty'].'</h6>
 											</div>
 										</div>
 									</div>
-								</div>';
+								</div>
+								
+		';
+								
 			}
+			
 		}
 		return 	$productHTML;	
+
+		   
+		
 	}	
 }
 ?>

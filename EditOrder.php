@@ -56,12 +56,14 @@
         $item = "SELECT * FROM inventory_db WHERE ItemID = $InvItem";
 		$result = mysqli_query($con, $item);
 		$selected_item = mysqli_fetch_assoc($result);
-		mysqli_free_result($result);
 
         $selectPrice = $selected_item['ItemPrice'];
 
         $OrderTotal = $OrderQty * $selectPrice;
-    
+
+        if($OrderQty > $selected_item['ItemQty']){
+            header("Location: EditOrder.php?id=$id&edit=error");
+        }else{
         $query = "UPDATE orders_db SET c_id='$CustProf',ItemID='$InvItem',OrderType='$OrderType',OrderQty='$OrderQty',OrderTotal='$OrderTotal' WHERE OrderID=$OID";
         $query_run = mysqli_query($con, $query);
     
@@ -88,6 +90,7 @@
         }
         
     }
+}
 ?>
 
 <title> Edit Order | Yarn Over Hook </title>
@@ -134,10 +137,17 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Quantity</label>
                         <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty']; ?>" required>
+                        <br>
                     </div>
-
+                    
+                    <?php 
+                    if (isset($_GET['edit']) && $_GET['edit'] === 'error') { ?>
+                        <p style="font-weight:bold;color:red;text-align:center;"> Error in editing order. 
+                    Quantity of order cannot exceed quantity of item.</p>
+                             
+                    <?php } ?>
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" id="editOrder" name="edit_order" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
+                        <input class="btn btn-success mt-3" id="editOrder" name="edit_order" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;" readonly>
                     </div>
                 </div>
             </form>

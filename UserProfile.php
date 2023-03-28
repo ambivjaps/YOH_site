@@ -42,7 +42,6 @@
     if(isset($_POST['change_current'])) {
         $new_id = $_POST['selected_prof'];
         $old_id = $_POST['old_id'];
-
         $query = "UPDATE cust_profile SET cust_status='1' WHERE id=$new_id";
         $query2 = "UPDATE cust_profile SET cust_status='0' WHERE id=$old_id";
 

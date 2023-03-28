@@ -37,12 +37,15 @@
         $item = "SELECT * FROM inventory_db WHERE ItemID = $InvItem";
 		$result = mysqli_query($con, $item);
 		$selected_item = mysqli_fetch_assoc($result);
-		mysqli_free_result($result);
 
         $selectPrice = $selected_item['ItemPrice'];
 
         $OrderTotal = $OrderQty * $selectPrice;
 
+        
+            if($OrderQty > $selected_item['ItemQty']){
+                header("Location: AddOrder.php?add=error");
+            }else{
         $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty','$OrderTotal')";
         $query_run = mysqli_query($con, $query);
     
@@ -63,9 +66,10 @@
             mysqli_close($con);
             header("Location: OrdersAdminView.php");
             exit();
-
+        
         } else {
             echo "<script> alert('Problem occured.') </script>";
+            }
         }
     }
 ?>
@@ -110,9 +114,16 @@
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Quantity</label>
-                        <input type="text" name="OrderQty" id="OrderQty" minlength="11" maxlength="11"  onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
+                        <input type="text" name="OrderQty" id="OrderQty" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
                     </div>
-                   
+                    <?php 
+                    if (isset($_GET['add']) && $_GET['add'] === 'error') { ?>
+                        <p style="font-weight:bold;color:red;text-align:center;"> Error in adding order. 
+                    Quantity of order cannot exceed quantity of item.</p>
+                             
+                    <?php } ?>
+
+                
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;font-weight:bold;">

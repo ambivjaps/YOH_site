@@ -28,6 +28,16 @@
         $zip_code = mysqli_real_escape_string($con, $_POST['zip_code']);
         $unit_no = mysqli_real_escape_string($con, $_POST['unit_no']);
         
+        $sql = "SELECT cust_status from cust_profile where c_id = $CID";
+            $sql_run = mysqli_query($con, $sql);
+
+        if ($sql_run && mysqli_num_rows($sql_run) < 3) {
+             $user_data = mysqli_fetch_assoc($sql_run);
+            if($user_data['cust_status'] == NULL || $user_data['cust_status'] == '0'){
+                 $query = "INSERT INTO cust_profile (c_id, c_name, c_label, address, region, city, street, barangay, phone_no, zip_code, unit_no, login_id, cust_status) VALUES ('$CID', '$c_name', '$c_label', '$address', '$region', '$city', '$street', '$barangay', '$phone_no', '$zip_code', '$unit_no', '$CID', '1')";
+                 $query_run = mysqli_query($con, $query);
+             }else{
+            
         $query = "INSERT INTO cust_profile (c_id, c_name, c_label, address, region, city, street, barangay, phone_no, zip_code, unit_no, login_id) VALUES ('$CID', '$c_name', '$c_label', '$address', '$region', '$city', '$street', '$barangay', '$phone_no', '$zip_code', '$unit_no', '$CID')";
         $query_run = mysqli_query($con, $query);
     
@@ -45,6 +55,7 @@
             $_SESSION['zip_code'] = $_POST['zip_code'];
             $_SESSION['unit_no'] = $_POST['unit_no'];
 
+            
             header("Location: ProfileAccntView.php");
             mysqli_close($con);
             
@@ -53,7 +64,15 @@
         } else {
             echo "<script> alert('Problem occured.') </script>";
         }
-    }
+    } 
+    header("Location: ProfileAccntView.php");
+    mysqli_close($con);
+    
+    exit();
+ }else  if ($sql_run && mysqli_num_rows($sql_run) >= 3 ) {
+    header("Location: ProfileAccntView.php?profile=error");
+ }
+}
 ?>
 <head>
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />

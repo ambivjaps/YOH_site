@@ -138,7 +138,7 @@ require 'layouts/Header.php';
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Quantity</label>
-                        <input type="text" name="ItemQty" id="ItemQty" minlength="11" maxlength="11"  onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
+                        <input type="text" name="ItemQty" id="ItemQty" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Price (in Php)</label>

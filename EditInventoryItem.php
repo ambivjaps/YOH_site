@@ -117,7 +117,7 @@
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Quantity</label>
-                        <input type="text" name="ItemQty" id="ItemQty" class="form-control rounded" value="<?php echo $inv['ItemQty'] ?>">
+                        <input type="text" name="ItemQty" id="ItemQty" onkeypress="return restrictAlphabets(event)" class="form-control rounded" value="<?php echo $inv['ItemQty'] ?>">
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Price (in Php)</label>
@@ -178,5 +178,14 @@
             } 
         };
     </script>
+     <script>
+        function restrictAlphabets(e){
+            var x = e.which || e.keycode;
+            if((x >= 48 && x <=57 ))
+                return true;
+            else
+                return false;
+        }
+        </script>
 
 <?php require 'layouts/Footer.php';?>
