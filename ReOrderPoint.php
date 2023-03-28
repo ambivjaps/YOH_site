@@ -49,14 +49,7 @@
                 <div class="block-heading">
                     <h2 style="font-weight: bold;">Re - Ordering Links and Methods</h2>
                 </div>
-                <?php 
-                    if (isset($_GET['success']) && $_GET['success'] === 'true') { ?>
-                        <div class="d-flex justify-content-center">
-                            <div class="alert alert-success text-center w-25" role="alert">
-                                Item reorder is successful!
-                            </div>   
-                        </div>
-                <?php } ?>
+                
 
                 <div class="form-group">
                 <form name="form" action="" method="POST">
@@ -95,9 +88,15 @@
                         <hr>
                     <br>
                     <div class="form-group">
+                   
                     <label>Input no. of Items</label>
+                   
                         <input class="form-control" type="text" name="ItemQty" placeholder="Enter no. of items"  required style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;">
                     </div>
+                    <?php 
+                    if (isset($_GET['success']) && $_GET['success'] === 'true') { ?>
+                        <p style="font-weight:bold;color:green;text-align:center;"> Item has been restocked successfully.</p>
+                <?php } ?>
                     <div class="form-group">
                     <input class="form-control button" type="submit" name="reorder" value="Add" style="border-color: rgb(119,13,253); font-weight:bold;background: rgb(119,13,253); color:white;">
                         <a href="Inventory.php" type="button" class="btn btn-primary d-block w-100" class="btn btn-primary d-block w-100"  type="button" value="Cancel" style="margin-top: 19px; background: rgb(220, 53, 69); border:rgb(220, 53, 69); text-decoration:none;color:white;">Cancel</a>

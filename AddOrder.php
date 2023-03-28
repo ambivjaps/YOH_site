@@ -17,6 +17,11 @@
 	$result_prof = mysqli_query($con, $prof);
 	$prof_sel = mysqli_fetch_all($result_prof, MYSQLI_ASSOC);
 	mysqli_free_result($result_prof);
+
+    $mat = "SELECT * FROM inventory_db WHERE TypeID='2' ORDER BY ItemID";
+	$result_mat = mysqli_query($con, $mat);
+	$inv_mat = mysqli_fetch_all($result_mat, MYSQLI_ASSOC);
+	mysqli_free_result($result_mat);
 ?>
 
 <?php 
@@ -25,7 +30,8 @@
         $InvItem = $_POST['InvItem'];
         $OrderType = $_POST['OrderType'];
         $OrderQty = mysqli_real_escape_string($con, $_POST['OrderQty']);
-
+        $MaterialUsed = $_POST['MaterialUsed'];
+        $MaterialQty = mysqli_real_escape_string($con, $_POST['MaterialQty']);
         if($OrderType == 'On-Going'){
             $TypeID = "1";
         } else if($OrderType == 'Completed') {
@@ -46,7 +52,7 @@
             if($OrderQty > $selected_item['ItemQty']){
                 header("Location: AddOrder.php?add=error");
             }else{
-        $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty','$OrderTotal')";
+        $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal,MaterialUsed,MaterialQty) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty','$OrderTotal','$MaterialUsed','$MaterialQty')";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
@@ -56,8 +62,10 @@
             $_SESSION['OrderQty'] = $_POST['OrderQty'];
 
             $sql = "UPDATE inventory_db SET ItemQty=ItemQty-$OrderQty WHERE ItemID='$InvItem' ";
+            $sql2 = "UPDATE inventory_db SET ItemQty=ItemQty-$MaterialQty WHERE TypeID='2' ";
             $result = mysqli_query($con, $sql);
-            if($result) {
+            $result2 = mysqli_query($con, $sql2);
+            if($result && $result2) {
             header("Location: OrdersAdminView.php");
             mysqli_close($con);
             exit();
@@ -82,7 +90,7 @@
 
     <div class="container my-5">
 
-    <h1 style="font-weight:bold;"> Add Order <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: #AC99CF;background: #AC99CF;width:40px;"><a href="OrdersAdminView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h1>
+    <h1 style="font-weight:bold;"> Add Order <span><button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: indigo;background: indigo;width:40px;"><a href="OrdersAdminView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i></a></button></span> </h1>
         <div class="form-group">
             <form action="AddOrder.php" method="POST">
                 <div class="row my-3">
@@ -112,6 +120,17 @@
                             <option value="Completed">Completed</option>
                         </select>
                     </div>
+
+                    <div class="col-md-12">
+                        <label style="font-weight:bold;">Material Used: </label>
+                        <select class="form-select rounded" id="MaterialUsed" name="MaterialUsed" aria-label=".form-select example" required>
+                        <?php foreach($inv_mat as $inv): ?>
+                            <option value="<?php echo $inv['ItemName'] ?>"><?php echo $inv['ItemName'] ?></option>
+                            <?php endforeach; ?>
+                            <input type="text" name="MaterialQty" id="MaterialQty" placeholder="Total number of materials used" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
+                        </select>
+                    </div>
+
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Quantity</label>
                         <input type="text" name="OrderQty" id="OrderQty" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
@@ -125,7 +144,7 @@
 
                 
                     <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;">
+                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;" readonly>
                         <input class="btn btn-danger mt-3" type="reset" id="reset" value="Reset Form" style="width:150px;font-weight:bold;">
                     </div>
                 </div>
