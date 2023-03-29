@@ -84,10 +84,12 @@
 		  
 		 <!-- ORDER DETAILS AS PER USER INPUT -->
         
-		<b> Order Details:  </b> <br> 
-		 <br> <br>
+		<b> Order Details:  </b> 
+         <h6 style="color:indigo;font-weight:bold"> Price: PHP <span style="=color:indigo;"><?php echo $order['ItemPrice']; ?></span></h6>
+                        <h6 style="color:indigo;font-weight:bold" > Quantity: <span style="=color:indigo;"><?php echo $order['OrderQty']; ?></span></h6>
+                        <h6 style="color:indigo;font-weight:bold" > Materials Used: <span style="color:indigo;"><?php echo $order['MaterialQty']; ?> x <?php echo $order['MaterialUsed']; ?></h6>
 		 <div class="row" style="font-weight:bold;"><b> Shipping Details: <span style="font-weight:bold;color:indigo;"><?php echo $order['address']; ?></b></div> </div>
-		<div class="column" style="font-weight:bold;"><b>Order Due: <span style="font-weight:bold;color:indigo;"><?php echo date("F d, Y", strtotime($order['OrderDate'])); ?> </b>  <br>
+		<div class="column" style="font-weight:bold;"><b>Order Due: <span style="font-weight:bold;color:indigo;"><?php echo date("F d, Y", strtotime($order['PaymentDue'])); ?> </b>  <br>
 		<br>
 		<br>
 		<div class="row"> <b>Order Status: </b> <span class="badge bg-warning text-dark"> <?php echo $order['OrderType']; ?> </span>

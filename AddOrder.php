@@ -22,6 +22,7 @@
 	$result_mat = mysqli_query($con, $mat);
 	$inv_mat = mysqli_fetch_all($result_mat, MYSQLI_ASSOC);
 	mysqli_free_result($result_mat);
+
 ?>
 
 <?php 
@@ -32,6 +33,8 @@
         $OrderQty = mysqli_real_escape_string($con, $_POST['OrderQty']);
         $MaterialUsed = $_POST['MaterialUsed'];
         $MaterialQty = mysqli_real_escape_string($con, $_POST['MaterialQty']);
+        $PaymentDue = date('Y-m-d', strtotime($_POST['PaymentDue']));
+
         if($OrderType == 'On-Going'){
             $TypeID = "1";
         } else if($OrderType == 'Completed') {
@@ -44,15 +47,19 @@
 		$result = mysqli_query($con, $item);
 		$selected_item = mysqli_fetch_assoc($result);
 
+        $material = "SELECT ItemQty FROM inventory_db WHERE ItemName = '$MaterialUsed'";
+		$result1 = mysqli_query($con, $material);
+		$selected_mat = mysqli_fetch_assoc($result1);
+
         $selectPrice = $selected_item['ItemPrice'];
 
         $OrderTotal = $OrderQty * $selectPrice;
 
         
-            if($OrderQty > $selected_item['ItemQty']){
+            if($OrderQty > $selected_item['ItemQty'] || $MaterialQty > $selected_mat['ItemQty']){
                 header("Location: AddOrder.php?add=error");
             }else{
-        $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal,MaterialUsed,MaterialQty) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty','$OrderTotal','$MaterialUsed','$MaterialQty')";
+        $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal,MaterialUsed,MaterialQty,PaymentDue) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty','$OrderTotal','$MaterialUsed','$MaterialQty','$PaymentDue')";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
@@ -81,8 +88,19 @@
         }
     }
 ?>
-
-<title> Add Order | Yarn Over Hook </title>
+<head>
+        <title> Add Order | Yarn Over Hook </title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  	<script>
+	  		$( function() {
+	   			$( "#PaymentDue" ).datepicker({
+	   				minDate: 0
+	   			});
+	  		});
+	  	</script>
+</head>
 
 <body class="d-flex flex-column min-vh-100">
 
@@ -99,6 +117,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Customer</label>
                         <select class="form-select rounded" id="CustProf" name="CustProf" aria-label=".form-select example" required>
+                        <option selected>Select Customer:</option>
                             <?php foreach($prof_sel as $prof): ?>
                             <option value="<?php echo $prof['c_id'] ?>"><?php echo $prof['c_name'] ?></option>
                             <?php endforeach; ?>
@@ -107,6 +126,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Item</label>
                         <select class="form-select rounded" id="InvItem" name="InvItem" aria-label=".form-select example" required>
+                        <option selected>Select Item:</option>
                             <?php foreach($inv_item as $inv): ?>
                             <option value="<?php echo $inv['ItemID'] ?>"><?php echo $inv['ItemName'] ?></option>
                             <?php endforeach; ?>
@@ -116,6 +136,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Type</label>
                         <select class="form-select rounded" id="OrderType" name="OrderType" aria-label=".form-select example" required>
+                        <option selected>Select Order Type:</option>
                             <option value="On-Going">On-Going</option>
                             <option value="Completed">Completed</option>
                         </select>
@@ -124,6 +145,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Material Used: </label>
                         <select class="form-select rounded" id="MaterialUsed" name="MaterialUsed" aria-label=".form-select example" required>
+                            <option selected>Select Item:</option>
                         <?php foreach($inv_mat as $inv): ?>
                             <option value="<?php echo $inv['ItemName'] ?>"><?php echo $inv['ItemName'] ?></option>
                             <?php endforeach; ?>
@@ -135,10 +157,15 @@
                         <label style="font-weight:bold;">Order Quantity</label>
                         <input type="text" name="OrderQty" id="OrderQty" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
                     </div>
+
+                    <div class="col-md-12">
+                        <label style="font-weight:bold;">Order Due</label>
+                        <input type="date" name="PaymentDue" id="PaymentDue" min="<?php echo date('Y-m-d'); ?>" class="form-control rounded" required>
+                    </div>
                     <?php 
                     if (isset($_GET['add']) && $_GET['add'] === 'error') { ?>
                         <p style="font-weight:bold;color:red;text-align:center;"> Error in adding order. 
-                    Quantity of order cannot exceed quantity of item.</p>
+                    Quantity of order cannot exceed quantity of item in inventory.</p>
                              
                     <?php } ?>
 

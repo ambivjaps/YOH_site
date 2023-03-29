@@ -80,7 +80,7 @@
                         <h6 style="font-weight:bold;"> Quantity: <span style="font-weight:lighter;color:indigo;"><?php echo $order['OrderQty']; ?></span></h6>
                         <h6 style="font-weight:bold;"> Materials Used: <span style="font-weight:lighter;color:indigo;"><?php echo $order['MaterialQty']; ?> x <?php echo $order['MaterialUsed']; ?></h6>
                         <h6 style="font-weight:bold;"> Ordered by: <span style="font-weight:lighter;color:indigo;"><?php echo $order['c_name']; ?></h6>
-                        <h6 style="font-weight:bold;"> Due on: <span style="font-weight:lighter;color:indigo;"><?php echo date("F d, Y", strtotime($order['OrderDate'])); ?></span></h6>
+                        <h6 style="font-weight:bold;"> Due on: <span style="font-weight:lighter;color:indigo;"><?php echo date("F d, Y", strtotime($order['PaymentDue'])); ?></span></h6>
                         <h6 style="font-weight:bold;"> Status: <span class="badge" style="background-color:indigo"><?php echo $order['OrderType']; ?></span></h6>
                     </div>
                 </div>

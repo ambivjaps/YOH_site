@@ -20,6 +20,11 @@
 	$prof_sel = mysqli_fetch_all($result_prof, MYSQLI_ASSOC);
 	mysqli_free_result($result_prof);
 
+    $mat = "SELECT * FROM inventory_db WHERE TypeID='2' ORDER BY ItemID";
+	$result_mat = mysqli_query($con, $mat);
+	$inv_mat = mysqli_fetch_all($result_mat, MYSQLI_ASSOC);
+	mysqli_free_result($result_mat);
+
     if(isset($_GET['id'])) {
 		$id = mysqli_real_escape_string($con, $_GET['id']);
 
@@ -42,6 +47,10 @@
         $InvItem = $_POST['InvItem'];
         $OrderType = $_POST['OrderType'];
         $OrderQty = mysqli_real_escape_string($con, $_POST['OrderQty']);
+        $CurrentMQTY = $order['MaterialQty'];
+        $MaterialUsed = $_POST['MaterialUsed'];
+        $MaterialQty = mysqli_real_escape_string($con, $_POST['MaterialQty']);
+        $PaymentDue = date('Y-m-d', strtotime($_POST['PaymentDue']));
 
         if($OrderType == 'On-Going'){
             $query = "UPDATE orders_db SET TypeID='1' WHERE OrderID=$OID";
@@ -57,14 +66,18 @@
 		$result = mysqli_query($con, $item);
 		$selected_item = mysqli_fetch_assoc($result);
 
+        $material = "SELECT ItemQty FROM inventory_db WHERE ItemName = '$MaterialUsed'";
+		$result1 = mysqli_query($con, $material);
+		$selected_mat = mysqli_fetch_assoc($result1);
+
         $selectPrice = $selected_item['ItemPrice'];
 
         $OrderTotal = $OrderQty * $selectPrice;
 
-        if($OrderQty > $selected_item['ItemQty']){
+        if($OrderQty > $selected_item['ItemQty'] || $MaterialQty > $selected_mat['ItemQty']){
             header("Location: EditOrder.php?id=$id&edit=error");
         }else{
-        $query = "UPDATE orders_db SET c_id='$CustProf',ItemID='$InvItem',OrderType='$OrderType',OrderQty='$OrderQty',OrderTotal='$OrderTotal' WHERE OrderID=$OID";
+        $query = "UPDATE orders_db SET c_id='$CustProf',ItemID='$InvItem',OrderType='$OrderType',OrderQty='$OrderQty',OrderTotal='$OrderTotal',MaterialUsed='$MaterialUsed',MaterialQty='$MaterialQty',PaymentDue='$PaymentDue' WHERE OrderID=$OID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
@@ -73,10 +86,21 @@
             $_SESSION['OrderType'] = $_POST['OrderType'];
             $_SESSION['OrderQty'] = $_POST['OrderQty'];
 
-            if($CurrentQTY !== $OrderQty){
+            if($CurrentQTY !== $OrderQty ){
             $sql = "UPDATE inventory_db SET ItemQty=ItemQty+$CurrentQTY-$OrderQty WHERE ItemID='$InvItem' ";
             $result = mysqli_query($con, $sql);
             if($result) {
+            header("Location: OrdersAdminView.php");
+            mysqli_close($con);
+            exit();
+            }
+        }
+        if($CurrentMQTY !== $MaterialQty ){
+            $sql = "UPDATE inventory_db SET ItemQty=ItemQty+$CurrentMQTY-$MaterialQty WHERE ItemName='$MaterialUsed' ";
+            $sql2 = "UPDATE orders_db SET MaterialQty=$MaterialQty WHERE OrderID=$OID ";
+            $result = mysqli_query($con, $sql);
+            $result2 = mysqli_query($con, $sql2);
+            if($result && $result2) {
             header("Location: OrdersAdminView.php");
             mysqli_close($con);
             exit();
@@ -134,16 +158,33 @@
                             <option value="Completed" <?php if($order['OrderType'] == 'Completed') { ?>selected="selected"<?php } ?>>Completed</option>
                         </select>
                     </div>
+
+                    <div class="col-md-12">
+                        <label style="font-weight:bold;">Material Used: </label>
+                        <select class="form-select rounded" id="MaterialUsed" name="MaterialUsed" aria-label=".form-select example" required>
+                        <?php foreach($inv_mat as $inv): ?>
+                            <option value="<?php echo $inv['ItemName'] ?>" <?php if($order['ItemName'] == $inv['ItemName']) { ?>selected="selected"<?php } ?>><?php echo $inv['ItemName'] ?></option>
+                            <?php endforeach; ?>
+                            <input type="text" name="MaterialQty" id="MaterialQty" value="<?php echo $order['MaterialQty']; ?>" placeholder="Total number of materials used" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
+                        </select>
+                    </div>
+
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Quantity</label>
                         <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty']; ?>" required>
-                        <br>
+                       
                     </div>
                     
+                    <div class="col-md-12">
+                        <label style="font-weight:bold;">Order Due</label>
+                        <input type="date" name="PaymentDue" id="PaymentDue" min="<?php echo date('Y-m-d'); ?>" value="<?php echo $order['PaymentDue']; ?>" class="form-control rounded" required>
+                        <br>
+                    </div>
+
                     <?php 
                     if (isset($_GET['edit']) && $_GET['edit'] === 'error') { ?>
                         <p style="font-weight:bold;color:red;text-align:center;"> Error in editing order. 
-                    Quantity of order cannot exceed quantity of item.</p>
+                    Quantity of order cannot exceed quantity of item in inventory.</p>
                              
                     <?php } ?>
                     <div class="button-group float-end">
