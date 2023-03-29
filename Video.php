@@ -46,8 +46,8 @@
                 <form class="mb-3" method="POST" id="form">
                 <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;"><a href="VideosAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
 			        <a class="btn btn-dark" href="EditVideo.php?id=<?php echo $video['vid_id'] ?>" type="submit" name="edit" role="button" style="border-color:indigo;background:indigo; color:white; font-weight:bold;"><i class="fas fa-edit"></i> Edit</a>
-			        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $video['vid_id']; ?>">
-			        <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%; font-weight:bold;">
+			        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $video['vid_id']; ?>" readonly>
+			        <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%; font-weight:bold;" readonly>
 		        </form><hr>
 
                 <div class="row">
@@ -72,8 +72,8 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
                 <div class="modal-footer">
-                    <button onClick="deleteVideoForm()">OK</button>
-                    <button onClick="closeModal()">Cancel</button>
+                    <button class="btn btn-success mt-3" onClick="deleteVideoForm()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                    <button class="btn mt-3" onClick="closeModal()" style="border-color:red;background-color:red;font-weight:bold;width:100px;color:white;">Cancel</button>
                 </div>
             </div>
         </div>

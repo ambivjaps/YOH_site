@@ -58,7 +58,7 @@ require 'layouts/Header.php';
                                         ?>
                                         
                                         <li class="list-group-item">
-                                            <div class="form-check"><label class="form-check-label" style="font-weight:bold;"> <input class="form-check-input" type="checkbox" value="<?php echo $product->cleanString($category['TypeID']); ?>" <?php echo @$categoryCheck; ?> name="category[]" class="sort_rang category"><?php echo ucfirst($category['ItemType']); ?></label></div>
+                                            <div class="form-check checkbox"><label class="form-check-label" style="font-weight:bold;"> <input type="checkbox" value="<?php echo $product->cleanString($category['TypeID']); ?>" <?php echo @$categoryCheck; ?> name="category[]" class="sort_rang category form-check-input"><?php echo ucfirst($category['ItemType']); ?></label></div>
                                         </li>
 
                                     <?php } ?></div>

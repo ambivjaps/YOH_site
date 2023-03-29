@@ -51,8 +51,8 @@
         <div class="container">
         <form class="mb-3" action="ProfileAccntViewAdmin.php" method="POST" id="form">
         <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: indigo;background: indigo;"><a href="CustomerProfileListAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-        <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%; font-weight:bold;">
-        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
+        <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%; font-weight:bold;" readonly>
+        <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>" readonly>
     </form>
     <div class="row gutters">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
