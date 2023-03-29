@@ -73,30 +73,21 @@
             <div class="col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title" style="font-weight:bold;color: rgb(111, 66, 193);"><?php echo $order['ItemName']; ?></h5><hr> <br>
+                        <h5 class="card-title" style="font-weight:bold;color: rgb(111, 66, 193);"><?php echo $order['ItemName']; ?></h5><hr>
 						<div class="image">
 		<div class="column">
 		<img src="<?php echo $order['ItemImg']; ?>" height="120px" width="120px"></div>
       </div>
-	  
-      <div class="text">
-		  <div class="column">
-		  
-		 <!-- ORDER DETAILS AS PER USER INPUT -->
-        
-		<b> Order Details:  </b> 
-         <h6 style="color:indigo;font-weight:bold"> Price: PHP <span style="=color:indigo;"><?php echo $order['ItemPrice']; ?></span></h6>
-                        <h6 style="color:indigo;font-weight:bold" > Quantity: <span style="=color:indigo;"><?php echo $order['OrderQty']; ?></span></h6>
-                        <h6 style="color:indigo;font-weight:bold" > Materials Used: <span style="color:indigo;"><?php echo $order['MaterialQty']; ?> x <?php echo $order['MaterialUsed']; ?></h6>
-		 <div class="row" style="font-weight:bold;"><b> Shipping Details: <span style="font-weight:bold;color:indigo;"><?php echo $order['address']; ?></b></div> </div>
-		<div class="column" style="font-weight:bold;"><b>Order Due: <span style="font-weight:bold;color:indigo;"><?php echo date("F d, Y", strtotime($order['PaymentDue'])); ?> </b>  <br>
-		<br>
-		<br>
-		<div class="row"> <b>Order Status: </b> <span class="badge bg-warning text-dark"> <?php echo $order['OrderType']; ?> </span>
-		
-		</select> </div> </div>
-		
-      </div> 
+        <div class="column" style="width:50%;">
+      <!-- ORDER DETAILS AS PER USER INPUT -->
+	    <h6 style="font-weight:bold;font-size:23px"> Order Details </h6><hr>
+        <h6 style="font-weight:bold"> Price:  <span style="color:indigo;"> PHP <?php echo $order['ItemPrice']; ?></span></h6>
+        <h6 style="font-weight:bold" > Quantity: <span style="color:indigo;"><?php echo $order['OrderQty']; ?></span></h6>
+        <h6 style="font-weight:bold" > Materials Used: <span style="color:indigo;"><?php echo $order['MaterialQty']; ?> x <?php echo $order['MaterialUsed']; ?></span></h6>
+        <h6 style="font-weight:bold"> Order Due: <span style="font-weight:bold;color:indigo;"><?php echo date("F d, Y", strtotime($order['PaymentDue'])); ?></span></h6>
+        <h6 style="font-weight:bold"> Order Status:  <span class="badge bg-warning"> <?php echo $order['OrderType']; ?> </span></h6>
+        <h6 style="font-weight:bold;"> Shipping Details: <span style="font-weight:bold;color:indigo;"><?php echo $order['address']; ?></h6>
+        </div>
 		</div>
         </div>
         </div>
