@@ -21,7 +21,7 @@ if (isset($_POST['cust_name'])) {
     
     $password_hash = password_hash($cust_pass, PASSWORD_BCRYPT);
     
-    $login_id =  random_num(10);
+    $login_id =  random_num(11);
     
     // default avatar
     $unique = strtotime("now").'_'.uniqid(rand()).'_';
