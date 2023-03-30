@@ -28,7 +28,7 @@
 
             <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: indigo;background: indigo;"><a href="Inventory.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button><hr>
 
-            <center class="my-5"><h1><strong> <i class="fas fa-cart-arrow-down"></i> Re-Order Point </strong></h1></center>
+            <center class="my-5"><h1><strong> <i class="fas fa-warehouse"></i> Re-Order Point </strong></h1></center>
 
             <?php foreach($disp_reorder as $disp): ?>
                 <div class="card">
