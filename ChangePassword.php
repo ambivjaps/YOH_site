@@ -30,7 +30,6 @@ if(isset($_POST["cust_email"])){
     $password = validate($_POST['cust_pass']);
     $npassword = validate($_POST['new_pass']);
     $cpassword = validate($_POST['conf_pass']);
-    $token = $_SESSION['token'];
     
     if(empty($password)){
         $errors['cust_pass'] = "Old Password is Required";
