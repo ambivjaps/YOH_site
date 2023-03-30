@@ -11,6 +11,11 @@ $product = new Product();
 $categories = $product->getCategories();
 $totalRecords = $product->getTotalProducts();
 
+$reorder_count = "SELECT COUNT(*) FROM inventory_db WHERE ItemQty <= 15 ORDER BY ItemID AND ItemQty";
+$result = mysqli_query($con, $reorder_count);
+$r_count = mysqli_fetch_array($result)[0];
+mysqli_free_result($result);
+
 require 'layouts/Header.php';
 ?>
 
@@ -44,7 +49,14 @@ require 'layouts/Header.php';
                                                 <i class="fas fa-search" style="text-align: center;"></i>
                                             </button>
                                             <a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color:indigo;background:indigo;" data-bs-target="AddInventoryItem.php" href="AddInventoryItem.php"><i class="fas fa-plus" style="text-align: center;"></i></a>
-                                            <a href="ReOrderPoint.php" class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color:indigo;background:indigo;"><i class="fas fa-cart-arrow-down" style="text-align: center;"></i></a>
+                                            <a href="ReOrderPoint.php" class="btn btn-primary position-relative" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color:indigo;background:indigo;">
+                                            <i class="fas fa-cart-arrow-down" style="text-align: center;"></i>
+                                                <?php if ($r_count > 0) { ?>
+                                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> <?php echo $r_count; ?> </span>
+                                                <?php } else { ?>
+                                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display:none"> </span>
+                                                <?php } ?>
+                                            </a>
                                         </div><hr>
                                         <h3 style="font-size: 20px; font-weight:bold;">Categories</h3>
                                         <?php 
