@@ -97,7 +97,7 @@
             <form action="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-2">
-                        <img class="img-fluid rounded" src="<?php echo $inv['ItemImg']; ?>" id="imgDisplay">
+                        <img class="img-fluid rounded avatar-fit" src="<?php echo $inv['ItemImg']; ?>" id="imgDisplay">
                     </div>
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Image</label>

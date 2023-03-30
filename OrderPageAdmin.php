@@ -70,7 +70,7 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
-                        <img class="rounded img-fluid" src="<?php echo $order['ItemImg']; ?>">
+                        <img class="img-fluid rounded avatar-fit" src="<?php echo $order['ItemImg']; ?>">
                     </div>
                     <div class="col-md-8">
                         <h3 style="font-size:40px; color:indigo;"><strong> Order Details </strong></h3><hr style="width:50%;">
@@ -127,7 +127,7 @@
                         $prof_avatar = mysqli_fetch_assoc($result_av);
                         mysqli_free_result($result_av);
                     ?>
-                    <img class="rounded img-fluid" src="<?php echo $prof_avatar['cust_avatar']; ?>">
+                    <img class="img-fluid rounded avatar-fit" src="<?php echo $prof_avatar['cust_avatar']; ?>">
                     </div>
                     <div class="col-md-8">
                     <h3 style="font-size:40px; color:indigo;"><strong> Customer Details </strong></h3><hr style="width:50%;">

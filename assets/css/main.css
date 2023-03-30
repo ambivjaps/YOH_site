@@ -158,6 +158,18 @@ nav {
 	animation:  transitionInContainer 0.50s;
 }
 
+.avatar-fit {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.slide-fit {
+    width: 900px;
+    height: 200px;
+    object-fit: cover;
+}
+
 @keyframes transitionInSlide {
 	from {
 		opacity: 0;
