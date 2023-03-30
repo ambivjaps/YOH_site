@@ -174,7 +174,8 @@ if(isset($_POST['delete'])) {
 
         <div id="deleteModal" class="modal" style="display: none">
             <div class="modal-content">
-                <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
+                <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this profile?
+                <br><br> WARNING: All user data it contains such as orders will also be deleted from the system. </p>
                 <div class="modal-footer">
                 <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['c_id']; ?>">
                     <button class="btn btn-success mt-3" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;" onClick="deleteProfile()">OK</button>
