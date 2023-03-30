@@ -116,12 +116,10 @@ class Product{
 											<div class="product-name">'.$product['ItemName'].'</div>
 										</a>
 										<span class="badge" style="background-color:pink; border-color: pink; color:purple;">'.$product['ItemType'].'</span><hr>
-									
 										<div class="about">
-											<a href="ReOrderPoint.php?id='.$product['ItemID'].'"><button class="btn btn-primary" type="button" style="background: indigo;border-color:indigo;width: 40px;"><i class="fas fa-shopping-bag"></i></button></a>
+										<h6 style="font-weight:bold;text-align:start;"> PHP <span style="color:rgb(111,66,193);" >'.$product['ItemPrice'].'</span></h6>
 											<div class="price">
-												<h6 style="font-weight:bold;"> PHP <span style="color:rgb(111,66,193);" >'.$product['ItemPrice'].'</h6>
-												<h6 style="font-weight:bold;"> Quantity: <span id="stocks" style="color:rgb(111,66,193);" >'.$product['ItemQty'].'</h6>
+												<h6 style="font-weight:bold;"> Quantity: <span id="stocks" style="color:rgb(111,66,193);" >'.$product['ItemQty'].'</span></h6>
 											</div>
 										</div>
 									</div>
