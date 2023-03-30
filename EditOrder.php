@@ -165,13 +165,13 @@
                         <?php foreach($inv_mat as $inv): ?>
                             <option value="<?php echo $inv['ItemName'] ?>" <?php if($order['ItemName'] == $inv['ItemName']) { ?>selected="selected"<?php } ?>><?php echo $inv['ItemName'] ?></option>
                             <?php endforeach; ?>
-                            <input type="text" name="MaterialQty" id="MaterialQty" value="<?php echo $order['MaterialQty']; ?>" placeholder="Total number of materials used" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
+                            <input type="text" name="MaterialQty" id="MaterialQty" value="<?php echo $order['MaterialQty']; ?>" placeholder="Total number of materials used" onkeypress="return restrictAlphabets(event)" class="form-control rounded mt-2" required>
                         </select>
                     </div>
 
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Quantity</label>
-                        <input type="text" name="OrderQty" id="OrderQty" class="form-control" value="<?php echo $order['OrderQty']; ?>" required>
+                        <input type="text" name="OrderQty" id="OrderQty" class="form-control rounded" value="<?php echo $order['OrderQty']; ?>" required>
                        
                     </div>
                     

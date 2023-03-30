@@ -158,6 +158,10 @@ nav {
 	animation:  transitionInContainer 0.50s;
 }
 
+.container-xxl {
+    animation:  transitionInContainer 0.50s;
+}
+
 .avatar-fit {
     width: 200px;
     height: 200px;

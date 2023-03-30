@@ -149,7 +149,7 @@
                         <?php foreach($inv_mat as $inv): ?>
                             <option value="<?php echo $inv['ItemName'] ?>"><?php echo $inv['ItemName'] ?></option>
                             <?php endforeach; ?>
-                            <input type="text" name="MaterialQty" id="MaterialQty" placeholder="Total number of materials used" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
+                            <input type="text" name="MaterialQty" id="MaterialQty" placeholder="Total number of materials used" onkeypress="return restrictAlphabets(event)" class="form-control rounded mt-2" required>
                         </select>
                     </div>
 
