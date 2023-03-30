@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
     // HTML body
     $mail->isHTML(true);
     $mail->Subject="Verify Account";
-    $mail->Body="<b>Dear User</b>
+    $mail->Body="<b>Dear User,</b>
     <h3>We received a request to verify your account.</h3>
     <p>Kindly enter the One-time Password below.</p>
     $otp
