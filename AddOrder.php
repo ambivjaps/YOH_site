@@ -58,7 +58,8 @@
         
             if($OrderQty > $selected_item['ItemQty'] || $MaterialQty > $selected_mat['ItemQty']){
                 header("Location: AddOrder.php?add=error");
-            }else{
+            }
+            else{
         $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal,MaterialUsed,MaterialQty,PaymentDue) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty','$OrderTotal','$MaterialUsed','$MaterialQty','$PaymentDue')";
         $query_run = mysqli_query($con, $query);
     
@@ -117,7 +118,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Customer</label>
                         <select class="form-select rounded" id="CustProf" name="CustProf" aria-label=".form-select example" required>
-                        <option selected>Select Customer:</option>
+                
                             <?php foreach($prof_sel as $prof): ?>
                             <option value="<?php echo $prof['c_id'] ?>"><?php echo $prof['c_name'] ?></option>
                             <?php endforeach; ?>
@@ -126,7 +127,6 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Item</label>
                         <select class="form-select rounded" id="InvItem" name="InvItem" aria-label=".form-select example" required>
-                        <option selected>Select Item:</option>
                             <?php foreach($inv_item as $inv): ?>
                             <option value="<?php echo $inv['ItemID'] ?>"><?php echo $inv['ItemName'] ?></option>
                             <?php endforeach; ?>
@@ -136,7 +136,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Type</label>
                         <select class="form-select rounded" id="OrderType" name="OrderType" aria-label=".form-select example" required>
-                        <option selected>Select Order Type:</option>
+                        
                             <option value="On-Going">On-Going</option>
                             <option value="Completed">Completed</option>
                         </select>
@@ -145,7 +145,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Material Used: </label>
                         <select class="form-select rounded" id="MaterialUsed" name="MaterialUsed" aria-label=".form-select example" required>
-                            <option selected>Select Item:</option>
+                           
                         <?php foreach($inv_mat as $inv): ?>
                             <option value="<?php echo $inv['ItemName'] ?>"><?php echo $inv['ItemName'] ?></option>
                             <?php endforeach; ?>
@@ -168,7 +168,7 @@
                     Quantity of order cannot exceed quantity of item in inventory.</p>
                              
                     <?php } ?>
-
+                   
                 
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Submit" style="width:150px;border-color:indigo;background-color:indigo;font-weight:bold;" readonly>
