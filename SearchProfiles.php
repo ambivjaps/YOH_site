@@ -28,7 +28,7 @@ foreach ($result as $profile) :
                     mysqli_free_result($result_av);
                     ?>
                     <a href="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>">
-                        <img class="rounded img-fluid" src="<?php echo $prof_avatar['cust_avatar']; ?>" title="" alt="">
+                        <img class="img-fluid rounded avatar-fit" src="<?php echo $prof_avatar['cust_avatar']; ?>" title="" alt="">
                     </a>
                 </div>
                 <div class="col-lg-7">

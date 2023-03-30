@@ -73,7 +73,7 @@
             <h3 style="font-weight:bold;"><strong> <i class="fas fa-user"></i> User Profile </strong></h3><hr>
 
             <div class="col-md-2">
-                <img class="img-fluid rounded" src="<?php echo $user['cust_avatar'] ?>" title="<?php echo $user['cust_name'] ?>" alt="<?php echo $user['cust_name'] ?>">
+                <img class="img-fluid rounded avatar-fit" src="<?php echo $user['cust_avatar'] ?>" title="<?php echo $user['cust_name'] ?>" alt="<?php echo $user['cust_name'] ?>">
             </div>
 
             <div class="col-md-10">

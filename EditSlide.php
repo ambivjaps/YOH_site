@@ -87,7 +87,7 @@
             <form action="EditSlide.php?id=<?php echo $slide['slide_id'] ?>" method="POST" id="form" enctype="multipart/form-data">
                 <div class="row my-3">
                     <div class="col-md-5">
-                        <img class="img-fluid rounded" src="<?php echo $slide['slide_img']; ?>" id="imgDisplay">
+                        <img class="img-fluid rounded slide-fit" src="<?php echo $slide['slide_img']; ?>" id="imgDisplay">
                     </div>
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Image</label>

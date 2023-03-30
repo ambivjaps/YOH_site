@@ -106,7 +106,7 @@
                     <h3 style="font-weight:bold;"> Personal Information </h3>
 
                     <div class="col-md-2">
-                        <img class="img-fluid rounded" src="<?php echo $user['cust_avatar']; ?>" id="imgDisplay">
+                        <img class="img-fluid rounded avatar-fit" src="<?php echo $user['cust_avatar']; ?>" id="imgDisplay">
                     </div>
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Avatar</label>
