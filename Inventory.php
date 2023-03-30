@@ -49,8 +49,8 @@ require 'layouts/Header.php';
                                                 <i class="fas fa-search" style="text-align: center;"></i>
                                             </button>
                                             <a class="btn btn-primary" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color:indigo;background:indigo;" data-bs-target="AddInventoryItem.php" href="AddInventoryItem.php"><i class="fas fa-plus" style="text-align: center;"></i></a>
-                                            <a href="ReOrderPoint.php" class="btn btn-primary position-relative" role="button" style="text-align: center;width: 40px;margin-left: 7px;border-color:indigo;background:indigo;">
-                                            <i class="fas fa-cart-arrow-down" style="text-align: center;"></i>
+                                            <a href="ReOrderPoint.php" class="btn btn-primary position-relative" role="button" style="text-align: center;width: 45px;margin-left: 7px;border-color:indigo;background:indigo;">
+                                            <i class="fas fa-warehouse" style="text-align: center;"></i>
                                                 <?php if ($r_count > 0) { ?>
                                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> <?php echo $r_count; ?> </span>
                                                 <?php } else { ?>
