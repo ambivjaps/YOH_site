@@ -1,6 +1,56 @@
 <?php 
 session_start();
 
+include("includes/dbh.inc.php");
+include("includes/functions.inc.php");
+
+    function send_password_reset($email, $token){
+
+        require "phpmailer/PHPMailerAutoload.php";
+        $mail = new PHPMailer;
+
+        $mail->isSMTP();
+        $mail->Host='smtp.gmail.com';
+        $mail->Port=587;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='tls';
+
+        // YOH account
+        $mail->Username='slightlylimited0018@gmail.com';
+        $mail->Password='rmhlupihisommzsw';
+
+        // send by business email
+        $mail->setFrom('slightlylimited0018@gmail.com', 'Password Reset');
+        // get email from input
+        $mail->addAddress($_POST["cust_email"]);
+
+        // HTML body
+        $mail->isHTML(true);
+        $mail->Subject="Recover your password";
+        $mail->Body="<b>Dear User</b>
+        <h3>We received a request to reset your password.</h3>
+        <p>Kindly click the below link to reset your password</p>
+        <a href='http://localhost/YOH_SITE/ResetPass.php?token=$token&email=$email'>Reset Password </a>
+        <br><br>
+        <p>With regards,</p>
+        <b>YarnOverHook</b>";
+
+        if(!$mail->send()){
+            ?>
+                <script>
+                    alert("<?php echo " Invalid Email "?>");
+                </script>
+            <?php
+        }else{
+            ?>
+                <script>
+                    window.location.replace("Login.php?RecoverSuccess=true");
+                </script>
+            <?php
+        }
+
+    }
+
     if(isset($_POST["recover"])){
         include("includes/dbh.inc.php");
         $email = $_POST["cust_email"];
@@ -15,54 +65,16 @@ session_start();
         return;
         }else{
             // generate token by binaryhexa 
-            $token = bin2hex(random_bytes(50));
+            $token = random_num(30);
+            $verify_token = "UPDATE register SET verify_token ='$token' WHERE cust_email='$email' LIMIT 1";
+            $verify_run = mysqli_query($connect, $verify_token);
+            if($verify_run){
 
-            //session_start ();
-            $_SESSION['token'] = $token;
-            $_SESSION['cust_email'] = $email;
+                send_password_reset($email, $token);
 
-            require "phpmailer/PHPMailerAutoload.php";
-            $mail = new PHPMailer;
-
-            $mail->isSMTP();
-            $mail->Host='smtp.gmail.com';
-            $mail->Port=587;
-            $mail->SMTPAuth=true;
-            $mail->SMTPSecure='tls';
-
-            // h-hotel account
-            $mail->Username='slightlylimited0018@gmail.com';
-            $mail->Password='rmhlupihisommzsw';
-
-            // send by h-hotel email
-            $mail->setFrom('slightlylimited0018@gmail.com', 'Password Reset');
-            // get email from input
-            $mail->addAddress($_POST["cust_email"]);
-
-            // HTML body
-            $mail->isHTML(true);
-            $mail->Subject="Recover your password";
-            $mail->Body="<b>Dear User</b>
-            <h3>We received a request to reset your password.</h3>
-            <p>Kindly click the below link to reset your password</p>
-            http://localhost:3000/ResetPass.php
-            <br><br>
-            <p>With regards,</p>
-            <b>YarnOverHook</b>";
-
-            if(!$mail->send()){
-                ?>
-                    <script>
-                        alert("<?php echo " Invalid Email "?>");
-                    </script>
-                <?php
-            }else{
-                ?>
-                    <script>
-                        window.location.replace("Login.php?RecoverSuccess=true");
-                    </script>
-                <?php
             }
+            //session_start ();
+
         }
     }
 
@@ -100,17 +112,21 @@ session_start();
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
                 <div class="block-heading"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
                 <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Reset Password</h2>
-                    <form action="" method="POST" name="ForgotPass" class="border rounded justify-content-center" data-bss-hover-animate="pulse" style="width: 554px;max-width: 753px;margin-bottom: 41px;margin-left: 374px;margin-right: 404px;margin-top: 20px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 221px;">
-                    
-                    <div class="mb-3"><label class="form-label" for="email" style="color: rgb(111, 66, 193); font-weight:bold;">Email</label><input class="form-control item" type="text" id="email_address" name="cust_email" placeholder="Email" required autofocus style="margin-bottom: 9px;"></div>
-                    <?php 
+                <?php 
                     if (isset($_GET['error']) && $_GET['error'] === 'true') { ?>
-                        <p style="font-weight:bold;color:red;text-align:center;"> This email address does not exist!</p>
-                             
+                        <div class="d-flex justify-content-center">
+                            <div class="alert alert-danger text-center w-25" role="alert">
+                            This email address does not exist!
+                            </div>   
+                        </div>
                     <?php } ?>
-                    <button class="btn btn-primary" type="submit" value="Recover" name="recover" style="width:150px;background: indigo;border-color:indigo;font-weight:bold;">Send Code</button>
-                    <a class="btn btn-primary border rounded" role="button" href="Login.php" style="width:150px; font-weight:bold;background: red;border-color:red; color:white;">Cancel</a>
-                
+
+                    <form action="" method="POST" name="ForgotPass" class="border rounded justify-content-center" data-bss-hover-animate="pulse" style="width: 554px;max-width: 753px;margin-bottom: 41px;margin-left: 374px;margin-right: 404px;margin-top: 20px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 221px;">
+                    <div class="mb-3"><label class="form-label" for="email" style="color: rgb(111, 66, 193); font-weight:bold;">Email</label><input class="form-control item" type="text" id="email_address" name="cust_email" placeholder="Email" required autofocus style="margin-bottom: 9px;"></div>
+                    <div class="mb-3"></div>
+                    <div class="mb-3"></div>
+                    <button class="btn btn-primary" type="submit" value="Recover" name="recover" style="margin-left: 162px;min-width: 133px;max-width: 180px;margin-bottom: 10px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 38px;margin-top: 3px;width: 147px; border-color: rgb(119,13,253);background: rgb(119,13,253);">Send Email</button>
+                    <a class="btn btn-primary border rounded" role="button" href="Login.php" style="margin: -414px 195px -254px 356px;margin-left: 463px;min-width: 0px;max-width: none;margin-bottom: -254px;margin-right: 195px;padding-left: 0px;padding-right: 0px;padding-top: 4px;padding-bottom: 4px;height: 32px;margin-top: -583px;width: 35px; border-color: rgb(119,13,253);background: rgb(119,13,253);">X</a>
                 </form>
                 
                 </div>

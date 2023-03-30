@@ -11,7 +11,13 @@ $errors = array();
         $password = mysqli_real_escape_string($con, $_POST['new_pass']);
         $cpassword = mysqli_real_escape_string($con, $_POST['conf_pass']);
         $token = mysqli_real_escape_string($con, $_POST['password_token']);
-       if(!empty($token)){ 
+
+        $query = "SELECT * FROM register WHERE cust_email = '$email' LIMIT 1";
+        $result = mysqli_query($con, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+        $user_data = mysqli_fetch_assoc($result);
+       if(!empty($token) && $token == $user_data['verify_token']){ 
         if($password !== $cpassword){
             $errors['new_pass'] = "Confirm password not matched!";
          }else if($password === $cpassword){
@@ -45,8 +51,11 @@ $errors = array();
         }else{
             $errors['conf_pass'] = "Token invalid";
         }
+    }else{
+        $errors['db-error'] = "Email is not found in our database";
     }
-    
+}
+  
     ?>
 
 <!DOCTYPE html>
