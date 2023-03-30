@@ -30,7 +30,6 @@ if(isset($_POST["cust_email"])){
     $password = validate($_POST['cust_pass']);
     $npassword = validate($_POST['new_pass']);
     $cpassword = validate($_POST['conf_pass']);
-    $token = $_SESSION['token'];
     
     if(empty($password)){
         $errors['cust_pass'] = "Old Password is Required";
@@ -88,7 +87,7 @@ if(isset($_POST["cust_email"])){
             // HTML body
             $mail->isHTML(true);
             $mail->Subject="Password Changed!";
-            $mail->Body="<b>Dear lovely Customer,</b>
+            $mail->Body="<b>Dear our lovely Admin,</b>
             <h3>We noticed that YOUR PASSWORD has been changed. </h3>
             <p>If you didn't change it, reset your password here . </p>
             <a href='http://localhost:3000/ForgotPass.php'>Reset Password</a>
@@ -175,7 +174,7 @@ if(isset($_POST["cust_email"])){
     <div class="block-heading"><a href="homepage.php"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></a></div>
         <div class="row">
             <div class="col-md-4 offset-md-4 form">
-                <form class="rounded"data-bss-hover-animate="pulse" id="myForm" action="ChangePassword.php" method="POST" autocomplete="off" style="border:none; color: var(--bs-purple);" >
+                <form class="rounded"data-bss-hover-animate="pulse" id="myForm" action="ChangePasswordAdmin.php" method="POST" autocomplete="off" style="border:none; color: var(--bs-purple);" >
                     <h2 class="text-center" style="font-weight: bold;">Change Password</h2>
                     
                     

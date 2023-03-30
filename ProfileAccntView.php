@@ -48,6 +48,12 @@
                     Maximum number of profiles reached. 
                     <p>     
                 <?php } ?> 
+                <?php 
+                if (isset($_GET['delete']) && $_GET['delete'] === 'success') { ?>
+                    <p class="rounded" style="font-weight:bold;text-align:center;color:white;background-color:green;">
+                    Profile has been deleted successfully. 
+                    <p>     
+                <?php } ?> 
                 <table class="table table-striped table-hover table-sm mt-5">
                     <tr>
                         <th> # </th>

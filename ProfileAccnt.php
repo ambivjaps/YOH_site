@@ -19,7 +19,6 @@
 		$result = mysqli_query($con, $item);
 		$profile = mysqli_fetch_assoc($result);
         mysqli_free_result($result);
-
         // get avatar from current user
 		$item_av = "SELECT * FROM register WHERE login_id = $current_user";
 		$result_av = mysqli_query($con, $item_av);
@@ -29,15 +28,24 @@
 
     if(isset($_POST['delete'])) {
 		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
+
+        $sql_error = "SELECT * FROM cust_profile where id = $id";
+        $error_run = mysqli_query($con, $sql_error);
+        if($error_run && mysqli_num_rows($error_run) > 0){
+            $user_data = mysqli_fetch_assoc($error_run);
+            if($user_data["cust_status"] == 1){
+            header("Location: ProfileAccnt.php?id=$delete_id&delete=error");
+            }
+        else {
+
 		$sql = "DELETE FROM cust_profile WHERE id = $delete_id";
-
-		if(mysqli_query($con, $sql)) {
-			header('Location: ProfileAccntView.php');
-		} else {
-			echo 'Error: ' . mysqli_error($con);
-		}
-	}
-
+            $run = mysqli_query($con, $sql);
+            if($run){
+                header("Location: ProfileAccntView.php?delete=success");
+            }
+	    }
+    }
+}
 ?>
 
 <title> Profile Account: <?php echo $profile['c_name']; ?> | Yarn Over Hook </title>
@@ -52,7 +60,7 @@
     <section class="clean-block clean-post dark" style="background-color:#efe9ef; border:none; ">
         <div class="container">
 
-        <form class="mb-3" action="ProfileAccnt.php" method="POST" id="form">
+        <form class="mb-3" action="ProfileAccnt.php?id=<?php echo $profile['id']; ?>" method="POST" id="form">
         <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;"><a href="ProfileAccntView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
 			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button" style="border-color:indigo;background:indigo;font-weight:bold;"><i class="fas fa-edit"></i> Edit</a>
 			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
@@ -81,7 +89,14 @@
         <div class="card-body" style="background: #efe9ef;">
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h6 style="font-weight: bold; font-size:40px; text-align:center; " >Shipping Details</h6>
+                    <h6 style="font-weight: bold; font-size:40px; text-align:center; " >Customer Details</h6>
+                    <?php 
+                if (isset($_GET['delete']) && $_GET['delete'] === 'error') { ?>
+                    <p class="rounded" style="font-weight:bold;text-align:center;color:white;background-color:red;">
+                     Error in deleting profile. 
+                    Profile in use cannot be deleted. 
+                    <p>     
+                <?php } ?> 
                     <hr>
                 </div>
                 <div class="col-md-12">
@@ -155,8 +170,9 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
                 <div class="modal-footer">
+                
                 <button class="btn mt-3"onClick="deleteProfile()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;color:white;">OK
-                <input type="hidden" class="delete_id" name="delete" value="<?php echo $profile['id']; ?>">
+                <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
                     </button>
                     <button class="btn mt-3" onClick="closeModal()" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Cancel</button>
                 </div>
