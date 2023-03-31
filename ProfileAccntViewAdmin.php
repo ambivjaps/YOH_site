@@ -36,10 +36,11 @@ if(isset($_POST['delete'])) {
     
     if ($result->num_rows > 0) {
         $sql = "SELECT * FROM orders_db WHERE c_id = $delete_id AND OrderType = 'On-Going'";
-        $result = $con->query($sql);
-        if($result->num_rows > 0){
+        $result1 = $con->query($sql);
+        $fetch = mysqli_fetch_assoc($result);
+        if($result1->num_rows > 0){
         header("Location: ProfileAccntViewAdmin.php?id=$id&profile=error");
-    } else {
+    } else if($fetch['OrderType'] = 'Completed' || empty($fetch['OrderType'])) {
         $sql1 = "DELETE
                  FROM cust_profile
                  WHERE c_id = $delete_id";
