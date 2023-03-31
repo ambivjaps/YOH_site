@@ -28,29 +28,42 @@ if(isset($_GET['id'])) {
 
 if(isset($_POST['delete'])) {
     $delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
-    
+
     $delete_id = $_POST['delete_id'];
-    
-    $sql = "SELECT * FROM orders_db WHERE c_id = $delete_id ";
+
+    $sql = "SELECT * FROM orders_db INNER JOIN cust_profile 
+        ON orders_db.c_id = cust_profile.c_id WHERE orders_db.c_id = $delete_id";
     $result = $con->query($sql);
-    
+    $fetch = mysqli_fetch_assoc($result);
+
     if ($result->num_rows > 0) {
         $sql = "SELECT * FROM orders_db WHERE c_id = $delete_id AND OrderType = 'On-Going'";
         $result1 = $con->query($sql);
-        $fetch = mysqli_fetch_assoc($result);
         if($result1->num_rows > 0){
         header("Location: ProfileAccntViewAdmin.php?id=$id&profile=error");
-    } else if($fetch['OrderType'] = 'Completed' || empty($fetch['OrderType'])) {
+    } else {
         $sql1 = "DELETE
                  FROM cust_profile
                  WHERE c_id = $delete_id";
         $result1 = mysqli_query($con, $sql1);
-        
+
         $sql2 = "DELETE
                  FROM orders_db
                  WHERE c_id = $delete_id";
         $result2 = $con->query($sql2);
-        
+
+        $sql3 = "DELETE
+                 FROM register
+                 WHERE login_id = $delete_id";
+        $result3 = $con->query($sql3);
+        header('Location: CustomerProfileListAdmin.php');
+         }
+        } else {
+        $sql1 = "DELETE
+                 FROM cust_profile
+                 WHERE c_id = $delete_id";
+        $result1 = mysqli_query($con, $sql1);
+
         $sql3 = "DELETE
                  FROM register
                  WHERE login_id = $delete_id";
@@ -58,7 +71,6 @@ if(isset($_POST['delete'])) {
         header('Location: CustomerProfileListAdmin.php');
          }
     }
-}
 
 ?>
 
