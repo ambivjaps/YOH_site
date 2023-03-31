@@ -169,8 +169,8 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
                 <div class="modal-footer">
-                    <button onClick="deleteOrderForm()">OK</button>
-                    <button onClick="closeModal()">Cancel</button>
+                    <button class="btn btn-success mt-3" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;" onClick="deleteOrderForm()">OK</button>
+                    <button class="btn mt-3" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;" onClick="closeModal()">Cancel</button>
                 </div>
             </div>
         </div>
