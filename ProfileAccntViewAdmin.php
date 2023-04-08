@@ -22,7 +22,7 @@ if(isset($_GET['id'])) {
     $current_user = $profile['login_id'];
     $item_av = "SELECT * FROM register WHERE login_id = $current_user";
     $result_av = mysqli_query($con, $item_av);
-    $prof_avatar = mysqli_fetch_assoc($result_av);
+    $prof_reg = mysqli_fetch_assoc($result_av);
     mysqli_free_result($result_av);
 }
 
@@ -97,7 +97,7 @@ if(isset($_POST['delete'])) {
             <div class="account-settings">
                 <div class="user-profile">
                     <div class="user-avatar" >
-                        <img src="<?php echo $prof_avatar['cust_avatar']; ?>" style="height:200px; width:200px;" title="<?php echo $profile['c_name']; ?>" alt="<?php echo $profile['c_name']; ?>">
+                        <img src="<?php echo $prof_reg['cust_avatar']; ?>" style="height:200px; width:200px;" title="<?php echo $profile['c_name']; ?>" alt="<?php echo $profile['c_name']; ?>">
                     </div>
                     <h5 class="user-name" style="font-weight: bold; font-size:40px; color:indigo"><?php echo $profile['c_name']; ?></h5>
                     <p style="font-weight: bold; "><?php echo $profile['phone_no']; ?></p>
@@ -124,13 +124,7 @@ if(isset($_POST['delete'])) {
                 <?php } ?> 
                     <hr>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="form-group">
-                        <label style="font-weight:bold;font-size:30px; ">Customer ID</label>
-                        <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['c_id']; ?></p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label style="font-weight:bold;font-size:30px; ">Address</label>
                         <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['address']; ?></p>
@@ -170,6 +164,12 @@ if(isset($_POST['delete'])) {
                     <div class="form-group">
                         <label style="font-weight:bold; font-size:30px;">Zip Code</label>
                         <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['zip_code']; ?></p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label style="font-weight:bold;font-size:30px; ">Instagram Handle</label>
+                        <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $prof_reg['cust_ig']; ?></p>
                     </div>
                 </div>
             </div>     

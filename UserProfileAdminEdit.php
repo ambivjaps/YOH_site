@@ -156,7 +156,7 @@
                         <input type="email" name="cust_email" id="cust_email" class="form-control rounded" value="<?php echo $user['cust_email'] ?>">
                     </div>
                     <div class="col-md-6">
-                        <label style="font-weight:bold;">Phone Number</label>
+                        <label style="font-weight:bold;">Mobile Number</label>
                         <input type="text" name="cust_phone" id="cust_phone" minlength="11" maxlength="11"  onkeypress="return restrictAlphabets(event)" class="form-control rounded" value="<?php echo $user['cust_phone'] ?>">
                     </div>
 

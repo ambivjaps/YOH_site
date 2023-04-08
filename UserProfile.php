@@ -80,8 +80,9 @@
                 <h1 style="font-weight:bold;color: rgb(111, 66, 193);"> <?php echo $user['cust_name'] ?> </h1>
                 <h6 style="font-weight:bold;"> <span class="badge" style="background-color:green;"> Verified User </span></h6>
                 <p style="font-weight:bold;"> Address: <?php echo $user['cust_address'] ?> </p>
-                <p style="font-weight:bold;"> Phone Number: <?php echo $user['cust_phone'] ?> </p>
+                <p style="font-weight:bold;"> Mobile Number: <?php echo $user['cust_phone'] ?> </p>
                 <p style="font-weight:bold;"> E-mail Address: <?php echo $user['cust_email'] ?> </p>
+                <p style="font-weight:bold;"> Instagram Handle: <?php echo $user['cust_ig'] ?> </p>
                 <p style="font-weight:bold;"> Account last updated on: <i><?php echo date("F d, Y", strtotime($user['date'])); ?></i>  </p>
             </div>
 
@@ -105,7 +106,7 @@
                 <tr>
                     <th style="font-weight:bold;"> Name </th>
                     <th style="font-weight:bold;"> Address </th>
-                    <th style="font-weight:bold;"> Phone No. </th>
+                    <th style="font-weight:bold;"> Mobile No. </th>
                     <th style="font-weight:bold;"> Action </th>
                 </tr>
 

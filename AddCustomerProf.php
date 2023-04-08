@@ -174,7 +174,7 @@
                         <input type="text" name="region" id="region" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Phone Number</label>
+                        <label style="font-weight:bold;">Mobile Number</label>
                         <input type="text" name="phone_no" id="phone_no" minlength="11" maxlength="11" onkeypress="return restrictAlphabets(event)" class="form-control rounded" required>
                     </div>
                     <div class="button-group float-end">

@@ -17,6 +17,7 @@ if (isset($_POST['cust_name'])) {
     $cust_zip = $_POST['cust_zip'];
     $conf_pass = $_POST['conf_pass'];
     $cust_address = $_POST['cust_address'];
+    $cust_ig = $_POST['cust_ig'];
     $user_rank = "user";
     
     $password_hash = password_hash($cust_pass, PASSWORD_BCRYPT);
@@ -38,8 +39,8 @@ if (isset($_POST['cust_name'])) {
         return;
     }
     
-    $query = "insert into register (login_id,cust_name, cust_avatar, cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_brgy,cust_unit,cust_phone,cust_zip, cust_address, cust_status) values
-    ('$login_id','$cust_name','$saveImage','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip', '$cust_address', '0')";
+    $query = "insert into register (login_id,cust_name, cust_avatar, cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_brgy,cust_unit,cust_phone,cust_zip,cust_address,cust_ig,cust_status) values
+    ('$login_id','$cust_name','$saveImage','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip','$cust_address','$cust_ig','0')";
     
     $reg = mysqli_query($con, $query);
     if ($reg == 1) {
@@ -165,6 +166,12 @@ if (isset($_POST['cust_name'])) {
                                 <input class="form-control item" type="text" id="text" name="cust_phone" minlength="11" maxlength="11" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" onkeypress="return restrictAlphabets(event)" required="">
                             </label>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="name" style=" font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
+                                Instagram Handle
+                                <input class="form-control item" type="text" id="text" name="cust_ig" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" required="">
+                            </label>
+                        </div>
                         <div class="mb-3" style="margin-bottom: 9px;margin-top: 42px;">
                             <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                                 Password
@@ -249,6 +256,7 @@ if (isset($_POST['cust_name'])) {
                     'cust_reg': 'Region',
                     'cust_city': 'City',
                     'cust_phone': 'Phone Number',
+                    'cust_ig': 'Instagram Handle',
                     'cust_pass': 'Password',
                     'conf_pass': 'Retype Password',
                 }

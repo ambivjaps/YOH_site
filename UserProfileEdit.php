@@ -36,6 +36,7 @@
 
         $cust_email = mysqli_real_escape_string($con, $_POST['cust_email']);
         $cust_phone = mysqli_real_escape_string($con, $_POST['cust_phone']);
+        $cust_ig = mysqli_real_escape_string($con, $_POST['cust_ig']);
 
         $new_image = $_FILES['cust_avatar']['name'];
         $old_image = $_POST['cust_avatar_old'];
@@ -62,7 +63,7 @@
             }
         }
     
-        $query = "UPDATE register SET cust_name='$cust_name', cust_address='$cust_address', cust_unit='$cust_unit', cust_st='$cust_st', cust_brgy='$cust_brgy', cust_city='$cust_city', cust_reg='$cust_reg', cust_zip='$cust_zip', cust_email='$cust_email', cust_phone='$cust_phone' WHERE login_id=$UID";
+        $query = "UPDATE register SET cust_name='$cust_name', cust_address='$cust_address', cust_unit='$cust_unit', cust_st='$cust_st', cust_brgy='$cust_brgy', cust_city='$cust_city', cust_reg='$cust_reg', cust_zip='$cust_zip', cust_email='$cust_email', cust_phone='$cust_phone', cust_ig='$cust_ig' WHERE login_id=$UID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
@@ -78,6 +79,7 @@
 
             $_SESSION['cust_email'] = $_POST['cust_email'];
             $_SESSION['cust_phone'] = $_POST['cust_phone'];
+            $_SESSION['cust_ig'] = $_POST['cust_ig'];
 
             header("Location: UserProfile.php");
             mysqli_close($con);
@@ -151,13 +153,17 @@
                    
                     <h3> Contact Details </h3>
                     
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label style="font-weight:bold;">E-mail Address</label>
                         <input type="email" name="cust_email" id="cust_email" class="form-control rounded" value="<?php echo $user['cust_email'] ?>">
                     </div>
-                    <div class="col-md-6">
-                        <label style="font-weight:bold;">Phone Number</label>
+                    <div class="col-md-4">
+                        <label style="font-weight:bold;">Mobile Number</label>
                         <input type="text" name="cust_phone" id="cust_phone" minlength="11" maxlength="11"  onkeypress="return restrictAlphabets(event)" class="form-control rounded" value="<?php echo $user['cust_phone'] ?>">
+                    </div>
+                    <div class="col-md-4">
+                        <label style="font-weight:bold;">Instagram Handle</label>
+                        <input type="text" name="cust_ig" id="cust_ig" class="form-control rounded" value="<?php echo $user['cust_ig'] ?>">
                     </div>
 
                     <div class="button-group float-end">

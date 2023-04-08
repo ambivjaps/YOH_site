@@ -119,7 +119,7 @@
                         <input type="text" name="region" id="region" class="form-control rounded" value="<?php echo $profile['region'] ?>">
                     </div>
                     <div class="col-md-12">
-                        <label style="font-weight:bold;">Phone Number</label>
+                        <label style="font-weight:bold;">Mobile Number</label>
                         <input type="text" name="phone_no" id="phone_no" class="form-control rounded" minlength="11" maxlength="11" onkeypress="return restrictAlphabets(event)" required="" value="<?php echo $profile['phone_no'] ?>">
                     </div>
                     <div class="button-group float-end">
