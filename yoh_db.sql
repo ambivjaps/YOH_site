@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2023 at 02:38 PM
+-- Generation Time: Apr 08, 2023 at 03:34 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -56,7 +56,8 @@ INSERT INTO `cust_profile` (`id`, `c_id`, `c_name`, `c_label`, `region`, `city`,
 (4, 4062959512, 'Rodrigo Villaramas', 'Ancestral House', 'NCR', 'Pasig City', 'Pulang Buhangin St.', 'Manggahan', '09317712219', 1020, 18, '2023-03-28 15:55:24', '18-C Pulang Buhangin St., Pasig City', 4062959512, 1, 0),
 (5, 4062959512, 'Rodrigo Villaramas', 'Girlfriend\'s Condo', 'NCR', 'Quezon City', 'Misamis St.', 'Bago Bantay', '09272188536', 1112, 3510, '2023-03-28 15:56:44', '3510 East Tower, Misamis St., Quezon City', 4062959512, 1, 1),
 (6, 7242156480, 'Nina De Guzman', 'Condo', 'NCR', 'QUEZON CITY', 'Palali St.', 'Sienna', '+639478969123', 1114, 18, '2023-03-28 15:56:11', '18-D Palali St., Sta. Mesa Heights, Barangay Sienna, Quezon City', 7242156480, 1, 0),
-(10, 9943549504, 'Alfonso Garcia', 'Home', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', '09123456789', 8, 7, '2023-03-31 12:33:18', '#7 Apostles Street, Brgy. Ginebra, Mandaluyong City, NCR', 9943549504, 1, 1);
+(10, 9943549504, 'Alfonso Garcia', 'Home', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', '09123456789', 8, 7, '2023-03-31 12:33:18', '#7 Apostles Street, Brgy. Ginebra, Mandaluyong City, NCR', 9943549504, 1, 1),
+(62, 43391045177, 'Engelbert Macadangdang', 'Home', 'NCR', 'Quezon City', 'Palali', 'Sienna', '09158433229', 122, 12, '2023-04-01 03:06:12', '18-D Palali St. Sta. Mesa Heights, Quezon City', 43391045177, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -82,8 +83,8 @@ CREATE TABLE `inventory_db` (
 --
 
 INSERT INTO `inventory_db` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `ItemType`, `TypeID`, `ItemPrice`, `ItemQty`, `created_at`) VALUES
-(1, 1001, 'Beginner Crochet Kit', 'assets/img/upload/inventory/1678474952_40830720640b7ec8d36e7_crochet kit.jpg', 'Basic Materials every crochet beginner needs\r\n\r\nThis Kit includes:\r\n- 2 crochet hooks (4.5 mm and 5mm)\r\n- 2 milk cotton yarn (50 grams each)\r\n- 2 darning needle\r\n- 2 stitch markers\r\n\r\nBONUS: youtube links to basic tutorials\r\n(random colors will be given, but send us a message if you want to pick your own colors)\r\n\r\nThis kit is perfect to use for practicing the new hobby.', 'Raw', 2, 200, 13, '2023-03-30 07:31:53'),
-(2, 1002, 'Handmade Crochet (Ghibli Earrings) - Calcifer', 'assets/img/upload/inventory/1678472170_1393039690640b73ea7733a_ghibli earrings_calcifer.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Raw', 2, 150, 57, '2023-03-30 07:31:53'),
+(1, 1001, 'Beginner Crochet Kit', 'assets/img/upload/inventory/1678474952_40830720640b7ec8d36e7_crochet kit.jpg', 'Basic Materials every crochet beginner needs\r\n\r\nThis Kit includes:\r\n- 2 crochet hooks (4.5 mm and 5mm)\r\n- 2 milk cotton yarn (50 grams each)\r\n- 2 darning needle\r\n- 2 stitch markers\r\n\r\nBONUS: youtube links to basic tutorials\r\n(random colors will be given, but send us a message if you want to pick your own colors)\r\n\r\nThis kit is perfect to use for practicing the new hobby.', 'Raw', 2, 200, 11, '2023-04-01 03:48:55'),
+(2, 1002, 'Handmade Crochet (Ghibli Earrings) - Calcifer', 'assets/img/upload/inventory/1678472170_1393039690640b73ea7733a_ghibli earrings_calcifer.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Raw', 2, 150, 55, '2023-04-01 03:48:55'),
 (3, 1003, 'Handmade Crochet (Ghibli Earrings) - Jiji', 'assets/img/upload/inventory/1678472389_1371896684640b74c52edbb_ghibli earrings_jiji.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 49, '2023-03-28 18:21:07'),
 (4, 1004, 'Handmade Crochet (Ghibli Earrings) - Soot Sprites', 'assets/img/upload/inventory/1678472481_1083544921640b7521b9769_ghiblie earrings_soot sprite.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 20, '2023-03-30 07:31:53'),
 (5, 1005, 'Handmade Crochet (Ghibli Earrings) - Mononoke', 'assets/img/upload/inventory/1678472576_2036050580640b758028c6b_ghibli earrings_princess mononoke.jpg', 'Handmade Hook earrings inspired by Ghibli movies\r\n\r\nHook: Silver\r\nCharacters: handmade\r\n\r\nDesign is by: y.o.h.plus', 'Finished', 1, 150, 25, '2023-03-10 18:22:56'),
@@ -100,8 +101,9 @@ INSERT INTO `inventory_db` (`id`, `ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `
 (16, 1016, 'Chonky Otori Sama', 'assets/img/upload/inventory/1679814616_709284961641fefd8a59be_chonky otori sama.jpg', 'A chonky duck friend inspired by the infamous duck from spirited away! \r\n\r\nHeight 9\"\r\nWidth 8\"\r\n', 'Finished', 1, 1500, 1, '2023-03-28 14:46:15'),
 (17, 1017, 'Egg Beret', 'assets/img/upload/inventory/1679814673_1864746821641ff011b18e0_egg beret .jpeg', 'Eggtastic Quirky Beret\r\n\r\nRadius of beret is 10\"\r\n', 'Finished', 1, 950, 5, '2023-03-28 14:46:56'),
 (18, 1018, 'Mochi Family', 'assets/img/upload/inventory/1679814697_130860885641ff029315f4_mochi family.jpg', 'This mochi is inspired by the plush in the anime wotakoi; love is hard for an otaku and I was reincarnated as a slime. Use this as your desk friend or even a stress ball when needed. ', 'Finished', 1, 350, 100, '2023-03-28 14:48:06'),
-(19, 1019, 'Potchi Pillow', 'assets/img/upload/inventory/1679814727_1120092999641ff047489c1_potchi pillow.jpg', 'We\'re bringing back your childhood fave in the form of a pillow. This is a perfect cuddle buddy or a pillow for a quick nap. \r\n\r\nHeight 6\" \r\nwidth 8\"\r\n', 'Finished', 1, 1200, 15, '2023-03-28 14:48:52'),
-(20, 1020, 'Rainbow Sweater', 'assets/img/upload/inventory/1679814749_1926548014641ff05d7d71d_rainbow sweater.jpeg', 'A rainbow sweater with bell shaped sleeves in size medium', 'Finished', 1, 2500, 30, '2023-03-28 18:19:43');
+(19, 1019, 'Potchi Pillow', 'assets/img/upload/inventory/1679814727_1120092999641ff047489c1_potchi pillow.jpg', 'We\'re bringing back your childhood fave in the form of a pillow. This is a perfect cuddle buddy or a pillow for a quick nap. \r\n\r\nHeight 6\" \r\nwidth 8\"\r\n', 'Finished', 1, 1200, 19, '2023-04-01 03:48:55'),
+(20, 1020, 'Rainbow Sweater', 'assets/img/upload/inventory/1679814749_1926548014641ff05d7d71d_rainbow sweater.jpeg', 'A rainbow sweater with bell shaped sleeves in size medium', 'Finished', 1, 2500, 30, '2023-03-28 18:19:43'),
+(34, 1222, 'Sample item', 'assets/img/upload/inventory/1680320651_3651470716427a88b352cb_sampleprod.jpg', 'This is a placeholder text!!!', 'Finished', 1, 500, 100, '2023-04-01 03:44:11');
 
 -- --------------------------------------------------------
 
@@ -134,16 +136,15 @@ CREATE TABLE `orders_db` (
 --
 
 INSERT INTO `orders_db` (`OrderID`, `ItemID`, `c_id`, `cust_status`, `OrderQty`, `OrderType`, `TypeID`, `OrderDate`, `PaymentDue`, `OrderTotal`, `proof_img`, `p_mode`, `tracking_no`, `courier_id`, `pay_status`, `MaterialUsed`, `MaterialQty`) VALUES
-(2, 1002, 4062959512, 1, 15, 'Completed', 2, '2023-03-30 07:03:35', '2023-03-31', 2250, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '9349493939332', 'Lalamove (Same day delivery)', 'Installment', 'Handmade Crochet (Ghibli Earrings) - Calcifer', 1),
-(3, 1006, 1087763698, 1, 20, 'Completed', 2, '2023-03-30 07:03:51', '2023-04-03', 3000, '', '', '12312331231233', 'Fifth Express', '', 'Beginner Crochet Kit', 1),
-(6, 1001, 1087763698, 1, 10, 'Completed', 2, '2023-03-30 06:14:40', '2023-04-02', 2000, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'GCash', '123412341234', 'Lalamove (Same day delivery)', 'Installment', 'Beginner Crochet Kit', 1),
+(2, 1002, 4062959512, 1, 15, 'On-Going', 1, '2023-04-01 02:45:45', '2023-03-31', 2250, '', 'GCash', '9349493939332', 'Lalamove (Same day delivery)', 'Installment', 'Handmade Crochet (Ghibli Earrings) - Calcifer', 1),
+(3, 1006, 1087763698, 1, 20, 'On-Going', 1, '2023-04-01 03:29:25', '2023-04-03', 3000, 'assets/img/upload/payment/1680319765_6263468126427a515dd88a_proof of payment.jpg', 'BDO', '12312331231233', 'Fifth Express', 'Installment', 'Beginner Crochet Kit', 1),
+(6, 1001, 1087763698, 1, 10, 'On-Going', 1, '2023-04-01 03:31:02', '2023-04-02', 2000, '', 'BDO', '123412341234', 'Lalamove (Same day delivery)', 'Installment', 'Beginner Crochet Kit', 1),
 (7, 1012, 7242156480, 1, 20, 'Completed', 2, '2023-03-30 06:14:43', '2023-04-06', 5000, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'PayPal', '3e923e8939', 'Lalamove (Same day delivery)', 'Full Payment', 'Beginner Crochet Kit', 1),
-(8, 1009, 4062959512, 1, 8, 'On-Going', 2, '2023-03-29 13:14:52', '2023-04-05', 2000, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'BDO', '5261162734', 'Flash Express', 'Full Payment', 'Beginner Crochet Kit', 1),
-(13, 1012, 9943549504, 1, 1, 'On-Going', 1, '2023-03-31 12:37:26', '2023-04-10', 250, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', '', '30028281111', 'J&T Express', '', 'Beginner Crochet Kit', 1),
-(14, 1017, 7242156480, 1, 10, 'On-Going', 1, '2023-03-31 12:37:30', '2023-04-01', 2000, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', '', '29832992217', 'Fifth Express', '', 'Beginner Crochet Kit', 1),
-(15, 1001, 1915372254, 1, 20, 'On-Going', 1, '2023-03-29 03:41:36', '2023-04-07', 4000, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', '', '', '', '', 'Beginner Crochet Kit', 1),
-(26, 1004, 1087763698, 1, 1, 'On-Going', 1, '2023-03-31 12:37:36', '2023-04-01', 150, 'assets/img/upload/payment/1680159666_1655302010642533b21b0f3_338396841_910530146861855_6549493773285344790_n.png', 'Paypal', '82384728364', 'Lalamove (Same day delivery)', 'Installment', 'Beginner Crochet Kit', 2),
-(29, 1004, 4062959512, 1, 10, 'On-Going', 1, '2023-03-30 07:31:53', '2023-03-31', 1500, '', '', '', '', '', 'Beginner Crochet Kit', 1);
+(8, 1009, 4062959512, 1, 8, 'Completed', 2, '2023-04-01 02:45:16', '2023-04-05', 2000, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', 'BDO', '5261162734', 'Flash Express', 'Full Payment', 'Beginner Crochet Kit', 1),
+(13, 1012, 9943549504, 1, 1, 'On-Going', 1, '2023-04-01 02:46:15', '2023-04-10', 250, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', '', '30028281111', 'J&T Express', 'Full Payment', 'Beginner Crochet Kit', 1),
+(15, 1001, 1915372254, 1, 20, 'On-Going', 1, '2023-04-01 02:46:18', '2023-04-07', 4000, 'assets/img/upload/payment/1678685885_1001996019640eb6bded555_Services-Financial-GInsure-App-Confirm-and-Pay-360x640-SS.png', '', '', '', 'Full Payment', 'Beginner Crochet Kit', 1),
+(26, 1004, 1087763698, 1, 1, 'On-Going', 1, '2023-04-01 02:43:19', '2023-04-01', 150, '', 'Paypal', '82384728364', 'Lalamove (Same day delivery)', 'Installment', 'Beginner Crochet Kit', 2),
+(30, 1019, 43391045177, 1, 1, 'On-Going', 1, '2023-04-01 03:48:55', '2023-04-01', 1200, '', '', '', '', '', 'Beginner Crochet Kit', 2);
 
 -- --------------------------------------------------------
 
@@ -179,11 +180,12 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `cust_name`, `cust_avatar`, `cust_email`, `cust_pass`, `cust_reg`, `cust_city`, `cust_st`, `cust_brgy`, `cust_unit`, `cust_zip`, `cust_phone`, `login_id`, `date`, `user_rank`, `cust_address`, `cust_status`, `login_attempt`, `otp`, `verify_token`) VALUES
-(1, 'Lia Maranan', 'assets/img/upload/avatars/1680265710_19208876046426d1ee478c6_admin.jpg', 'yarnoverhook.official@gmail.com', '$2y$10$yPW21R3XYBb7MuOXOuCycuduHLRF8ZNm1AGjxNxYmGq03DgxNnYSC', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-03-31 12:28:30', 'admin', '123 Block 1 Mabilis St., Quezon City', 1, 0, 415175, ''),
+(1, 'Lia Maranan', 'assets/img/upload/avatars/1680265710_19208876046426d1ee478c6_admin.jpg', 'yarnoverhook.official@gmail.com', '$2y$10$yPW21R3XYBb7MuOXOuCycuduHLRF8ZNm1AGjxNxYmGq03DgxNnYSC', 'NCR', 'Quezon City', 'Mabilis St.', 'Masagana', 20, 1114, '09158433229', 3132667346, '2023-04-01 02:47:00', 'admin', '123 Block 1 Mabilis St., Quezon City', 1, 0, 415175, ''),
 (2, 'Nina De Guzman', 'assets/img/upload/avatars/1680265287_13797944096426d047b607f_nina.jpg', 'ninadguzman.2k23@gmail.com', '$2y$10$YBqMhFAfFcju7X69tb0k3eNQ87jYK4Pxyf2fq4o.LYt7V.GbrDpP6', 'NCR', 'Quezon City', 'Tabayoc St.', 'Sienna', 18, 1113, '09993093997', 7242156480, '2023-03-31 12:25:57', 'user', '18-B Tabayoc St. Sta. Mesa Heights, Quezon City', 1, 0, 0, ''),
 (3, 'Darwin Manalastas', 'assets/img/upload/avatars/1680265332_16822325056426d074e4041_darwin.jpg', 'darwin.manalastas334@gmail.com', '$2y$10$YBqMhFAfFcju7X69tb0k3eNQ87jYK4Pxyf2fq4o.LYt7V.GbrDpP6', 'NCR', 'Mandaluyong City', 'Pioneer St.', 'Boni', 12, 1010, '09323155312', 1087763698, '2023-03-31 12:26:02', 'user', '12 Pioneer St., Boni Ave, Mandaluyong City', 1, 0, 0, ''),
-(4, 'Rodrigo Villaramas', 'assets/img/upload/avatars/1680265350_7647666746426d086a3e5a_rodrigo.jpg', 'rodrigo.villaramas@gmail.com', '$2y$10$YBqMhFAfFcju7X69tb0k3eNQ87jYK4Pxyf2fq4o.LYt7V.GbrDpP6', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-03-31 12:25:27', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1, 0, 0, ''),
-(5, 'Alfonso Garcia', 'assets/img/upload/avatars/1680265372_3896775336426d09cc9361_alfonso.jpg', 'yosefudesu@gmail.com', '$2y$10$NuafZZ31VDzsEgylQweMGOIzN/yu2A0.M.RJrTTNyXyHOLr/XemvO', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', 7, 8, '09123456789', 9943549504, '2023-03-31 12:32:56', 'user', '#7 Apostles Street, Brgy. Ginebra, Mandaluyong City, NCR', 1, 0, 259390, '647792668265253058896188158055');
+(4, 'Rodrigo Villaramas', 'assets/img/upload/avatars/1680265350_7647666746426d086a3e5a_rodrigo.jpg', 'rodrigo.villaramas@gmail.com', '$2y$10$YBqMhFAfFcju7X69tb0k3eNQ87jYK4Pxyf2fq4o.LYt7V.GbrDpP6', 'MIMAROPA', 'Gasan City', 'Mapayapa St.', 'Marikit', 20, 1114, '09172238482', 4062959512, '2023-04-01 02:48:16', 'user', '20 Mapayapa St., Gasan City, Marinduque', 1, 0, 0, ''),
+(5, 'Alfonso Garcia', 'assets/img/upload/avatars/1680265372_3896775336426d09cc9361_alfonso.jpg', 'yosefudesu@gmail.com', '$2y$10$NuafZZ31VDzsEgylQweMGOIzN/yu2A0.M.RJrTTNyXyHOLr/XemvO', 'NCR', 'Mandaluyong City', 'Apostles', 'Brgy. Ginebra', 7, 8, '09123456789', 9943549504, '2023-03-31 12:32:56', 'user', '#7 Apostles Street, Brgy. Ginebra, Mandaluyong City, NCR', 1, 0, 259390, '647792668265253058896188158055'),
+(15, 'Engelbert Macadangdang', 'assets/img/upload/avatars/1680318372_209672437464279fa4457ae_default_user.jpg', 'ambivjaps@gmail.com', '$2y$10$/N03KNy6v/rpD4gQ4OSXcuk/Ndf8gyHS//6tgWUWNWuc8hntl4vHO', 'NCR', 'Quezon City', 'Palali', 'Sienna', 12, 122, '09158433229', 43391045177, '2023-04-01 03:17:17', 'user', '18-D Palali St. Sta. Mesa Heights, Quezon City', 1, 0, 541035, '');
 
 -- --------------------------------------------------------
 
@@ -321,25 +323,25 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `cust_profile`
 --
 ALTER TABLE `cust_profile`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `inventory_db`
 --
 ALTER TABLE `inventory_db`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `orders_db`
 --
 ALTER TABLE `orders_db`
-  MODIFY `OrderID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `OrderID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `slides`
