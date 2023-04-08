@@ -17,6 +17,40 @@
             margin: 0 auto;
             border: none;
         }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            width: 200px;
+            background-color:#efe9ef;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .dropbtn {
+            
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropbtn:hover {
+            color:indigo;
+        }
     </style>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top clean-navbar">
         <div class="container">
@@ -33,7 +67,7 @@
                     <li class="nav-item"><a class="nav-link" href="ProfileAccntView.php"><i class="fas fa-user-friends"></i> Profiles</a></li>
                     <li class="nav-item"><a class="nav-link" href="OrderPageCust.php"><i class="fas fa-check-square"></i> Orders</a></li>
                     <li class="nav-item"><a class="nav-link" href="UserProfile.php"><h6><span class="badge rounded-pill text-white" style="background-color: #4a3a4b;"><i class="fas fa-user-circle"></i> '.$_SESSION['cust_name'].'</span></h6></a></li>
-                    <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit"> <i class="fas fa-sign-out-alt"></i> Logout</button>
+                    <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit" style="background-color:indigo;border-color:indigo;color:white;font-weight:bold;"> <i class="fas fa-sign-out-alt"></i> Logout</button>
                     </ul>';
                     ?>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -48,7 +82,7 @@
                     <li class="nav-item"><a class="nav-link" href="Inventory.php"><i class="fas fa-dolly-flatbed"></i> Inventory</a></li>
                     <li class="nav-item"><a class="nav-link" href="OrdersAdminView.php"><i class="fas fa-check-square"></i> Orders</a></li>
                     <li class="nav-item"><a class="nav-link" href="UserProfileAdmin.php"><h6><span class="badge rounded-pill text-white" style="background-color: #4a3a4b;"><i class="fas fa-user-cog"></i> '.$_SESSION['cust_name'].'</span></h6></a></li>
-                    <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit"> <i class="fas fa-sign-out-alt"></i> Logout</button>
+                    <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit" style="background-color:indigo;border-color:indigo;color:white;font-weight:bold;"> <i class="fas fa-sign-out-alt"></i> Logout</button>
                     </ul>';
                     ?>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -60,10 +94,15 @@
                     echo '<ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="HomePage.php"><i class="fas fa-home"></i> Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="Videos.php"><i class="fas fa-play"></i> Videos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="FAQ.php"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                    <form class="form-inline" action="Login.php">
-                        <button class="btn btn-light my-3 my-sm-0" type="submit"> <i class="fas fa-sign-in-alt"></i> Login</button>
-                    </form>
+                    <li class="nav-item" style="border-right: 2px solid dimgray;"><a class="nav-link" href="FAQ.php"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                    <li class="nav-item"></li>
+                    <div class="dropdown">
+                    <a aria-expanded="false" data-bs-toggle="dropdown" style="color:grey;"><i class="fas fa-user my-2"></i> Login/Register</a>
+                    <div class="dropdown-content rounded" style="align-content">
+                    <a class="nav-link dropbtn" href="Login.php" style="font-size:15px;"><i class="fas fa-sign-in-alt"></i>  L<span style="text-transform:lowercase;">ogin </a></li>
+                    <a class="nav-link dropbtn" href="registration.php" style="font-size:15px;"> <i class="fas fa-user-plus"></i> R<span style="text-transform:lowercase;">egister </a></li>
+                    </div>
+                    </div>
                     </ul>';
                 }
             ?>
