@@ -13,7 +13,6 @@ require 'layouts/Header.php';
 
 <?php 
     if(isset($_POST['add_item'])) {
-        $ItemID = mysqli_real_escape_string($con, $_POST['ItemID']);
         $ItemName = mysqli_real_escape_string($con, $_POST['ItemName']);
         $ItemDesc = mysqli_real_escape_string($con, $_POST['ItemDesc']);
         $ItemType = $_POST['ItemType'];
@@ -48,7 +47,7 @@ require 'layouts/Header.php';
             die;
         }
         
-        $query = "INSERT INTO inventory_db (ItemID, ItemName, ItemImg, ItemDesc, ItemType, TypeID, ItemPrice, ItemQty) VALUES ('$ItemID','$ItemName','$saveImage','$ItemDesc','$ItemType','$TypeID','$ItemPrice','$ItemQty')";
+        $query = "INSERT INTO inventory_db (ItemName, ItemImg, ItemDesc, ItemType, TypeID, ItemPrice, ItemQty) VALUES ('$ItemName','$saveImage','$ItemDesc','$ItemType','$TypeID','$ItemPrice','$ItemQty')";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
@@ -120,10 +119,6 @@ require 'layouts/Header.php';
                     <div class="col-md-6">
                         <label style="font-weight:bold;">Image</label>
                         <input type="file" class="form-control rounded" name="ItemImg">
-                    </div>
-                    <div class="col-md-12">
-                        <label style="font-weight:bold;">Item ID</label>
-                        <input type="text" name="ItemID" id="ItemID" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Name</label>
@@ -272,7 +267,6 @@ require 'layouts/Header.php';
             
             document.getElementById('add-btn').onclick = function() {
                 let fields = {
-                    'ItemID': 'ItemID',
                     'ItemName': 'Name',
                     'ItemType': 'Type',
                     'ItemQty': 'Quantity',
