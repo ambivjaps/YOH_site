@@ -8,7 +8,7 @@ $query = "SELECT * FROM orders_db INNER JOIN inventory_db
     ON orders_db.c_id = cust_profile.c_id AND orders_db.cust_status = cust_profile.cust_status
     ";
 
-if (!$_POST['inprocess'] && !$_POST['completed']) {
+if (!$_POST['inprocess'] && !$_POST['completed'] && !$_POST['pending']) {
     $query .= "
         WHERE inventory_db.ItemName LIKE ?
         OR cust_profile.c_name LIKE ?
@@ -25,7 +25,24 @@ if ($_POST['inprocess'] && $_POST['completed']) {
         OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed'
         OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed'
         AND cust_profile.cust_status = '1'";
-} else {
+}
+else if ($_POST['inprocess'] && $_POST['pending']) {
+    $query .= "
+        WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Pending'
+        OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Pending'
+        OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Pending'
+        OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Pending'
+        AND cust_profile.cust_status = '1'";
+}
+else if ($_POST['completed'] && $_POST['pending']) {
+    $query .= "
+        WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'Completed' OR orders_db.OrderType = 'Pending'
+        OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'Completed' OR orders_db.OrderType = 'Pending'
+        OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'Completedimage.png' OR orders_db.OrderType = 'Pending'
+        OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'Completed' OR orders_db.OrderType = 'Pending'
+        AND cust_profile.cust_status = '1'";
+}
+else {
     if ($_POST['inprocess']) {
         $query .= "
             WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'On-Going'
@@ -41,6 +58,15 @@ if ($_POST['inprocess'] && $_POST['completed']) {
             OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'Completed'
             OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'Completed'
             OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'Completed'
+            AND cust_profile.cust_status = '1'";
+    }
+
+    if ($_POST['pending']) {
+        $query .= "
+            WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'Pending'
+            OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'Pending'
+            OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'Pending'
+            OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'Pending'
             AND cust_profile.cust_status = '1'";
     }
 }

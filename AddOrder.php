@@ -39,6 +39,8 @@
             $TypeID = "1";
         } else if($OrderType == 'Completed') {
             $TypeID = "2";
+        } else if($OrderType == 'Pending') {
+            $TypeID = "3";
         } else {
             die;
         }
@@ -136,7 +138,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Type</label>
                         <select class="form-select rounded" id="OrderType" name="OrderType" aria-label=".form-select example" required>
-                        
+                            <option value="Pending">Pending</option>
                             <option value="On-Going">On-Going</option>
                             <option value="Completed">Completed</option>
                         </select>

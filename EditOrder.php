@@ -58,6 +58,9 @@
         } else if($OrderType == 'Completed') {
             $query = "UPDATE orders_db SET TypeID='2' WHERE OrderID=$OID";
             $query_run = mysqli_query($con, $query);
+        } else if($OrderType == 'Pending') {
+            $query = "UPDATE orders_db SET TypeID='3' WHERE OrderID=$OID";
+            $query_run = mysqli_query($con, $query);
         } else {
             die;
         }
@@ -154,6 +157,7 @@
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Order Type</label>
                         <select class="form-select" id="OrderType" name="OrderType" aria-label=".form-select example">
+                            <option value="Pending" <?php if($order['OrderType'] == 'Pending') { ?>selected="selected"<?php } ?>>Pending</option>
                             <option value="On-Going" <?php if($order['OrderType'] == 'On-Going') { ?>selected="selected"<?php } ?>>On-Going</option>
                             <option value="Completed" <?php if($order['OrderType'] == 'Completed') { ?>selected="selected"<?php } ?>>Completed</option>
                         </select>
