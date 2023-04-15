@@ -13,7 +13,7 @@
 		$id = mysqli_real_escape_string($con, $_SESSION['login_id']);
 		$item = "SELECT * FROM orders_db INNER JOIN cust_profile 
         ON orders_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
-        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_profile.cust_status = '1' AND orders_db.c_id = $id AND orders_db.TypeID = '1'";
+        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_profile.cust_status = '1' AND orders_db.c_id = $id AND orders_db.TypeID != '2'";
 
 		$result_process = mysqli_query($con, $item);
 		$orders = mysqli_fetch_all($result_process, MYSQLI_ASSOC);

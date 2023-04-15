@@ -22,19 +22,33 @@
 		$delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
         $filePath = $_POST['delete_img'];
 
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        } else {
-        }
-        
-		$sql = "DELETE FROM inventory_db WHERE ItemID = $delete_id";
+        $sql_error = "SELECT * FROM inventory_db WHERE ItemID = $delete_id ";
+        $error_run = mysqli_query($con, $sql_error);
+        if($error_run && mysqli_num_rows($error_run) > 0){
+            $user_data = mysqli_fetch_assoc($error_run);
 
-		if(mysqli_query($con, $sql)) {
-			header('Location: Inventory.php');
-		} else {
-			echo 'Error: ' . mysqli_error($con);
-		}
-	}
+            $sql_err = "SELECT * FROM orders_db WHERE ItemID = $delete_id ";
+            $err_run = mysqli_query($con, $sql_err);
+
+            if($err_run && mysqli_num_rows($err_run) > 0){
+            $order_data = mysqli_fetch_assoc($err_run);
+
+            if($order_data["ItemID"] == $user_data["ItemID"]){
+            header("Location: InventoryItem.php?id=$delete_id&delete=error");
+                }
+            }
+		else{
+            $sql = "DELETE FROM inventory_db WHERE ItemID = $delete_id";
+            $run = mysqli_query($con, $sql);
+            if($run){
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                } 
+                header("Location: Inventory.php");
+            }
+			
+		} 
+	}}
 
 ?>
 <style>
@@ -82,12 +96,12 @@
         <section class="clean-block clean-post dark" style="background-color:#efe9ef; border:none; ">
             <div class="container">
 
-            <form class="mb-3" action="InventoryItem.php" method="POST" id="form">
+            <form class="mb-3" action="InventoryItem.php?id=<?php echo $inv['ItemID'] ?>" method="POST" id="form">
             <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: indigo;background: indigo;"><a href="Inventory.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
 			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"><i class="fas fa-edit"></i> Edit</a>
 			    <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $inv['ItemID']; ?>">
                 <input type="hidden" name="delete_img" value="<?php echo $inv['ItemImg']; ?>">
-			    <input class="btn btn-danger" name="delete" role="button" value="Delete" style="font-weight:bold;">
+			    <input class="btn btn-danger" name="delete" role="button" value="Delete" style="font-weight:bold;width: 8%;">
 		    </form>
 
         <div class="row gutters">
@@ -113,6 +127,13 @@
                 <div class="row gutters">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <h6 style="font-weight: bold; font-size:40px; text-align:center; " >Item Details</h6>
+                        <?php 
+                if (isset($_GET['delete']) && $_GET['delete'] === 'error') { ?>
+                    <p class="rounded" style="font-weight:bold;text-align:center;color:white;background-color:red;">
+                     Error in deleting item. 
+                    Item in order cannot be deleted. 
+                    <p>     
+                <?php } ?> 
                         <hr>
                     </div>
                     <div class="col-md-4 col-12">
@@ -158,7 +179,9 @@
             <div class="modal-content">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
                 <div class="modal-footer">
-                    <button class="btn btn-success mt-3" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;" onClick="deleteInventory()">OK</button>
+                    <button class="btn btn-success mt-3" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;" onClick="deleteInventory()">OK
+                    <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $inv['ItemID']; ?>">
+                </button>
                     <button class="btn mt-3" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;" onClick="closeModal()">Cancel</button>
                 </div>
             </div>

@@ -16,7 +16,7 @@ if (isset($_POST['cust_name'])) {
     $cust_phone = $_POST['cust_phone'];
     $cust_zip = $_POST['cust_zip'];
     $conf_pass = $_POST['conf_pass'];
-    $cust_address = $_POST['cust_address'];
+    $cust_address = $_POST['cust_add_1']." ".$_POST['cust_add_2'];
     $cust_ig = $_POST['cust_ig'];
     $user_rank = "user";
     
@@ -118,7 +118,7 @@ if (isset($_POST['cust_name'])) {
                 <?php } ?>
 
                 <!-- FORM -->
-                <form data-bss-hover-animate="pulse" class="rounded" style="margin:auto;border:none; width: 892px;min-width: 182px;max-width: 1046px;min-height: 656px;height: 547px;color: rgb(111,66,193);" action="" id="myForm" method="post">
+                <form data-bss-hover-animate="pulse" class="rounded" style="margin:auto;border:none; width: 892px;min-width: 182px;max-width: 1046px;min-height: 656px;height: 850px;color: rgb(111,66,193);" action="" id="myForm" method="post">
                     <div class="mb-3" style="padding-left: -6px;">
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                             Full Name
@@ -146,12 +146,16 @@ if (isset($_POST['cust_name'])) {
                             Unit No.
                             <input class="form-control item" type="text" id="text" name="cust_unit" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required="">
                         </label>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 44px;color: rgb(111,66,193);margin-top: -17px;margin-bottom: -91px;margin-right: 12px;text-align: left;">
                             <br>Address
-                            <textarea class="form-control d-flex d-xxl-flex align-items-start order-1 align-items-xxl-start item" type="text" id="text" name="cust_address" style="resize:none; margin: -3px; margin-bottom:-35px; margin-left:3px; width:725px;height:105px;" required="">
-                                </textarea>
+                            <br><small>House no./Lot no./Block no./Unit no., Street</small>
+                            <input class="form-control item" type="text" id="text" name="cust_add_1" style="width: 700px;margin-bottom: 2px;" required="">
+                            <br><small>Village/Subdivision, Building, Barangay</small>
+                            <input class="form-control item" type="text" id="text" name="cust_add_2" style="width: 700px;margin-bottom: 2px;" required="">
                         </label>
-
+                    </div>
                         <div class="mb-3">
                             <label class="form-label" for="name" style="font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
                                 <br> <br>Region
@@ -252,7 +256,8 @@ if (isset($_POST['cust_name'])) {
                     'cust_brgy': 'Barangay',
                     'cust_email': 'Email',
                     'cust_zip': 'Zip code',
-                    'cust_address': 'Address',
+                    'cust_add_1': 'Address Line 1',
+                    'cust_add_2': 'Address Line 2',
                     'cust_reg': 'Region',
                     'cust_city': 'City',
                     'cust_phone': 'Phone Number',
