@@ -64,7 +64,6 @@
                 if (isset($_SESSION['login_id']) && $_SESSION['user_rank'] == 'user'){
                     echo '<ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="HomePage.php"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ProfileAccntView.php"><i class="fas fa-user-friends"></i> Profiles</a></li>
                     <li class="nav-item"><a class="nav-link" href="OrderItem.php"><i class="fas fa-check-square"></i> Orders</a></li>
                     <li class="nav-item"><a class="nav-link" href="UserProfile.php"><h6><span class="badge rounded-pill text-white" style="background-color: #4a3a4b;"><i class="fas fa-user-circle"></i> '.$_SESSION['cust_name'].'</span></h6></a></li>
                     <button class="btn btn-light my-3 my-sm-0" id="logout" name="logout" type="submit" style="background-color:indigo;border-color:indigo;color:white;font-weight:bold;"> <i class="fas fa-sign-out-alt"></i> Logout</button>

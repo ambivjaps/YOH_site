@@ -34,16 +34,17 @@ if (isset($_POST['cust_name'])) {
     $unique = strtotime("now") . '_' . uniqid(rand()) . '_';
     $default = 'assets/img/default/default_user.jpg';
     $default_name = 'default_user.jpg';
-    $saveImage = 'assets/img/upload/avatars/' . $unique . $default_name;
-    $copyDefault = copy($default, $saveImage);
     
     $emailquery = "SELECT count(*) as total FROM register WHERE cust_email = '$cust_email'";
     $result = mysqli_query($con, $emailquery);
     if (mysqli_fetch_assoc($result)['total'] > 0) {
         header("Location: registration.php?error=true");
         return;
+    } else {
+        $saveImage = 'assets/img/upload/avatars/' . $unique . $default_name;
+        $copyDefault = copy($default, $saveImage);
     }
-    
+
     $query = "insert into register (login_id,cust_name, cust_avatar, cust_email,cust_pass,cust_reg,cust_city,cust_phone,cust_zip,cust_address,cust_ig,cust_status) values
     ('$login_id','$cust_name','$saveImage','$cust_email','$password_hash','$cust_reg','$cust_city','$cust_phone','$cust_zip','$cust_address','$cust_ig','0')";
     
