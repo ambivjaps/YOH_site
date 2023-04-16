@@ -39,6 +39,26 @@
 	    mysqli_free_result($result_past);
 	}
 
+    if(isset($_POST['delete'])) {
+        $delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
+        $sql = "DELETE FROM orders_db WHERE OrderID = $delete_id ";
+        $delete = mysqli_query($con, $sql);
+
+        if($delete){
+            header("Location: Homepage.php");
+        }
+    }
+
+    if(isset($_POST['buy'])) {
+        $delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
+        $sql = "UPDATE orders_db SET TypeID = '3', OrderType = 'Pending'  WHERE OrderID = $delete_id ";
+        $buy = mysqli_query($con, $sql);
+
+        if($buy){
+            header("Location: OrderPageCust.php");
+        }
+    }
+
     require 'layouts/Header.php';
 ?>
 
@@ -74,8 +94,8 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title" style="font-weight:bold;color: rgb(111, 66, 193);">Your Cart</h5><hr>
-
-                <?php if (!empty($orders_cart)) { ?>
+                
+                    <?php if (!empty($orders_cart)) { ?>
                     <p class="card-text">
                         <div class="row">
                             <table class="table table-striped table-hover table-sm mt-5">
@@ -89,25 +109,31 @@
                                 <th style="text-align:center;"> Order Date </th>
                                 <th style="text-align:center;"> </th>
                             </tr>
-
+                            <form class="mb-3" method="POST" action="OrderPageCust.php"> 
                         <?php foreach($orders_cart as $in_cart): ?>
-                            <tr><td style="vertical-align:middle;"><a class="btn btn-primary btn-sm rounded" style="font-weight:bold;background:firebrick;border-color:firebrick;"> X </a>  </td>
+                            
+                            <tr>
+                            <td style="vertical-align:middle;"><input class="btn btn-danger rounded" name="delete" role="button" type="submit" value="X" style="font-weight:bold;background:firebrick;border-color:firebrick;" readonly></td>
+                            <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $in_cart['OrderID']; ?>">
                             <td style="margin-right:auto;margin-right:auto;"> <img class="rounded" src="<?php echo $in_cart['ItemImg']; ?>" height="120px" width="120px" style="margin-right:auto;margin-right:auto;"></div></td>
-                            <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;">  <?php echo $in_cart['ItemName']; ?> </td>
+                            <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;" name="itemname">  <?php echo $in_cart['ItemName']; ?> </td>
                             <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo $in_cart['ItemPrice']; ?> </td>
                             <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo $in_cart['OrderQty']; ?> </td>
                             <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo $in_cart['OrderTotal']; ?> </td>
                             <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo date("F d, Y", strtotime($in_cart['OrderDate'])); ?> </td>
-                            <td style="vertical-align:middle;"><a class="btn btn-primary btn-sm rounded" style="font-weight:bold;background:darkgreen;border-color:darkgreen;"> Buy Item </a>  </td></tr>
+                            <td style="vertical-align:middle;"><input class="btn btn-danger rounded" name="buy" role="button" type="submit" value="Buy Item" style="font-weight:bold;background:darkgreen;border-color:darkgreen;" readonly> </td></tr>
                             
                         <?php  endforeach; ?>
                         </table>
                         </div>
                     <br> <br>
                     </p>
+                    </form>
                 <?php } else { ?>
                     <p class="card-text"> No item in your cart. </p>
                 <?php } ?>
+            
+               
         <?php if (!empty($orders)) { ?>
         <?php foreach($orders as $order): ?>
             <div class="container" style="color: var(--bs-btn-hover-border-color);">
@@ -135,7 +161,11 @@
         <h6 style="font-weight:bold" > Quantity: <span style="color:indigo;"><?php echo $order['OrderQty']; ?></span></h6>
         <h6 style="font-weight:bold" > Materials Used: <span style="color:indigo;"><?php echo $order['MaterialQty']; ?> x <?php echo $order['MaterialUsed']; ?></span></h6>
         <h6 style="font-weight:bold"> Order Due: <span style="font-weight:bold;color:indigo;"><?php echo date("F d, Y", strtotime($order['PaymentDue'])); ?></span></h6>
-        <h6 style="font-weight:bold"> Order Status:  <span class="badge bg-warning"> <?php echo $order['OrderType']; ?> </span></h6>
+        <h6 style="font-weight:bold"> Order Status: <?php if($order['OrderType'] === 'On-Going'){
+           echo '<span class="badge bg-warning">'.$order['OrderType'].'</span>';
+        }else if($order['OrderType'] === 'Pending'){
+            echo '<span class="badge bg-secondary">'.$order['OrderType'].'</span>';
+        }?> </h6>
         <h6 style="font-weight:bold;"> Shipping Details: <span style="font-weight:bold;color:indigo;"><?php echo $order['address']; ?></h6>
         </div>
 		</div>

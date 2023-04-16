@@ -14,7 +14,7 @@ $(function()
 
     function timeCompare(timeString)
     {
-        var maxMinutes  = 1;  //GREATER THEN 1 MIN.
+        var maxMinutes  = 6;  //GREATER THEN 1 MIN.
         var currentTime = new Date();
         var pastTime    = new Date(timeString);
         var timeDiff    = currentTime - pastTime;

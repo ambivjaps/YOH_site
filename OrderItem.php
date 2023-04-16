@@ -37,8 +37,45 @@
 
     require 'layouts/Header.php';
 ?>
+<head>
+<link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/ProdListDesign.css.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+<style>
+        #myModal2 {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        #myModal3 {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
 
-<title> Inventory | Yarn Over Hook </title>
+        .modal-content {
+            top: 30%;
+            width: 100%;
+            background-color: #fee8e8;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .modal-footer {
+            border: none;
+        }
+
+        .modal-footer button {
+            background-color: white;
+            margin: 0 auto;
+            border: none;
+        }
+    </style>
+</head>
+<title> Product Catalog | Yarn Over Hook </title>
 
 <body class="d-flex flex-column min-vh-100">
     
@@ -79,9 +116,41 @@
                                                 <div class="product-name"><?php echo $item['ItemName']; ?></div>
                                             </a>
                                             <hr>
-                                            <div class="about">
-                                                <h6 style="font-weight:bold;text-align:start;"> PHP <span style="color:rgb(111,66,193);" ><?php echo $item['ItemPrice']; ?></span></h6>
-                                                <a class="btn btn-primary" href="#" role="button" style="border-color:indigo;background:indigo;"><i class="fas fa-shopping-cart"></i></a>
+                                            <div class="about"><br>
+                                                <h5 style="font-weight:bold;text-align:start;width:100%;"> PHP <span style="color:rgb(111,66,193);"><?php echo $item['ItemPrice']; ?></span></h5> 
+                                            <div class="container"> 
+                                            <!-- Button trigger modal -->
+                                                <button type="button" role="button" href="#" class="btn btn-primary" style="border-color:indigo;background:indigo;margin-left:80%;" data-toggle="modal" data-target="#exampleModal<?php echo $item['ItemID']; ?>"><i class="fas fa-shopping-cart"></i></button>
+                                            
+                                            
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal<?php echo $item['ItemID']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog" role="document">
+                                                    <div class="modal-content" style="width:100%;">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight:bold;font-size:17px;"><span style="text-align:center;"><?php echo $item['ItemName']; ?></h5>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        <form>
+                                                  <div class="form-group">
+                                                    <label for="quantity" style="font-weight:bold;">Quantity</label><br>
+                                                    <input type="number" class="form-control rounded" id="quantity">
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label for="quantity" style="font-weight:bold;">Stocks</label>
+                                                    <input type="text" class="form-control rounded" id="stocks" placeholder="<?php echo $item['ItemQty']; ?> " readonly>
+                                                  </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn mt-3" style="color:white;border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">Order</button>
+                                                            <button type="button" class="btn mt-3" data-dismiss="modal" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Close</button>
+                                                        </div>
+                                                     </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            </div>
                                             </div>
                                         </div>
 								    </div>
@@ -107,4 +176,14 @@
         </section>
     </main>
     
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="assets/js/DesignB.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/DesignA.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/DesignAnimation.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 <?php require 'layouts/Footer.php';?>
