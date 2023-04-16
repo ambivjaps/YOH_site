@@ -158,11 +158,21 @@
       <!-- ORDER DETAILS AS PER USER INPUT -->
 	    <h6 style="font-weight:bold;font-size:23px"> Order Details </h6><hr>
         <h6 style="font-weight:bold"> Price:  <span style="color:indigo;"> PHP <?php echo $order['ItemPrice']; ?></span></h6>
-        <h6 style="font-weight:bold" > Quantity: <span style="color:indigo;"><?php echo $order['OrderQty']; ?></span></h6>
-        <h6 style="font-weight:bold" > Materials Used: <span style="color:indigo;"><?php echo $order['MaterialQty']; ?> x <?php echo $order['MaterialUsed']; ?></span></h6>
-        <h6 style="font-weight:bold"> Order Due: <span style="font-weight:bold;color:indigo;"><?php echo date("F d, Y", strtotime($order['PaymentDue'])); ?></span></h6>
+        
+        
+        <?php if($order['OrderType'] != 'Pending') { ?>
+
+        <h6 style="font-weight:bold" > Quantity: 
+        <span style="color:indigo;"><?php echo $order['OrderQty']; ?></span></h6>
+        <h6 style="font-weight:bold" > Materials Used: 
+        <span style="color:indigo;"><?php echo $order['MaterialQty']; ?> x <?php echo $order['MaterialUsed']; ?></span></h6>
+        <h6 style="font-weight:bold"> Order Due: 
+        <span style="font-weight:bold;color:indigo;"><?php echo date("F d, Y", strtotime($order['PaymentDue'])); ?></span></h6>
+
+        <?php } else { } ?>
+
         <h6 style="font-weight:bold"> Order Status: <?php if($order['OrderType'] === 'On-Going'){
-           echo '<span class="badge bg-warning">'.$order['OrderType'].'</span>';
+           echo '<span class="badge bg-warning text-dark">'.$order['OrderType'].'</span>';
         }else if($order['OrderType'] === 'Pending'){
             echo '<span class="badge bg-secondary">'.$order['OrderType'].'</span>';
         }?> </h6>
@@ -171,7 +181,6 @@
 		</div>
         </div>
         </div>
-			
 			
             <div class="col-lg-6 mb-4">
                 <div class="card">
