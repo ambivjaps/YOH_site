@@ -136,9 +136,9 @@
                         <h6 style="font-weight:bold;"> Address: <span style="font-weight:lighter;color:indigo;"><?php echo $order['address']; ?></h6>
                         <h6 style="font-weight:bold;"> Region: <span style="font-weight:lighter;color:indigo;"><?php echo $order['region']; ?></h6>
                         <h6 style="font-weight:bold;"> City: <span style="font-weight:lighter;color:indigo;"><?php echo $order['city']; ?></h6>
-                        <h6 style="font-weight:bold;"> Barangay: <span style="font-weight:lighter;color:indigo;"><?php echo $order['barangay']; ?></h6>
-                        <h6 style="font-weight:bold;"> Phone No: <span style="font-weight:lighter;color:indigo;"><?php echo $order['phone_no']; ?></h6>
                         <h6 style="font-weight:bold;"> ZIP Code: <span style="font-weight:lighter;color:indigo;"><?php echo $order['zip_code']; ?></h6>
+                        <h6 style="font-weight:bold;"> Mobile No: <span style="font-weight:lighter;color:indigo;"><?php echo $order['phone_no']; ?></h6>
+                        
                     </div>
                 </div>
             </div>
