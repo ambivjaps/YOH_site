@@ -9,15 +9,15 @@ if (isset($_POST['cust_name'])) {
     $cust_email = $_POST['cust_email'];
     $cust_pass = $_POST['cust_pass'];
     $cust_reg = $_POST['cust_reg'];
-    $cust_st = $_POST['cust_st'];
+
     $cust_city = $_POST['cust_city'];
-    $cust_brgy = $_POST['cust_brgy'];
-    $cust_unit = $_POST['cust_unit'];
     $cust_phone = $_POST['cust_phone'];
     $cust_zip = $_POST['cust_zip'];
     $conf_pass = $_POST['conf_pass'];
+
     $cust_address = $_POST['cust_add_1']." ".$_POST['cust_add_2'];
     $cust_ig = $_POST['cust_ig'];
+
     $user_rank = "user";
     
     $password_hash = password_hash($cust_pass, PASSWORD_BCRYPT);
@@ -39,13 +39,13 @@ if (isset($_POST['cust_name'])) {
         return;
     }
     
-    $query = "insert into register (login_id,cust_name, cust_avatar, cust_email,cust_pass,cust_reg,cust_st,cust_city,cust_brgy,cust_unit,cust_phone,cust_zip,cust_address,cust_ig,cust_status) values
-    ('$login_id','$cust_name','$saveImage','$cust_email','$password_hash','$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip','$cust_address','$cust_ig','0')";
+    $query = "insert into register (login_id,cust_name, cust_avatar, cust_email,cust_pass,cust_reg,cust_city,cust_phone,cust_zip,cust_address,cust_ig,cust_status) values
+    ('$login_id','$cust_name','$saveImage','$cust_email','$password_hash','$cust_reg','$cust_city','$cust_phone','$cust_zip','$cust_address','$cust_ig','0')";
     
     $reg = mysqli_query($con, $query);
     if ($reg == 1) {
-        $cquery = "insert into cust_profile (c_id,login_id,c_name,c_label,region,street,city,barangay,unit_no,phone_no,zip_code,address,cust_status) values
-        ('$login_id','$login_id','$cust_name','Home', '$cust_reg','$cust_st','$cust_city','$cust_brgy','$cust_unit','$cust_phone','$cust_zip','$cust_address','1')";
+        $cquery = "insert into cust_profile (c_id,login_id,c_name,c_label,region,city,phone_no,zip_code,address,cust_status) values
+        ('$login_id','$login_id','$cust_name','Home', '$cust_reg','$cust_city','$cust_phone','$cust_zip','$cust_address','1')";
         $regcust = mysqli_query($con, $cquery);
     }
     header("Location: Login.php?registrationSuccess=true");
@@ -122,29 +122,22 @@ if (isset($_POST['cust_name'])) {
                     <div class="mb-3" style="padding-left: -6px;">
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                             Full Name
-                            <input class="form-control item" type="text" id="text" name="cust_name" style=" font-weight: bold;width: 289px;margin-bottom: 4px;" required="">
-                        </label>
-                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 148px;padding-left: -6px;color: rgb(111,66,193);">
-                            Street
-                            <input class="form-control item" type="text" id="text" name="cust_st" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required="">
-                        </label>
-                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 42px;color: rgb(111,66,193);">
-                            Barangay
-                            <input class="form-control item" type="text" id="text" name="cust_brgy" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required="">
+                            <input class="form-control item" type="text" id="text" name="cust_name" style=" font-weight: bold;width: 730px;margin-bottom: 4px;" required="">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
-                            Email Address
+                        Contact Details
+                        <br><small>Email Address</small>
                             <input class="form-control item" type="text" id="text" name="cust_email" style="width: 289px;margin-bottom: 4px;" required="">
                         </label>
-                        <label class="form-label" for="name" style="font-weight: bold;margin-left: 148px;color: rgb(111,66,193);">
-                            Zip Code<br>
-                            <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" onkeypress="return restrictAlphabets(event)" required="">
+                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
+                        <small>Phone Number</small>
+                            <input class="form-control item" type="text" id="text" name="cust_phone" minlength="11" maxlength="11" style=" width: 270px;margin-bottom: 4px;padding-left: 18px;" onkeypress="return restrictAlphabets(event)" required="">
                         </label>
-                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 42px;color: rgb(111,66,193);">
-                            Unit No.
-                            <input class="form-control item" type="text" id="text" name="cust_unit" style="width: 121px;margin-bottom: 4px;min-width: 76px;" required="">
+                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
+                        <small>Instagram Handle</small>
+                            <input class="form-control item" type="text" id="text" name="cust_ig" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" required="">
                         </label>
                     </div>
                     <div class="mb-3">
@@ -158,22 +151,16 @@ if (isset($_POST['cust_name'])) {
                     </div>
                         <div class="mb-3">
                             <label class="form-label" for="name" style="font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
-                                <br> <br>Region
+                            <small>Region</small>
                                 <input class="form-control item" type="text" id="text" name="cust_reg" style="width: 121px;margin-bottom: 4px;" required="">
                             </label>
                             <label class="form-label" for="name" style=" font-weight: bold;margin-left: 48px;width: 117px;color: rgb(111,66,193);">
-                                City
+                            <small>City</small>
                                 <input class="form-control item" type="text" id="text" name="cust_city" style="width: 121px;margin-bottom: 4px;" required="">
                             </label>
-                            <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
-                                Phone Number
-                                <input class="form-control item" type="text" id="text" name="cust_phone" minlength="11" maxlength="11" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" onkeypress="return restrictAlphabets(event)" required="">
-                            </label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="name" style=" font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
-                                Instagram Handle
-                                <input class="form-control item" type="text" id="text" name="cust_ig" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" required="">
+                            <label class="form-label" for="name" style="font-weight: bold;margin-left: 148px;color: rgb(111,66,193);">
+                            Zip Code<br>
+                            <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" onkeypress="return restrictAlphabets(event)" required="">
                             </label>
                         </div>
                         <div class="mb-3" style="margin-bottom: 9px;margin-top: 42px;">
@@ -252,8 +239,6 @@ if (isset($_POST['cust_name'])) {
                 const passwordRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
                 let fields = {
                     'cust_name': 'Full name',
-                    'cust_st': 'Street',
-                    'cust_brgy': 'Barangay',
                     'cust_email': 'Email',
                     'cust_zip': 'Zip code',
                     'cust_add_1': 'Address Line 1',
