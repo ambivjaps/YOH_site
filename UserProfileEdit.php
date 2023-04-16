@@ -26,15 +26,11 @@
     
         $cust_name = mysqli_real_escape_string($con, $_POST['cust_name']);
         $cust_address = mysqli_real_escape_string($con, $_POST['cust_address']);
-        $cust_unit = mysqli_real_escape_string($con, $_POST['cust_unit']);
-        $cust_st = mysqli_real_escape_string($con, $_POST['cust_st']);
 
-        $cust_brgy = mysqli_real_escape_string($con, $_POST['cust_brgy']);
         $cust_city = mysqli_real_escape_string($con, $_POST['cust_city']);
         $cust_reg = mysqli_real_escape_string($con, $_POST['cust_reg']);
         $cust_zip = mysqli_real_escape_string($con, $_POST['cust_zip']);
 
-        $cust_email = mysqli_real_escape_string($con, $_POST['cust_email']);
         $cust_phone = mysqli_real_escape_string($con, $_POST['cust_phone']);
         $cust_ig = mysqli_real_escape_string($con, $_POST['cust_ig']);
 
@@ -63,21 +59,17 @@
             }
         }
     
-        $query = "UPDATE register SET cust_name='$cust_name', cust_address='$cust_address', cust_unit='$cust_unit', cust_st='$cust_st', cust_brgy='$cust_brgy', cust_city='$cust_city', cust_reg='$cust_reg', cust_zip='$cust_zip', cust_email='$cust_email', cust_phone='$cust_phone', cust_ig='$cust_ig' WHERE login_id=$UID";
+        $query = "UPDATE register SET cust_name='$cust_name', cust_address='$cust_address', cust_city='$cust_city', cust_reg='$cust_reg', cust_zip='$cust_zip', cust_phone='$cust_phone', cust_ig='$cust_ig' WHERE login_id=$UID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['cust_name'] = $_POST['cust_name'];
             $_SESSION['cust_address'] = $_POST['cust_address'];
-            $_SESSION['cust_unit'] = $_POST['cust_unit'];
-            $_SESSION['cust_st'] = $_POST['cust_st'];
 
-            $_SESSION['cust_brgy'] = $_POST['cust_brgy'];
             $_SESSION['cust_city'] = $_POST['cust_city'];
             $_SESSION['cust_reg'] = $_POST['cust_reg'];
             $_SESSION['cust_zip'] = $_POST['cust_zip'];
 
-            $_SESSION['cust_email'] = $_POST['cust_email'];
             $_SESSION['cust_phone'] = $_POST['cust_phone'];
             $_SESSION['cust_ig'] = $_POST['cust_ig'];
 
@@ -126,25 +118,12 @@
                     </div>
 
                     <div class="col-md-4">
-                        <label style="font-weight:bold;">Unit</label>
-                        <input type="text" name="cust_unit" id="cust_unit" class="form-control rounded" value="<?php echo $user['cust_unit'] ?>">
+                        <label style="font-weight:bold;">Region</label>
+                        <input type="text" name="cust_reg" id="cust_reg" class="form-control rounded" value="<?php echo $user['cust_reg'] ?>">
                     </div>
-                    <div class="col-md-4">
-                        <label style="font-weight:bold;">Street</label>
-                        <input type="text" name="cust_st" id="cust_st" class="form-control rounded" value="<?php echo $user['cust_st'] ?>">
-                    </div>
-                    <div class="col-md-4">
-                        <label style="font-weight:bold;">Barangay</label>
-                        <input type="text" name="cust_brgy" id="cust_brgy" class="form-control rounded" value="<?php echo $user['cust_brgy'] ?>">
-                    </div>
-
                     <div class="col-md-4">
                         <label style="font-weight:bold;">City</label>
                         <input type="text" name="cust_city" id="cust_city" class="form-control rounded" value="<?php echo $user['cust_city'] ?>">
-                    </div>
-                    <div class="col-md-4">
-                        <label style="font-weight:bold;">Region</label>
-                        <input type="text" name="cust_reg" id="cust_reg" class="form-control rounded" value="<?php echo $user['cust_reg'] ?>">
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">ZIP Code</label>
@@ -152,16 +131,12 @@
                     </div>
                    
                     <h3> Contact Details </h3>
-                    
-                    <div class="col-md-4">
-                        <label style="font-weight:bold;">E-mail Address</label>
-                        <input type="email" name="cust_email" id="cust_email" class="form-control rounded" value="<?php echo $user['cust_email'] ?>">
-                    </div>
-                    <div class="col-md-4">
+
+                    <div class="col-md-6">
                         <label style="font-weight:bold;">Mobile Number</label>
                         <input type="text" name="cust_phone" id="cust_phone" minlength="11" maxlength="11"  onkeypress="return restrictAlphabets(event)" class="form-control rounded" value="<?php echo $user['cust_phone'] ?>">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label style="font-weight:bold;">Instagram Handle</label>
                         <input type="text" name="cust_ig" id="cust_ig" class="form-control rounded" value="<?php echo $user['cust_ig'] ?>">
                     </div>

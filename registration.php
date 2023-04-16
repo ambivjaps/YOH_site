@@ -15,7 +15,7 @@ if (isset($_POST['cust_name'])) {
     $cust_zip = $_POST['cust_zip'];
     $conf_pass = $_POST['conf_pass'];
 
-    $cust_address = $_POST['cust_add_1']." ".$_POST['cust_add_2'];
+    $cust_address = $_POST['cust_add_1'].", ".$_POST['cust_add_2'];
     $cust_ig = $_POST['cust_ig'];
 
     $user_rank = "user";
@@ -159,7 +159,7 @@ if (isset($_POST['cust_name'])) {
                                 <input class="form-control item" type="text" id="text" name="cust_city" style="width: 121px;margin-bottom: 4px;" required="">
                             </label>
                             <label class="form-label" for="name" style="font-weight: bold;margin-left: 148px;color: rgb(111,66,193);">
-                            Zip Code<br>
+                            ZIP Code<br>
                             <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" onkeypress="return restrictAlphabets(event)" required="">
                             </label>
                         </div>

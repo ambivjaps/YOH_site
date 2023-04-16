@@ -18,15 +18,12 @@
         $c_name = mysqli_real_escape_string($con, $_POST['c_name']);
         $c_label = mysqli_real_escape_string($con, $_POST['c_label']);
 
-        $address = mysqli_real_escape_string($con, $_POST['address']);
+        $address = mysqli_real_escape_string($con, $_POST['address_1']).", ".mysqli_real_escape_string($con, $_POST['address_2']);
         $region = mysqli_real_escape_string($con, $_POST['region']);
         $city = mysqli_real_escape_string($con, $_POST['city']);
-        $street = mysqli_real_escape_string($con, $_POST['street']);
 
-        $barangay = mysqli_real_escape_string($con, $_POST['barangay']);
         $phone_no = mysqli_real_escape_string($con, $_POST['phone_no']);
         $zip_code = mysqli_real_escape_string($con, $_POST['zip_code']);
-        $unit_no = mysqli_real_escape_string($con, $_POST['unit_no']);
         
         $sql = "SELECT * from cust_profile where c_id = $CID";
             $sql_run = mysqli_query($con, $sql);
@@ -34,30 +31,25 @@
         if ($sql_run && mysqli_num_rows($sql_run) < 3) {
              $user_data = mysqli_fetch_assoc($sql_run);
             if(empty($user_data['cust_status'])){
-                 $query = "INSERT INTO cust_profile (c_id, c_name, c_label, address, region, city, street, barangay, phone_no, zip_code, unit_no, login_id, cust_status) VALUES ('$CID', '$c_name', '$c_label', '$address', '$region', '$city', '$street', '$barangay', '$phone_no', '$zip_code', '$unit_no', '$CID', 1)";
+                 $query = "INSERT INTO cust_profile (c_id, c_name, c_label, address, region, city, phone_no, zip_code, login_id, cust_status) VALUES ('$CID', '$c_name', '$c_label', '$address', '$region', '$city', '$phone_no', '$zip_code', '$CID', 1)";
                  $query_run = mysqli_query($con, $query);
              }else if($user_data['cust_status'] == 0){
-                $query = "INSERT INTO cust_profile (c_id, c_name, c_label, address, region, city, street, barangay, phone_no, zip_code, unit_no, login_id, cust_status) VALUES ('$CID', '$c_name', '$c_label', '$address', '$region', '$city', '$street', '$barangay', '$phone_no', '$zip_code', '$unit_no', '$CID', 1)";
+                $query = "INSERT INTO cust_profile (c_id, c_name, c_label, address, region, city, phone_no, zip_code, login_id, cust_status) VALUES ('$CID', '$c_name', '$c_label', '$address', '$region', '$city', '$phone_no', '$zip_code', '$CID', 1)";
                 $query_run = mysqli_query($con, $query);
              }else{
-        $query = "INSERT INTO cust_profile (c_id, c_name, c_label, address, region, city, street, barangay, phone_no, zip_code, unit_no, login_id) VALUES ('$CID', '$c_name', '$c_label', '$address', '$region', '$city', '$street', '$barangay', '$phone_no', '$zip_code', '$unit_no', '$CID')";
+        $query = "INSERT INTO cust_profile (c_id, c_name, c_label, address, region, city, phone_no, zip_code, login_id) VALUES ('$CID', '$c_name', '$c_label', '$address', '$region', '$city', '$phone_no', '$zip_code', '$CID')";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
             $_SESSION['c_name'] = $_POST['c_name'];
             $_SESSION['c_label'] = $_POST['c_label'];
 
-            $_SESSION['address'] = $_POST['address'];
             $_SESSION['region'] = $_POST['region'];
             $_SESSION['city'] = $_POST['city'];
-            $_SESSION['street'] = $_POST['street'];
 
-            $_SESSION['barangay'] = $_POST['barangay'];
             $_SESSION['phone_no'] = $_POST['phone_no'];
             $_SESSION['zip_code'] = $_POST['zip_code'];
-            $_SESSION['unit_no'] = $_POST['unit_no'];
-
-            
+ 
             header("Location: ProfileAccntView.php");
             mysqli_close($con);
             
@@ -141,37 +133,28 @@
                         <label style="font-weight:bold;">Label</label>
                         <input type="text" name="c_label" id="c_label" class="form-control rounded" required>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label style="font-weight:bold;">Name</label>
                         <input type="text" name="c_name" id="c_name" class="form-control rounded" required>
                     </div>
-                    <div class="col-md-6">
-                        <label style="font-weight:bold;">Address</label>
-                        <input type="text" name="address" id="address" class="form-control rounded" required>
+                    <div class="col-md-12">
+                        <label style="font-weight:bold;">Address</label><br>
+                        <label> House no./Lot no./Block no./Unit no., Street </label>
+                        <input type="text" name="address_1" id="address_1" class="form-control rounded" required>
+                        <label>Village/Subdivision, Building, Barangay</label>
+                        <input type="text" name="address_2" id="address_2" class="form-control rounded" required>
                     </div>
                     <div class="col-md-4">
-                        <label style="font-weight:bold;">Street</label>
-                        <input type="text" name="street" id="street" class="form-control rounded" required>
+                        <label style="font-weight:bold;">Region</label>
+                        <input type="text" name="region" id="region" class="form-control rounded" required>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">City</label>
                         <input type="text" name="city" id="city" class="form-control rounded" required>
                     </div>
                     <div class="col-md-4">
-                        <label style="font-weight:bold;">Barangay</label>
-                        <input type="text" name="barangay" id="barangay" class="form-control rounded" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label style="font-weight:bold;">Unit Number</label>
-                        <input type="text" name="unit_no" id="unit_no" class="form-control rounded" required>
-                    </div>
-                    <div class="col-md-4">
                         <label style="font-weight:bold;">Zip Code</label>
                         <input type="text" name="zip_code" id="zip_code" class="form-control rounded" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label style="font-weight:bold;">Region</label>
-                        <input type="text" name="region" id="region" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
                         <label style="font-weight:bold;">Mobile Number</label>
@@ -219,11 +202,9 @@
                 let fields = {
                     'c_label': 'Label',
                     'c_name': 'Name',
-                    'address': 'Address',
-                    'street': 'Street',
+                    'address_1': 'Address Line 1',
+                    'address_2': 'Address Line 2',
                     'city': 'City',
-                    'barangay': 'Barangay',
-                    'unit_no': 'Unit No.',
                     'zip_code': 'Zip code',
                     'region': 'Region',
                     'phone_no': 'Phone Number',

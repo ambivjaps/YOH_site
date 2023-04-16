@@ -130,43 +130,31 @@ if(isset($_POST['delete'])) {
                         <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['address']; ?></p>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="form-group">
-                        <label style="font-weight:bold; font-size:30px; ">Unit Number</label>
-                        <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['unit_no']; ?></p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="form-group">
-                        <label style="font-weight:bold;font-size:30px; " >Barangay</label>
-                        <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['barangay']; ?></p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label style="font-weight:bold;font-size:30px; ">City</label>
                         <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['city']; ?></p>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="form-group">
-                        <label style="font-weight:bold;font-size:30px; ">Street</label>
-                        <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['street']; ?></p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label style="font-weight:bold;font-size:30px; ">Region</label>
                         <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['region']; ?></p>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-10" style="position:center;">
+                <div class="col-md-4" style="position:center;">
                     <div class="form-group">
-                        <label style="font-weight:bold; font-size:30px;">Zip Code</label>
+                        <label style="font-weight:bold; font-size:30px;">ZIP Code</label>
                         <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $profile['zip_code']; ?></p>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label style="font-weight:bold;font-size:30px; ">E-mail Address</label>
+                        <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $prof_reg['cust_email']; ?></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label style="font-weight:bold;font-size:30px; ">Instagram Handle</label>
                         <p class="rounded" style="font-size:15px;background:#cbc3e3; font-weight:bold; text-align:center;"><?php echo $prof_reg['cust_ig']; ?></p>
