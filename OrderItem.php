@@ -121,10 +121,10 @@
                                     <?php foreach($items as $item): ?>
                                     <div class="col-md-4">
                                         <div class="clean-product-item">
-                                            <a href="InventoryItem.php?id=<?php echo $item['ItemID']; ?>">
+                                            <a href="OrderItemProd.php?id=<?php echo $item['ItemID']; ?>">
                                                 <div class="image"><img class="img-fluid d-block mx-auto rounded" src="<?php echo $item['ItemImg']; ?>" title="<?php echo $item['ItemImg']; ?>" alt="<?php echo $item['ItemImg']; ?>"></div>
                                             </a>
-                                            <a href="InventoryItem.php?id=<?php echo $item['ItemID']; ?>" style="text-decoration: none;color:rgb(111,66,193); font-weight:bold;">
+                                            <a href="OrderItemProd.php?id=<?php echo $item['ItemID']; ?>" style="text-decoration: none;color:rgb(111,66,193); font-weight:bold;">
                                                 <div class="product-name"><?php echo $item['ItemName']; ?></div>
                                             </a>
                                             <hr>
