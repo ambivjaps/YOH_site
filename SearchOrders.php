@@ -17,8 +17,15 @@ if (!$_POST['inprocess'] && !$_POST['completed'] && !$_POST['pending']) {
         AND cust_profile.cust_status = '1'
         ";
 }
-
-if ($_POST['inprocess'] && $_POST['completed']) {
+if ($_POST['inprocess'] && $_POST['completed'] && $_POST['pending']) {
+    $query .= "
+        WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed' OR orders_db.OrderType = 'Pending'
+        OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed' OR orders_db.OrderType = 'Pending'
+        OR orders_db.OrderQty LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed' OR orders_db.OrderType = 'Pending' 
+        OR orders_db.OrderTotal LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed' OR orders_db.OrderType = 'Pending'
+        AND cust_profile.cust_status = '1'";
+}
+else if ($_POST['inprocess'] && $_POST['completed']) {
     $query .= "
         WHERE inventory_db.ItemName LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed'
         OR cust_profile.c_name LIKE ? AND orders_db.OrderType = 'On-Going' OR orders_db.OrderType = 'Completed'

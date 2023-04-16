@@ -50,17 +50,21 @@
                 <div class="block-heading">
                     <h2 style="margin:40px; color: black;font-size: 50px;font-weight: bold;">Product Catalog</h2>
                 </div>
-                <div class="content">
-                    <a href="OrderPageCust.php" class="btn btn-primary position-relative mx-1" role="button" style="text-align: center;border-color:indigo;background:indigo;">
-                        <i class="fas fa-eye" style="text-align: center;"></i> View Orders
+                <div class="content rounded" style="width:1350px;">
+                    <br>
+                    <a href="OrderPageCust.php">
+                    <button role="button" class="btn btn-primary position-relative mx-4"  style="text-align: center;border-color:indigo;background:indigo;">
+                        <i class="fas fa-eye" style="text-align:center;width:7%;font-weight:bold;"></i> <span style="font-weight:bold;"> View Orders</span>
                         <?php if ($r_count > 0) { ?>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> <?php echo $r_count; ?> </span>
                         <?php } else { ?>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display:none"> </span>
                         <?php } ?>
+                    </button>
                     </a>
-
-                    <div class="row">
+                    <br>
+                    
+                    <div class="row" style="margin-left:10px;">
                         <div class="col-md-12">
                             <div class="products">                 
                                 <strong>Page <?php echo $page." of ".$total_pages; ?></strong>        
@@ -85,14 +89,14 @@
                                 </div>
                                 <nav style="margin-bottom: 15px;margin-top: 10px;">
                                     <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" aria-label="Previous" href="?page=1"><span aria-hidden="true">«</span></a></li>
+                                        <li class="page-item"><a class="page-link" aria-label="Previous" href="?page=1"><span aria-hidden="true" style="color:rgb(119,13,253);">«</span></a></li>
                                         <li class="page-item <?php if($page <= 1){ echo 'disabled'; } ?>">
-                                            <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>">Prev</a>
+                                            <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" style="color:indigo;font-weight:bold;">Prev</a>
                                         </li>
                                         <li class="page-item <?php if($page >= $total_pages){ echo 'disabled'; } ?>">
-                                            <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
+                                            <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" style="color:indigo;font-weight:bold;">Next</a>
                                         </li>
-                                        <li class="page-item"><a class="page-link" aria-label="Next" href="?page=<?php echo $total_pages; ?>"><span aria-hidden="true">»</span></a></li>
+                                        <li class="page-item"><a class="page-link" aria-label="Next" href="?page=<?php echo $total_pages; ?>"><span aria-hidden="true" style="color:rgb(119,13,253);">»</span></a></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -80,22 +80,27 @@
                         <div class="row">
                             <table class="table table-striped table-hover table-sm mt-5">
                             <tr>
-                                <th> Cart # </th>
-                                <th> Item Name: </th>
-                                <th> Item Price: </th>
-                                <th> Quantity: </th>
-                                <th> Total Price: </th>
-                                <th> Order Date: </th>
+                                <th> </th>
+                                <th> </th>
+                                <th style="text-align:center;"> Item Name </th>
+                                <th style="text-align:center;"> Item Price </th>
+                                <th style="text-align:center;"> Quantity </th>
+                                <th style="text-align:center;"> Total Price </th>
+                                <th style="text-align:center;"> Order Date </th>
+                                <th style="text-align:center;"> </th>
                             </tr>
 
-                        <?php $loop=1; foreach($orders_cart as $in_cart): ?>
-                            <tr><td>  <?php echo $loop; ?> </td>
-                            <td>  <?php echo $in_cart['ItemName']; ?> </td>
-                            <td> <?php echo $in_cart['ItemPrice']; ?> </td>
-                            <td> <?php echo $in_cart['OrderQty']; ?> </td>
-                            <td> <?php echo $in_cart['OrderTotal']; ?> </td>
-                            <td> <?php echo date("F d, Y", strtotime($in_cart['OrderDate'])); ?> </td>
-                        <?php $loop++; endforeach; ?>
+                        <?php foreach($orders_cart as $in_cart): ?>
+                            <tr><td style="vertical-align:middle;"><a class="btn btn-primary btn-sm rounded" style="font-weight:bold;background:firebrick;border-color:firebrick;"> X </a>  </td>
+                            <td style="margin-right:auto;margin-right:auto;"> <img class="rounded" src="<?php echo $in_cart['ItemImg']; ?>" height="120px" width="120px" style="margin-right:auto;margin-right:auto;"></div></td>
+                            <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;">  <?php echo $in_cart['ItemName']; ?> </td>
+                            <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo $in_cart['ItemPrice']; ?> </td>
+                            <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo $in_cart['OrderQty']; ?> </td>
+                            <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo $in_cart['OrderTotal']; ?> </td>
+                            <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo date("F d, Y", strtotime($in_cart['OrderDate'])); ?> </td>
+                            <td style="vertical-align:middle;"><a class="btn btn-primary btn-sm rounded" style="font-weight:bold;background:darkgreen;border-color:darkgreen;"> Buy Item </a>  </td></tr>
+                            
+                        <?php  endforeach; ?>
                         </table>
                         </div>
                     <br> <br>
@@ -108,7 +113,7 @@
             <div class="container" style="color: var(--bs-btn-hover-border-color);">
                 <div class="block-heading">
              
-                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:64px; color:black;font-weight:bold;"> Order # <span style="color: rgb(111, 66, 193);"><?php echo $order['OrderID']; ?> </h2><hr>
+                    <h2 style="margin-bottom: 17.2px;font-size: 54px;text-align: center;margin-top:-64px; color:black;font-weight:bold;"> Order # <span style="color: rgb(111, 66, 193);"><?php echo $order['OrderID']; ?> </h2><hr>
                     <h2 style="font-size: 18px;text-align: left;margin-bottom: 10.2px;margin-top:10px; color:black;"></h2> 
                 </div>
             </div>
