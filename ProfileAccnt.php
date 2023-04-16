@@ -171,7 +171,7 @@
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
                 <div class="modal-footer">
                 
-                <button class="btn mt-3"onClick="deleteProfile()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;color:white;">OK
+                <button class="btn mt-3" onClick="deleteProfile()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;color:white;">OK
                 <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
                     </button>
                     <button class="btn mt-3" onClick="closeModal()" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Cancel</button>

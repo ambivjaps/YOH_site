@@ -9,11 +9,21 @@
     $user_data = check_login($con);
 
     if(isset($_SESSION['login_id'])) {
+        // cart
+        $id = mysqli_real_escape_string($con, $_SESSION['login_id']);
+        $cart = "SELECT * FROM orders_db INNER JOIN cust_profile 
+        ON orders_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
+        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_profile.cust_status = '1' AND orders_db.c_id = $id AND orders_db.TypeID = '4'";
+
+        $result_cart = mysqli_query($con, $cart);
+        $orders_cart = mysqli_fetch_all($result_cart, MYSQLI_ASSOC);
+        mysqli_free_result($result_cart);
+
         // current orders
 		$id = mysqli_real_escape_string($con, $_SESSION['login_id']);
 		$item = "SELECT * FROM orders_db INNER JOIN cust_profile 
         ON orders_db.c_id = cust_profile.c_id INNER JOIN inventory_db 
-        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_profile.cust_status = '1' AND orders_db.c_id = $id AND orders_db.TypeID != '2'";
+        ON orders_db.ItemID = inventory_db.ItemID  WHERE cust_profile.cust_status = '1' AND orders_db.c_id = $id AND orders_db.TypeID != '2' AND orders_db.TypeID != '4'";
 
 		$result_process = mysqli_query($con, $item);
 		$orders = mysqli_fetch_all($result_process, MYSQLI_ASSOC);
@@ -58,6 +68,41 @@
 
     <main class="page payment-page;">
         <section class="clean-block payment-form dark" style="background-color:#efe9ef;"><br><br>
+        <div class="container my-5">
+
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" style="font-weight:bold;color: rgb(111, 66, 193);">Your Cart</h5><hr>
+
+                <?php if (!empty($orders_cart)) { ?>
+                    <p class="card-text">
+                        <div class="row">
+                            <table class="table table-striped table-hover table-sm mt-5">
+                            <tr>
+                                <th> Cart # </th>
+                                <th> Item Name: </th>
+                                <th> Item Price: </th>
+                                <th> Quantity: </th>
+                                <th> Total Price: </th>
+                                <th> Order Date: </th>
+                            </tr>
+
+                        <?php $loop=1; foreach($orders_cart as $in_cart): ?>
+                            <tr><td>  <?php echo $loop; ?> </td>
+                            <td>  <?php echo $in_cart['ItemName']; ?> </td>
+                            <td> <?php echo $in_cart['ItemPrice']; ?> </td>
+                            <td> <?php echo $in_cart['OrderQty']; ?> </td>
+                            <td> <?php echo $in_cart['OrderTotal']; ?> </td>
+                            <td> <?php echo date("F d, Y", strtotime($in_cart['OrderDate'])); ?> </td>
+                        <?php $loop++; endforeach; ?>
+                        </table>
+                        </div>
+                    <br> <br>
+                    </p>
+                <?php } else { ?>
+                    <p class="card-text"> No item in your cart. </p>
+                <?php } ?>
         <?php if (!empty($orders)) { ?>
         <?php foreach($orders as $order): ?>
             <div class="container" style="color: var(--bs-btn-hover-border-color);">
