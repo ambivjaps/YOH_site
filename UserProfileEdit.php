@@ -141,7 +141,7 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label style="font-weight:bold;">City</label>
+                        <label style="font-weight:bold;">City (Current: <?php echo $user['cust_city'] ?>)</label>
                         <select class="form-select rounded" name="cust_city" id="cust_city" required>
                             <option value="">Select City</option>
                         </select>
@@ -181,6 +181,17 @@
         </div>
     </div>
 
+    <div id="myModal3" class="modal">
+            <div class="modal-content">
+                <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to save changes!</p>
+                <p style="text-align:center;" id="error-message"></p>
+                <div class="modal-footer">
+                    <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                </div>
+            </div>
+        </div>
+
+
     <?php else: ?>
         <div class="container my-5">
             <h2> Oops.. Page not found. Please try again. </h2>
@@ -188,10 +199,36 @@
     <?php endif ?>
 
     <script>
-        document.getElementById('editUser').addEventListener('click', (e) => {
+            document.getElementById('editUser').addEventListener('click', (e) => {
+            var modalError = document.getElementById("myModal3");
+            var errorBtn = document.getElementById("errorBtnClode");
+            
+            errorBtn.onclick = function() {
+                modalError.style.display = "none";
+            }
+            
+            document.getElementById('editUser').onclick = function() {
+                let fields = {
+                    'cust_name': 'Name',
+                    'cust_address': 'Address',
+                    'cust_reg': 'Region',
+                    'cust_city': 'City',
+                    'cust_zip': 'ZIP code',
+                    'cust_phone': 'Mobile number',
+                    'cust_ig': 'Instagram Handle',
+                    
+                }
+
+                for (const key in fields) {
+                    if (document.getElementsByName(key)[0].value.length === 0) {
+                        document.getElementById('error-message').innerHTML = fields[key] + ' is required';
+                        modalError.style.display = "block";
+                        return;
+                    }
+                }
             e.preventDefault();
             document.getElementById('editModal').style.display = 'block';
-        });
+        }});
 
         function closeModal() {
             document.getElementById('editModal').style.display = 'none';
@@ -200,6 +237,7 @@
         function editUser() {
             document.getElementById("form").submit();
         }
+
 
         function readURL(el) {
             if (el.files && el.files[0]) {

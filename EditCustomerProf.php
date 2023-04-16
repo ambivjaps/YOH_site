@@ -114,7 +114,7 @@
                         </label>
                     </div>
                     <div class="col-md-4">
-                        <label style="font-weight:bold;">City</label>
+                        <label style="font-weight:bold;">City (Current: <?php echo $profile['city'] ?>)</label>
                         <select class="form-select rounded" name="city" id="city" required>
                             <option value="">Select City</option>
                         </select>
@@ -148,7 +148,7 @@
     
     <div id="myModal3" class="modal">
             <div class="modal-content">
-                <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
+                <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to save changes!</p>
                 <p style="text-align:center;" id="error-message"></p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
