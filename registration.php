@@ -132,7 +132,7 @@ if (isset($_POST['cust_name'])) {
                             <input class="form-control item" type="text" id="text" name="cust_email" style="width: 289px;margin-bottom: 4px;" required="">
                         </label>
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
-                        <small>Phone Number</small>
+                        <small>Mobile Number</small>
                             <input class="form-control item" type="text" id="text" name="cust_phone" minlength="11" maxlength="11" style=" width: 270px;margin-bottom: 4px;padding-left: 18px;" onkeypress="return restrictAlphabets(event)" required="">
                         </label>
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
