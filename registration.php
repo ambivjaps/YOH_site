@@ -1,8 +1,14 @@
 <?php
 session_start();
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
 include("includes/dbh.inc.php");
 include("includes/functions.inc.php");
+
 
 if (isset($_POST['cust_name'])) {
     $cust_name = $_POST['cust_name'];
@@ -25,32 +31,53 @@ if (isset($_POST['cust_name'])) {
     $login_id =  random_num(11);
     
     // default avatar
-    $unique = strtotime("now").'_'.uniqid(rand()).'_';
-    
+    $unique = strtotime("now") . '_' . uniqid(rand()) . '_';
     $default = 'assets/img/default/default_user.jpg';
     $default_name = 'default_user.jpg';
-    $saveImage = 'assets/img/upload/avatars/'.$unique.$default_name;
+    $saveImage = 'assets/img/upload/avatars/' . $unique . $default_name;
     $copyDefault = copy($default, $saveImage);
     
-    $emailquery = "SELECT count(*) as total FROM register WHERE cust_email = '$cust_email'";
-    $result = mysqli_query($con, $emailquery);
-    if (mysqli_fetch_assoc($result)['total'] > 0) {
+    $mail = new PHPMailer(true);
+    
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'slightlylimited0018@gmail.com';
+        $mail->Password = 'rmhlupihisommzsw';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+        
+        $mail->setFrom('slightlylimited0018@gmail.com', 'Account Verification');
+        $mail->addAddress($cust_email);
+        
+        $mail->isHTML(true);
+        $mail->Subject = 'Verification Email';
+        $mail->Body = 'This is a verification email.';
+        
+        $mail->send();
+        
+        $query = "INSERT INTO register (cust_name, cust_avatar, cust_email, cust_pass, cust_reg, cust_city, cust_zip, cust_ig, cust_phone, login_id, cust_address, cust_status) VALUES ('$cust_name', '$saveImage', '$cust_email', '$password_hash', '$cust_reg', '$cust_city', '$cust_zip', '$cust_ig', '$cust_phone', $login_id, '$cust_address', 0)";
+        
+        $reg = mysqli_query($con, $query);
+        if ($reg == 1) {
+            $cquery = "INSERT INTO cust_profile (c_id, c_name, c_label, region, city, phone_no, zip_code, address, login_id, cust_status) VALUES ($login_id, '$cust_name', 'Home', '$cust_reg', '$cust_city', '$cust_phone', $cust_zip, '$cust_address', '$login_id', 1)";
+            $regcust = mysqli_query($con, $cquery);
+            // Redirect to login.php with success flag
+        }
+        ?>
+        <script>
+              window.location.replace("Login.php?registrationSuccess=true");
+        </script>
+        <?php
+    } catch (Exception $e) {
+        // Redirect to login.php with error flag
         header("Location: registration.php?error=true");
-        return;
+        exit;
     }
-    
-    $query = "insert into register (login_id,cust_name, cust_avatar, cust_email,cust_pass,cust_reg,cust_city,cust_phone,cust_zip,cust_address,cust_ig,cust_status) values
-    ('$login_id','$cust_name','$saveImage','$cust_email','$password_hash','$cust_reg','$cust_city','$cust_phone','$cust_zip','$cust_address','$cust_ig','0')";
-    
-    $reg = mysqli_query($con, $query);
-    if ($reg == 1) {
-        $cquery = "insert into cust_profile (c_id,login_id,c_name,c_label,region,city,phone_no,zip_code,address,cust_status) values
-        ('$login_id','$login_id','$cust_name','Home', '$cust_reg','$cust_city','$cust_phone','$cust_zip','$cust_address','1')";
-        $regcust = mysqli_query($con, $cquery);
-    }
-    header("Location: Login.php?registrationSuccess=true");
-    die;
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -69,9 +96,10 @@ if (isset($_POST['cust_name'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alef&amp;display=swap">
     <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/ProdListDesign.css.css">
+    <link rel="stylesheet" href="assets/css/ProdListDesign.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="assets/css/modal.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         #myModal2 {
             display: none;
@@ -112,18 +140,19 @@ if (isset($_POST['cust_name'])) {
                 if (isset($_GET['error']) && $_GET['error'] === 'true') { ?>
                     <div class="d-flex justify-content-center">
                         <div class="alert alert-danger text-center w-50" role="alert">
-                            Email that you've entered already exists!
+                            Email that you've entered doesn't exists!
                         </div>
                     </div>
                 <?php } ?>
 
                 <!-- FORM -->
-                <form data-bss-hover-animate="pulse" class="rounded" style="margin:auto;border:none; width: 892px;min-width: 182px;max-width: 1046px;min-height: 656px;height: 850px;color: rgb(111,66,193);" action="" id="myForm" method="post">
+                <form data-bss-hover-animate="pulse" class="rounded" style="margin:auto;border:none; width: 892px;min-width: 182px;max-width: 1046px;min-height: 656px;height: 900px;color: rgb(111,66,193);" action="" id="myForm" method="post">
                     <div class="mb-3" style="padding-left: -6px;">
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                             Full Name
                             <input class="form-control item" type="text" id="text" name="cust_name" style=" font-weight: bold;width: 730px;margin-bottom: 4px;" required="">
                         </label>
+    
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
@@ -149,21 +178,44 @@ if (isset($_POST['cust_name'])) {
                             <input class="form-control item" type="text" id="text" name="cust_add_2" style="width: 700px;margin-bottom: 2px;" required="">
                         </label>
                     </div>
+
                         <div class="mb-3">
                             <label class="form-label" for="name" style="font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
-                            <small>Region</small>
-                                <input class="form-control item" type="text" id="text" name="cust_reg" style="width: 121px;margin-bottom: 4px;" required="">
+                                <small>Region</small><br>
+                                <select name="cust_reg" id="cust_reg" required>
+                                    <option value="">Select Region</option>
+                                    <option value="I">I - Ilocos Region</option>
+                                    <option value="II">II - Cagayan Valley</option>
+                                    <option value="III">III - Central Luzon</option>
+                                    <option value="IVA">IV-A - CALABARZON</option>
+                                    <option value="IVB">IV-B - MIMAROPA</option>
+                                    <option value="V">V -  - Bicol Region</option>
+                                    <option value="VI">VI - Western Visayas</option>
+                                    <option value="VII">VII - Central Visayas</option>
+                                    <option value="VIII">VIII - Eastern Visayas</option>
+                                    <option value="IX">IX - Zamboanga Peninsula</option>
+                                    <option value="X">X - Northern Mindanao</option>
+                                    <option value="XI">XI - Davao Region</option>
+                                    <option value="XII">XII - SOCCSKSARGEN</option>
+                                    <option value="XII">XIII - Caraga Region</option>
+                                    <option value="CAR">Cordillera Administrative Region (CAR)</option>
+                                    <option value="NCR">National Capital Region (NCR)</option>
+                                    <option value="BARMM">Bangsamoro Autonomous Region in Muslim Mindanao</option>
+                                </select>
                             </label>
                             <label class="form-label" for="name" style=" font-weight: bold;margin-left: 48px;width: 117px;color: rgb(111,66,193);">
-                            <small>City</small>
-                                <input class="form-control item" type="text" id="text" name="cust_city" style="width: 121px;margin-bottom: 4px;" required="">
+                                <small>City</small>
+                                <select name="cust_city" id="cust_city" required>
+                                    <option value="">Select City</option>
+                                </select><br>
                             </label>
-                            <label class="form-label" for="name" style="font-weight: bold;margin-left: 148px;color: rgb(111,66,193);">
-                            ZIP Code<br>
+                            <label class="form-label" for="name" style="font-weight: bold;margin-left: 48px;color: rgb(111,66,193);">
+                            <small>ZIP Code</small><br>
                             <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" onkeypress="return restrictAlphabets(event)" required="">
                             </label>
                         </div>
-                        <div class="mb-3" style="margin-bottom: 9px;margin-top: 42px;">
+                            
+                        <div class="mb-3" style="margin-bottom: 9px;margin-top: 18px;">
                             <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
                                 Password
                                 <input class="form-control item" type="password" id="password" name="cust_pass" style="width: 289px;margin-bottom: 4px;" required="">
@@ -245,7 +297,7 @@ if (isset($_POST['cust_name'])) {
                     'cust_add_2': 'Address Line 2',
                     'cust_reg': 'Region',
                     'cust_city': 'City',
-                    'cust_phone': 'Phone Number',
+                    'cust_phone': 'Mobile Number',
                     'cust_ig': 'Instagram Handle',
                     'cust_pass': 'Password',
                     'conf_pass': 'Retype Password',
@@ -291,6 +343,44 @@ if (isset($_POST['cust_name'])) {
 
 
         </script>
+
+<script>
+        // Define cities for each region
+        var cities = {
+            I: ["Alaminos", "Batac", "Candon", "Dagupan", "Laoag", "San Carlos", "San Fernando", "Urdaneta", " Vigan"],
+            II: ["Tuguegarao", "Ilagan", "Santiago", "Cauayan"],
+            III: ["Angeles", "Olongapo", "Tarlac", "San Fernando", "Malolos", "Balanga", "Palayan", "Meycauayan", " San Jose del Monte", "Cabanatuan", "Gapan", "Mu�oz", "San Jose", "Mabalacat"],
+            IVA: ["Antipolo", "Bacoor", "Batangas City", "Bi�an", "Cabuyao", "Calamba", "Cavite City", "Dasmari�as", "General Trias", "Imus", "Lipa", "Lucena", "San Pablo", "San Pedro", "Santa Rosa", "Tagaytay", "Tanauan", "Tayabas", "Trece Martires"],
+            V: ["Iriga", "Legazpi", "Ligao", "Masbate", "Naga", "Sorsogon", "Tabaco"],
+            VI: ["Bacolod", "Bago", "Cadiz", "Escalante", "Himamaylan", "Iloilo City", "Kabankalan", "La Carlota", "Passi", "Roxas", "Sagay", "San Carlos", "Silay", "Sipalay", "Talisay", "Victorias"],
+            VII: ["Bais", "Bayawan", "Bogo", "Canlaon", "Carcar", "Cebu City", "Danao", "Dumaguete", " Guihulngan", "Lapu-lapu", "Mandaue", "Naga", "Tagbilaran", "Talisay", "Tanjay", "Toledo"],
+            VIII: ["Baybay", "Borongan", "Calbayog", "Catbalogan", "Maasin", "Ormoc", "Tacloban"],
+            IX: ["Dapitan", "Dipolog", "Isabela", "Pagadian", "Zamboanga City"],
+            X: ["Cagayan de Oro", "El Salvador", "Gingoog", "Iligan", "Malaybalay", "Oroquieta", "Ozamiz", "Tangub", "Valencia"],
+            XI: ["Davao City", "Digos City", "Mati", "Panabo", "Samal", "Tagum"],
+            XII: ["General Santos", "Kidapawan", "Koronadal", "Tacurong"],
+            XIII: ["Bayugan", "Bislig", "Butuan", "Cabadbaran", "Surigao City", "Tandag"],
+            CAR: ["Baguio City", "Tabuk City"],
+            NCR: ["Caloocan", "Las Pi�as", "Makati", "Malabon", "Mandaluyong", "Manila", "Marikina", "Muntinlupa", " Navotas", "Para�aque", "Pasay", "Pasig", "Pareros", "Quezon City", "San Juan", "Taguig", "Valenzuela"],
+            IVB: ["Puerto Princesa", "Calapan"],
+            BARMM: ["Lamitan", "Marawi", "Cotabato City"]
+        };
+
+        // Update city options based on selected region
+        $("#cust_reg").on("change", function() {
+            var selectedRegion = $(this).val();
+            var citySelect = $("#cust_city");
+            citySelect.empty();
+            citySelect.append('<option value="">Select City</option>');
+            if (selectedRegion !== "") {
+                var regionCities = cities[selectedRegion];
+                $.each(regionCities, function(index, city) {
+                    citySelect.append('<option value="' + city + '">' + city + '</option>');
+                });
+            }
+        });
+    </script>
+
         <script>
 
         function restrictAlphabets(e){
