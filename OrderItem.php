@@ -28,13 +28,25 @@
     $items = mysqli_fetch_all($res_data, MYSQLI_ASSOC);
     mysqli_free_result($result);
 
-    $order_count = "SELECT COUNT(*) FROM orders_db WHERE c_id = $user AND (OrderType='On-Going' OR OrderType='Pending')";
+    $order_count = "SELECT COUNT(*) FROM orders_db WHERE c_id = $user AND (OrderType='On-Going' OR OrderType='Pending' OR OrderType='Cart')";
     $res = mysqli_query($con, $order_count);
     $r_count = mysqli_fetch_array($res)[0];
     mysqli_free_result($res);
 
-    mysqli_close($con);
+    if(isset($_POST['addtocart'])) {
+        $add_order = mysqli_real_escape_string($con, $_POST['add_order']);
+        $qty = mysqli_real_escape_string($con, $_POST['qty']);
+        $selectPrice = $_POST['itemprice'];
+        $OrderTotal = $qty * $selectPrice;
 
+        $add_cart = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal) VALUES ('$add_order','$user','Cart','4','$qty','$OrderTotal')";
+        $add = mysqli_query($con, $add_cart);
+        if($add){
+        $sql = "UPDATE inventory_db SET ItemQty = ItemQty-$qty WHERE ItemID = $add_order ";
+        $update = mysqli_query($con, $sql);
+        header("Location: OrderPageCust.php");
+            }
+    }
     require 'layouts/Header.php';
 ?>
 <head>
@@ -131,20 +143,25 @@
                                                             <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight:bold;font-size:17px;"><span style="text-align:center;"><?php echo $item['ItemName']; ?></h5>
                                                         </div>
                                                         <div class="modal-body">
-                                                        <form>
+                                                        <form method = "POST" action="OrderItem.php">
                                                   <div class="form-group">
                                                     <label for="quantity" style="font-weight:bold;">Quantity</label><br>
-                                                    <input type="number" class="form-control rounded" id="quantity">
+                                                    <input type="number" class="form-control rounded" name="qty" id="quantity">
                                                   </div>
                                                   <div class="form-group">
                                                     <label for="quantity" style="font-weight:bold;">Stocks</label>
                                                     <input type="text" class="form-control rounded" id="stocks" placeholder="<?php echo $item['ItemQty']; ?> " readonly>
                                                   </div>
+                                                  <div class="form-group">
+                                                    <label for="quantity" style="font-weight:bold;">Price</label>
+                                                    <input type="text" class="form-control rounded" id="stocks" name="itemprice" value="<?php echo $item['ItemPrice']; ?> " readonly>
+                                                  </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn mt-3" style="color:white;border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">Order</button>
+                                                            <button type="submit" name="addtocart" class="btn mt-3" style="color:white;border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">Order</button>
                                                             <button type="button" class="btn mt-3" data-dismiss="modal" style="border-color:red;background-color:red;font-weight:bold;color:white;width:100px;">Close</button>
                                                         </div>
+                                                        <input type="hidden" class="add_order" name="add_order" value="<?php echo $item['ItemID']; ?>">
                                                      </form>
                                                     </div>
                                                 </div>
