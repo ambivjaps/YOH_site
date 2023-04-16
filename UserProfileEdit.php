@@ -119,11 +119,32 @@
 
                     <div class="col-md-4">
                         <label style="font-weight:bold;">Region</label>
-                        <input type="text" name="cust_reg" id="cust_reg" class="form-control rounded" value="<?php echo $user['cust_reg'] ?>">
+                        <select class="form-select rounded" name="cust_reg" id="cust_reg" required>
+                            <option value="">Select Region</option>
+                            <option value="I" <?php if($user['cust_reg'] == 'I') { ?>selected="selected"<?php } ?>>I - Ilocos Region</option>
+                            <option value="II" <?php if($user['cust_reg'] == 'II') { ?>selected="selected"<?php } ?>>II - Cagayan Valley</option>
+                            <option value="III" <?php if($user['cust_reg'] == 'III') { ?>selected="selected"<?php } ?>>III - Central Luzon</option>
+                            <option value="IVA" <?php if($user['cust_reg'] == 'IVA') { ?>selected="selected"<?php } ?>>IV-A - CALABARZON</option>
+                            <option value="IVB" <?php if($user['cust_reg'] == 'IVB') { ?>selected="selected"<?php } ?>>IV-B - MIMAROPA</option>
+                            <option value="V" <?php if($user['cust_reg'] == 'V') { ?>selected="selected"<?php } ?>>V - Bicol Region</option>
+                            <option value="VI" <?php if($user['cust_reg'] == 'VI') { ?>selected="selected"<?php } ?>>VI - Western Visayas</option>
+                            <option value="VII" <?php if($user['cust_reg'] == 'VII') { ?>selected="selected"<?php } ?>>VII - Central Visayas</option>
+                            <option value="VIII" <?php if($user['cust_reg'] == 'VIII') { ?>selected="selected"<?php } ?>>VIII - Eastern Visayas</option>
+                            <option value="IX" <?php if($user['cust_reg'] == 'IX') { ?>selected="selected"<?php } ?>>IX - Zamboanga Peninsula</option>
+                            <option value="X" <?php if($user['cust_reg'] == 'X') { ?>selected="selected"<?php } ?>>X - Northern Mindanao</option>
+                            <option value="XI" <?php if($user['cust_reg'] == 'XI') { ?>selected="selected"<?php } ?>>XI - Davao Region</option>
+                            <option value="XII" <?php if($user['cust_reg'] == 'XII') { ?>selected="selected"<?php } ?>>XII - SOCCSKSARGEN</option>
+                            <option value="XIII" <?php if($user['cust_reg'] == 'XIII') { ?>selected="selected"<?php } ?>>XIII - Caraga Region</option>
+                            <option value="CAR" <?php if($user['cust_reg'] == 'CAR') { ?>selected="selected"<?php } ?>>Cordillera Administrative Region (CAR)</option>
+                            <option value="NCR" <?php if($user['cust_reg'] == 'NCR') { ?>selected="selected"<?php } ?>>National Capital Region (NCR)</option>
+                            <option value="BARMM" <?php if($user['cust_reg'] == 'BARMM') { ?>selected="selected"<?php } ?>>Bangsamoro Autonomous Region in Muslim Mindanao</option>
+                        </select>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">City</label>
-                        <input type="text" name="cust_city" id="cust_city" class="form-control rounded" value="<?php echo $user['cust_city'] ?>">
+                        <select class="form-select rounded" name="cust_city" id="cust_city" required>
+                            <option value="">Select City</option>
+                        </select>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">ZIP Code</label>
@@ -192,6 +213,44 @@
             } 
         };
     </script>
+
+    <script>
+            // Define cities for each region
+            var cities = {
+                I: ["Alaminos", "Batac", "Candon", "Dagupan", "Laoag", "San Carlos", "San Fernando", "Urdaneta", " Vigan"],
+                II: ["Tuguegarao", "Ilagan", "Santiago", "Cauayan"],
+                III: ["Angeles", "Olongapo", "Tarlac", "San Fernando", "Malolos", "Balanga", "Palayan", "Meycauayan", " San Jose del Monte", "Cabanatuan", "Gapan", "Mu�oz", "San Jose", "Mabalacat"],
+                IVA: ["Antipolo", "Bacoor", "Batangas City", "Bi�an", "Cabuyao", "Calamba", "Cavite City", "Dasmari�as", "General Trias", "Imus", "Lipa", "Lucena", "San Pablo", "San Pedro", "Santa Rosa", "Tagaytay", "Tanauan", "Tayabas", "Trece Martires"],
+                V: ["Iriga", "Legazpi", "Ligao", "Masbate", "Naga", "Sorsogon", "Tabaco"],
+                VI: ["Bacolod", "Bago", "Cadiz", "Escalante", "Himamaylan", "Iloilo City", "Kabankalan", "La Carlota", "Passi", "Roxas", "Sagay", "San Carlos", "Silay", "Sipalay", "Talisay", "Victorias"],
+                VII: ["Bais", "Bayawan", "Bogo", "Canlaon", "Carcar", "Cebu City", "Danao", "Dumaguete", " Guihulngan", "Lapu-lapu", "Mandaue", "Naga", "Tagbilaran", "Talisay", "Tanjay", "Toledo"],
+                VIII: ["Baybay", "Borongan", "Calbayog", "Catbalogan", "Maasin", "Ormoc", "Tacloban"],
+                IX: ["Dapitan", "Dipolog", "Isabela", "Pagadian", "Zamboanga City"],
+                X: ["Cagayan de Oro", "El Salvador", "Gingoog", "Iligan", "Malaybalay", "Oroquieta", "Ozamiz", "Tangub", "Valencia"],
+                XI: ["Davao City", "Digos City", "Mati", "Panabo", "Samal", "Tagum"],
+                XII: ["General Santos", "Kidapawan", "Koronadal", "Tacurong"],
+                XIII: ["Bayugan", "Bislig", "Butuan", "Cabadbaran", "Surigao City", "Tandag"],
+                CAR: ["Baguio City", "Tabuk City"],
+                NCR: ["Caloocan", "Las Pi�as", "Makati", "Malabon", "Mandaluyong", "Manila", "Marikina", "Muntinlupa", " Navotas", "Para�aque", "Pasay", "Pasig", "Pareros", "Quezon City", "San Juan", "Taguig", "Valenzuela"],
+                IVB: ["Puerto Princesa", "Calapan"],
+                BARMM: ["Lamitan", "Marawi", "Cotabato City"]
+            };
+
+            // Update city options based on selected region
+            $("#cust_reg").on("change", function() {
+                var selectedRegion = $(this).val();
+                var citySelect = $("#cust_city");
+                citySelect.empty();
+                citySelect.append('<option value="">Select City</option>');
+                if (selectedRegion !== "") {
+                    var regionCities = cities[selectedRegion];
+                    $.each(regionCities, function(index, city) {
+                        citySelect.append('<option value="' + city + '">' + city + '</option>');
+                    });
+                }
+            });
+    </script>
+
     
              <script>
         function restrictAlphabets(e){
