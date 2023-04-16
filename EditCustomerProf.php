@@ -98,7 +98,7 @@
                         <input type="text" name="city" id="city" class="form-control rounded" value="<?php echo $profile['city'] ?>">
                     </div>
                     <div class="col-md-4">
-                        <label style="font-weight:bold;">Zip Code</label>
+                        <label style="font-weight:bold;">ZIP Code</label>
                         <input type="text" name="zip_code" id="zip_code" class="form-control rounded" value="<?php echo $profile['zip_code'] ?>">
                     </div>
                     <div class="col-md-12">

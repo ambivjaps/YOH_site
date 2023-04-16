@@ -189,7 +189,7 @@ if (isset($_POST['cust_name'])) {
                                     <option value="III">III - Central Luzon</option>
                                     <option value="IVA">IV-A - CALABARZON</option>
                                     <option value="IVB">IV-B - MIMAROPA</option>
-                                    <option value="V">V -  - Bicol Region</option>
+                                    <option value="V">V - Bicol Region</option>
                                     <option value="VI">VI - Western Visayas</option>
                                     <option value="VII">VII - Central Visayas</option>
                                     <option value="VIII">VIII - Eastern Visayas</option>
@@ -197,7 +197,7 @@ if (isset($_POST['cust_name'])) {
                                     <option value="X">X - Northern Mindanao</option>
                                     <option value="XI">XI - Davao Region</option>
                                     <option value="XII">XII - SOCCSKSARGEN</option>
-                                    <option value="XII">XIII - Caraga Region</option>
+                                    <option value="XIII">XIII - Caraga Region</option>
                                     <option value="CAR">Cordillera Administrative Region (CAR)</option>
                                     <option value="NCR">National Capital Region (NCR)</option>
                                     <option value="BARMM">Bangsamoro Autonomous Region in Muslim Mindanao</option>

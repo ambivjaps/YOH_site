@@ -146,14 +146,36 @@
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">Region</label>
-                        <input type="text" name="region" id="region" class="form-control rounded" required>
+                            <select class="form-select rounded" name="region" id="region" required>
+                                <option value="">Select Region</option>
+                                <option value="I">I - Ilocos Region</option>
+                                <option value="II">II - Cagayan Valley</option>
+                                <option value="III">III - Central Luzon</option>
+                                <option value="IVA">IV-A - CALABARZON</option>
+                                <option value="IVB">IV-B - MIMAROPA</option>
+                                <option value="V">V - Bicol Region</option>
+                                <option value="VI">VI - Western Visayas</option>
+                                <option value="VII">VII - Central Visayas</option>
+                                <option value="VIII">VIII - Eastern Visayas</option>
+                                <option value="IX">IX - Zamboanga Peninsula</option>
+                                <option value="X">X - Northern Mindanao</option>
+                                <option value="XI">XI - Davao Region</option>
+                                <option value="XII">XII - SOCCSKSARGEN</option>
+                                <option value="XIII">XIII - Caraga Region</option>
+                                <option value="CAR">Cordillera Administrative Region (CAR)</option>
+                                <option value="NCR">National Capital Region (NCR)</option>
+                                <option value="BARMM">Bangsamoro Autonomous Region in Muslim Mindanao</option>
+                            </select>
+                        </label>
                     </div>
                     <div class="col-md-4">
                         <label style="font-weight:bold;">City</label>
-                        <input type="text" name="city" id="city" class="form-control rounded" required>
+                        <select class="form-select rounded" name="city" id="city" required>
+                            <option value="">Select City</option>
+                        </select>
                     </div>
                     <div class="col-md-4">
-                        <label style="font-weight:bold;">Zip Code</label>
+                        <label style="font-weight:bold;">ZIP Code</label>
                         <input type="text" name="zip_code" id="zip_code" class="form-control rounded" required>
                     </div>
                     <div class="col-md-12">
@@ -233,6 +255,43 @@
         }
     
         </script>
+
+<script>
+        // Define cities for each region
+        var cities = {
+            I: ["Alaminos", "Batac", "Candon", "Dagupan", "Laoag", "San Carlos", "San Fernando", "Urdaneta", " Vigan"],
+            II: ["Tuguegarao", "Ilagan", "Santiago", "Cauayan"],
+            III: ["Angeles", "Olongapo", "Tarlac", "San Fernando", "Malolos", "Balanga", "Palayan", "Meycauayan", " San Jose del Monte", "Cabanatuan", "Gapan", "Mu�oz", "San Jose", "Mabalacat"],
+            IVA: ["Antipolo", "Bacoor", "Batangas City", "Bi�an", "Cabuyao", "Calamba", "Cavite City", "Dasmari�as", "General Trias", "Imus", "Lipa", "Lucena", "San Pablo", "San Pedro", "Santa Rosa", "Tagaytay", "Tanauan", "Tayabas", "Trece Martires"],
+            V: ["Iriga", "Legazpi", "Ligao", "Masbate", "Naga", "Sorsogon", "Tabaco"],
+            VI: ["Bacolod", "Bago", "Cadiz", "Escalante", "Himamaylan", "Iloilo City", "Kabankalan", "La Carlota", "Passi", "Roxas", "Sagay", "San Carlos", "Silay", "Sipalay", "Talisay", "Victorias"],
+            VII: ["Bais", "Bayawan", "Bogo", "Canlaon", "Carcar", "Cebu City", "Danao", "Dumaguete", " Guihulngan", "Lapu-lapu", "Mandaue", "Naga", "Tagbilaran", "Talisay", "Tanjay", "Toledo"],
+            VIII: ["Baybay", "Borongan", "Calbayog", "Catbalogan", "Maasin", "Ormoc", "Tacloban"],
+            IX: ["Dapitan", "Dipolog", "Isabela", "Pagadian", "Zamboanga City"],
+            X: ["Cagayan de Oro", "El Salvador", "Gingoog", "Iligan", "Malaybalay", "Oroquieta", "Ozamiz", "Tangub", "Valencia"],
+            XI: ["Davao City", "Digos City", "Mati", "Panabo", "Samal", "Tagum"],
+            XII: ["General Santos", "Kidapawan", "Koronadal", "Tacurong"],
+            XIII: ["Bayugan", "Bislig", "Butuan", "Cabadbaran", "Surigao City", "Tandag"],
+            CAR: ["Baguio City", "Tabuk City"],
+            NCR: ["Caloocan", "Las Pi�as", "Makati", "Malabon", "Mandaluyong", "Manila", "Marikina", "Muntinlupa", " Navotas", "Para�aque", "Pasay", "Pasig", "Pareros", "Quezon City", "San Juan", "Taguig", "Valenzuela"],
+            IVB: ["Puerto Princesa", "Calapan"],
+            BARMM: ["Lamitan", "Marawi", "Cotabato City"]
+        };
+
+        // Update city options based on selected region
+        $("#region").on("change", function() {
+            var selectedRegion = $(this).val();
+            var citySelect = $("#city");
+            citySelect.empty();
+            citySelect.append('<option value="">Select City</option>');
+            if (selectedRegion !== "") {
+                var regionCities = cities[selectedRegion];
+                $.each(regionCities, function(index, city) {
+                    citySelect.append('<option value="' + city + '">' + city + '</option>');
+                });
+            }
+        });
+</script>
     
 <script>
 
