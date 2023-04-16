@@ -37,46 +37,25 @@ if (isset($_POST['cust_name'])) {
     $saveImage = 'assets/img/upload/avatars/' . $unique . $default_name;
     $copyDefault = copy($default, $saveImage);
     
-    $mail = new PHPMailer(true);
-    
-    try {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'slightlylimited0018@gmail.com';
-        $mail->Password = 'rmhlupihisommzsw';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
-        
-        $mail->setFrom('slightlylimited0018@gmail.com', 'Account Verification');
-        $mail->addAddress($cust_email);
-        
-        $mail->isHTML(true);
-        $mail->Subject = 'Verification Email';
-        $mail->Body = 'This is a verification email.';
-        
-        $mail->send();
-        
-        $query = "INSERT INTO register (cust_name, cust_avatar, cust_email, cust_pass, cust_reg, cust_city, cust_zip, cust_ig, cust_phone, login_id, cust_address, cust_status) VALUES ('$cust_name', '$saveImage', '$cust_email', '$password_hash', '$cust_reg', '$cust_city', '$cust_zip', '$cust_ig', '$cust_phone', $login_id, '$cust_address', 0)";
-        
-        $reg = mysqli_query($con, $query);
-        if ($reg == 1) {
-            $cquery = "INSERT INTO cust_profile (c_id, c_name, c_label, region, city, phone_no, zip_code, address, login_id, cust_status) VALUES ($login_id, '$cust_name', 'Home', '$cust_reg', '$cust_city', '$cust_phone', $cust_zip, '$cust_address', '$login_id', 1)";
-            $regcust = mysqli_query($con, $cquery);
-            // Redirect to login.php with success flag
-        }
-        ?>
-        <script>
-              window.location.replace("Login.php?registrationSuccess=true");
-        </script>
-        <?php
-    } catch (Exception $e) {
-        // Redirect to login.php with error flag
+    $emailquery = "SELECT count(*) as total FROM register WHERE cust_email = '$cust_email'";
+    $result = mysqli_query($con, $emailquery);
+    if (mysqli_fetch_assoc($result)['total'] > 0) {
         header("Location: registration.php?error=true");
-        exit;
+        return;
     }
+    
+    $query = "insert into register (login_id,cust_name, cust_avatar, cust_email,cust_pass,cust_reg,cust_city,cust_phone,cust_zip,cust_address,cust_ig,cust_status) values
+    ('$login_id','$cust_name','$saveImage','$cust_email','$password_hash','$cust_reg','$cust_city','$cust_phone','$cust_zip','$cust_address','$cust_ig','0')";
+    
+    $reg = mysqli_query($con, $query);
+    if ($reg == 1) {
+        $cquery = "insert into cust_profile (c_id,login_id,c_name,c_label,region,city,phone_no,zip_code,address,cust_status) values
+        ('$login_id','$login_id','$cust_name','Home', '$cust_reg','$cust_city','$cust_phone','$cust_zip','$cust_address','1')";
+        $regcust = mysqli_query($con, $cquery);
+    }
+    header("Location: Login.php?registrationSuccess=true");
+    die;
 }
-
 
 ?>
 
@@ -140,7 +119,7 @@ if (isset($_POST['cust_name'])) {
                 if (isset($_GET['error']) && $_GET['error'] === 'true') { ?>
                     <div class="d-flex justify-content-center">
                         <div class="alert alert-danger text-center w-50" role="alert">
-                            Email that you've entered doesn't exists!
+                            Email that you've entered already exists!
                         </div>
                     </div>
                 <?php } ?>
@@ -349,8 +328,8 @@ if (isset($_POST['cust_name'])) {
         var cities = {
             I: ["Alaminos", "Batac", "Candon", "Dagupan", "Laoag", "San Carlos", "San Fernando", "Urdaneta", " Vigan"],
             II: ["Tuguegarao", "Ilagan", "Santiago", "Cauayan"],
-            III: ["Angeles", "Olongapo", "Tarlac", "San Fernando", "Malolos", "Balanga", "Palayan", "Meycauayan", " San Jose del Monte", "Cabanatuan", "Gapan", "Mu�oz", "San Jose", "Mabalacat"],
-            IVA: ["Antipolo", "Bacoor", "Batangas City", "Bi�an", "Cabuyao", "Calamba", "Cavite City", "Dasmari�as", "General Trias", "Imus", "Lipa", "Lucena", "San Pablo", "San Pedro", "Santa Rosa", "Tagaytay", "Tanauan", "Tayabas", "Trece Martires"],
+            III: ["Angeles", "Olongapo", "Tarlac", "San Fernando", "Malolos", "Balanga", "Palayan", "Meycauayan", " San Jose del Monte", "Cabanatuan", "Gapan", "Muñoz", "San Jose", "Mabalacat"],
+            IVA: ["Antipolo", "Bacoor", "Batangas City", "Biñan", "Cabuyao", "Calamba", "Cavite City", "Dasmariñas", "General Trias", "Imus", "Lipa", "Lucena", "San Pablo", "San Pedro", "Santa Rosa", "Tagaytay", "Tanauan", "Tayabas", "Trece Martires"],
             V: ["Iriga", "Legazpi", "Ligao", "Masbate", "Naga", "Sorsogon", "Tabaco"],
             VI: ["Bacolod", "Bago", "Cadiz", "Escalante", "Himamaylan", "Iloilo City", "Kabankalan", "La Carlota", "Passi", "Roxas", "Sagay", "San Carlos", "Silay", "Sipalay", "Talisay", "Victorias"],
             VII: ["Bais", "Bayawan", "Bogo", "Canlaon", "Carcar", "Cebu City", "Danao", "Dumaguete", " Guihulngan", "Lapu-lapu", "Mandaue", "Naga", "Tagbilaran", "Talisay", "Tanjay", "Toledo"],
@@ -361,7 +340,7 @@ if (isset($_POST['cust_name'])) {
             XII: ["General Santos", "Kidapawan", "Koronadal", "Tacurong"],
             XIII: ["Bayugan", "Bislig", "Butuan", "Cabadbaran", "Surigao City", "Tandag"],
             CAR: ["Baguio City", "Tabuk City"],
-            NCR: ["Caloocan", "Las Pi�as", "Makati", "Malabon", "Mandaluyong", "Manila", "Marikina", "Muntinlupa", " Navotas", "Para�aque", "Pasay", "Pasig", "Pareros", "Quezon City", "San Juan", "Taguig", "Valenzuela"],
+            NCR: ["Caloocan", "Las Piñas", "Makati", "Malabon", "Mandaluyong", "Manila", "Marikina", "Muntinlupa", " Navotas", "Parañaque", "Pasay", "Pasig", "Pareros", "Quezon City", "San Juan", "Taguig", "Valenzuela"],
             IVB: ["Puerto Princesa", "Calapan"],
             BARMM: ["Lamitan", "Marawi", "Cotabato City"]
         };
