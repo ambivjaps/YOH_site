@@ -37,6 +37,14 @@
 		$result_past = mysqli_query($con, $item_history);
 		$orders_past = mysqli_fetch_all($result_past, MYSQLI_ASSOC);
 	    mysqli_free_result($result_past);
+
+        $item_inventory = "SELECT * FROM inventory_db INNER JOIN orders_db
+        WHERE inventory_db.ItemID = orders_db.ItemID ";
+
+		$inventory = mysqli_query($con, $item_inventory);
+		$inv = mysqli_fetch_all($inventory, MYSQLI_ASSOC);
+	    mysqli_free_result($inventory);
+
 	}
 
     if(isset($_POST['delete'])) {
@@ -45,17 +53,22 @@
         $delete = mysqli_query($con, $sql);
 
         if($delete){
-            header("Location: Homepage.php");
+            header("Location: OrderItem.php");
         }
     }
 
     if(isset($_POST['buy'])) {
-       
+        
         $delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
         $sql = "UPDATE orders_db SET TypeID = '3', OrderType = 'Pending'  WHERE OrderID = $delete_id ";
         $buy = mysqli_query($con, $sql);
 
         if($buy){
+            $add_order = mysqli_real_escape_string($con, $_POST['order_id']);
+            $qty = mysqli_real_escape_string($con, $_POST['qty']);
+            $sql1 = "UPDATE `inventory_db` SET `ItemQty`= ItemQty-'$qty' WHERE `ItemID`='$add_order'";
+            $update = mysqli_query($con, $sql1);
+
             $id = mysqli_real_escape_string($con, $_SESSION['login_id']);
             $sql = "SELECT * FROM register WHERE login_id = $id";
             $sql_query = mysqli_query($con, $sql);
@@ -168,15 +181,19 @@
                             <tr>
                             <td style="vertical-align:middle;"><input class="btn btn-danger rounded" name="delete" role="button" type="submit" value="X" style="font-weight:bold;background:firebrick;border-color:firebrick;" readonly></td>
                             <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $in_cart['OrderID']; ?>">
+                            <input type="hidden" class="add_order" name="order_id" value="<?php echo $in_cart['ItemID']; ?>">
                             <td style="margin-right:auto;margin-right:auto;"> <img class="rounded" src="<?php echo $in_cart['ItemImg']; ?>" height="120px" width="120px" style="margin-right:auto;margin-right:auto;"></div></td>
                             <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;" name="itemname">  <?php echo $in_cart['ItemName']; ?> </td>
                             <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo $in_cart['ItemPrice']; ?> </td>
-                            <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo $in_cart['OrderQty']; ?> </td>
+                            <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"><input type="hidden" name="qty" value="<?php echo $in_cart['OrderQty']; ?>"> <?php echo $in_cart['OrderQty']; ?> </td>
                             <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo $in_cart['OrderTotal']; ?> </td>
                             <td style="text-align:center;color:indigo;font-weight:bold;vertical-align:middle;"> <?php echo date("F d, Y", strtotime($in_cart['OrderDate'])); ?> </td>
                             <td style="vertical-align:middle;"><input class="btn btn-danger rounded" name="buy" role="button" type="submit" value="Buy Item" style="font-weight:bold;background:darkgreen;border-color:darkgreen;" readonly> </td></tr>
                             
                         <?php  endforeach; ?>
+                        <?php foreach($inv as $inv_cart): ?>
+                            
+                            <?php  endforeach; ?>
                         </table>
                         </div>
                     <br> <br>

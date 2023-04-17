@@ -41,11 +41,8 @@
 
         $add_cart = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal) VALUES ('$add_order','$user','Cart','4','$qty','$OrderTotal')";
         $add = mysqli_query($con, $add_cart);
-        if($add){
-        $sql = "UPDATE inventory_db SET ItemQty = ItemQty-$qty WHERE ItemID = $add_order ";
-        $update = mysqli_query($con, $sql);
         header("Location: OrderPageCust.php");
-            }
+            
     }
     require 'layouts/Header.php';
 ?>
