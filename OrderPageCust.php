@@ -50,13 +50,66 @@
     }
 
     if(isset($_POST['buy'])) {
+       
         $delete_id = mysqli_real_escape_string($con, $_POST['delete_id']);
         $sql = "UPDATE orders_db SET TypeID = '3', OrderType = 'Pending'  WHERE OrderID = $delete_id ";
         $buy = mysqli_query($con, $sql);
 
         if($buy){
-            header("Location: OrderPageCust.php");
+            $id = mysqli_real_escape_string($con, $_SESSION['login_id']);
+            $sql = "SELECT * FROM register WHERE login_id = $id";
+            $sql_query = mysqli_query($con, $sql);
+		    $fetch = mysqli_fetch_all($sql_query, MYSQLI_ASSOC);
+            if($fetch){
+                send_order_notif();
+            header("Location: OrderPageCust.php");}
         }
+    }
+
+    function send_order_notif(){
+
+        require "phpmailer/PHPMailerAutoload.php";
+        $mail = new PHPMailer;
+        $user = $_SESSION['cust_name'];
+        $mail->isSMTP();
+        $mail->Host='smtp.gmail.com';
+        $mail->Port=587;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='tls';
+
+        // YOH account
+        $mail->Username='slightlylimited0018@gmail.com';
+        $mail->Password='rmhlupihisommzsw';
+
+        // send by business email
+        $mail->setFrom('slightlylimited0018@gmail.com', 'New Order');
+        // get email from input
+        $mail->addAddress('slightlylimited0018@gmail.com');
+
+        // HTML body
+        $mail->isHTML(true);
+        $mail->Subject="New Order";
+        $mail->Body="<b>Good Day!,</b>
+        <h3>We received a new order from customer $user.</h3>
+        
+        <br><br>
+        <p>With regards,</p>
+        <b>YarnOverHook</b>";
+
+        if(!$mail->send()){
+            ?>
+                <script>
+                     window.location.replace("Homepage.php");
+                </script>
+            <?php
+        }else{
+            ?>
+                <script>
+                    window.location.replace("OrderItem.php");
+                </script>
+            <?php
+        }
+
     }
 
     require 'layouts/Header.php';
