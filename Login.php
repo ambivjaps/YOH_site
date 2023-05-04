@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     
     $cust_email = $_POST['cust_email'];
     $cust_pass = $_POST['cust_pass'];
-    $secret_key = "6LdarEwkAAAAANs4-E8qkamwsZJYF_-OBWprGpSi";
+    $secret_key = "6LcJ2cMlAAAAAGzQCNEPoM1Pl5NjVtVMoHDLJCb-";
     $ip = $_SERVER['REMOTE_ADDR'];
     $response = $_POST['g-recaptcha-response'];
     $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret_key&response=$response&remoteip=$ip";
@@ -196,7 +196,7 @@ if (isset($_SESSION["locked"]))
                     <div style="margin-left:80px;">
                     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-                     <div class="g-recaptcha" data-sitekey="6LdarEwkAAAAANs4-E8qkamwsZJYF_-OBWprGpSi"></div> </tr></tr></tr>
+                     <div class="g-recaptcha" data-sitekey="6LcJ2cMlAAAAAAG6i2GERXBDO_rcpT0AfGfI5ppE"></div> </tr></tr></tr>
 
                     <br></div>
                    
