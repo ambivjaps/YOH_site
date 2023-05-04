@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2023 at 06:20 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.8
+-- Generation Time: Apr 17, 2023 at 10:46 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -98,7 +98,11 @@ INSERT INTO `inventory_db` (`ItemID`, `ItemName`, `ItemImg`, `ItemDesc`, `ItemTy
 (1017, 'Egg Beret', 'assets/img/upload/inventory/1679814673_1864746821641ff011b18e0_egg beret .jpeg', 'Eggtastic Quirky Beret\r\n\r\nRadius of beret is 10\"\r\n', 'Finished', 1, 950, 5, '2023-03-28 14:46:56'),
 (1018, 'Mochi Family', 'assets/img/upload/inventory/1679814697_130860885641ff029315f4_mochi family.jpg', 'This mochi is inspired by the plush in the anime wotakoi; love is hard for an otaku and I was reincarnated as a slime. Use this as your desk friend or even a stress ball when needed. ', 'Finished', 1, 350, 100, '2023-03-28 14:48:06'),
 (1019, 'Potchi Pillow', 'assets/img/upload/inventory/1679814727_1120092999641ff047489c1_potchi pillow.jpg', 'We\'re bringing back your childhood fave in the form of a pillow. This is a perfect cuddle buddy or a pillow for a quick nap. \r\n\r\nHeight 6\" \r\nwidth 8\"\r\n', 'Finished', 1, 1200, 19, '2023-04-01 03:48:55'),
-(1020, 'Rainbow Sweater', 'assets/img/upload/inventory/1679814749_1926548014641ff05d7d71d_rainbow sweater.jpeg', 'A rainbow sweater with bell shaped sleeves in size medium', 'Finished', 1, 2500, 30, '2023-03-28 18:19:43');
+(1020, 'Rainbow Sweater', 'assets/img/upload/inventory/1679814749_1926548014641ff05d7d71d_rainbow sweater.jpeg', 'A rainbow sweater with bell shaped sleeves in size medium', 'Finished', 1, 2500, 30, '2023-03-28 18:19:43'),
+(1021, 'Acrylic Yarn', 'assets/img/upload/inventory/1681720472_503339598643d0498d5966_acrylic yarn.jpg', 'Acrylic Yarn - Raw Material', 'Raw', 2, 0, 1, '2023-04-17 08:34:32'),
+(1022, 'Crochet Hook', 'assets/img/upload/inventory/1681720526_358561681643d04ce69539_crochet hooks.jpg', 'Crochet Hook - Material', 'Raw', 2, 0, 1, '2023-04-17 08:35:26'),
+(1023, 'Fiber Fill', 'assets/img/upload/inventory/1681720552_2146884820643d04e808408_fiber fill.jpeg', 'Fiber Fill - Material', 'Raw', 2, 0, 1, '2023-04-17 08:35:52'),
+(1024, 'Cloth', 'assets/img/upload/inventory/1681720643_523782115643d05437a407_cloth.png', 'Cloth - Material', 'Raw', 2, 0, 1, '2023-04-17 08:37:23');
 
 -- --------------------------------------------------------
 
@@ -322,7 +326,7 @@ ALTER TABLE `cust_profile`
 -- AUTO_INCREMENT for table `inventory_db`
 --
 ALTER TABLE `inventory_db`
-  MODIFY `ItemID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1021;
+  MODIFY `ItemID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1025;
 
 --
 -- AUTO_INCREMENT for table `orders_db`
