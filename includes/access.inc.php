@@ -4,7 +4,7 @@ function access($rank)
  
     if(isset($_SESSION["ACCESS"]) && !$_SESSION["ACCESS"][$rank])
     {
-        header("Location: Homepage.php");
+        header("Location: HomePage.php");
         die;
     }
 }
