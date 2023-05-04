@@ -11,7 +11,7 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-<?php require 'layouts/Nav.php';?>
+<?php require 'layouts/nav.php';?>
 
         <?php 
             if (isset($_SESSION['login_id']) && $_SESSION['user_rank'] == 'user') {
