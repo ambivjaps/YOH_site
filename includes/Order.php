@@ -1,9 +1,9 @@
 <?php
 class Order{
-	private $host  = 'localhost';
-    private $user  = 'root';
-    private $password   = "";
-    private $database  = "yoh_db";
+	private $host = 'localhost';
+    private $user = 'root';
+    private $password  = "";
+    private $database = "yoh_db";
 	private $orderTable = 'orders_db';    
 	private $dbConnect = false;
     public function __construct(){
