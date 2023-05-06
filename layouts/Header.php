@@ -7,7 +7,7 @@
         <meta name="description" content="Let's create with a smile!" />
 		<meta name="keywords" content="Yarn Over Hook, crocheting, Philippines, online business" />
 
-		<meta property="og:url"                content="#" />
+		<meta property="og:url"                content="https://yarnoverhook.online" />
 		<meta property="og:title"              content="Yarn Over Hook" />
 		<meta property="og:description"        content="Let's create with a smile!" />
 		<meta property="og:image"              content="assets/img/bg_og.jpg" />
