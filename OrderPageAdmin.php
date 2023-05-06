@@ -24,7 +24,11 @@
 		$sql = "DELETE FROM orders_db WHERE OrderID = $delete_id";
 
 		if(mysqli_query($con, $sql)) {
-			header('Location: OrdersAdminView.php');
+			?>
+                <script>
+                    window.location.replace("OrdersAdminView.php");
+                </script>
+            <?php
 		} else {
 			echo 'Error: ' . mysqli_error($con);
 		}

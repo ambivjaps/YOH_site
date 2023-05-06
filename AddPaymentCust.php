@@ -57,10 +57,11 @@ if(isset($_GET['id'])) {
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            $_SESSION['p_mode'] = $_POST['p_mode'];
-            header("Location: OrderPageCust.php");
-            mysqli_close($con);
-            
+            ?>
+                <script>
+                    window.location.replace("OrderPageCust.php");
+                </script>
+            <?php
             exit();
 
         } else {

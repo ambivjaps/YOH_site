@@ -59,7 +59,11 @@
 
         
             if($OrderQty > $selected_item['ItemQty'] || $MaterialQty > $selected_mat['ItemQty']){
-                header("Location: AddOrder.php?add=error");
+                ?>
+                    <script>
+                        window.location.replace("AddOrder.php?add=error");
+                    </script>
+                <?php
             }
             else{
         $query = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal,MaterialUsed,MaterialQty,PaymentDue) VALUES ('$InvItem','$CustProf','$OrderType','$TypeID','$OrderQty','$OrderTotal','$MaterialUsed','$MaterialQty','$PaymentDue')";
@@ -76,13 +80,21 @@
             $result = mysqli_query($con, $sql);
             $result2 = mysqli_query($con, $sql2);
             if($result && $result2) {
-            header("Location: OrdersAdminView.php");
+            ?>
+                <script>
+                    window.location.replace("OrdersAdminView.php");
+                </script>
+            <?php
             mysqli_close($con);
             exit();
             }
 
             mysqli_close($con);
-            header("Location: OrdersAdminView.php");
+            ?>
+                <script>
+                    window.location.replace("OrdersAdminView.php");
+                </script>
+            <?php
             exit();
         
         } else {

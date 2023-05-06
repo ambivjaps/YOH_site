@@ -58,14 +58,12 @@
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            $_SESSION['slide_title'] = $_POST['slide_title'];
-            $_SESSION['slide_desc'] = $_POST['slide_desc'];
-            $_SESSION['slide_link'] = $_POST['slide_link'];
-            header("Location: SlidesAdmin.php");
-            mysqli_close($con);
-
+            ?>
+                <script>
+                    window.location.replace("SlidesAdmin.php");
+                </script>
+            <?php
             exit();
-
         } else {
             echo "<script> alert('Problem occured.') </script>";
         }

@@ -51,9 +51,11 @@ require 'layouts/Header.php';
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            header("Location: Inventory.php");
-            mysqli_close($con);
-            
+            ?>
+                <script>
+                    window.location.replace("Inventory.php");
+                </script>
+            <?php
             exit();
 
         } else {

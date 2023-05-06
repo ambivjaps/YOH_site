@@ -78,23 +78,22 @@
         $OrderTotal = $OrderQty * $selectPrice;
 
         if($OrderQty > $selected_item['ItemQty'] || $MaterialQty > $selected_mat['ItemQty']){
-            header("Location: EditOrder.php?id=$id&edit=error");
+            echo '<script> window.location.replace("EditOrder.php?id='.$_GET['id'].'&edit=error");</script>';
         }else{
         $query = "UPDATE orders_db SET c_id='$CustProf',ItemID='$InvItem',OrderType='$OrderType',OrderQty='$OrderQty',OrderTotal='$OrderTotal',MaterialUsed='$MaterialUsed',MaterialQty='$MaterialQty',PaymentDue='$PaymentDue' WHERE OrderID=$OID";
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            $_SESSION['CustProf'] = $_POST['CustProf'];
-            $_SESSION['InvItem'] = $_POST['InvItem'];
-            $_SESSION['OrderType'] = $_POST['OrderType'];
-            $_SESSION['OrderQty'] = $_POST['OrderQty'];
 
             if($CurrentQTY !== $OrderQty ){
             $sql = "UPDATE inventory_db SET ItemQty=ItemQty+$CurrentQTY-$OrderQty WHERE ItemID='$InvItem' ";
             $result = mysqli_query($con, $sql);
             if($result) {
-            header("Location: OrdersAdminView.php");
-            mysqli_close($con);
+            ?>
+                <script>
+                    window.location.replace("OrdersAdminView.php");
+                </script>
+            <?php
             exit();
             }
         }
@@ -104,13 +103,19 @@
             $result = mysqli_query($con, $sql);
             $result2 = mysqli_query($con, $sql2);
             if($result && $result2) {
-            header("Location: OrdersAdminView.php");
-            mysqli_close($con);
+            ?>
+                <script>
+                    window.location.replace("OrdersAdminView.php");
+                </script>
+            <?php
             exit();
             }
         }
-            header("Location: OrdersAdminView.php");
-            mysqli_close($con);
+            ?>
+                <script>
+                    window.location.replace("OrdersAdminView.php");
+                </script>
+            <?php
             exit();
         } else {
             echo "<script> alert('Problem occured.') </script>";

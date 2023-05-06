@@ -62,17 +62,11 @@
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            $_SESSION['cust_name'] = $_POST['cust_name'];
-            $_SESSION['cust_address'] = $_POST['cust_address'];
-
-            $_SESSION['cust_city'] = $_POST['cust_city'];
-            $_SESSION['cust_reg'] = $_POST['cust_reg'];
-            $_SESSION['cust_zip'] = $_POST['cust_zip'];
-
-            $_SESSION['cust_phone'] = $_POST['cust_phone'];
-
-            header("Location: UserProfileAdmin.php");
-            mysqli_close($con);
+            ?>
+                <script>
+                    window.location.replace("UserProfileAdmin.php");
+                </script>
+            <?php
             exit();
         } else {
             echo "<script> alert('Problem occured.') </script>";

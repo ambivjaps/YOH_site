@@ -68,13 +68,11 @@
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            $_SESSION['ItemName'] = $_POST['ItemName'];
-            $_SESSION['ItemDesc'] = $_POST['ItemDesc'];
-            $_SESSION['ItemQty'] = $_POST['ItemQty'];
-            $_SESSION['ItemType'] = $_POST['ItemType'];
-            $_SESSION['ItemPrice'] = $_POST['ItemPrice'];
-            header("Location: Inventory.php");
-            mysqli_close($con);
+            ?>
+                <script>
+                    window.location.replace("Inventory.php");
+                </script>
+            <?php
             exit();
         } else {
             echo "<script> alert('Problem occured.') </script>";

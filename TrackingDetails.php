@@ -31,10 +31,7 @@
         $query_run = mysqli_query($con, $query);
         
         if($query_run){
-            $_SESSION['courier_id'] = $_POST['courier_id'];
-            $_SESSION['tracking_no'] = $_POST['tracking_no'];
-            header("Location: OrderPageAdmin.php?id=".$OID);
-            mysqli_close($con);
+            echo '<script> window.location.replace("OrderPageAdmin.php?id='.$OID.'");</script>';
             exit();
         }
     } 

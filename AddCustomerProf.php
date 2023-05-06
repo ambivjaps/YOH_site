@@ -41,17 +41,11 @@
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            $_SESSION['c_name'] = $_POST['c_name'];
-            $_SESSION['c_label'] = $_POST['c_label'];
-
-            $_SESSION['region'] = $_POST['region'];
-            $_SESSION['city'] = $_POST['city'];
-
-            $_SESSION['phone_no'] = $_POST['phone_no'];
-            $_SESSION['zip_code'] = $_POST['zip_code'];
- 
-            header("Location: ProfileAccntView.php");
-            mysqli_close($con);
+            ?>
+                <script>
+                    window.location.replace("ProfileAccntView.php");
+                </script>
+            <?php
             
             exit();
 
@@ -59,12 +53,19 @@
             echo "<script> alert('Problem occured.') </script>";
         }
     } 
-    header("Location: ProfileAccntView.php");
-    mysqli_close($con);
+    ?>
+        <script>
+            window.location.replace("ProfileAccntView.php");
+        </script>
+    <?php
     
     exit();
  }else  if ($sql_run && mysqli_num_rows($sql_run) >= 3 ) {
-    header("Location: ProfileAccntView.php?profile=error");
+    ?>
+        <script>
+            window.location.replace("ProfileAccntView.php?profile=error");
+        </script>
+    <?php
  }
 }
 ?>

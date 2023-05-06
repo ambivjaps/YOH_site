@@ -22,13 +22,11 @@
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            $_SESSION['vid_title'] = $_POST['vid_title'];
-            $_SESSION['vid_desc'] = $_POST['vid_desc'];
-            $_SESSION['vid_cat'] = $_POST['vid_cat'];
-            $_SESSION['vid_url'] = $_POST['vid_url'];
-
-            mysqli_close($con);
-            header("Location: VideosAdmin.php");
+            ?>
+                <script>
+                    window.location.replace("VideosAdmin.php");
+                </script>
+            <?php
             exit();
 
         } else {

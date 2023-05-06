@@ -30,7 +30,11 @@
 		$sql = "DELETE FROM slides WHERE slide_id = $delete_id";
 
 		if(mysqli_query($con, $sql)) {
-			header('Location: SlidesAdmin.php');
+			?>
+                <script>
+                    window.location.replace("SlidesAdmin.php");
+                </script>
+            <?php
 		} else {
 			echo 'Error: ' . mysqli_error($con);
 		}

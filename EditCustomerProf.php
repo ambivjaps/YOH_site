@@ -42,21 +42,12 @@
         $query_run = mysqli_query($con, $query);
     
         if($query_run) {
-            $_SESSION['c_label'] = $_POST['c_label'];
-            $_SESSION['c_name'] = $_POST['c_name'];
-
-            $_SESSION['address'] = $_POST['address'];
-            $_SESSION['region'] = $_POST['region'];
-            $_SESSION['city'] = $_POST['city'];
-    
-            $_SESSION['phone_no'] = $_POST['phone_no'];
-            $_SESSION['zip_code'] = $_POST['zip_code'];
-  
-            header("Location: ProfileAccntView.php");
-            mysqli_close($con);
-         
+            ?>
+                <script>
+                    window.location.replace("ProfileAccntView.php");
+                </script>
+            <?php
             exit();
-
         } else {
             echo "<script> alert('Problem occured.') </script>";
         }

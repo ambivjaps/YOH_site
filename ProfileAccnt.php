@@ -34,14 +34,18 @@
         if($error_run && mysqli_num_rows($error_run) > 0){
             $user_data = mysqli_fetch_assoc($error_run);
             if($user_data["cust_status"] == 1){
-            header("Location: ProfileAccnt.php?id=$delete_id&delete=error");
+            echo '<script> window.location.replace("ProfileAccnt.php?id='.$delete_id.'&delete=error");</script>';
             }
         else {
 
 		$sql = "DELETE FROM cust_profile WHERE id = $delete_id";
             $run = mysqli_query($con, $sql);
             if($run){
-                header("Location: ProfileAccntView.php?delete=success");
+                ?>
+                    <script>
+                        window.location.replace("ProfileAccntView.php?delete=success");
+                    </script>
+                <?php
             }
 	    }
     }

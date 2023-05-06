@@ -34,7 +34,7 @@
             $order_data = mysqli_fetch_assoc($err_run);
 
             if($order_data["ItemID"] == $user_data["ItemID"]){
-            header("Location: InventoryItem.php?id=$delete_id&delete=error");
+            echo '<script> window.location.replace("InventoryItem.php?id='.$delete_id.'&delete=error");</script>';
                 }
             }
 		else{
@@ -44,7 +44,11 @@
                 if (file_exists($filePath)) {
                     unlink($filePath);
                 } 
-                header("Location: Inventory.php");
+                ?>
+                    <script>
+                        window.location.replace("Inventory.php");
+                    </script>
+                <?php
             }
 			
 		} 

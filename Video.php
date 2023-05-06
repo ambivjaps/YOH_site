@@ -24,7 +24,11 @@
 		$sql = "DELETE FROM videos WHERE vid_id = $delete_id";
 
 		if(mysqli_query($con, $sql)) {
-			header('Location: VideosAdmin.php');
+			?>
+                <script>
+                    window.location.replace("VideosAdmin.php");
+                </script>
+            <?php
 		} else {
 			echo 'Error: ' . mysqli_error($con);
 		}

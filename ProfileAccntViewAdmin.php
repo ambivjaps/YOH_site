@@ -40,7 +40,7 @@ if(isset($_POST['delete'])) {
         $sql = "SELECT * FROM orders_db WHERE c_id = $delete_id AND OrderType = 'On-Going'";
         $result1 = $con->query($sql);
         if($result1->num_rows > 0){
-        header("Location: ProfileAccntViewAdmin.php?id=$id&profile=error");
+        echo '<script> window.location.replace("ProfileAccntViewAdmin.php?id='.$id.'&profile=error");</script>';
     } else {
         $sql1 = "DELETE
                  FROM cust_profile
@@ -56,7 +56,11 @@ if(isset($_POST['delete'])) {
                  FROM register
                  WHERE login_id = $delete_id";
         $result3 = $con->query($sql3);
-        header('Location: CustomerProfileListAdmin.php');
+        ?>
+            <script>
+                window.location.replace("CustomerProfileListAdmin.php");
+            </script>
+        <?php
          }
         } else {
         $sql1 = "DELETE
@@ -68,7 +72,11 @@ if(isset($_POST['delete'])) {
                  FROM register
                  WHERE login_id = $delete_id";
         $result3 = $con->query($sql3);
-        header('Location: CustomerProfileListAdmin.php');
+        ?>
+            <script>
+                window.location.replace("CustomerProfileListAdmin.php");
+            </script>
+        <?php
          }
     }
 
