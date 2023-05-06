@@ -15,7 +15,7 @@ if(isset($_POST["verify"])){
         $res = mysqli_fetch_assoc($result);
 
         if($res["otp"] != $otp_code){
-            header("Location: VerifyOTP.php?otp=false"); 
+            header("Location: verifyotp.php?otp=false"); 
             
     }else{
         mysqli_query($connect, "UPDATE register SET cust_status = 1, login_attempt = 0 WHERE cust_email = '$email'");
@@ -72,7 +72,7 @@ if(isset($_POST["verify"])){
                 <?php } ?> 
                     <div class="button-group float-end">
                         <input class="btn btn-success mt-3" type="submit" id="submit" name="verify" value="Submit OTP" style="width:120px;border-color:indigo;background:indigo;">
-                        <a href="login.php" ><input class="btn btn-danger mt-3"  type="cancel" value="Cancel" style="width:120px;"> </a>
+                        <a href="Login.php" ><input class="btn btn-danger mt-3"  type="cancel" value="Cancel" style="width:120px;"> </a>
                     </div>  
                 </form>
         </section>

@@ -30,7 +30,7 @@ include("includes/functions.inc.php");
         $mail->Body="<b>Dear User,</b>
         <h3>We received a request to reset your password.</h3>
         <p>Kindly click the below link to reset your password</p>
-        <a href='http://localhost/YOH_SITE/ResetPass.php?token=$token&email=$email'>Reset Password </a>
+        <a href='https://yarnoverhook.online/ResetPass.php?token=$token&email=$email'>Reset Password </a>
         <br><br>
         <p>With regards,</p>
         <b>YarnOverHook</b>";

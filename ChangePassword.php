@@ -90,7 +90,7 @@ if(isset($_POST["cust_email"])){
             $mail->Body="<b>Dear lovely Customer,</b>
             <h3>We noticed that YOUR PASSWORD has been changed. </h3>
             <p>If you didn't change it, reset your password here . </p>
-            <a href='http://localhost:3000/ForgotPass.php'>Reset Password</a>
+            <a href='https://yarnoverhook.online/ForgotPass.php'>Reset Password</a>
             <br><br>
             <p>With regards,</p>
             <b>YarnOverHook</b>";

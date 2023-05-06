@@ -112,7 +112,7 @@
         if(!$mail->send()){
             ?>
                 <script>
-                     window.location.replace("Homepage.php");
+                     window.location.replace("HomePage.php");
                 </script>
             <?php
         }else{
