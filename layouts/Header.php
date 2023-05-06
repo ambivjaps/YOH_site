@@ -10,7 +10,7 @@
 		<meta property="og:url"                content="#" />
 		<meta property="og:title"              content="Yarn Over Hook" />
 		<meta property="og:description"        content="Let's create with a smile!" />
-		<meta property="og:image"              content="assets/img/bg_og.png" />
+		<meta property="og:image"              content="assets/img/bg_og.jpg" />
 
         <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
 		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" type="image/x-icon" sizes="180x180">
