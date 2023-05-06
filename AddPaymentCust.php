@@ -76,7 +76,11 @@ if(isset($_GET['id'])) {
         $query = "UPDATE orders_db SET proof_img= NULL, p_mode= NULL , pay_status= NULL WHERE OrderID=$OID";
         $query_run = mysqli_query($con, $query);
         if($query_run) {
-            header("Location: OrderPageCust.php");
+            ?>
+                <script>
+                    window.location.replace("OrderPageCust.php");
+                </script>
+            <?php
             
             exit();
         }
