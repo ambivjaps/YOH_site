@@ -1,10 +1,15 @@
 <?php
 class Order{
-	private $host  = 'localhost';
-    private $user  = 'root';
-    private $password   = "";
-    private $database  = "yoh_db";
+    private $host  = 'us-cdbr-east-06.cleardb.net';
+    private $user  = 'b482ac2f48aa9e';
+    private $password = "18325e71";
+    private $database = "heroku_c42bdf175a13f3c";
 	private $orderTable = 'orders_db';    
+	//private $host  = 'localhost';
+    //private $user  = 'root';
+    //private $password   = "";
+    //private $database  = "yoh_db";
+	//private $orderTable = 'orders_db';    
 	private $dbConnect = false;
     public function __construct(){
         if(!$this->dbConnect){ 
