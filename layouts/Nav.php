@@ -1,11 +1,12 @@
 <header>
     <style>
         .modal-content {
-            top: 30%;
-            width: 23%;
+            top: 50%;
+            width: 43%;
             background-color: #fee8e8;
             margin: auto;
-            padding: 20px;
+            padding: 30px;
+
         }
         
         .modal-footer {
