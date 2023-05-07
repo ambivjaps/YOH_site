@@ -20,19 +20,19 @@
 <body class="d-flex flex-column min-vh-100">
 	
     <main class="page login-page">
-        <section class="clean-block clean-form dark" style="height: 1230px; background-color:#efe9ef;">
+        <section class="clean-block clean-form dark" style="height:auto; width:auto; background-color:#efe9ef;">
         
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
                 <div class="block-heading">
-                    <img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png">
+                    <img style="width:auto;height:auto;" src="assets/img/LOGOEXAMPLE.png">
             </div>
             
-    <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight:bold;">Terms and Conditions</h2>
+    <h2 style="text-align: center; font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Terms and Conditions</h2><br>
     
-            <form class="rounded" data-bss-hover-animate="pulse" style="border:none; width: 554px;max-width: 753px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 830px;"  method="post" >
+            <form class="rounded" data-bss-hover-animate="pulse" style="border:none;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;"  method="post" >
             
             <div class="mb-3">
-            <div style="margin-left:430px;margin-top:-30px;"><a class="btn btn-primary border rounded" role="button" href="Registration.php" style="border-color:indigo;background:indigo;font-weight:bold;">Back</a></div><br>
+            <div style="margin-top:-20px; margin-left:370px;"><a class="btn btn-primary border rounded" role="button" href="Registration.php" style="border-color:indigo;background:indigo;font-weight:bold;">Back</a></div><br>
                 <b>
                     <center>
                 <label class="form-label" style="color: rgb(111, 66, 193);">Please be sure to read the TERMS AND CONDITIONS

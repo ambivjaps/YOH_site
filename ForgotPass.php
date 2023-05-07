@@ -108,11 +108,11 @@ include("includes/functions.inc.php");
 
 <body>
 <main class="page login-page">
-        <section class="clean-block clean-form dark" style="height: 990.391px; background-color:#efe9ef; ">
+        <section class="clean-block clean-form dark" style="height:auto; background-color:#efe9ef; ">
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
                 <div class="block-heading"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
                 <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Reset Password</h2>
-                    <form action="" method="POST" name="ForgotPass" class="border rounded justify-content-center" data-bss-hover-animate="pulse" style="width: 554px;max-width: 753px;margin-bottom: 41px;margin-left: 374px;margin-right: 404px;margin-top: 20px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 221px;">
+                    <form action="" method="POST" name="ForgotPass" class="border rounded justify-content-center" data-bss-hover-animate="pulse" style="width:auto;height:auto;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;">
                     <div class="mb-3"><label class="form-label" for="email" style="color: rgb(111, 66, 193); font-weight:bold;">Email</label><input class="form-control item" type="text" id="email_address" name="cust_email" placeholder="Email" required autofocus style="margin-bottom: 9px;"></div>
                     <?php 
                     if (isset($_GET['error']) && $_GET['error'] === 'true') { ?>

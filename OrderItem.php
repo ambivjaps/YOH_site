@@ -96,8 +96,8 @@
                 <div class="block-heading">
                     <h2 style="margin:40px; color: black;font-size: 50px;font-weight: bold;">Product Catalog</h2>
                 </div>
-                <div class="content rounded" style="width:1350px;">
-                    <br>
+                <div class="content rounded" style="width:auto;">
+                    <br><br>
                     <a href="OrderPageCust.php">
                     <button role="button" class="btn btn-primary position-relative mx-4"  style="text-align: center;border-color:indigo;background:indigo;">
                         <i class="fas fa-eye" style="text-align:center;width:7%;font-weight:bold;"></i> <span style="font-weight:bold;"> View Orders</span>

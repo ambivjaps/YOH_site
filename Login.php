@@ -126,11 +126,11 @@ if (isset($_SESSION["locked"]))
 
 <body style="overflow-x:hidden;">
     <main class="page login-page">
-        <section class="clean-block clean-form dark" style="height: 990.391px; background-color:#efe9ef;">
+        <section class="clean-block clean-form dark" style="height:1100px; width:auto; background-color:#efe9ef;">
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
-                <div class="block-heading"><a href="HomePage.php"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div></a>
-                <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Login</h2>
-                <form data-bss-hover-animate="pulse" class="rounded" style="border:none;width: 554px;;height:590px; color: var(--bs-purple); max-width: 753px;" action="Login.php"  method="post" >
+                <div class="block-heading"><a href="HomePage.php"><img style="height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div></a>
+                <h2 style="text-align: center;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Login</h2>
+                <form data-bss-hover-animate="pulse" class="rounded" style="border:none;width:fit-content;height:fit-content; color: var(--bs-purple); display:flexbox;" action="Login.php"  method="post" >
                 <?php if (isset($_GET['registrationSuccess']) && $_GET['registrationSuccess'] === 'true') { ?>
                     <div class="alert alert-success" role="alert">
                         Successfully registered account. Please login.
@@ -190,10 +190,10 @@ if (isset($_SESSION["locked"]))
                     <div class="mb-3"><label class="form-label" for="password" style=" font-weight:bold; font-size: 20px;color: rgb(111, 66, 193);">Password</label><input class="form-control" type="password" id="password" name="cust_pass" placeholder="Password" required="" style="margin-bottom: 12px;margin-right: 28px;margin-top: 4px;"></div>
                                     
            
-                    <a href="ForgotPass.php" style="font-size: 18px;margin-left: 145px;margin-top: -8px;margin-bottom: 173px;margin-right: 12px;color: rgb(111,66,193);">Forgot your Password?</a>
+                    <p style="text-align:center;"><a href="ForgotPass.php" style="text-decoration:none; color: rgb(111,66,193);" >Forgot your Password?</a></p>
                     <div></div>
                     <br>
-                    <div style="margin-left:80px;">
+                    <div style="text-align:center; display:inline-block;">
                     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
                      <div class="g-recaptcha" data-sitekey="6LcJ2cMlAAAAAAG6i2GERXBDO_rcpT0AfGfI5ppE"></div> </tr></tr></tr>
@@ -209,7 +209,7 @@ if (isset($_SESSION["locked"]))
                       <br>
                     <?php } ?>
                     
-                    <a href="registration.php" style="margin-left: 86px;margin-top: -8px;margin-bottom: 173px;margin-right: 12px;color: rgb(111,66,193);">Don't have an account? Register Here</a>
+                    <p style="text-align:center;"><a href="registration.php" style="text-decoration: none; color: rgb(111,66,193);">Don't have an account? Register Here</a></p>
                 </form>
             </div>
         </section>

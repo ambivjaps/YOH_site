@@ -138,12 +138,12 @@ if (isset($_POST['cust_name'])) {
 
 <body>
     <main class="page registration-page">
-        <section class="clean-block clean-form dark" style="height:auto;background-color:#efe9ef; ">
+        <section class="clean-block clean-form dark" style="height:auto; width:auto; background-color:#efe9ef; ">
             <div class="container">
                 <div class="block-heading">
-                    <img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png">
+                    <img style="width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png">
                 </div>
-                <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Registration</h2>
+                <h2 style="text-align: center; font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Registration</h2><br>
                 <?php
                 if (isset($_GET['error']) && $_GET['error'] === 'true') { ?>
                     <div class="d-flex justify-content-center">
@@ -163,43 +163,43 @@ if (isset($_POST['cust_name'])) {
                 <?php } ?>
 
                 <!-- FORM -->
-                <form data-bss-hover-animate="pulse" class="rounded" style="margin:auto;border:none; width: 892px;min-width: 182px;max-width: 1046px;min-height: 656px;height: 900px;color: rgb(111,66,193);" action="" id="myForm" method="post">
-                    <div class="mb-3" style="padding-left: -6px;">
-                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
+                <form data-bss-hover-animate="pulse" class="rounded" style="border:none; width:auto;height:auto;color: rgb(111,66,193);display:flexbox;" action="" id="myForm" method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="name" style="font-weight:bold;color: rgb(111,66,193);">
                             Full Name
-                            <input class="form-control item" type="text" id="text" name="cust_name" style=" font-weight: bold;width: 730px;margin-bottom: 4px;" required="">
+                            <input class="form-control item" type="text" id="text" name="cust_name" style="width:270px;" required="" placeholder="Juan Christian Dela Cruz">
                         </label>
-    
+                    <hr>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
-                        Contact Details
-                        <br><small>Email Address</small>
-                            <input class="form-control item" type="text" id="text" name="cust_email" style="width: 289px;margin-bottom: 4px;" required="">
+                        <label class="form-label" for="name" style="font-weight: bold;color: rgb(111,66,193);">
+                        Contact Details 
+                        <br><br><small>Email Address</small>
+                            <input class="form-control item" type="text" id="text" name="cust_email" style="width:270px;margin-bottom: 4px;" required="" placeholder="juan_delacruz@hotmail.com">
                         </label>
-                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
+                        <label class="form-label" for="name" style="font-weight: bold;color: rgb(111,66,193);">
                         <small>Mobile Number</small>
-                            <input class="form-control item" type="text" id="text" name="cust_phone" minlength="11" maxlength="11" style=" width: 270px;margin-bottom: 4px;padding-left: 18px;" onkeypress="return restrictAlphabets(event)" required="">
+                            <input class="form-control item" type="text" id="text" name="cust_phone" minlength="11" maxlength="11" style=" width: 270px;margin-bottom: 4px;padding-left: 18px;" onkeypress="return restrictAlphabets(event)" required="" placeholder="0-XXX-XXX-XXXX">
                         </label>
-                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
+                        <label class="form-label" for="name" style="font-weight: bold;color: rgb(111,66,193);">
                         <small>Instagram Handle</small>
-                            <input class="form-control item" type="text" id="text" name="cust_ig" style=" width: 289px;margin-bottom: 4px;padding-left: 18px;" required="">
+                            <input class="form-control item" type="text" id="text" name="cust_ig" style="width: 270px;" required="" placeholder="www.instagram.com/jdjcruz">
                         </label>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="name" style=" font-weight: bold;margin-left: 44px;color: rgb(111,66,193);margin-top: -17px;margin-bottom: -91px;margin-right: 12px;text-align: left;">
-                            <br>Address
+                        <label class="form-label" for="name" style=" font-weight: bold;color: rgb(111,66,193);text-align: left;">
+                            Address<br>
                             <br><small>House no./Lot no./Block no./Unit no., Street</small>
-                            <input class="form-control item" type="text" id="text" name="cust_add_1" style="width: 700px;margin-bottom: 2px;" required="">
+                            <input class="form-control item" type="text" id="text" name="cust_add_1" style="width:310px;" required=""placeholder="Zeus Subd. , Blg. 4, Pasong Putik">
                             <br><small>Village/Subdivision, Building, Barangay</small>
-                            <input class="form-control item" type="text" id="text" name="cust_add_2" style="width: 700px;margin-bottom: 2px;" required="">
+                            <input class="form-control item" type="text" id="text" name="cust_add_2" style="width:310px;" required="" placeholder="Zeus Subd. , Blg. 4, Pasong Putik">
                         </label>
                     </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="name" style="font-weight: bold;margin-left: 45px;color: rgb(111,66,193);">
+                            <label class="form-label" for="name" style="font-weight: bold;color: rgb(111,66,193);">
                                 <small>Region</small><br>
-                                <select name="cust_reg" id="cust_reg" required>
+                                <select class="form-control item" name="cust_reg" id="cust_reg" style="width:270px;" required>
                                     <option value="">Select Region</option>
                                     <option value="I">I - Ilocos Region</option>
                                     <option value="II">II - Cagayan Valley</option>
@@ -220,45 +220,40 @@ if (isset($_POST['cust_name'])) {
                                     <option value="BARMM">Bangsamoro Autonomous Region in Muslim Mindanao</option>
                                 </select>
                             </label>
-                            <label class="form-label" for="name" style=" font-weight: bold;margin-left: 48px;width: 117px;color: rgb(111,66,193);">
+                        </div>
+                            <label class="form-label" for="name" style=" font-weight: bold;width: 117px;color: rgb(111,66,193);">
                                 <small>City</small>
-                                <select name="cust_city" id="cust_city" required>
-                                    <option value="">Select City</option>
-                                </select><br>
+                                <select class="form-control item" name="cust_city" id="cust_city" required>
+                                    <option value="" >Select City</option>
+                                </select>
                             </label>
-                            <label class="form-label" for="name" style="font-weight: bold;margin-left: 48px;color: rgb(111,66,193);">
-                            <small>ZIP Code</small><br>
-                            <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" onkeypress="return restrictAlphabets(event)" required="">
+                        <div class="mb-3">
+                            <label class="form-label" for="name" style="font-weight: bold;color: rgb(111,66,193);">
+                            <small>ZIP Code</small>
+                            <input class="form-control item" type="text" id="text" name="cust_zip" style="width: 121px;margin-bottom: 4px;min-width: 76px;" onkeypress="return restrictAlphabets(event)" required="" placeholder="1111">
                             </label>
                         </div>
-                            
-                        <div class="mb-3" style="margin-bottom: 9px;margin-top: 18px;">
-                            <label class="form-label" for="name" style=" font-weight: bold;margin-left: 46px;color: rgb(111,66,193);">
+                        <hr>
+                        <div class="mb-3">
+                            <label class="form-label" for="name" style=" font-weight: bold;color: rgb(111,66,193);">
                                 Password
-                                <input class="form-control item" type="password" id="password" name="cust_pass" style="width: 289px;margin-bottom: 4px;" required="">
+                                <input class="form-control item" type="password" id="password" name="cust_pass" style="width: 289px;" required="">
                             </label>
-                            <label class="form-label" for="name" style=" font-weight: bold;margin-left: 151px;color: rgb(111,66,193);">
+                            <label class="form-label" for="name" style=" font-weight: bold;color: rgb(111,66,193);">
                                 Re - Type Password
-                                <input class="form-control item" type="password" id="confirmPassword" name="conf_pass" style="width: 289px;margin-bottom: 4px;padding-left: 18px;" required="">
+                                <input class="form-control item" type="password" id="confirmPassword" name="conf_pass" style="width: 289px;" required="">
                             </label>
                         </div>
                         <div></div>
-                        <div class="form-check" style="margin-left: 69px;">
-                            <input class="form-check-input" type="checkbox" name="cust_terms" id="formCheck-1" style="margin-left: -17px;" required="">
-                            <label class="form-check-label" for="formCheck-1" style="margin-left: 14px;">
+                        <div class="form-check" style="">
+                            <input class="form-check-input" type="checkbox" name="cust_terms" id="formCheck-1" style="" required="">
+                            <label class="form-check-label" for="formCheck-1" style="">
                                 By checking, You accept and understood the <a href="TermsConditions.php"> Terms &amp; Conditions </a> of the system.
                             </label>
                         </div>
-
-                        <div></div>
-
-                        <div class="btn-group" role="group"></div>
-
-                        <div></div>
-                        <button class="btn btn-danger form-btn" id="regBtn" type="button" style="margin-left: 275px;width: 137.797px;max-width: none;margin-top: -10px; border-color:indigo;background:indigo;font-weight:bold; ">REGISTER</button>
-                        <div></div>
-                        <a href="Login.php">
-                            <button class="btn btn-danger form-btn" type="button" style="margin-left: 421px;width: 137.797px;max-width: none;margin-top: -65px; background: rgb(220, 53, 69);font-weight:bold;">CANCEL</button></a>
+                        <br>
+                        <button class="btn btn-danger form-btn" id="regBtn" type="button" style="width: 137.797px; border-color:indigo;background:indigo;font-weight:bold; ">REGISTER</button>
+                        <a href="Login.php"><button class="btn btn-danger form-btn" type="button" style="width: 137.797px;background: rgb(220, 53, 69);font-weight:bold;">CANCEL</button></a>
                 </form>
             </div>
         </section>
@@ -267,7 +262,7 @@ if (isset($_POST['cust_name'])) {
                 <p style="text-align:center; font-weight: bold;">Registration complete!</p>
                 <p style="text-align:center;">You will now be redirected to Login</p>
                 <div class="modal-footer">
-                    <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                    <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:auto;">OK</button>
                 </div>
             </div>
         </div>
@@ -277,7 +272,7 @@ if (isset($_POST['cust_name'])) {
                 <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
                 <p style="text-align:center;" id="error-message"></p>
                 <div class="modal-footer">
-                    <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
+                    <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:auto;">OK</button>
                 </div>
             </div>
         </div>
