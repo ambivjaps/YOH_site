@@ -162,7 +162,7 @@ require 'layouts/Header.php';
         </div>
 
         <div id="addModal" class="modal" style="display: none">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to add this?</p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;" onClick="addItem()">OK</button>
@@ -173,7 +173,7 @@ require 'layouts/Header.php';
     </div>
 
     <div id="myModal3" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to add!</p>
                 <p style="text-align:center;" id="error-message"></p>
                 <div class="modal-footer">

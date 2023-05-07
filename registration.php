@@ -164,7 +164,7 @@ if (isset($_POST['cust_name'])) {
 
                 <!-- FORM -->
                 <form data-bss-hover-animate="pulse" class="rounded" style="border:none; width:auto;height:auto;color: rgb(111,66,193);display:flexbox;" action="" id="myForm" method="post">
-                    <div class="mb-3">
+                    <div class="mb-6">
                         <label class="form-label" for="name" style="font-weight:bold;color: rgb(111,66,193);">
                             Full Name
                             <input class="form-control item" type="text" id="text" name="cust_name" style="width:270px;" required="" placeholder="Juan Christian Dela Cruz">
@@ -186,15 +186,15 @@ if (isset($_POST['cust_name'])) {
                             <input class="form-control item" type="text" id="text" name="cust_ig" style="width: 270px;" required="" placeholder="www.instagram.com/jdjcruz">
                         </label>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="name" style=" font-weight: bold;color: rgb(111,66,193);text-align: left;">
-                            Address<br>
+                    
+                        <label class="form-label" for="name" style="font-weight: bold;color: rgb(111,66,193);text-align: left;">
+                            <span>Address<br>
                             <br><small>House no./Lot no./Block no./Unit no., Street</small>
                             <input class="form-control item" type="text" id="text" name="cust_add_1" style="width:310px;" required=""placeholder="Zeus Subd. , Blg. 4, Pasong Putik">
                             <br><small>Village/Subdivision, Building, Barangay</small>
                             <input class="form-control item" type="text" id="text" name="cust_add_2" style="width:310px;" required="" placeholder="Zeus Subd. , Blg. 4, Pasong Putik">
                         </label>
-                    </div>
+                    
 
                         <div class="mb-3">
                             <label class="form-label" for="name" style="font-weight: bold;color: rgb(111,66,193);">
@@ -257,8 +257,8 @@ if (isset($_POST['cust_name'])) {
                 </form>
             </div>
         </section>
-        <div id="myModal2" class="modal">
-            <div class="modal-content">
+        <div id="myModal2" class="modal" >
+            <div class="modal-content" style="width:300px;" >
                 <p style="text-align:center; font-weight: bold;">Registration complete!</p>
                 <p style="text-align:center;">You will now be redirected to Login</p>
                 <div class="modal-footer">
@@ -267,8 +267,8 @@ if (isset($_POST['cust_name'])) {
             </div>
         </div>
 
-        <div id="myModal3" class="modal">
-            <div class="modal-content">
+        <div id="myModal3" class="modal" >
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
                 <p style="text-align:center;" id="error-message"></p>
                 <div class="modal-footer">

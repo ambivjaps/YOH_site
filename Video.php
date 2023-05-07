@@ -73,7 +73,7 @@
         </section>
 
         <div id="deleteModal" class="modal" style="display: none">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this?</p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" onClick="deleteVideoForm()" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>

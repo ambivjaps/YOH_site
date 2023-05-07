@@ -95,7 +95,7 @@ if(isset($_POST['delete'])) {
         <div class="container">
         <form class="mb-3" action="ProfileAccntViewAdmin.php?id=<?php echo $profile['id']; ?>" method="POST" id="form">
         <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color: indigo;background: indigo;"><a href="CustomerProfileListAdmin.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
-        <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width: 8%; font-weight:bold;">
+        <input class="btn btn-danger" name="delete" role="button" value="Delete" style="width:100px; font-weight:bold;">
         <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['c_id']; ?>">
     </form>
     <div class="row gutters">
@@ -182,7 +182,7 @@ if(isset($_POST['delete'])) {
             <?php endif ?>
 
         <div id="deleteModal" class="modal" style="display: none">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to delete this profile?
                 <br><br> WARNING: All user data it contains such as orders will also be deleted from the system. </p>
                 <div class="modal-footer">

@@ -137,7 +137,7 @@ if(isset($_GET['id'])) {
         </section>
 
         <div id="myModal2" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center;font-weight:bold;">Do you want to reset the payment method?</p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>

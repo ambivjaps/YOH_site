@@ -216,7 +216,7 @@ if(isset($_POST["cust_email"])){
         </section>
         
         <div id="myModal2" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;">Registration complete!</p>
                 <p style="text-align:center;">You will now be redirected to Login</p>
                 <div class="modal-footer">
@@ -227,7 +227,7 @@ if(isset($_POST["cust_email"])){
         
         
                 <div id="myModal3" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
                 <p style="text-align:center;font-weight:bold;" id="error-message"></p>
                 <div class="modal-footer">

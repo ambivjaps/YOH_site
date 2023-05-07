@@ -68,7 +68,7 @@
         <button class="btn btn-primary pull-right" type="button" style="font-weight:bold;border-color:indigo;background:indigo;"><a href="ProfileAccntView.php" style="text-decoration:none;color:white;"><i class="fa fa-arrow-left"></i> Back </a></button>
 			<a class="btn btn-dark" href="EditCustomerProf.php?id=<?php echo $profile['id'] ?>" type="submit" name="edit" role="button" style="border-color:indigo;background:indigo;font-weight:bold;"><i class="fas fa-edit"></i> Edit</a>
 			<input type="hidden" class="delete_id" name="delete_id" value="<?php echo $profile['id']; ?>">
-			<input class="btn btn-danger" name="delete" role="button" value="Delete" style="font-weight:bold;width: 8%;">
+			<input class="btn btn-danger" name="delete" role="button" value="Delete" style="font-weight:bold;width:100px;">
 		</form>
 
     <div class="row gutters">

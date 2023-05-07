@@ -169,7 +169,7 @@ if(isset($_POST["cust_email"])){
 </head>
 <body>
     <main class="login-page">
-    <section class="clean-block clean-form dark" style="height: 980.391px; background-color:#efe9ef;">
+    <section class="clean-block clean-form dark" style="height:1090px; background-color:#efe9ef;">
     <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
     <div class="block-heading"><a href="homepage.php"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></a></div>
         <div class="row">
@@ -216,7 +216,7 @@ if(isset($_POST["cust_email"])){
         </section>
         
         <div id="myModal2" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;">Registration complete!</p>
                 <p style="text-align:center;font-weight:bold;">You will now be redirected to Login</p>
                 <div class="modal-footer">
@@ -227,7 +227,7 @@ if(isset($_POST["cust_email"])){
         
         
                 <div id="myModal3" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
                 <p style="text-align:center; font-weight:bold;" id="error-message"></p>
                 <div class="modal-footer">

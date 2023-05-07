@@ -159,7 +159,7 @@
         </div>
 
         <div id="editModal" class="modal" style="display: none">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;">Are you sure you want to edit this?</p><br>
                 <div class="modal-footer">
                     
@@ -171,7 +171,7 @@
     </div>
 
     <div id="myModal3" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to save changes!</p>
                 <p style="text-align:center;" id="error-message"></p>
                 <div class="modal-footer">

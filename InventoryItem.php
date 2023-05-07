@@ -105,7 +105,7 @@
 			    <a class="btn btn-dark" href="EditInventoryItem.php?id=<?php echo $inv['ItemID'] ?>" type="submit" name="edit" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"><i class="fas fa-edit"></i> Edit</a>
 			    <input type="hidden" class="delete_id" name="delete_id" value="<?php echo $inv['ItemID']; ?>">
                 <input type="hidden" name="delete_img" value="<?php echo $inv['ItemImg']; ?>">
-			    <input class="btn btn-danger" name="delete" role="button" value="Delete" style="font-weight:bold;width: 8%;">
+			    <input class="btn btn-danger" name="delete" role="button" value="Delete" style="font-weight:bold;width:100px;">
 		    </form>
 
         <div class="row gutters">
