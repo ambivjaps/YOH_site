@@ -39,9 +39,18 @@
         $selectPrice = $_POST['itemprice'];
         $OrderTotal = $qty * $selectPrice;
 
+        $itm = "SELECT * FROM inventory_db WHERE ItemID = $add_order";
+		$result = mysqli_query($con, $itm);
+		$selected_item = mysqli_fetch_assoc($result);
+
+        if($qty > $selected_item['ItemQty']){
+            header("Location: OrderItem.php?error1=true");
+        }else if($qty < 1){
+            header("Location: OrderItem.php?error2=true");
+        }else{
         $add_cart = "INSERT INTO orders_db (ItemID,c_id,OrderType,TypeID,OrderQty,OrderTotal) VALUES ('$add_order','$user','Cart','4','$qty','$OrderTotal')";
         $add = mysqli_query($con, $add_cart);
-        header("Location: OrderPageCust.php");
+        header("Location: OrderPageCust.php");}
             
     }
     require 'layouts/Header.php';
@@ -95,6 +104,20 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 style="margin:40px; color: black;font-size: 50px;font-weight: bold;">Product Catalog</h2>
+                    <?php 
+                if (isset($_GET['error1']) && $_GET['error1'] === 'true') { ?>
+                    <p class="rounded" style="font-weight:bold;text-align:center;color:white;background-color:red;">
+                     Error in adding order. 
+                   Order quantity cannot exceed item stocks. 
+                    <p>     
+                <?php } ?> 
+                <?php 
+                if (isset($_GET['error2']) && $_GET['error2'] === 'true') { ?>
+                    <p class="rounded" style="font-weight:bold;text-align:center;color:white;background-color:red;">
+                     Error in adding order. 
+                   Order quantity cannot be zero. 
+                    <p>     
+                <?php } ?> 
                 </div>
                 <div class="content rounded" style="width:auto;">
                     <br><br>
@@ -143,15 +166,15 @@
                                                         <form method = "POST" action="OrderItem.php">
                                                   <div class="form-group">
                                                     <label for="quantity" style="font-weight:bold;">Quantity</label><br>
-                                                    <input type="number" class="form-control rounded" name="qty" id="quantity">
+                                                    <input type="text" class="form-control rounded" onkeypress="return restrictAlphabets(event)" name="qty" id="quantity" required>
                                                   </div>
                                                   <div class="form-group">
                                                     <label for="quantity" style="font-weight:bold;">Stocks</label>
-                                                    <input type="text" class="form-control rounded" id="stocks" placeholder="<?php echo $item['ItemQty']; ?> " readonly>
+                                                    <input type="text" class="form-control rounded" id="stocks" name="sto" placeholder="<?php echo $item['ItemQty']; ?> " readonly>
                                                   </div>
                                                   <div class="form-group">
                                                     <label for="quantity" style="font-weight:bold;">Price</label>
-                                                    <input type="text" class="form-control rounded" id="stocks" name="itemprice" value="<?php echo $item['ItemPrice']; ?> " readonly>
+                                                    <input type="text" class="form-control rounded" name="itemprice" value="<?php echo $item['ItemPrice']; ?> " readonly>
                                                   </div>
                                                         </div>
                                                         <div class="modal-footer">
@@ -188,6 +211,17 @@
                 </div>
             </div>
         </section>
+        <script>
+
+        function restrictAlphabets(e){
+            var x = e.which || e.keycode;
+            if((x >= 48 && x <=57 ))
+                return true;
+            else
+                return false;
+        }
+
+        </script>
     </main>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
