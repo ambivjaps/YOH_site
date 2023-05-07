@@ -117,8 +117,8 @@ if (isset($_POST['cust_name'])) {
         }
 
         .modal-content {
-            top: 30%;
-            width: 23%;
+            top: 50%;
+            width: 300px;
             background-color: #fee8e8;
             margin: auto;
             padding: 20px;
