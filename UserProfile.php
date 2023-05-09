@@ -97,8 +97,8 @@
 
         <?php foreach($select as $prof): ?>
             <div class="float-end mt-2 mb-5">
-                <a class="btn btn-dark" href="ProfileAccntView.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"> See your customer profiles </a>
-                <a class="btn btn-dark" href="OrderPageCust.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"> See your orders </a>
+                <a class="btn btn-dark mt-2" href="ProfileAccntView.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"> See your customer profiles </a>
+                <a class="btn btn-dark mt-2" href="OrderPageCust.php" role="button" style="font-weight:bold;border-color:indigo;background-color:indigo;"> See your orders </a>
             </div>
             
             <p> Current customer profile used: <strong> <?php echo $prof['c_label']; ?> </strong> </p>

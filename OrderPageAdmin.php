@@ -71,12 +71,12 @@
         </form><hr>
 
         <div class="row mt-5">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-12 my-3">
                         <img class="img-fluid rounded avatar-fit" src="<?php echo $order['ItemImg']; ?>">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-12">
                         <h3 style="font-size:40px; color:indigo;"><strong> Order Details </strong></h3><hr style="width:50%;">
                         <h6 style="font-weight:bold;"> Order# <span style="font-weight:lighter;color:indigo;"><?php echo $order['OrderID']; ?></span></h6>
                         <h6 style="font-weight:bold;"> Item Name: <span style="font-weight:lighter;color:indigo;"><?php echo $order['ItemName']; ?></span></h6>
@@ -121,7 +121,7 @@
         </div>
         <br><hr>
         <div class="row mt-5">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
                 <div class="row">
                     <div class="col-md-4">
                     <?php
