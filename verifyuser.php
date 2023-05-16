@@ -97,14 +97,16 @@ if(isset($_POST['submit'])){
 
 <body>
 <main class="page login-page">
-        <section class="clean-block clean-form dark" style="height: 990.391px; background-color:#efe9ef; ">
+        <section class="clean-block clean-form dark" style="height:auto; background-color:#efe9ef;">
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
-                <div class="block-heading"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div>
-                <h2 style="text-align: center;margin-top: -16px;margin-bottom: 25px;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Account Verification</h2>
+                <div class="block-heading"><a href="Login.php"><img style="height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div></a>
+                <h2 style="text-align: center;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Account Verification</h2>
                 <div class="container email-container">
-                    <form action="" method="POST" name="EmailOTP" class="border rounded justify-content-center" data-bss-hover-animate="pulse" style="width: 554px;max-width: 753px;margin-bottom: 41px;margin-left: 374px;margin-right: 404px;margin-top: 20px;min-width: 205px;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;height: 340px;">
-                    <div class="alert alert-danger mb-3" role="alert" style="width: 475px;">
-                       Account is Unverified. Please enter e-mail to get OTP.
+                    <form data-bss-hover-animate="pulse" action="" method="POST" name="EmailOTP" class="rounded" data-bss-hover-animate="pulse" style="border:none;width:fit-content;height:auto; color: var(--bs-purple);">
+                    <div class="alert alert-danger" role="alert" style="width:auto; text-align:center;">
+                       
+                    Account Verification needed. 
+                       Please enter e-mail to get OTP.
                     </div>  
                     <div class="mb-3"><label class="form-label" for="email" style="color: rgb(111, 66, 193); font-weight:bold;">Email</label><input class="form-control item" type="text" id="email" name="cust_email" value="<?php echo $email; ?>"placeholder="Email" autofocus style="margin-bottom: 9px;"></div>
                     <p class="error email-error1" style="color:red; text-align:center; font-weight:bold;">
@@ -113,11 +115,11 @@ if(isset($_POST['submit'])){
                     <p class="error email-error2" style="color:red; text-align:center; font-weight:bold;">
                         <?php echo $email_error2; ?>
                     </p>
-                    <br>
-                    <div class="button-group float-end">
-                        <input class="btn btn-success mt-3" type="submit" id="submit" name="submit" value="Send Code" style="width:120px;border-color: rgb(119,13,253);background: rgb(119,13,253);">
-                        <a href="Login.php"><input class="btn btn-danger mt-3"  type="button" value="Cancel" style="width:120px;"></a>
-                    </div>                   
+                    
+                    <button class="btn btn-primary" type="submit" name="submit" style="width:auto;background: indigo;border-color:indigo;font-weight:bold;">Send Code</button>
+                    
+                    <a class="btn btn-primary rounded" role="button" href="Login.php" style="width:auto; font-weight:bold;background: red;border-color:red; color:white;">Cancel</a>
+                              
                     </form>  
         </section>
     </main>  
