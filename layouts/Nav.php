@@ -120,7 +120,7 @@
     </nav>
 
     <div id="logoutconfirmation" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="width:300px;">
             <p style="text-align:center; font-weight: bold; font-size:20px;">Are you sure you want to logout?</p>
             <div class="modal-footer">
                 <button class="btn btn-success mt-3" id="okLogout" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>

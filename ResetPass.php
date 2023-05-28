@@ -107,12 +107,12 @@ $errors = array();
 </head>
 <body>
     <main class="login-page">
-    <section class="clean-block clean-form dark" style="height: 980.391px; background-color:#efe9ef;">
+    <section class="clean-block clean-form dark" style="height:1100px; width:auto; background-color:#efe9ef;">
     <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
     <div class="block-heading"><a href="homepage.php"><img style="padding-top: 0px;margin-left: 0px;margin-top: -9px;width: 231px;height: 201px;" src="assets/img/LOGOEXAMPLE.png"></a></div>
         <div class="row">
             <div class="col-md-4 offset-md-4 form">
-                <form class="rounded"data-bss-hover-animate="pulse" id="myForm" action="ResetPass.php" method="POST" autocomplete="off" style="border:none; color: var(--bs-purple);" >
+                <form class="rounded"data-bss-hover-animate="pulse" id="myForm" action="ResetPass.php" method="POST" autocomplete="off" style="border:none; width:fit-content; height:fit-content; color: var(--bs-purple);" >
                     <input type="hidden" name="password_token" value="<?php if(isset($_GET['token'])){echo $_GET['token']; } ?>">
                     <h2 class="text-center" style="font-weight: bold;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Reset Password</h2>
                     
@@ -152,7 +152,7 @@ $errors = array();
                      
         <div id="myModal2" class="modal">
             <div class="modal-content">
-                <p style="text-align:center; font-weight: bold;">Registration complete!</p>
+                <p style="text-align:center; font-weight: bold;" style="width:300px;">Registration complete!</p>
                 <p style="text-align:center;">You will now be redirected to Login</p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" id="okBtn" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
@@ -162,9 +162,9 @@ $errors = array();
         
         
                 <div id="myModal3" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" style="width:300px;">
                 <p style="text-align:center; font-weight: bold;color:red;font-size:32px;">Unable to register!</p>
-                <p style="text-align:center;" id="error-message"></p>
+                <p style="text-align:center;" id="error-message" style="font-weight:bold;"></p>
                 <div class="modal-footer">
                     <button class="btn btn-success mt-3" id="errorBtnClode" style="border-color:indigo;background-color:indigo;font-weight:bold;width:100px;">OK</button>
                 </div>

@@ -126,7 +126,7 @@ if (isset($_SESSION["locked"]))
 
 <body style="overflow-x:hidden;">
     <main class="page login-page">
-        <section class="clean-block clean-form dark" style="height:1100px; width:auto; background-color:#efe9ef;">
+        <section class="clean-block clean-form dark" style="height:1100px; width:auto; background-color:#efe9ef; display:flexbox;">
             <div class="container" style="--bs-primary: #fd0d72;--bs-primary-rgb: 253,13,114;--bs-body-bg: #ffffff;">
                 <div class="block-heading"><a href="HomePage.php"><img style="height: 201px;" src="assets/img/LOGOEXAMPLE.png"></div></a>
                 <h2 style="text-align: center;font-size: 41px;color: var(--bs-indigo); font-weight: bold;">Login</h2>

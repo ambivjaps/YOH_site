@@ -31,8 +31,7 @@
     
             <form class="rounded" data-bss-hover-animate="pulse" style="border:none;color: var(--bs-purple);background: #ffffff;--bs-body-bg: var(--bs-indigo);box-shadow: 0px 0px var(--bs-indigo);--bs-info: #e03b80;--bs-info-rgb: 224,59,128;"  method="post" >
             
-            <div class="mb-3">
-            <div style="margin-top:-20px; margin-left:370px;"><a class="btn btn-primary border rounded" role="button" href="Registration.php" style="border-color:indigo;background:indigo;font-weight:bold;">Back</a></div><br>
+            
                 <b>
                     <center>
                 <label class="form-label" style="color: rgb(111, 66, 193);">Please be sure to read the TERMS AND CONDITIONS
@@ -90,7 +89,8 @@ C.	Refunds
 
                </justify></h6>
                 </label>
-                    
+                    <br>
+                    <a href="Registration.php" style="color:indigo;font-weight:bold; text-decoration:none;"><p style="text-align:center; font-weight:bold;"> < < Back to Homepage > > </p></a>
             </div>
             
                     <script src="https:www.google.com/recaptcha/api.js" async defer>
